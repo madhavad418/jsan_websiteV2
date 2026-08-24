@@ -1,0 +1,26 @@
+{
+  "email": "psuddapalli@jsanconsulting.com",
+  "password": "jsan@202602",
+  "images": [
+    {
+      "url": "https://www.freepik.com/premium-video/abstract-representation-digital-navigation-points-thematic-background-blue-yellow-flowing-lines-illustrating-connectivity-location-services_6999746",
+      "filename": "location-intelligence.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-ai-image/interactive-physical-map-with-digital-elements-responding-user-touch-manipulation_314660009.htm",
+      "filename": "geospatial-solutions.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-ai-image/business-internet-technology-concept_339482455.htm",
+      "filename": "technology-consultancy.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/human-resources-hr-management-recruitment-employment-headhunting-concept_404489999.htm",
+      "filename": "staffing-workforce.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/businessman-analyzing-financial-data-tablet_281161339.htm",
+      "filename": "program-management.jpg"
+    }
+  ]
+}

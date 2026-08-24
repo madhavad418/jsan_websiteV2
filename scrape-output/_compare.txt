@@ -1,0 +1,53 @@
+MATCH  /
+MATCH  /services
+DIFF   /blogs
+   live len 2072 / local len 2078; first diff @word 199
+   LIVE : ...connectivity is rarely a simple technical issue.It is the surface symptom of a vast physical network, and managing that complexity...
+   LOCAL: ...connectivity is rarely a simple technical issue  it is the surface symptom of a vast physical network, and managing...
+DIFF   /careers
+   live len 3052 / local len 3399; first diff @word 39
+   LIVE : ...Countries 1000+ Team Members 6 Continents 3 Open Positions Why Join JSAN? We're more than a companywe're a community of...
+   LOCAL: ...Countries 1000+ Team Members 6 Continents 4 Open Positions Why Join JSAN? We're more than a companywe're a community of...
+MATCH  /services/location-intelligence
+MATCH  /services/telecom-network-intelligence
+MATCH  /services/technology-consultancy
+MATCH  /services/erp
+MATCH  /services/staffing-solutions
+MATCH  /services/program-management
+MATCH  /services/
+MATCH  /blogs/beyond-navigation-street-view-mapping
+MATCH  /blogs/digital-twins-navigate-complexity
+MATCH  /blogs/invisible-infrastructure-digital-world
+MATCH  /blogs/gis-critical-telecom-networks
+MATCH  /blogs/poi-data-urban-navigation
+MATCH  /blogs/future-of-fiber-broadband-ai-era
+DIFF   /blogs/
+   live len 2072 / local len 2078; first diff @word 199
+   LIVE : ...connectivity is rarely a simple technical issue.It is the surface symptom of a vast physical network, and managing that complexity...
+   LOCAL: ...connectivity is rarely a simple technical issue  it is the surface symptom of a vast physical network, and managing...
+MATCH  /careers/disk-ingestion-manager
+MATCH  /careers/arcgis-technical-trainer
+MATCH  /careers/autonomous-vehicle-test-operator
+MATCH  /services/location-intelligence/data-capture
+MATCH  /services/location-intelligence/advance-analytics
+MATCH  /services/location-intelligence/custom-platforms
+MATCH  /services/location-intelligence/strategy-advisory
+MATCH  /services/location-intelligence/navigation-data
+MATCH  /services/smart-fiber-planning
+MATCH  /services/technology-consultancy/digital-transformation
+MATCH  /services/technology-consultancy/enterprise-architecture
+MATCH  /services/technology-consultancy/cloud-infrastructure
+MATCH  /services/technology-consultancy/data-analytics-ai
+MATCH  /services/staffing-solutions/contract-staffing
+MATCH  /services/staffing-solutions/permanent-placement
+MATCH  /services/staffing-solutions/team-augmentation
+MATCH  /services/staffing-solutions/executive-search
+MATCH  /services/program-management/pmo-setup
+MATCH  /services/program-management/agile-transformation
+MATCH  /services/program-management/quality-assurance
+MATCH  /services/smart-fiber-planning/network-planning-design
+MATCH  /services/smart-fiber-planning/smart-deployment
+MATCH  /services/smart-fiber-planning/proactive-maintenance
+MATCH  /services/smart-fiber-planning/reliability-sla-support
+MATCH  /services/smart-fiber-planning/visibility-dashboards
+MATCH  /services/smart-fiber-planning/scalable-future-growth

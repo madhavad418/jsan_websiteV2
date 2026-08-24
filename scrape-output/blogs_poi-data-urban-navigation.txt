@@ -1,0 +1,86 @@
+URL: https://www.jsanconsulting.com/blogs/poi-data-urban-navigation
+TITLE: JSAN | Global IT Partner
+
+=== H1 ===
+You Cannot Navigate a City You Cannot Describe
+
+=== H2 ===
+The layer that makes places findable
+Wayfinding is not routing
+Volume is the wrong metric
+Methodology over scale
+More Articles
+
+=== H3 ===
+Beyond Navigation: The Growing Value of Street View Mapping Data
+5 Ways Digital Twins Help Navigate Complexity Around Us
+How GIS is Becoming Critical for Modern Telecom Networks
+
+=== BODY TEXT ===
+Press release: JSAN expands operations to 5 new countries
+Read more
+Home
+Services
+Technologies
+Insights
+In-House Apps
+About
+Careers
+Contact Us
+Contact us
+Back to BlogLocation Intelligence
+You Cannot Navigate a City You Cannot Describe
+JSAN Consulting
+May 29, 2026
+4 min read
+
+POI data is the structured intelligence beneath every urban search, navigation decision and wayfinding system that actually works. The question now is no longer about relevance. It’s about whether yours is good enough.
+
+Consider what it takes for a pedestrian to locate the correct hospital entrance in an unfamiliar city, or for a logistics vehicle to accurately reach a loading bay that shares a postcode with multiple facilities. What enables that precision is not the map itself. It is the validated dataset beneath it. That dataset is POI data, and in an era where urban mobility and real-time navigation are converging, its quality has shifted from a backend concern to a strategic one.
+
+The layer that makes places findable
+
+A Point of Interest is a digital representation of a named, categorised, real-world location. Together, these records form the semantic layer that transforms a base map into an actionable environment. A road network tells a system where movement is possible. POI data tells it where movement is purposeful.
+
+Wayfinding is not routing
+
+The two are distinct disciplines and conflating them is where navigation systems often fail. Routing optimises a path. Wayfinding addresses how people orient themselves, interpret environments and make decisions under real conditions.
+
+Research on pedestrian navigation consistently shows that people move through cities using visible landmarks and contextual cues rather than street topology alone. That gap between how systems model movement and how people actually navigate is a data problem, and POI is where it gets resolved.
+
+Volume is the wrong metric
+
+The industry has historically focused on database scale. The more important variable is fidelity.
+
+Stale records, incorrect classifications and missing multilingual attributes erode trust across navigation systems, mobility platforms and urban analytics. A dataset that no longer reflects the current state of the built environment stops being an asset and starts becoming a liability.
+
+Methodology over scale
+
+At JSAN, POI collection is built through a hybrid model combining drive-by survey mapping, ground-level field validation and AI-driven multilingual NLP for accurate labelling and transliteration across geographies. Whether mapping a transit hub in Singapore or a utility corridor in São Paulo, the challenge remains the same. Reliable urban mobility depends on location intelligence that reflects the real world with precision.
+
+POI data is no longer just a layer on top of digital maps. It is becoming foundational geospatial infrastructure for how modern cities and connected environments function.
+
+More Articles
+Beyond Navigation: The Growing Value of Street View Mapping Data
+June 12, 2026
+5 Ways Digital Twins Help Navigate Complexity Around Us
+June 3, 2026
+How GIS is Becoming Critical for Modern Telecom Networks
+June 1, 2026
+Our Brand
+Our Leadership
+News
+LinkedIn
+Blogs
+Industries
+Services
+Events
+Careers
+Sitemap
+Back to top
+© 2026 JSAN, all rights reserved
+Terms of Use
+Accessibility
+Privacy Policy
+Cookie Notice
+ English

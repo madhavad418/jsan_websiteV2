@@ -1,0 +1,48 @@
+{
+  "images": [
+    {
+      "url": "https://www.freepik.com/premium-photo/computer-displaying-detailed-geographic-map-office-setting_375812399.htm",
+      "filename": "tech-gis.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/api-application-programming-interface-software-development-tool_283642143.htm",
+      "filename": "tech-api.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/data-analyst-working-business-analytics-dashboard-with-charts-with-kpi-metrics-connected-database-technology-finance-operations-sales-marketing_58592241.htm",
+      "filename": "tech-analytics.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/cloud-server-computing-data-storage-processing-internet-technology-concept_39969443.htm",
+      "filename": "tech-cloud.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/abstract-cyber-security-technology-background_32370857.htm",
+      "filename": "tech-cybersecurity.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/white-server-room-with-blue-lighting_174766131.htm",
+      "filename": "tech-datawarehouse.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/devsecops-software-code-development-cycle-3d-illustration-concept_36157450.htm",
+      "filename": "tech-devops.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/erp-enterprise-resource-planning-software-modish-business-plan-marketing-strategy_94099166.htm",
+      "filename": "tech-erp.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/rpa-robotic-process-automation-innovation-technology-concept-virtual-screen-big-data-busines_282551623.htm",
+      "filename": "tech-automation.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/young-it-engineer-datacenter-server-room_170324449.htm",
+      "filename": "tech-infrastructure.jpg"
+    },
+    {
+      "url": "https://www.freepik.com/premium-photo/program-code-computer-keyboard_217300123.htm",
+      "filename": "tech-web.jpg"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const p=require\\('./node_modules/framer-motion/package.json'\\); console.log\\('version', p.version\\); console.log\\('types', p.types||p.typings\\); console.log\\('exports.', JSON.stringify\\(p.exports&&p.exports['.'], null, 1\\)\\)\")",
+      "Bash(node scripts/cpanel-deploy.js --prod --no-build)"
+    ]
+  }
+}

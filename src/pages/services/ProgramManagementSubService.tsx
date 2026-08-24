@@ -1,0 +1,249 @@
+import { useParams, Link } from 'react-router-dom'
+import { ArrowRight, CheckCircle, Globe, Target, Shield, Zap, MapPin, BarChart3, Layers, Users, Settings, TrendingUp, Award, ClipboardCheck, RefreshCw, GitBranch } from 'lucide-react'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import MobileNav from '../../components/MobileNav'
+import RelatedSubServices from '../../components/RelatedSubServices'
+import ServiceContactForm from '../../components/ServiceContactForm'
+
+interface SubServiceData {
+  slug: string
+  category: string
+  title: string
+  subtitle: string
+  description: string
+  bgImage: string
+  advantages: { icon: React.ElementType; text: string }[]
+  idealFor: string[]
+  businessImpact: string[]
+  deliverables: string[]
+}
+
+const subServiceData: SubServiceData[] = [
+  {
+    slug: 'pmo-setup',
+    category: 'PMO SETUP',
+    title: 'Build Your Centre of Excellence',
+    subtitle: 'Governance, Standards, and Delivery Excellence',
+    description:
+      'We design, establish, and operationalize Project Management Offices ,from lightweight governance frameworks for agile organizations to full-scale enterprise PMOs with standardized processes, tools, templates, and reporting structures.',
+    bgImage: '/pillars/pmo-setup.jpg',
+    advantages: [
+      { icon: Settings, text: 'Customized PMO frameworks tailored to your maturity level' },
+      { icon: ClipboardCheck, text: 'Standardized templates, processes, and methodologies' },
+      { icon: Layers, text: 'Tool selection, implementation, and integration' },
+      { icon: Users, text: 'Capability building and PM competency development' },
+      { icon: BarChart3, text: 'Executive reporting and governance dashboards' },
+    ],
+    idealFor: ['Organizations without a PMO', 'Companies scaling rapidly', 'Government departments', 'IT service providers', 'Construction and engineering firms'],
+    businessImpact: [
+      'Consistent project delivery methodology across the organization',
+      'Improved project success rates by up to 40%',
+      'Standardized reporting enabling better executive decisions',
+      'Reduced project failure through governance and oversight',
+      'Accelerated PM capability maturity',
+    ],
+    deliverables: [
+      'PMO charter and governance framework',
+      'Process and methodology documentation',
+      'Template library and tool configuration',
+      'Training curriculum and materials',
+      'Executive dashboard setup',
+      'PMO maturity assessment report',
+    ],
+  },
+  {
+    slug: 'agile-transformation',
+    category: 'AGILE TRANSFORMATION',
+    title: 'Deliver Faster, Adapt Quicker',
+    subtitle: 'Embedding Agility Across Your Organization',
+    description:
+      'Our agile transformation services help organizations shift from traditional waterfall delivery to agile and hybrid methodologies ,embedding Scrum, SAFe, and Kanban practices across teams to accelerate delivery, improve quality, and increase stakeholder satisfaction.',
+    bgImage: '/pillars/agile-transformation.jpg',
+    advantages: [
+      { icon: RefreshCw, text: 'Scrum, SAFe, and Kanban implementation across teams' },
+      { icon: GitBranch, text: 'Hybrid methodology design for complex programs' },
+      { icon: Users, text: 'Agile coaching and Scrum Master as a service' },
+      { icon: BarChart3, text: 'Agile metrics, velocity tracking, and retrospectives' },
+      { icon: Award, text: 'Organizational change management for agile adoption' },
+    ],
+    idealFor: ['Enterprise IT departments', 'Software development teams', 'Product companies', 'Digital agencies', 'Government digital services'],
+    businessImpact: [
+      'Up to 50% faster delivery cycles',
+      'Improved team productivity and morale',
+      'Higher stakeholder satisfaction through iterative delivery',
+      'Reduced defect rates through continuous testing',
+      'Better adaptability to changing requirements',
+    ],
+    deliverables: [
+      'Agile maturity assessment',
+      'Transformation roadmap and plan',
+      'Scrum/SAFe/Kanban implementation',
+      'Agile coaching sessions',
+      'Metrics and reporting framework',
+      'Retrospective and improvement logs',
+    ],
+  },
+  {
+    slug: 'quality-assurance',
+    category: 'QUALITY ASSURANCE',
+    title: 'Excellence in Every Deliverable',
+    subtitle: 'Quality Built In, Not Bolted On',
+    description:
+      'Our QA practice embeds quality throughout the project lifecycle ,from requirements validation and test strategy to automated testing, performance benchmarking, and continuous improvement ,ensuring every deliverable meets the highest standards.',
+    bgImage: '/pillars/quality-assurance.jpg',
+    advantages: [
+      { icon: ClipboardCheck, text: 'Comprehensive test strategy and planning' },
+      { icon: Zap, text: 'Automated testing frameworks reducing manual effort by 80%' },
+      { icon: Target, text: 'Performance and load testing at enterprise scale' },
+      { icon: Shield, text: 'Security testing and vulnerability assessment' },
+      { icon: TrendingUp, text: 'Continuous improvement through metrics-driven QA' },
+    ],
+    idealFor: ['Software development teams', 'Enterprise applications', 'E-commerce platforms', 'Financial systems', 'Healthcare technology'],
+    businessImpact: [
+      'Reduced production defects by up to 70%',
+      'Faster release cycles with automated test pipelines',
+      'Improved application performance and reliability',
+      'Lower cost of quality through early defect detection',
+      'Regulatory compliance through documented QA processes',
+    ],
+    deliverables: [
+      'Test strategy and plan documentation',
+      'Automated test suite and framework',
+      'Performance test results and reports',
+      'Security assessment findings',
+      'Defect tracking and analysis reports',
+      'QA process improvement recommendations',
+    ],
+  },
+]
+
+export default function ProgramManagementSubService() {
+  const { slug } = useParams<{ slug: string }>()
+  const service = subServiceData.find((s) => s.slug === slug)
+
+  if (!service) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">Service Not Found</h1>
+          <Link to="/services/program-management" className="text-[#0050a9] hover:underline">&larr; Back to Program Management</Link>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="min-h-screen bg-white">
+      <Header />
+      <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 lg:pb-28" style={{ marginTop: '44px' }}>
+        <div className="absolute inset-0">
+          <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        </div>
+        <div className="absolute top-0 left-0 right-0 bg-black/20 backdrop-blur-sm">
+          <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Link to="/services/program-management" className="text-white/70 hover:text-white transition-colors">Services</Link>
+              <span className="text-white/50">/</span>
+              <Link to="/services/program-management" className="text-white/70 hover:text-white transition-colors">Program Management</Link>
+              <span className="text-white/50">/</span>
+              <span className="text-white/90 font-medium">{service.category}</span>
+            </div>
+            <span className="hidden sm:inline-flex items-center gap-2 bg-white/10 text-[#00d4ff] px-3 py-1 rounded-full text-sm font-semibold">
+              <Globe className="w-4 h-4" />{service.category}
+            </span>
+          </div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <h1 className="text-white text-[36px] md:text-[48px] lg:text-[56px] font-bold leading-[1.1] mb-4 tracking-tight">{service.title}</h1>
+          <p className="text-white/85 text-lg md:text-xl lg:text-2xl leading-relaxed mb-6">{service.subtitle}</p>
+        </div>
+      </section>
+
+      <section className="py-20" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <h2 className="text-[36px] lg:text-[44px] font-bold text-white mb-4 leading-tight">Why {service.category.split(' ').map(w => w.length <= 3 ? w : w.charAt(0) + w.slice(1).toLowerCase()).join(' ')}?</h2>
+              <p className="text-white/75 text-lg leading-relaxed mb-8">{service.description}</p>
+              <div className="space-y-3 mb-10">
+                {service.advantages.map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0"><item.icon className="w-5 h-5 text-[#00d4ff]" /></div>
+                    <span className="text-white/90">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+              <a href="/contact" className="btn-primary">Discuss Your Program<ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" /></a>
+            </div>
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                <h3 className="text-xl font-bold text-white mb-5">Ideal For</h3>
+                <div className="flex flex-wrap gap-3">
+                  {service.idealFor.map((item, i) => (<span key={i} className="bg-white/10 text-white/90 px-4 py-2 rounded-full text-sm font-medium border border-white/10">{item}</span>))}
+                </div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                <h3 className="text-xl font-bold text-white mb-5">Business Impact</h3>
+                <div className="space-y-3">
+                  {service.businessImpact.map((item, i) => (
+                    <div key={i} className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-[#00d4ff] flex-shrink-0" /><span className="text-white/90">{item}</span></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-[36px] lg:text-[42px] font-bold text-[#0050a9] mb-4">What We Deliver</h2>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">Every engagement produces structured, actionable deliverables ,ready to drive immediate operational improvement.</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {service.deliverables.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100">
+                    <div className="w-8 h-8 bg-[#0050a9] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5"><CheckCircle className="w-4 h-4 text-[#00d4ff]" /></div>
+                    <span className="text-[#0050a9] font-medium">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-3xl p-8 lg:p-10" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
+              <h3 className="text-2xl font-bold text-white mb-3">Interested in {service.category.split(' ').map(w => w.length <= 3 ? w : w.charAt(0) + w.slice(1).toLowerCase()).join(' ')}?</h3>
+              <p className="text-white/70 text-base leading-relaxed mb-8">Get in touch with our program management team to explore how we can help deliver your next initiative.</p>
+              <div className="space-y-4">
+                <a href="/contact" className="flex items-center gap-4 bg-white/10 hover:bg-white/15 border border-white/10 rounded-xl p-5 transition-colors group">
+                  <div className="w-12 h-12 bg-[#00d4ff]/20 rounded-xl flex items-center justify-center flex-shrink-0"><MapPin className="w-6 h-6 text-[#00d4ff]" /></div>
+                  <div className="flex-1"><h4 className="text-white font-semibold">Get in Touch</h4><p className="text-white/60 text-sm">Discuss your program needs</p></div>
+                  <ArrowRight className="w-5 h-5 text-white/40 group-hover:text-white/80 transition-colors" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <RelatedSubServices
+        items={subServiceData}
+        basePath="/services/program-management"
+        currentSlug={service.slug}
+        parentName="Program Management"
+      />
+
+      <div id="contact">
+        <ServiceContactForm
+          serviceName={service.title}
+          subServices={subServiceData.map((item) => ({ value: item.title, label: item.title }))}
+        />
+      </div>
+
+      <Footer />
+      <MobileNav />
+    </div>
+  )
+}

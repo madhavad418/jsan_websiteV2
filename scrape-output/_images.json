@@ -1,0 +1,222 @@
+{
+  "/blogs/beyond-navigation-street-view-mapping": {
+    "imgs": [
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/blogs/street-view-mapping.png",
+        "alt": "Beyond Navigation: The Growing Value of Street View Mapping Data"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/blogs/digital-twins-city.png",
+        "alt": "5 Ways Digital Twins Help Navigate Complexity Around Us"
+      },
+      {
+        "src": "https://img.magnific.com/free-photo/side-view-hands-holding-smartphone_23-2149764150.jpg",
+        "alt": "You Cannot Navigate a City You Cannot Describe"
+      },
+      {
+        "src": "https://img.magnific.com/premium-photo/telecommunication-tower-colorful-abstract-background-with-waves-vector-illustration_1111504-16165.jpg",
+        "alt": "How GIS is Becoming Critical for Modern Telecom Networks"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://cdn.gtranslate.net/flags/svg/en.svg",
+        "alt": "en"
+      }
+    ],
+    "bg": [
+      "url(\"https://www.jsanconsulting.com/fttx-bg-gradient.jpg\")",
+      "url(\"https://www.jsanconsulting.com/footer-pattern.svg\")"
+    ]
+  },
+  "/blogs/digital-twins-navigate-complexity": {
+    "imgs": [
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/blogs/digital-twins-city.png",
+        "alt": "5 Ways Digital Twins Help Navigate Complexity Around Us"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/blogs/street-view-mapping.png",
+        "alt": "Beyond Navigation: The Growing Value of Street View Mapping Data"
+      },
+      {
+        "src": "https://img.magnific.com/free-photo/side-view-hands-holding-smartphone_23-2149764150.jpg",
+        "alt": "You Cannot Navigate a City You Cannot Describe"
+      },
+      {
+        "src": "https://img.magnific.com/premium-photo/telecommunication-tower-colorful-abstract-background-with-waves-vector-illustration_1111504-16165.jpg",
+        "alt": "How GIS is Becoming Critical for Modern Telecom Networks"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://cdn.gtranslate.net/flags/svg/en.svg",
+        "alt": "en"
+      }
+    ],
+    "bg": [
+      "url(\"https://www.jsanconsulting.com/blogs/digital-twins-globe.png\")",
+      "url(\"https://www.jsanconsulting.com/footer-pattern.svg\")"
+    ]
+  },
+  "/careers/disk-ingestion-manager": {
+    "imgs": [
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://cdn.gtranslate.net/flags/svg/en.svg",
+        "alt": "en"
+      }
+    ],
+    "bg": [
+      "url(\"https://www.jsanconsulting.com/footer-pattern.svg\")"
+    ]
+  },
+  "/careers/arcgis-technical-trainer": {
+    "imgs": [
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://cdn.gtranslate.net/flags/svg/en.svg",
+        "alt": "en"
+      }
+    ],
+    "bg": [
+      "url(\"https://www.jsanconsulting.com/footer-pattern.svg\")"
+    ]
+  },
+  "/blogs": {
+    "imgs": [
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=1600&auto=format&fit=crop",
+        "alt": "Blog"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/blogs/street-view-mapping.png",
+        "alt": "Beyond Navigation: The Growing Value of Street View Mapping Data"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/blogs/digital-twins-city.png",
+        "alt": "5 Ways Digital Twins Help Navigate Complexity Around Us"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1765106893273-980e5bf89a7c?w=1200&h=750&fit=crop",
+        "alt": "The Invisible Infrastructure Powering the Digital World"
+      },
+      {
+        "src": "https://img.magnific.com/premium-photo/telecommunication-tower-colorful-abstract-background-with-waves-vector-illustration_1111504-16165.jpg",
+        "alt": "How GIS is Becoming Critical for Modern Telecom Networks"
+      },
+      {
+        "src": "https://img.magnific.com/free-photo/side-view-hands-holding-smartphone_23-2149764150.jpg",
+        "alt": "You Cannot Navigate a City You Cannot Describe"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/fttx-ai-broadband.png",
+        "alt": "Future of Fiber Broadband in the AI Era"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://cdn.gtranslate.net/flags/svg/en.svg",
+        "alt": "en"
+      }
+    ],
+    "bg": [
+      "url(\"https://www.jsanconsulting.com/footer-pattern.svg\")"
+    ]
+  },
+  "/careers": {
+    "imgs": [
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop",
+        "alt": ""
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
+        "alt": "Team collaboration"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop",
+        "alt": "Office environment"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop",
+        "alt": "Team meeting"
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=400&fit=crop",
+        "alt": "Working together"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://www.jsanconsulting.com/footer-logo.png",
+        "alt": "JSAN"
+      },
+      {
+        "src": "https://cdn.gtranslate.net/flags/svg/en.svg",
+        "alt": "en"
+      }
+    ],
+    "bg": [
+      "url(\"https://www.jsanconsulting.com/footer-pattern.svg\")"
+    ]
+  }
+}

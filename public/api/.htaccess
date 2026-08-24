@@ -1,0 +1,8 @@
+# Internal includes / config must never be fetched directly over HTTP.
+# (They are still usable via PHP require/include from the API scripts.)
+<FilesMatch "^(_lib|config|config\.sample)\.php$">
+  Require all denied
+</FilesMatch>
+
+# Don't let the SPA error document hijack API 404s.
+ErrorDocument 404 default

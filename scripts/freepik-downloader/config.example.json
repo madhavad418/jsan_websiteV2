@@ -1,0 +1,10 @@
+{
+  "email": "your-email@example.com",
+  "password": "your-password",
+  "images": [
+    {
+      "url": "https://www.freepik.com/premium-ai-image/example_12345.htm",
+      "filename": "example.jpg"
+    }
+  ]
+}

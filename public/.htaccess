@@ -1,0 +1,152 @@
+# JSAN Website - Apache config for cPanel hosting
+# Single-page-app rewrite + compression + caching + security headers
+
+Options -MultiViews
+DirectoryIndex index.html
+
+# Don't auto-redirect "/dir" -> "/dir/". SPA routes (e.g. /blogs, /services)
+# must not be shadowed by a same-named server directory, which would 301 to the
+# directory and then 403 (directory listing is disabled).
+DirectorySlash Off
+
+# ----------------------------------------------------------------------
+# SPA routing: serve index.html for any path that isn't a real FILE.
+# Real files (hashed assets, images under /blogs, /uploads, /pillars, PHP under
+# /api, etc.) are served directly; everything else  including routes whose name
+# collides with a real server directory  falls through to the React app.
+# (We intentionally do NOT pass real directories through: a bare /blogs or
+# /services must render the app, not the folder.)
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve real files directly.
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # Otherwise hand off to the React app.
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Gzip / Deflate compression
+# ----------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml application/rss+xml
+  AddOutputFilterByType DEFLATE application/wasm
+  AddOutputFilterByType DEFLATE image/svg+xml image/x-icon
+  AddOutputFilterByType DEFLATE font/ttf font/otf font/woff font/woff2 application/font-woff application/font-woff2
+</IfModule>
+
+# Pre-compressed brotli/gzip variants if Vite plugin produces them later
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|html|svg|json|xml)\.br$">
+    Header set Content-Encoding br
+  </FilesMatch>
+  <FilesMatch "\.(js|css|html|svg|json|xml)\.gz$">
+    Header set Content-Encoding gzip
+  </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Cache headers
+#  - Vite hashes JS/CSS/asset filenames -> safe to cache 1 year, immutable
+#  - HTML must always re-validate so users get the newest deploy
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                              "access plus 1 month"
+
+  ExpiresByType text/html                     "access plus 0 seconds"
+  ExpiresByType application/json              "access plus 0 seconds"
+  ExpiresByType application/xml               "access plus 1 hour"
+  ExpiresByType text/xml                      "access plus 1 hour"
+
+  ExpiresByType text/css                      "access plus 1 year"
+  ExpiresByType application/javascript        "access plus 1 year"
+  ExpiresByType text/javascript               "access plus 1 year"
+
+  ExpiresByType image/jpeg                    "access plus 1 year"
+  ExpiresByType image/png                     "access plus 1 year"
+  ExpiresByType image/gif                     "access plus 1 year"
+  ExpiresByType image/webp                    "access plus 1 year"
+  ExpiresByType image/avif                    "access plus 1 year"
+  ExpiresByType image/svg+xml                 "access plus 1 year"
+  ExpiresByType image/x-icon                  "access plus 1 year"
+
+  ExpiresByType font/ttf                      "access plus 1 year"
+  ExpiresByType font/otf                      "access plus 1 year"
+  ExpiresByType font/woff                     "access plus 1 year"
+  ExpiresByType font/woff2                    "access plus 1 year"
+  ExpiresByType application/font-woff         "access plus 1 year"
+
+  ExpiresByType video/mp4                     "access plus 1 month"
+  ExpiresByType video/webm                    "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Hashed Vite assets -> long-cache + immutable
+  <FilesMatch "\.(js|css|woff2?|ttf|otf|eot|jpg|jpeg|png|gif|webp|avif|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # index.html must never be cached so deploys are picked up immediately
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# MIME types (cPanel sometimes misses these)
+# ----------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType application/javascript            .js .mjs
+  AddType text/css                          .css
+  AddType image/svg+xml                     .svg .svgz
+  AddType image/webp                        .webp
+  AddType image/avif                        .avif
+  AddType font/woff                         .woff
+  AddType font/woff2                        .woff2
+  AddType application/manifest+json         .webmanifest
+  AddType application/wasm                  .wasm
+  AddType video/mp4                         .mp4
+  AddType video/webm                        .webm
+  AddEncoding gzip                          .gz
+  AddEncoding br                            .br
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Security headers
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(self), camera=(), microphone=()"
+  # Uncomment after confirming HTTPS is fully set up in cPanel:
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Block access to source/config files in case they get uploaded
+# ----------------------------------------------------------------------
+<FilesMatch "(^\.|package(-lock)?\.json|tsconfig.*\.json|vite\.config\..*|postcss\.config\..*|tailwind\.config\..*|\.env.*|\.git.*)$">
+  Require all denied
+</FilesMatch>
+
+# ----------------------------------------------------------------------
+# Force HTTPS - safe to leave commented if cPanel "Force HTTPS Redirect"
+# is already on. Uncomment to enforce at .htaccess level instead.
+# ----------------------------------------------------------------------
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTPS} !=on
+#   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+# </IfModule>
+
+# Custom 404 -> SPA handles it via React Router
+ErrorDocument 404 /index.html

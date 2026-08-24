@@ -1,0 +1,106 @@
+URL: https://www.jsanconsulting.com/blogs/invisible-infrastructure-digital-world
+TITLE: JSAN | Global IT Partner
+
+=== H1 ===
+The Invisible Infrastructure Powering the Digital World
+
+=== H2 ===
+It Starts in a Building
+Why the Last Mile Costs So Much
+Under the Ocean
+When Location Becomes the Deciding Factor
+A System That Only Gets More Interdependent
+The Infrastructure You Depend On
+More Articles
+
+=== H3 ===
+Beyond Navigation: The Growing Value of Street View Mapping Data
+5 Ways Digital Twins Help Navigate Complexity Around Us
+You Cannot Navigate a City You Cannot Describe
+
+=== BODY TEXT ===
+Press release: JSAN expands operations to 5 new countries
+Read more
+Home
+Services
+Technologies
+Insights
+In-House Apps
+About
+Careers
+Contact Us
+Contact us
+Back to BlogInfrastructure
+The Invisible Infrastructure Powering the Digital World
+JSAN Consulting
+June 2, 2026
+7 min read
+
+Every time you stream a video, send a message or open a webpage, that action travels through optical fiber, hair-thin strands of glass that carry data as pulses of light at close to 200,000 kilometres per second. There is over 1.4 million kilometres of it laid across ocean floors alone, with hundreds of thousands of kilometres more running beneath city streets, through buildings and across continents. It is the circulatory system of the modern internet, and almost none of it is visible to the people who depend on it every single day.
+
+It Starts in a Building
+
+A data centre is not a server room. It is an industrial facility, sometimes the size of several football pitches, running tens of thousands of servers around the clock. These hyperscale facilities require dedicated power substations, cooling systems handling megawatt-scale heat loads and redundant fiber connections in and out. When you save something to the cloud, it lands in one of these buildings, mirrored across geographically separate locations so a single failure does not bring everything down.
+
+From the data centre, traffic moves through high-capacity backbone networks, fiber optic rings carrying aggregate traffic across cities or national territories, handed off at Points of Presence (PoPs) where it gets sorted toward local distribution networks, then through aggregation nodes before reaching the end user. That final leg, from a local distribution point to a home or business, is what the industry calls the last mile, and it is deceptively named because it is consistently the most expensive and operationally difficult part of the chain.
+
+Why the Last Mile Costs So Much
+
+Fiber-to-the-Home (FTTH) delivers the highest performance by running fiber directly to individual premises, but it requires physical routing to every single address, which is where cost and complexity compound. Where full fiber is not yet deployed, fixed wireless access or mobile broadband fills the gap.
+
+Every last-mile route involves road authority permits, wayleave agreements, which are legal rights to run cables through private or shared corridors, and conflicts with underground utilities that are often poorly documented. A poorly modelled route means permit reapplications, contractor standdowns and timeline failures cascading across entire program phases, turning one planning oversight into a capital problem nobody budgeted for.
+
+Under the Ocean
+
+Roughly 95 percent of all international internet traffic travels through subsea fiber optic cables on the ocean floor. Over 400 active systems stretch more than 1.3 million kilometres globally, and a single modern cable carries hundreds of terabits per second.
+
+Fishing trawlers, ship anchors, seismic activity and deep-sea pressure failures all cause damage, and repairs require specialist cable ships that take weeks to mobilise. In 2022, a volcanic eruption near Tonga severed the country’s only international cable link, cutting an entire nation off from global connectivity for weeks.
+
+Major technology platforms have collectively invested in dozens of subsea cable projects over the last decade, gradually shifting control of the physical internet away from traditional carriers toward the platforms that depend on it most.
+
+When Location Becomes the Deciding Factor
+
+In 2011, flooding in Thailand shut down hard drive manufacturing facilities supplying a significant share of global production, and prices spiked worldwide for over a year. The facilities were not poorly engineered but built in the wrong place.
+
+Digital infrastructure repeats this mistake more often than the industry acknowledges. A data centre without floodplain analysis, a backbone route under a freight corridor where third-party excavation is frequent, a tower on terrain that RF propagation modelling would have flagged as unsuitable.
+
+These are recurring patterns in how infrastructure programs fail quietly and expensively, and the question is never just whether an asset works but whether its location will allow it to keep working.
+
+That is where JSAN’s work across utility mapping, network infrastructure and terrain analysis operates, translating location data into decisions before problems become costly ones.
+
+A System That Only Gets More Interdependent
+
+Global IP traffic has grown over 400 percent in the last decade and around 5.4 billion people are estimated to be active internet users today. 5G densification is adding hundreds of thousands of new sites to existing network footprints, while edge computing is pushing processing closer to users.
+
+A small cell on a city lamp post depends on a fiber backhaul route, which depends on a duct corridor, which depends on a road authority agreement in a specific geographic zone. Disrupt any one layer and multiple services degrade at once.
+
+The Infrastructure You Depend On
+
+Most people will never think about any of this, and in a way that is the point. When the infrastructure is working, it disappears.
+
+But underneath every seamless digital experience is a physical chain built across some of the most demanding operational environments in modern industry. The organisations that understand that physical layer clearly are the ones positioned to keep it running as demand continues to grow.
+
+More Articles
+Beyond Navigation: The Growing Value of Street View Mapping Data
+June 12, 2026
+5 Ways Digital Twins Help Navigate Complexity Around Us
+June 3, 2026
+You Cannot Navigate a City You Cannot Describe
+May 29, 2026
+Our Brand
+Our Leadership
+News
+LinkedIn
+Blogs
+Industries
+Services
+Events
+Careers
+Sitemap
+Back to top
+© 2026 JSAN, all rights reserved
+Terms of Use
+Accessibility
+Privacy Policy
+Cookie Notice
+ English
