@@ -58,7 +58,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Connected Urban Ecosystems',
     subtitle: 'Building the Cities of Tomorrow',
     description:
-      'Through real-time location data and IoT sensor networks, we provide customised smart city solutions for efficient, responsive urban environments ,from intelligent traffic management and energy optimization to public safety systems and environmental monitoring.',
+      'Through real-time location data and IoT sensor networks, we provide customised smart city solutions for efficient, responsive urban environments  from intelligent traffic management and energy optimization to public safety systems and environmental monitoring.',
     bgImage: '/pillars/smart-city.jpg',
     advantages: [
       { icon: Network, text: 'IoT sensor integration with geospatial platforms' },
@@ -90,7 +90,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Track, Monitor & Optimise Every Asset',
     subtitle: 'Geospatial Lifecycle Management',
     description:
-      'Geospatial asset management leverages location data to track, visualise, and maintain physical infrastructure ,from utility poles and pipelines to fleet vehicles and facilities ,enabling proactive maintenance, lifecycle planning, and real-time operational visibility.',
+      'Geospatial asset management leverages location data to track, visualise, and maintain physical infrastructure  from utility poles and pipelines to fleet vehicles and facilities  enabling proactive maintenance, lifecycle planning, and real-time operational visibility.',
     bgImage: '/pillars/asset-management.jpg',
     advantages: [
       { icon: MapPin, text: 'Accurate location tracking of all physical assets' },
@@ -154,7 +154,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Mirror the Real World in 3D',
     subtitle: 'Virtual Replicas for Real-World Decisions',
     description:
-      'Creating detailed three-dimensional representations of physical environments combined with real-time data to form digital twins ,virtual replicas of assets or cities. These geospatial models support simulation, monitoring, predictive analysis, and immersive visualization for urban planning, infrastructure, and operational optimization.',
+      'Creating detailed three-dimensional representations of physical environments combined with real-time data to form digital twins  virtual replicas of assets or cities. These geospatial models support simulation, monitoring, predictive analysis, and immersive visualization for urban planning, infrastructure, and operational optimization.',
     bgImage: '/pillars/digital-twin.jpg',
     advantages: [
       { icon: Box, text: 'Photorealistic 3D city and facility models' },
@@ -218,7 +218,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Intelligent Infrastructure at Scale',
     subtitle: 'Smarter Telecom & Utility Surveys from the Sky',
     description:
-      'Drone-based inspection and mapping of telecom towers, fibre routes, and utility networks ,delivering faster, safer, and more accurate data than traditional methods. Our geospatial documentation and visualization supports network analysis, outage management, maintenance planning, and regulatory compliance.',
+      'Drone-based inspection and mapping of telecom towers, fibre routes, and utility networks  delivering faster, safer, and more accurate data than traditional methods. Our geospatial documentation and visualization supports network analysis, outage management, maintenance planning, and regulatory compliance.',
     bgImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&auto=format&fit=crop',
     advantages: [
       { icon: Clock, text: 'Up to 80% faster than manual inspection' },
@@ -396,7 +396,7 @@ export default function GeospatialSubService() {
         </div>
       </section>
 
-      {/* Detail Section (blue gradient) ,same layout as the Utility Network Mapping section */}
+      {/* Detail Section (blue gradient)  same layout as the Utility Network Mapping section */}
       <section className="py-20" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -462,7 +462,7 @@ export default function GeospatialSubService() {
                 What We Deliver
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Every engagement produces a comprehensive, field-validated deliverable package ,ready for integration into your GIS, asset management, or planning systems.
+                Every engagement produces a comprehensive, field-validated deliverable package  ready for integration into your GIS, asset management, or planning systems.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.deliverables.map((item, i) => (

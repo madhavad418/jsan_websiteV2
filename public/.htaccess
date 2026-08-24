@@ -17,6 +17,17 @@ DirectorySlash Off
 # (We intentionally do NOT pass real directories through: a bare /blogs or
 # /services must render the app, not the folder.)
 # ----------------------------------------------------------------------
+# ===== GENERATED REDIRECTS (scripts/sync-redirects.mjs) - do not edit by hand =====
+
+RedirectMatch 301 ^/about/?$ /company
+RedirectMatch 301 ^/blogs/?$ /insights
+RedirectMatch 301 ^/industries/energy/?$ /industries/utilities
+RedirectMatch 301 ^/industries/transport/?$ /industries/transportation-infrastructure
+RedirectMatch 301 ^/industries/smartcities/?$ /industries/government-smart-cities
+RedirectMatch 301 ^/services/location-intelligence/advance-analytics/?$ /services/location-intelligence/advanced-analytics
+
+# ===== END GENERATED REDIRECTS =====
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /

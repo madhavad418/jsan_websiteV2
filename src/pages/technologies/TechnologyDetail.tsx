@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
+import NotFound from '../NotFound'
 import { Play, CheckCircle, Globe, Zap, Shield, Target, DollarSign, Cpu, BarChart3, Network, Lock, Cloud, Database, Settings, Code, Server, Bot, Layers, Monitor, GitBranch, Container, Workflow, Map , ArrowRight } from 'lucide-react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -74,7 +75,7 @@ const techData: TechData[] = [
     ],
     services: [
       { title: 'RESTful API Development', description: 'Design and build scalable REST APIs with OpenAPI/Swagger documentation, following industry best practices with comprehensive versioning.', icon: Code },
-      { title: 'GraphQL Implementation', description: 'Flexible, efficient data querying with GraphQL ,reducing over-fetching and enabling frontend teams to move faster.', icon: Network },
+      { title: 'GraphQL Implementation', description: 'Flexible, efficient data querying with GraphQL  reducing over-fetching and enabling frontend teams to move faster.', icon: Network },
       { title: 'Enterprise Integration', description: 'Connect ERP, CRM, HRMS, and legacy systems through middleware, ESBs, and modern iPaaS platforms.', icon: Layers },
       { title: 'API Security', description: 'OAuth 2.0, JWT, rate limiting, and threat protection to ensure your APIs are secure by design.', icon: Lock },
       { title: 'API Gateway Solutions', description: 'Centralised API management with Kong, Apigee, or AWS API Gateway for traffic control, analytics, and policy enforcement.', icon: Shield },
@@ -136,7 +137,7 @@ const techData: TechData[] = [
       'Pay-as-you-go cost models',
     ],
     services: [
-      { title: 'Cloud Migration', description: 'Lift-and-shift, re-platforming, or re-architecting ,we plan and execute controlled migrations to AWS, Azure, or GCP.', icon: Cloud },
+      { title: 'Cloud Migration', description: 'Lift-and-shift, re-platforming, or re-architecting  we plan and execute controlled migrations to AWS, Azure, or GCP.', icon: Cloud },
       { title: 'Cloud-Native Development', description: 'Build microservices, serverless functions on Lambda, Azure Functions, or Cloud Run, and containerised applications with Docker and Kubernetes  designed for the cloud from day one.', icon: Code },
       { title: 'Cloud Infrastructure', description: 'Design and manage scalable, secure cloud infrastructure with IaC using Terraform and CloudFormation across AWS, Azure, and GCP.', icon: Server },
       { title: 'Cloud Security', description: 'Identity management, network security, encryption, and compliance across multi-cloud environments.', icon: Shield },
@@ -157,7 +158,7 @@ const techData: TechData[] = [
       { value: '100%', label: 'Compliance Rate' },
       { value: '50+', label: 'Security Audits' },
     ],
-    whyTitle: 'Security is Not Optional ,It is Foundational.',
+    whyTitle: 'Security is Not Optional  It is Foundational.',
     whyDescription: 'With evolving cyber threats and regulatory demands, organisations need proactive security strategies. We protect your data, systems, and reputation with defence-in-depth approaches.',
     benefits: [
       'Proactive threat detection and incident response',
@@ -297,7 +298,7 @@ const techData: TechData[] = [
       { title: 'NOC & Monitoring', description: '24/7 Network Operations Centre with Zabbix, Nagios, Icinga, and SolarWinds  real-time monitoring, alerting, and incident management.', icon: Monitor },
       { title: 'Network Design', description: 'Enterprise network architecture with Cisco and Fortinet  SD-WAN, VPN, and wireless infrastructure design and deployment.', icon: Network },
       { title: 'Server Management', description: 'Physical and virtual server provisioning on VMware and Proxmox VE, patching with Foreman, backup, and performance optimisation via Cockpit.', icon: Server },
-      { title: 'End User Support', description: 'Helpdesk with ServiceNow ticketing, SCCM device management, and Azure AD identity for your entire workforce ,on-site or remote.', icon: Globe },
+      { title: 'End User Support', description: 'Helpdesk with ServiceNow ticketing, SCCM device management, and Azure AD identity for your entire workforce  on-site or remote.', icon: Globe },
       { title: 'Backup & DR', description: 'Automated backup strategies with Veeam and disaster recovery planning with tested failover procedures.', icon: Shield },
       { title: 'Cloud Hosting', description: 'Managed cloud hosting on AWS and Azure with performance SLAs, auto-scaling, and cost optimisation.', icon: Cloud },
     ],
@@ -341,18 +342,7 @@ export default function TechnologyDetail() {
   const { slug } = useParams<{ slug: string }>()
   const tech = techData.find((t) => t.slug === slug)
 
-  if (!tech) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <Header />
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Technology Not Found</h1>
-          <Link to="/technologies" className="text-[#0050a9] hover:underline">← Back to Technologies</Link>
-        </div>
-        <Footer />
-      </div>
-    )
-  }
+  if (!tech) return <NotFound />
 
   return (
     <div className="min-h-screen bg-white">
@@ -464,7 +454,9 @@ export default function TechnologyDetail() {
           <div className="text-center mb-14">
             <span className="inline-block text-[#0050a9] font-bold text-sm uppercase tracking-widest mb-3">What We Offer</span>
             <h2 className="text-[36px] lg:text-[42px] font-bold text-gradient">
-              Our {tech.title} Services
+              {/* Some titles already end in "Services"; appending it again read as
+                  "Managed Services Services". */}
+              {tech.title.endsWith('Services') ? `Our ${tech.title}` : `Our ${tech.title} Services`}
             </h2>
           </div>
 

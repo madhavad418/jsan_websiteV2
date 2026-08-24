@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
+import NotFound from './NotFound'
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -15,20 +16,7 @@ export default function BlogDetail() {
     return new Date(dateStr).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
   }
 
-  if (!blog) {
-    return (
-      <div className="min-h-screen bg-white">
-        <Header />
-        <div className="flex items-center justify-center min-h-[60vh]" style={{ marginTop: '88px' }}>
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">Article Not Found</h1>
-            <Link to="/blogs" className="text-[#0050a9] hover:underline">← Back to Blog</Link>
-          </div>
-        </div>
-        <Footer />
-      </div>
-    )
-  }
+  if (!blog) return <NotFound />
 
   const otherBlogs = blogs.filter(b => b.slug !== slug && !b.hidden).slice(0, 3)
 
@@ -43,7 +31,7 @@ export default function BlogDetail() {
           <div className="absolute inset-0" style={{ background: 'linear-gradient(120deg, rgba(1,47,98,0.92), rgba(0,85,180,0.8))' }} />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <Link to="/blogs" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-6 text-sm transition-colors">
+          <Link to="/insights" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-6 text-sm transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Blog
           </Link>
           <span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full mb-4">{blog.category}</span>

@@ -139,7 +139,7 @@ export default function GlobalDelivery() {
               </div>
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-[#0050a9]"
+                className="group inline-flex min-h-[44px] items-center gap-2 text-sm font-semibold text-[#0050a9]"
               >
                 Contact the {active} team
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

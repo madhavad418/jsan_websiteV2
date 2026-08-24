@@ -1,4 +1,5 @@
 ﻿import { useState, useRef } from 'react'
+import NotFound from './NotFound'
 import { useParams, Link } from 'react-router-dom'
 import { MapPin, Clock, Building, ArrowLeft, CheckCircle, Upload, FileText, X } from 'lucide-react'
 import Header from '../components/Header'
@@ -184,27 +185,9 @@ export default function CareerDetail() {
     }
   }
 
-  if (!job) {
-    return (
-      <div className="min-h-screen bg-white">
-        <Header />
-        <div className="pt-32 pb-20" style={{ marginTop: '44px' }}>
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <h1 className="text-[32px] font-bold text-[#0050a9] mb-4">Job Not Found</h1>
-            <p className="text-gray-600 mb-8">Sorry, we couldn't find the job listing you're looking for.</p>
-            <Link
-              to="/careers"
-              className="inline-flex items-center gap-2 bg-[#0050a9] text-white px-6 py-3 rounded font-semibold hover:bg-[#153a62] transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              Back to Careers
-            </Link>
-          </div>
-        </div>
-        <Footer />
-      </div>
-    )
-  }
+  // A listing that has been taken down is genuinely gone, not a styled 200. NotFound
+  // marks the view noindex; server.js returns the matching 404/410 for the same URL.
+  if (!job) return <NotFound />
 
   if (submitSuccess) {
     return (

@@ -1,35 +1,28 @@
 import { Link } from 'react-router-dom'
-import {
-  ArrowRight, Globe2, Truck, Brain, Network, Code, Handshake, Briefcase, MessageSquare,
-} from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import { enquiryTopics } from '../data/enquiryTopics'
 
 /**
- * SECTION 37  CONTACT EXPERIENCE
+ * SECTION 37  CONTACT EXPERIENCE, STEP 1
  *
- * A qualifying question before the form, rather than dropping a long generic form on the
- * visitor. The choice is written into the form's hidden `enquiry_topic` field, so the
- * enquiry arrives already categorised.
+ * The qualifying question that opens the contact form. The choice drives two things: the
+ * hidden `enquiry_topic` field, so the enquiry arrives categorised, and the follow-up
+ * fields rendered by EnquiryFields inside the form.
  *
- * Nothing here blocks the form: the full form still sits below and works untouched if
- * someone scrolls straight past.
+ * Nothing here blocks the form. The full form sits below and submits perfectly well if
+ * someone scrolls straight past this.
+ *
+ * Job seekers are sent to /careers rather than into the sales enquiry queue  the
+ * "Staffing / Workforce" option is for organisations asking JSAN to supply people.
  */
-const intents = [
-  { id: 'geospatial', label: 'Geospatial Program', icon: Globe2 },
-  { id: 'fleet', label: 'Fleet / Field Operations', icon: Truck },
-  { id: 'geoai', label: 'GeoAI / Data Operations', icon: Brain },
-  { id: 'telecom', label: 'Telecom / Infrastructure', icon: Network },
-  { id: 'technology', label: 'Technology', icon: Code },
-  { id: 'partnership', label: 'Partnership', icon: Handshake },
-  { id: 'careers', label: 'Careers', icon: Briefcase },
-  { id: 'other', label: 'Other', icon: MessageSquare },
-]
-
 type Props = {
   value: string | null
   onSelect: (id: string, label: string) => void
 }
 
 export default function ContactIntent({ value, onSelect }: Props) {
+  const selected = enquiryTopics.find((t) => t.id === value)
+
   return (
     <div className="mb-10">
       <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">Step 1</div>
@@ -38,48 +31,50 @@ export default function ContactIntent({ value, onSelect }: Props) {
       </h3>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {intents.map((intent) => {
-          const isOn = value === intent.label
-          // Careers enquiries belong on the careers route, not in a sales enquiry queue.
-          if (intent.id === 'careers') {
-            return (
-              <Link
-                key={intent.id}
-                to="/careers"
-                className="group flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 text-left transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0050a9]/40 hover:shadow-sm"
-              >
-                <intent.icon className="h-5 w-5 shrink-0 text-[#0050a9]" />
-                <span className="text-sm font-medium text-[#0a1a3a]">{intent.label}</span>
-                <ArrowRight className="ml-auto h-4 w-4 shrink-0 text-[#0050a9]/40 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </Link>
-            )
-          }
-
+        {enquiryTopics.map((topic) => {
+          const isOn = value === topic.id
           return (
             <button
-              key={intent.id}
+              key={topic.id}
               type="button"
-              onClick={() => onSelect(intent.id, intent.label)}
+              onClick={() => onSelect(topic.id, topic.label)}
               aria-pressed={isOn}
-              className={`flex items-center gap-3 rounded-xl border p-4 text-left transition-all duration-300 ${
+              className={`flex min-h-[56px] items-center gap-3 rounded-xl border p-4 text-left transition-all duration-300 ${
                 isOn
                   ? 'border-[#0050a9] bg-[#f0f7ff] shadow-sm'
                   : 'border-gray-200 bg-white hover:-translate-y-0.5 hover:border-[#0050a9]/40 hover:shadow-sm'
               }`}
             >
-              <intent.icon className={`h-5 w-5 shrink-0 ${isOn ? 'text-[#0050a9]' : 'text-[#0050a9]/70'}`} />
-              <span className="text-sm font-medium text-[#0a1a3a]">{intent.label}</span>
+              <topic.icon
+                className={`h-5 w-5 shrink-0 ${isOn ? 'text-[#0050a9]' : 'text-[#0050a9]/70'}`}
+              />
+              <span className="text-sm font-medium text-[#0a1a3a]">{topic.label}</span>
             </button>
           )
         })}
       </div>
 
-      {value && (
-        <p className="mt-5 text-sm text-gray-600">
-          Talking about <span className="font-semibold text-[#0050a9]">{value}</span>. A few details below and
-          the right team will pick it up.
-        </p>
-      )}
+      <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        {selected ? (
+          <p className="text-sm text-gray-600">
+            Talking about{' '}
+            <span className="font-semibold text-[#0050a9]">{selected.label}</span>. A few details
+            below and the right team will pick it up.
+          </p>
+        ) : (
+          <p className="text-sm text-gray-500">
+            Pick one and we will ask only the questions that matter for it.
+          </p>
+        )}
+
+        <Link
+          to="/careers"
+          className="group inline-flex min-h-[44px] shrink-0 items-center gap-2 text-sm font-semibold text-[#0050a9]"
+        >
+          Looking for a job? See open roles
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </Link>
+      </div>
     </div>
   )
 }

@@ -86,7 +86,7 @@ export const capabilities: Capability[] = [
     title: 'Road Network & Geometry',
     subtitle: 'Routable Centrelines, Connectivity and Attribution Built for Navigation',
     description:
-      'We build and maintain the road network layer that navigation, logistics and mobility platforms route on  centreline geometry, junction modelling, connectivity and the attribution that makes a network usable rather than merely drawn. Networks are compiled from street-level imagery, LiDAR, probe traces, authoritative records and our own field crews, then reconciled into one topologically clean model against your schema.',
+      'We build and maintain the road network layer that navigation, logistics and mobility platforms route on centreline geometry, junction modelling, connectivity and the attribution that makes a network usable rather than merely drawn. Networks are compiled from street-level imagery, LiDAR, probe traces, authoritative records and our own field crews, then reconciled into one topologically clean model against your schema.',
     bgImage: '/pillars/road.png',
     highlights: [
       { icon: Route, text: 'Centreline geometry, alignment and junction modelling' },

@@ -1312,7 +1312,7 @@ a[href*="elfsight.com"][style] {
 }
 
 /* ============================================
-   Strategic Pillars ,Center-mode Carousel
+   Strategic Pillars  Center-mode Carousel
    ============================================ */
 .pillar-card {
   flex-shrink: 0;
@@ -1440,7 +1440,9 @@ a[href*="elfsight.com"][style] {
 }
 
 .news-ticker--header .news-ticker__item {
-  padding: 0 22px;
+  /* Vertical padding gives the link a 24px+ target without changing the strip height. */
+  padding: 6px 22px;
+  min-height: 24px;
   font-size: 13px;
 }
 

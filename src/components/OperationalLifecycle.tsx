@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { ChevronRight } from 'lucide-react'
 
 /**
- * SECTION 04  SIGNATURE OPERATING MODEL
+ * SECTION 04  HOW JSAN DELIVERS  the signature operational lifecycle
  *
- * Six stages, mobilisation through delivery. Hovering or focusing a stage swaps the
- * preview to an image or real UI for that stage; on touch, tapping does the same.
+ * Mobilise -> Collect -> Operate -> Process -> Validate -> Deliver, run as one sequence
+ * rather than six disconnected service cards. Horizontal on desktop, vertical on mobile.
+ * Hovering or focusing a stage swaps the preview to a real supporting image for that
+ * stage; on touch, tapping does the same.
  *
  * Below lg the horizontal rail becomes a vertical sequence with each stage carrying its
  * own visual, so nothing depends on hover on a phone.
@@ -55,7 +57,7 @@ const stages = [
   },
 ]
 
-export default function OperatingModel() {
+export default function OperationalLifecycle() {
   const [active, setActive] = useState(0)
   const current = stages[active]
 
@@ -79,11 +81,15 @@ export default function OperatingModel() {
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mb-14 max-w-3xl lg:mb-16">
           <span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00d4ff]">
-            Operating Model
+            How JSAN Delivers
           </span>
-          <h2 className="text-[30px] font-bold leading-[1.1] tracking-tight text-white lg:text-[46px]">
-            One operating model. From mobilisation to delivery.
+          <h2 className="mb-5 text-[30px] font-bold leading-[1.1] tracking-tight text-white lg:text-[46px]">
+            Mobilise. Collect. Operate. Process. Validate. Deliver.
           </h2>
+          <p className="text-lg leading-relaxed text-white/70">
+            One sequence, one accountable owner. Every programme runs through the same six
+            stages, whichever part of it you engage us for.
+          </p>
         </div>
 
         {/* Desktop: preview above, interactive rail below */}
@@ -94,6 +100,8 @@ export default function OperatingModel() {
                 <img
                   key={stage.id}
                   src={stage.image}
+                  width={1600}
+                  height={900}
                   alt={i === active ? stage.caption : ''}
                   aria-hidden={i !== active}
                   className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
@@ -168,7 +176,14 @@ export default function OperatingModel() {
           {stages.map((stage, i) => (
             <div key={stage.id} className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
               <div className="relative h-44">
-                <img src={stage.image} alt={stage.caption} className="h-full w-full object-cover" loading="lazy" />
+                <img
+                  src={stage.image}
+                  alt={stage.caption}
+                  width={1600}
+                  height={900}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#05132b] via-[#05132b]/30 to-transparent" />
               </div>
               <div className="p-5">

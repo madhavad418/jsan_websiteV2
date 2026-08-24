@@ -17,13 +17,13 @@ const subServices = [
     highlights: ['Field Data Collection', 'Data Cleansing & QA/QC', 'Geocoding & Enrichment', 'Database Structuring'],
   },
   {
-    slug: 'advance-analytics',
-    category: 'ADVANCE ANALYTICS',
+    slug: 'advanced-analytics',
+    category: 'ADVANCED ANALYTICS',
     title: 'Turn Location Data into Predictive Intelligence',
     description:
       'Our team of experts deliver sophisticated data analysis using AI, Machine Learning, and predictive modeling to uncover deep insights and forecast trends.',
     bgImage: '/pillars/advance-analytics.jpg',
-    cardTitle: 'Advance Analytics',
+    cardTitle: 'Advanced Analytics',
     highlights: ['Predictive Modelling', 'Spatial Data Science', 'Market Intelligence', 'Risk Assessment'],
   },
   {
@@ -63,7 +63,7 @@ export default function LocationIntelligence() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section ,Full Viewport */}
+      {/* Hero Section  Full Viewport */}
       <ServiceHero
         breadcrumb={"Location Intelligence"}
         eyebrow={"Core Service"}

@@ -26,7 +26,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Accelerate Your Digital Journey',
     subtitle: 'Reimagine Business Through Technology',
     description:
-      'We help organizations reimagine their business models, processes, and customer experiences through strategic adoption of digital technologies ,from automation and cloud migration to data-driven decision-making and digital-first operations.',
+      'We help organizations reimagine their business models, processes, and customer experiences through strategic adoption of digital technologies  from automation and cloud migration to data-driven decision-making and digital-first operations.',
     bgImage: '/pillars/digital-transformation.jpg',
     advantages: [
       { icon: TrendingUp, text: 'End-to-end digital strategy aligned with business objectives' },
@@ -58,7 +58,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Design Systems That Scale',
     subtitle: 'Aligning Technology with Business Vision',
     description:
-      'Our enterprise architecture practice aligns IT strategy with business goals ,designing scalable, secure, and future-proof technology landscapes that reduce complexity, eliminate redundancy, and enable agile decision-making across the organization.',
+      'Our enterprise architecture practice aligns IT strategy with business goals  designing scalable, secure, and future-proof technology landscapes that reduce complexity, eliminate redundancy, and enable agile decision-making across the organization.',
     bgImage: '/pillars/enterprise-architecture.jpg',
     advantages: [
       { icon: Layers, text: 'Comprehensive technology landscape assessment and mapping' },
@@ -90,7 +90,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Build on a Foundation of Cloud',
     subtitle: 'Performance, Reliability, Cost Efficiency',
     description:
-      'From cloud strategy and migration to hybrid infrastructure management and DevOps enablement ,we design, deploy, and optimize cloud environments that deliver performance, reliability, and cost efficiency at enterprise scale.',
+      'From cloud strategy and migration to hybrid infrastructure management and DevOps enablement  we design, deploy, and optimize cloud environments that deliver performance, reliability, and cost efficiency at enterprise scale.',
     bgImage: '/pillars/cloud-infrastructure.jpg',
     advantages: [
       { icon: Cloud, text: 'Multi-cloud strategy across AWS, Azure, and GCP' },
@@ -234,7 +234,7 @@ export default function TechnologyConsultancySubService() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-[36px] lg:text-[42px] font-bold text-[#0050a9] mb-4">What We Deliver</h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">Every engagement produces a comprehensive deliverable package ,validated, documented, and ready for implementation.</p>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">Every engagement produces a comprehensive deliverable package  validated, documented, and ready for implementation.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.deliverables.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100">

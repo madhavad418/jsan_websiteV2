@@ -115,7 +115,7 @@ export default function Careers() {
         }
         description="Join a global team shaping the future of geospatial technology  in the field, in the office and everywhere the work takes us."
         primaryCta={{ label: 'Explore Opportunities', href: '#openings' }}
-        secondaryCta={{ label: 'Life at JSAN', href: '/about' }}
+        secondaryCta={{ label: 'Life at JSAN', href: '/company' }}
         bullets={[
           'Opportunities across 20+ countries.',
           'Field, office and hybrid roles.',

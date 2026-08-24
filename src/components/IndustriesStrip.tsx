@@ -7,13 +7,13 @@ const industries = [
     name: 'Energy & Utilities',
     icon: Zap,
     blurb: 'Smart grid, asset management and operational optimization for energy networks.',
-    href: '/industries/energy',
+    href: '/industries/utilities',
   },
   {
     name: 'Transport & Mobility',
     icon: Route,
     blurb: 'Fleet management, routing, real-time tracking and logistics intelligence.',
-    href: '/industries/transport',
+    href: '/industries/transportation-infrastructure',
   },
   {
     name: 'Consulting & Professional Services',
@@ -25,7 +25,7 @@ const industries = [
     name: 'Sustainability & Future Cities',
     icon: Building2,
     blurb: 'Urban analytics, traffic management, IoT infrastructure and digital twins.',
-    href: '/industries/smartcities',
+    href: '/industries/government-smart-cities',
   },
 ]
 

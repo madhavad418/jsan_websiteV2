@@ -26,7 +26,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Build Your Centre of Excellence',
     subtitle: 'Governance, Standards, and Delivery Excellence',
     description:
-      'We design, establish, and operationalize Project Management Offices ,from lightweight governance frameworks for agile organizations to full-scale enterprise PMOs with standardized processes, tools, templates, and reporting structures.',
+      'We design, establish, and operationalize Project Management Offices  from lightweight governance frameworks for agile organizations to full-scale enterprise PMOs with standardized processes, tools, templates, and reporting structures.',
     bgImage: '/pillars/pmo-setup.jpg',
     advantages: [
       { icon: Settings, text: 'Customized PMO frameworks tailored to your maturity level' },
@@ -58,7 +58,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Deliver Faster, Adapt Quicker',
     subtitle: 'Embedding Agility Across Your Organization',
     description:
-      'Our agile transformation services help organizations shift from traditional waterfall delivery to agile and hybrid methodologies ,embedding Scrum, SAFe, and Kanban practices across teams to accelerate delivery, improve quality, and increase stakeholder satisfaction.',
+      'Our agile transformation services help organizations shift from traditional waterfall delivery to agile and hybrid methodologies  embedding Scrum, SAFe, and Kanban practices across teams to accelerate delivery, improve quality, and increase stakeholder satisfaction.',
     bgImage: '/pillars/agile-transformation.jpg',
     advantages: [
       { icon: RefreshCw, text: 'Scrum, SAFe, and Kanban implementation across teams' },
@@ -90,7 +90,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Excellence in Every Deliverable',
     subtitle: 'Quality Built In, Not Bolted On',
     description:
-      'Our QA practice embeds quality throughout the project lifecycle ,from requirements validation and test strategy to automated testing, performance benchmarking, and continuous improvement ,ensuring every deliverable meets the highest standards.',
+      'Our QA practice embeds quality throughout the project lifecycle  from requirements validation and test strategy to automated testing, performance benchmarking, and continuous improvement  ensuring every deliverable meets the highest standards.',
     bgImage: '/pillars/quality-assurance.jpg',
     advantages: [
       { icon: ClipboardCheck, text: 'Comprehensive test strategy and planning' },
@@ -202,7 +202,7 @@ export default function ProgramManagementSubService() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-[36px] lg:text-[42px] font-bold text-[#0050a9] mb-4">What We Deliver</h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">Every engagement produces structured, actionable deliverables ,ready to drive immediate operational improvement.</p>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">Every engagement produces structured, actionable deliverables  ready to drive immediate operational improvement.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.deliverables.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100">

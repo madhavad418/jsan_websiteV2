@@ -40,6 +40,12 @@ export type StatementHeroProps = {
    * own at "default"; squarer artwork needs "large" to spill the same amount.
    */
   cutoutSize?: 'default' | 'large'
+  /**
+   * Hold the hero to roughly three quarters of the viewport on desktop and centre the
+   * content in it. Premium without eating the whole first screen  the section below
+   * stays visible at the fold, which a full 100vh hero never allows.
+   */
+  viewportHeight?: boolean
 }
 
 export default function StatementHero({
@@ -54,13 +60,16 @@ export default function StatementHero({
   imageStyle = 'cutout',
   imagePosition = 'center center',
   cutoutSize = 'default',
+  viewportHeight = false,
 }: StatementHeroProps) {
   const isCutout = imageStyle === 'cutout'
   const cutoutWidth =
     cutoutSize === 'large' ? 'w-[112%] sm:w-[96%] lg:w-[112%]' : 'w-[100%] sm:w-[84%] lg:w-[96%]'
   return (
     <section
-      className="relative overflow-hidden bg-[#f7fafd] pt-24 lg:pt-28"
+      className={`relative overflow-hidden bg-[#f7fafd] pt-24 lg:pt-28 ${
+        viewportHeight ? 'lg:flex lg:min-h-[78vh] lg:max-h-[900px] lg:items-center lg:pb-8' : ''
+      }`}
       style={{ marginTop: '44px' }}
     >
       {/* Soft brand wash behind the copy */}
@@ -136,6 +145,8 @@ export default function StatementHero({
                     alt={imageAlt}
                     loading="eager"
                     decoding="async"
+                    width={1200}
+                    height={1500}
                     {...{ fetchpriority: 'high' }}
                     style={{ objectPosition: imagePosition }}
                     className="h-full w-full object-cover"
@@ -159,6 +170,8 @@ export default function StatementHero({
                 alt={imageAlt}
                 loading="eager"
                 decoding="async"
+                width={1122}
+                height={1402}
                 {...{ fetchpriority: 'high' }}
                 className={`pointer-events-none absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 object-contain drop-shadow-[0_30px_60px_rgba(1,47,98,0.35)] ${cutoutWidth}`}
               />

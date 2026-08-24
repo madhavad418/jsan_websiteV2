@@ -5,12 +5,14 @@ import NewsTicker from './NewsTicker'
 
 // Items without an href have no page yet  they render as plain, non-clickable text
 type GroupItem = { name: string; href?: string }
-type NavGroup = { name: string; items: GroupItem[] }
+type NavGroup = { name: string; href?: string; items: GroupItem[] }
 
 type NavItem =
   | { name: string; href: string; dropdown?: never; groups?: never }
-  | { name: string; dropdown: { name: string; href: string }[]; href?: never; groups?: never }
-  | { name: string; groups: NavGroup[]; href?: never; dropdown?: never }
+  // Items with a menu can also own a landing page: the label navigates, the menu opens
+  // on hover, and the chevron toggles it on click.
+  | { name: string; href?: string; dropdown: { name: string; href: string }[]; groups?: never }
+  | { name: string; href?: string; groups: NavGroup[]; dropdown?: never }
 
 /*
  * Navigation follows the JSAN operating model: OPERATE -> MAP -> INTELLIGENCE -> ENGINEER.
@@ -32,9 +34,11 @@ type NavItem =
 const navigation: NavItem[] = [
   {
     name: 'Capabilities',
+    href: '/capabilities',
     groups: [
       {
         name: 'Geospatial & Mapping',
+        href: '/capabilities/geospatial-mapping',
         items: [
           { name: 'Street-Level Imagery', href: '/services/global-street-data-collection' },
           { name: 'LiDAR & 3D Mapping', href: '/services/geospatial' },
@@ -46,6 +50,7 @@ const navigation: NavItem[] = [
       },
       {
         name: 'Global Fleet & Field Operations',
+        href: '/capabilities/global-fleet-field-operations',
         items: [
           { name: 'Fleet Mobilisation', href: '/services/global-fleet-collection-operations' },
           { name: 'Collection Operations', href: '/services/global-street-data-collection' },
@@ -58,6 +63,7 @@ const navigation: NavItem[] = [
       },
       {
         name: 'GeoAI & Data Operations',
+        href: '/capabilities/geoai-data-operations',
         items: [
           { name: 'Computer Vision', href: '/services/geoai-computer-vision' },
           { name: 'LiDAR Feature Extraction', href: '/capabilities/lidar-feature-extraction' },
@@ -70,6 +76,7 @@ const navigation: NavItem[] = [
       },
       {
         name: 'Telecom & Infrastructure',
+        href: '/capabilities/telecom-infrastructure',
         items: [
           { name: 'Telecom GIS', href: '/services/telecom-network-intelligence' },
           { name: 'Fiber Engineering', href: '/services/smart-fiber-planning' },
@@ -82,6 +89,7 @@ const navigation: NavItem[] = [
       },
       {
         name: 'Digital Engineering',
+        href: '/capabilities/digital-engineering',
         items: [
           { name: 'Web GIS', href: '/services/digital-engineering' },
           { name: 'Enterprise Applications', href: '/services/erp' },
@@ -94,6 +102,7 @@ const navigation: NavItem[] = [
       },
       {
         name: 'Program & Managed Services',
+        href: '/capabilities/program-managed-services',
         items: [
           { name: 'Program Management', href: '/services/program-management' },
           { name: 'PMO', href: '/capabilities/pmo' },
@@ -107,19 +116,25 @@ const navigation: NavItem[] = [
   },
   {
     name: 'Industries',
+    href: '/industries',
     dropdown: [
       { name: 'Mapping & Location Platforms', href: '/industries/mapping-location-platforms' },
       { name: 'Autonomous Mobility', href: '/industries/autonomous-mobility' },
       { name: 'Telecommunications', href: '/industries/telecommunications' },
-      { name: 'Transportation & Infrastructure', href: '/industries/transport' },
-      { name: 'Utilities', href: '/industries/energy' },
-      { name: 'Government & Smart Cities', href: '/industries/smartcities' },
+      { name: 'Transportation & Infrastructure', href: '/industries/transportation-infrastructure' },
+      { name: 'Utilities', href: '/industries/utilities' },
+      { name: 'Government & Smart Cities', href: '/industries/government-smart-cities' },
       { name: 'Enterprise Technology', href: '/industries/consulting' },
     ],
   },
   {
     name: 'Work',
+    href: '/work',
     dropdown: [
+      { name: 'All Case Studies', href: '/work' },
+      { name: 'Multi-Country Mapping', href: '/work/multi-country-mapping' },
+      { name: 'LiDAR & Infrastructure Intelligence', href: '/work/lidar-infrastructure-intelligence' },
+      { name: 'Telecom Network Engineering', href: '/work/telecom-network-engineering' },
       { name: 'JSAN VTS', href: '/products/jsan-vts' },
       { name: 'JSAN POI Express', href: '/products/poi-express' },
       { name: 'JSAN Travel Desk', href: '/products/travel-desk' },
@@ -129,16 +144,19 @@ const navigation: NavItem[] = [
   },
   {
     name: 'Company',
+    href: '/company',
     dropdown: [
-      { name: 'About JSAN', href: '/about' },
-      { name: 'Our Leadership', href: '/about' },
+      { name: 'About JSAN', href: '/company' },
+      { name: 'Our Leadership', href: '/company' },
+      { name: 'Careers', href: '/careers' },
       { name: 'Contact', href: '/contact' },
     ],
   },
   {
     name: 'Insights',
+    href: '/insights',
     dropdown: [
-      { name: 'Blog', href: '/blogs' },
+      { name: 'Insights', href: '/insights' },
       { name: 'News', href: '/news' },
       { name: 'LinkedIn', href: 'https://www.linkedin.com/company/jsan-consulting-group/posts/?feedView=all' },
     ],
@@ -156,10 +174,13 @@ const SECTION_OWNERS: { prefix: string; item: string }[] = [
   { prefix: '/capabilities', item: 'Capabilities' },
   { prefix: '/technologies', item: 'Capabilities' },
   { prefix: '/industries', item: 'Industries' },
+  { prefix: '/work', item: 'Work' },
   { prefix: '/products', item: 'Work' },
   { prefix: '/in-house-apps', item: 'Work' },
+  { prefix: '/company', item: 'Company' },
   { prefix: '/about', item: 'Company' },
   { prefix: '/contact', item: 'Company' },
+  { prefix: '/insights', item: 'Insights' },
   { prefix: '/blogs', item: 'Insights' },
   { prefix: '/news', item: 'Insights' },
   { prefix: '/careers', item: 'Careers' },
@@ -260,6 +281,8 @@ export default function Header() {
               <img
                 src="/footer-logo.png"
                 alt="JSAN"
+                width={172}
+                height={56}
                 className={`transition-all w-[150px] h-auto ${showLight ? '' : 'brightness-0 invert'}`}
               />
             </Link>
@@ -279,18 +302,44 @@ export default function Header() {
                       onMouseEnter={() => openMenu(item.name)}
                       onMouseLeave={scheduleClose}
                     >
-                      <button
-                        onClick={() => setOpenDropdown(isOpen ? null : item.name)}
-                        onFocus={() => openMenu(item.name)}
-                        aria-expanded={isOpen}
-                        aria-current={isActive ? 'true' : undefined}
-                        className={`${navLinkClass} py-2 ${isActive ? 'text-[#012f62]' : ''}`}
-                      >
-                        {item.name}
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-                        />
-                      </button>
+                      {item.href ? (
+                        <span className={`${navLinkClass} py-2 ${isActive ? 'text-[#012f62]' : ''}`}>
+                          <Link
+                            to={item.href}
+                            onFocus={() => openMenu(item.name)}
+                            aria-current={isActive ? 'page' : undefined}
+                            className="outline-none"
+                          >
+                            {item.name}
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={() => setOpenDropdown(isOpen ? null : item.name)}
+                            aria-expanded={isOpen}
+                            aria-label={`${item.name} menu`}
+                            /* -m-2 keeps the visual spacing while giving the control a
+                               44px hit area, per WCAG 2.2 target size. */
+                            className="-m-2 flex h-11 w-11 items-center justify-center p-2"
+                          >
+                            <ChevronDown
+                              className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                            />
+                          </button>
+                        </span>
+                      ) : (
+                        <button
+                          onClick={() => setOpenDropdown(isOpen ? null : item.name)}
+                          onFocus={() => openMenu(item.name)}
+                          aria-expanded={isOpen}
+                          aria-current={isActive ? 'true' : undefined}
+                          className={`${navLinkClass} py-2 ${isActive ? 'text-[#012f62]' : ''}`}
+                        >
+                          {item.name}
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                          />
+                        </button>
+                      )}
                       {/* Underline: shown while the panel is open, and kept on for
                           the section the current page belongs to */}
                       <span
@@ -343,7 +392,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden relative w-10 h-10 flex items-center justify-center"
+              className="lg:hidden relative w-11 h-11 flex items-center justify-center"
               aria-label="Toggle menu"
             >
               <span
@@ -409,8 +458,18 @@ export default function Header() {
 
                         {/* Items of the previewed group */}
                         <div className="min-w-0 flex-1">
-                          <h3 className="mb-3 border-b border-gray-100 pb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#00d4ff]">
+                          <h3 className="mb-3 flex items-center justify-between gap-3 border-b border-gray-100 pb-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#00d4ff]">
                             {previewGroup?.name}
+                            {previewGroup?.href && (
+                              <Link
+                                to={previewGroup.href}
+                                onClick={() => setOpenDropdown(null)}
+                                className="group inline-flex items-center gap-1 text-[11px] font-semibold tracking-[0.12em] text-[#0050a9] transition-colors hover:text-[#012f62]"
+                              >
+                                Overview
+                                <ChevronRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                              </Link>
+                            )}
                           </h3>
                           <ul
                             key={previewGroup?.name}
@@ -521,24 +580,15 @@ export default function Header() {
                             : activeItem.name === 'Industries'
                               ? 'Programmes delivered across mobility, energy, telecom and the public sector.'
                               : activeItem.name === 'Work'
-                                ? 'Platforms we build, run and use on our own programmes.'
+                                ? 'Programmes we have run end to end, plus the platforms behind them.'
                                 : activeItem.name === 'Company'
                                   ? 'Who we are, who leads us, and how to reach the team.'
                                   : 'Field notes, company news and updates from our teams.'}
                         </p>
                       </div>
+                      {/* The section's own landing page, or the menu's first destination */}
                       <Link
-                        to={
-                          activeItem.name === 'Capabilities'
-                            ? '/services'
-                            : activeItem.name === 'Industries'
-                              ? '/industries'
-                              : activeItem.name === 'Work'
-                                ? '/in-house-apps'
-                                : activeItem.name === 'Company'
-                                  ? '/about'
-                                  : '/blogs'
-                        }
+                        to={activeItem.href ?? '/'}
                         onClick={() => setOpenDropdown(null)}
                         className="group mt-6 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-[#0050a9] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_26px_-10px_rgba(0,212,255,0.9)]"
                       >
@@ -579,6 +629,15 @@ export default function Header() {
                       </button>
                       {mobileOpenDropdown === item.name && (
                         <div className="pl-4 pb-2">
+                          {item.href && (
+                            <Link
+                              to={item.href}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="block py-2.5 text-sm font-semibold text-[#0050a9]"
+                            >
+                              All {item.name}
+                            </Link>
+                          )}
                           {mobileGroups.map((group) => (
                             <div key={group.name}>
                               <button
@@ -590,6 +649,15 @@ export default function Header() {
                               </button>
                               {mobileOpenGroup === group.name && (
                                 <div className="pl-4 pb-1">
+                                  {group.href && (
+                                    <Link
+                                      to={group.href}
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      className="block rounded-md py-2.5 text-sm font-semibold text-[#0050a9]"
+                                    >
+                                      {group.name} overview
+                                    </Link>
+                                  )}
                                   {group.items.map((sub) =>
                                     sub.href ? (
                                       <Link
@@ -624,7 +692,7 @@ export default function Header() {
                   )
                 }
 
-                // Dropdown item (Insights) ,mobile
+                // Dropdown item (Insights)  mobile
                 if (item.dropdown) {
                   const mobileDropdownItems = item.dropdown
                   return (

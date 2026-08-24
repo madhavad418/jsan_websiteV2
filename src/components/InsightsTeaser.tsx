@@ -38,7 +38,7 @@ export default function InsightsTeaser() {
             </p>
           </div>
           <Link
-            to="/blogs"
+            to="/insights"
             className="group inline-flex shrink-0 items-center gap-2 rounded-xl border-2 border-[#0050a9] px-6 py-3 text-sm font-semibold text-[#0050a9] transition-all duration-300 hover:bg-[#0050a9] hover:text-white"
           >
             All Insights

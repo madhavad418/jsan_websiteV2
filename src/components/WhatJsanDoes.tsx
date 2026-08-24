@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Truck, Layers, Brain, Code } from 'lucide-react'
 
 /**
- * SECTION 03  WHAT JSAN DOES
+ * SECTION 03  OPERATE, MAP, INTELLIGENCE, ENGINEER
  *
  * The four stages of the operating model as large visual modules, alternating sides so
  * each one gets a full-width read rather than becoming a card grid.
@@ -64,7 +64,7 @@ export default function WhatJsanDoes() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 max-w-3xl lg:mb-20">
           <span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-            What JSAN Does
+            Operate &bull; Map &bull; Intelligence &bull; Engineer
           </span>
           <h2 className="mb-5 text-[32px] font-bold leading-[1.1] tracking-tight text-[#0a1a3a] lg:text-[46px]">
             From the field to decision-ready intelligence
@@ -117,6 +117,8 @@ export default function WhatJsanDoes() {
                   <img
                     src={m.image}
                     alt={m.imageAlt}
+                    width={1200}
+                    height={800}
                     className="h-[260px] w-full object-cover transition-transform duration-[900ms] ease-out hover:scale-105 lg:h-[380px]"
                     loading="lazy"
                   />

@@ -40,7 +40,7 @@ export default function Blogs() {
           <div className="absolute inset-0" style={{ background: 'linear-gradient(120deg, rgba(1,47,98,0.92), rgba(0,85,180,0.8))' }} />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <span className="inline-block text-[#00d4ff] font-bold text-sm uppercase tracking-widest mb-4">Blog</span>
+          <span className="inline-block text-[#00d4ff] font-bold text-sm uppercase tracking-widest mb-4">Insights</span>
           <h1 className="text-white text-[36px] md:text-[48px] lg:text-[56px] font-bold leading-[1.1] mb-6 tracking-tight">
             Insights & Perspectives
           </h1>

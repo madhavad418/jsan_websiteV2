@@ -26,7 +26,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Collect, Enrich & Structure Location Data at Scale',
     subtitle: 'From Raw Data to Decision-Ready Intelligence',
     description:
-      'We capture, clean, and enhance geospatial data from diverse sources ,field surveys, satellite imagery, public databases, and IoT sensors ,transforming raw information into structured, analysis-ready datasets that power enterprise decision-making.',
+      'We capture, clean, and enhance geospatial data from diverse sources  field surveys, satellite imagery, public databases, and IoT sensors  transforming raw information into structured, analysis-ready datasets that power enterprise decision-making.',
     bgImage: '/pillars/data-capture.jpg',
     advantages: [
       { icon: Database, text: 'Multi-source data integration from field, aerial, and digital sources' },
@@ -53,12 +53,12 @@ const subServiceData: SubServiceData[] = [
     ],
   },
   {
-    slug: 'advance-analytics',
-    category: 'ADVANCE ANALYTICS',
+    slug: 'advanced-analytics',
+    category: 'ADVANCED ANALYTICS',
     title: 'Turn Location Data into Predictive Intelligence',
     subtitle: 'Spatial Data Science for Smarter Decisions',
     description:
-      'Our advanced analytics solutions combine spatial data science with machine learning to uncover hidden patterns, forecast trends, and deliver actionable insights ,from demand prediction and site selection to risk modelling and market intelligence.',
+      'Our advanced analytics solutions combine spatial data science with machine learning to uncover hidden patterns, forecast trends, and deliver actionable insights  from demand prediction and site selection to risk modelling and market intelligence.',
     bgImage: '/pillars/advance-analytics.jpg',
     advantages: [
       { icon: Brain, text: 'Machine learning models trained on geospatial features' },
@@ -90,7 +90,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Purpose-Built Geospatial Applications',
     subtitle: 'Your Vision, Our Engineering',
     description:
-      'We design and develop custom location intelligence platforms ,from interactive web dashboards and mobile field apps to full-scale enterprise GIS portals ,tailored to your workflows, data, and business objectives.',
+      'We design and develop custom location intelligence platforms  from interactive web dashboards and mobile field apps to full-scale enterprise GIS portals  tailored to your workflows, data, and business objectives.',
     bgImage: '/pillars/custom-platforms.jpg',
     advantages: [
       { icon: Settings, text: 'Fully customised UI/UX designed for your specific workflows' },
@@ -154,7 +154,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Precision Routing & Navigation Solutions',
     subtitle: 'Powering Movement with Accurate Location Data',
     description:
-      'We build, maintain, and enhance navigation datasets ,from road networks and address databases to real-time traffic and fleet routing ,powering logistics, delivery, ride-hailing, and autonomous mobility applications across regions.',
+      'We build, maintain, and enhance navigation datasets  from road networks and address databases to real-time traffic and fleet routing  powering logistics, delivery, ride-hailing, and autonomous mobility applications across regions.',
     bgImage: '/pillars/navigation-data.jpg',
     advantages: [
       { icon: Navigation, text: 'High-precision road network mapping with turn restrictions' },
@@ -302,7 +302,7 @@ export default function LocationIntelligenceSubService() {
                 What We Deliver
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Every engagement produces a comprehensive deliverable package ,field-validated, quality-assured, and ready for integration into your enterprise systems.
+                Every engagement produces a comprehensive deliverable package  field-validated, quality-assured, and ready for integration into your enterprise systems.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.deliverables.map((item, i) => (

@@ -21,6 +21,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
 import ContactIntent from '../components/ContactIntent'
+import EnquiryFields from '../components/EnquiryFields'
 import WorldMap from '../components/WorldMap'
 
 // Office data organized by region
@@ -89,17 +90,6 @@ const regions = [
   { value: 'middle-east-africa', label: 'Middle East & Africa' },
 ]
 
-const inquiryTypes = [
-  { value: '', label: 'Inquiry Type*' },
-  { value: 'general', label: 'General Inquiry' },
-  { value: 'services', label: 'Services Information' },
-  { value: 'partnership', label: 'Partnership Opportunity' },
-  { value: 'careers', label: 'Careers' },
-  { value: 'media', label: 'Media Inquiry' },
-  { value: 'support', label: 'Technical Support' },
-  { value: 'In-House-Products', label: 'In-House-Products' }
-]
-
 const socialLinks = [
   { icon: Linkedin, href: 'https://www.linkedin.com/company/jsan-consulting-group/posts/?feedView=all', label: 'LinkedIn', color: '#0A66C2' },
   { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61589727355136', label: 'Facebook', color: '#1877F2' },
@@ -115,11 +105,12 @@ export default function Contact() {
     organization: '',
     phone: '',
     region: '',
-    inquiryType: '',
     message: '',
     consent: false,
   })
+  // id drives which follow-up fields render; label is what lands in the notification email
   const [enquiryTopic, setEnquiryTopic] = useState<string | null>(null)
+  const [enquiryTopicId, setEnquiryTopicId] = useState<string | null>(null)
   const [activeRegion, setActiveRegion] = useState('Europe')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -195,7 +186,7 @@ export default function Contact() {
           {/* Copy */}
           <div className="order-1 animate-[fadeIn_0.45s_ease-out_both] motion-reduce:animate-none lg:order-2">
             <nav className="mb-4 flex items-center gap-2 text-sm text-gray-500">
-              <Link to="/" className="transition-colors hover:text-[#0050a9]">Home</Link>
+              <Link to="/" className="inline-flex min-h-[24px] items-center transition-colors hover:text-[#0050a9]">Home</Link>
               <span>/</span>
               <span className="font-medium text-[#0050a9]">Contact</span>
             </nav>
@@ -255,8 +246,11 @@ export default function Contact() {
           </div>
 
           <ContactIntent
-            value={enquiryTopic}
-            onSelect={(_id, label) => setEnquiryTopic(label)}
+            value={enquiryTopicId}
+            onSelect={(id, label) => {
+              setEnquiryTopicId(id)
+              setEnquiryTopic(label)
+            }}
           />
 
           <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
@@ -331,39 +325,26 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  {/* Row 3 - Region & Inquiry Type */}
-                  <div className="grid md:grid-cols-2 gap-5">
-                    <div className="relative">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Region *</label>
-                      <select
-                        name="region"
-                        value={formData.region}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:border-[#0050a9] focus:bg-white focus:ring-2 focus:ring-[#0050a9]/10 focus:outline-none transition-all text-gray-800 appearance-none cursor-pointer"
-                      >
-                        {regions.map((region) => (
-                          <option key={region.value} value={region.value} className="text-gray-900">{region.label}</option>
-                        ))}
-                      </select>
-                      <ChevronDown className="absolute right-4 bottom-4 w-5 h-5 text-gray-400 pointer-events-none" />
-                    </div>
-                    <div className="relative">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Inquiry Type *</label>
-                      <select
-                        name="inquiryType"
-                        value={formData.inquiryType}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:border-[#0050a9] focus:bg-white focus:ring-2 focus:ring-[#0050a9]/10 focus:outline-none transition-all text-gray-800 appearance-none cursor-pointer"
-                      >
-                        {inquiryTypes.map((type) => (
-                          <option key={type.value} value={type.value} className="text-gray-900">{type.label}</option>
-                        ))}
-                      </select>
-                      <ChevronDown className="absolute right-4 bottom-4 w-5 h-5 text-gray-400 pointer-events-none" />
-                    </div>
+                  {/* Row 3 - Region. The enquiry topic chosen in step 1 replaces the old
+                      "Inquiry Type" select, which asked the same question twice. */}
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Region *</label>
+                    <select
+                      name="region"
+                      value={formData.region}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:border-[#0050a9] focus:bg-white focus:ring-2 focus:ring-[#0050a9]/10 focus:outline-none transition-all text-gray-800 appearance-none cursor-pointer"
+                    >
+                      {regions.map((region) => (
+                        <option key={region.value} value={region.value} className="text-gray-900">{region.label}</option>
+                      ))}
+                    </select>
+                    <ChevronDown className="absolute right-4 bottom-4 w-5 h-5 text-gray-400 pointer-events-none" />
                   </div>
+
+                  {/* Step 2: whatever the chosen topic actually needs to know */}
+                  <EnquiryFields topicId={enquiryTopicId} />
 
                   {/* Message */}
                   <div>
@@ -390,7 +371,7 @@ export default function Contact() {
                       required
                       checked={formData.consent}
                       onChange={handleChange}
-                      className="mt-1 w-5 h-5 border-2 border-gray-300 rounded accent-[#0050a9]"
+                      className="mt-1 w-6 h-6 shrink-0 border-2 border-gray-300 rounded accent-[#0050a9]"
                     />
                     <label htmlFor="consent" className="text-sm text-gray-500 leading-relaxed">
                       I consent to JSAN collecting and processing my personal information in accordance with the{' '}
@@ -462,7 +443,7 @@ export default function Contact() {
                   </div>
                 </a>
 
-                {/* Stats + Social ,combined card */}
+                {/* Stats + Social  combined card */}
                 <div className="bg-gradient-to-br from-[#0050a9] to-[#0070d4] rounded-2xl p-6 text-white">
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="text-center">
@@ -762,7 +743,7 @@ export default function Contact() {
                         <a
                           href={`mailto:${office.email}`}
                           aria-label={`Email the ${office.city} office`}
-                          className="text-gray-300 transition-colors duration-300 hover:text-[#0050a9]"
+                          className="-m-2.5 flex h-11 w-11 items-center justify-center text-gray-300 transition-colors duration-300 hover:text-[#0050a9]"
                         >
                           <Mail className="h-4 w-4" />
                         </a>
@@ -771,7 +752,7 @@ export default function Contact() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`Directions to the ${office.city} office`}
-                          className="text-gray-300 transition-colors duration-300 hover:text-[#0050a9]"
+                          className="-m-2.5 flex h-11 w-11 items-center justify-center text-gray-300 transition-colors duration-300 hover:text-[#0050a9]"
                         >
                           <Navigation className="h-4 w-4" />
                         </a>
@@ -823,7 +804,7 @@ export default function Contact() {
               <Play className="w-5 h-5" />
             </a>
             <Link
-              to="/about"
+              to="/company"
               className="inline-flex items-center gap-3 bg-transparent border-2 border-[#0050a9] text-[#0050a9] hover:bg-[#0050a9] hover:text-white px-8 py-4 font-semibold rounded-lg transition-colors"
             >
               Learn About Us

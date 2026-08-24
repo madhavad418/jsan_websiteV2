@@ -60,7 +60,7 @@ export default function TechnologyConsultancyNew() {
         eyebrowIcon={Globe}
         title={"Technology Consultancy"}
         subtitle={"Modernise how your business runs on technology. We help organizations leverage smart technologies and intelligent solutions."}
-        description={"From digital transformation strategy and enterprise architecture to cloud infrastructure and AI-driven analytics ,we deliver end-to-end technology consulting that accelerates innovation, reduces risk, and drives measurable business outcomes."}
+        description={"From digital transformation strategy and enterprise architecture to cloud infrastructure and AI-driven analytics  we deliver end-to-end technology consulting that accelerates innovation, reduces risk, and drives measurable business outcomes."}
         image="/pillars/technology-consultancy.jpg"
         imageAlt="Technology consultancy solutions"
         stats={[{ value: '150+', label: 'Projects Delivered' }, { value: '50+', label: 'Enterprise Clients' }, { value: '500+', label: 'Tech Experts' }]}

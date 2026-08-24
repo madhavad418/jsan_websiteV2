@@ -3,36 +3,37 @@ import StatementHero from './StatementHero'
 /**
  * SECTION 01  HERO
  *
- * The home page's use of the house hero. Layout and styling live in
- * StatementHero, which the capabilities landing page shares.
+ * One visual, one message. Deliberately NOT a carousel, not rotating headlines and not a
+ * scatter of floating UI panels  the hero states what JSAN is and hands the visitor two
+ * ways forward. Layout lives in StatementHero, which the capabilities landing shares.
  */
 export default function Hero() {
   return (
     <StatementHero
-      eyebrow={<>Global Geospatial &bull; AI &bull; Field Operations &bull; Digital Engineering</>}
-      title="From the Real World to Digital Intelligence."
-      description={
+      viewportHeight
+      eyebrow={<>Global Geospatial &bull; Field Operations &bull; Technology</>}
+      title={
         <>
-          JSAN combines field operations, geospatial intelligence, AI and digital engineering to help
-          organisations{' '}
-          <strong className="font-semibold text-[#0a1a3a]">
-            capture, understand and operationalise the physical world
-          </strong>{' '}
-          across mapping, mobility, telecom and infrastructure.
+          Real-World Operations.
+          <br />
+          Spatial Intelligence.
+          <br />
+          Digital Engineering.
         </>
       }
-      primaryCta={{ label: 'Explore Our Capabilities', href: '/services' }}
-      secondaryCta={{ label: 'Talk to Our Experts', href: '/contact' }}
-      strip={[
-        'Mapping & GIS',
-        'AI & Computer Vision',
-        'LiDAR',
-        'Digital Twins',
-        'Mobility',
-        'Telecom',
-      ]}
+      description={
+        <>
+          JSAN helps organisations{' '}
+          <strong className="font-semibold text-[#0a1a3a]">
+            mobilise, collect, process, validate and operationalise
+          </strong>{' '}
+          real-world data across mapping, mobility, telecom and infrastructure programs.
+        </>
+      }
+      primaryCta={{ label: 'Explore Capabilities', href: '/capabilities' }}
+      secondaryCta={{ label: 'Discuss a Program', href: '/contact' }}
       image="/pillars/rbg-home.png"
-      imageAlt="JSAN collection vehicle with LiDAR and camera rig, city basemap, network assets and analytics layers"
+      imageAlt="JSAN collection vehicle with roof-mounted LiDAR and camera rig on a live road, with the street resolving into mapped geospatial layers"
     />
   )
 }

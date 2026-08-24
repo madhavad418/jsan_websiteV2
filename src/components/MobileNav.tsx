@@ -1,10 +1,11 @@
 import { Link, useLocation } from 'react-router-dom'
-import { Home, Briefcase, Package, Building2, Mail } from 'lucide-react'
+import { Home, Layers, Briefcase, Building2, Mail } from 'lucide-react'
 
+/* Mirrors the desktop header: capabilities, work, industries, contact. */
 const navItems = [
   { name: 'Home', href: '/', icon: Home },
-  { name: 'Services', href: '/services', icon: Briefcase },
-  { name: 'Products', href: '/products', icon: Package },
+  { name: 'Capabilities', href: '/capabilities', icon: Layers },
+  { name: 'Work', href: '/work', icon: Briefcase },
   { name: 'Industries', href: '/industries', icon: Building2 },
   { name: 'Contact', href: '/contact', icon: Mail },
 ]

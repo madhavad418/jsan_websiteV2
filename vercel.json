@@ -1,5 +1,40 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/about",
+      "destination": "/company",
+      "permanent": true
+    },
+    {
+      "source": "/blogs",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/industries/energy",
+      "destination": "/industries/utilities",
+      "permanent": true
+    },
+    {
+      "source": "/industries/transport",
+      "destination": "/industries/transportation-infrastructure",
+      "permanent": true
+    },
+    {
+      "source": "/industries/smartcities",
+      "destination": "/industries/government-smart-cities",
+      "permanent": true
+    },
+    {
+      "source": "/services/location-intelligence/advance-analytics",
+      "destination": "/services/location-intelligence/advanced-analytics",
+      "permanent": true
+    }
   ]
 }

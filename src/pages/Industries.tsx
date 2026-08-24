@@ -22,7 +22,7 @@ const industries = [
     description: 'Technology solutions for energy companies including smart grid implementation, asset management, sustainability initiatives, and operational optimization.',
     image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop',
     services: ['Smart Grid Solutions', 'Asset Management', 'Sustainability Tech', 'Operational Excellence', 'Renewable Energy'],
-    link: '/industries/energy',
+    link: '/industries/utilities',
   },
   {
     id: 'transport',
@@ -31,7 +31,7 @@ const industries = [
     description: 'Comprehensive solutions for the transport sector including fleet management, route optimization, real-time tracking, mobility platforms, and logistics intelligence.',
     image: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&h=600&fit=crop',
     services: ['Fleet Management', 'Route Optimization', 'Real-time Tracking', 'Mobility Platforms', 'Logistics Intelligence'],
-    link: '/industries/transport',
+    link: '/industries/transportation-infrastructure',
   },
   {
     id: 'consulting',
@@ -49,7 +49,7 @@ const industries = [
     description: 'Sustainability and urban planning solutions including IoT infrastructure, traffic management, urban analytics, and sustainable city development.',
     image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&h=600&fit=crop',
     services: ['Urban Analytics', 'Traffic Management', 'IoT Infrastructure', 'Sustainable Planning', 'Digital Twin'],
-    link: '/industries/smartcities',
+    link: '/industries/government-smart-cities',
   },
 ]
 

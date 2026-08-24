@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { capabilityPillars } from './data/capabilityPillars'
 import ScrollToTop from './components/ScrollToTop'
 import Seo from './components/Seo'
 import ProtectLogos from './components/ProtectLogos'
@@ -59,7 +60,12 @@ const DataCenterSubService = lazy(() => import('./pages/services/DataCenterSubSe
 const Blogs = lazy(() => import('./pages/Blogs'))
 const BlogDetail = lazy(() => import('./pages/BlogDetail'))
 const CapabilityDetail = lazy(() => import('./pages/capabilities/CapabilityDetail'))
+const Capabilities = lazy(() => import('./pages/Capabilities'))
+const CapabilityPillar = lazy(() => import('./pages/capabilities/CapabilityPillar'))
+const Work = lazy(() => import('./pages/Work'))
+const WorkDetail = lazy(() => import('./pages/work/WorkDetail'))
 const AdminApp = lazy(() => import('./pages/admin/AdminApp'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function PageFallback() {
   return (
@@ -84,7 +90,10 @@ function App() {
         <Suspense fallback={<PageFallback />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+
+          {/* Company. /about is the legacy URL and redirects so old links keep working. */}
+          <Route path="/company" element={<About />} />
+          <Route path="/about" element={<Navigate to="/company" replace />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/news" element={<News />} />
@@ -110,10 +119,20 @@ function App() {
           <Route path="/products/poi-express" element={<JsanPOIExpress />} />
           <Route path="/products/travel-desk" element={<JsanTravelDesk />} />
           <Route path="/products/geodiscover" element={<JsanGeoDiscover />} />
-          <Route path="/industries/transport" element={<TransportMobility />} />
-          <Route path="/industries/energy" element={<Energy />} />
+          <Route path="/industries/transportation-infrastructure" element={<TransportMobility />} />
+          <Route path="/industries/utilities" element={<Energy />} />
+          <Route path="/industries/government-smart-cities" element={<SmartCities />} />
           <Route path="/industries/consulting" element={<Consulting />} />
-          <Route path="/industries/smartcities" element={<SmartCities />} />
+          {/* Legacy industry slugs */}
+          <Route
+            path="/industries/transport"
+            element={<Navigate to="/industries/transportation-infrastructure" replace />}
+          />
+          <Route path="/industries/energy" element={<Navigate to="/industries/utilities" replace />} />
+          <Route
+            path="/industries/smartcities"
+            element={<Navigate to="/industries/government-smart-cities" replace />}
+          />
           <Route path="/industries/mapping-location-platforms" element={<MappingLocationPlatforms />} />
           <Route path="/industries/autonomous-mobility" element={<AutonomousMobility />} />
           <Route path="/industries/telecommunications" element={<Telecommunications />} />
@@ -133,10 +152,28 @@ function App() {
           <Route path="/services/global-fleet-collection-operations" element={<GlobalFleetCollectionOperations />} />
           <Route path="/services/data-center-lifecycle" element={<DataCenterLifecycle />} />
           <Route path="/services/data-center-lifecycle/:slug" element={<DataCenterSubService />} />
+          {/* Capability hub layer. These static paths outrank /capabilities/:slug below. */}
+          <Route path="/capabilities" element={<Capabilities />} />
+          {capabilityPillars.map((pillar) => (
+            <Route
+              key={pillar.slug}
+              path={`/capabilities/${pillar.slug}`}
+              element={<CapabilityPillar />}
+            />
+          ))}
           <Route path="/capabilities/:slug" element={<CapabilityDetail />} />
-          <Route path="/blogs" element={<Blogs />} />
+
+          {/* Work */}
+          <Route path="/work" element={<Work />} />
+          <Route path="/work/:slug" element={<WorkDetail />} />
+          <Route path="/insights" element={<Blogs />} />
+          <Route path="/blogs" element={<Navigate to="/insights" replace />} />
           <Route path="/blogs/:slug" element={<BlogDetail />} />
           <Route path="/admin" element={<AdminApp />} />
+
+          {/* Catch-all. Without this an unknown URL matched nothing and rendered a blank
+              200; NotFound marks itself noindex and the server sends a real 404. */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
         </Suspense>
       </div>

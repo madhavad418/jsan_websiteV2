@@ -10,7 +10,12 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "cpanel": "node scripts/cpanel-deploy.js",
     "start": "node server.js",
-    "serve": "npm run build && node server.js"
+    "serve": "npm run build && node server.js",
+    "prebuild": "node scripts/sync-redirects.mjs",
+    "redirects": "node scripts/sync-redirects.mjs",
+    "audit:ux": "node scripts/audit-ux.mjs",
+    "audit:lighthouse": "npx --yes @lhci/cli@0.14.x autorun",
+    "audit:copy": "node scripts/audit-copy.mjs"
   },
   "dependencies": {
     "@maptiler/sdk": "^3.11.1",

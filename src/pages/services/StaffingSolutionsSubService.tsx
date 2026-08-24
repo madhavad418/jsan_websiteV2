@@ -26,7 +26,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Flexible Talent, On Demand',
     subtitle: 'Scale Your Workforce Without the Overhead',
     description:
-      'Our contract staffing solutions provide skilled IT professionals on flexible engagement models ,from short-term project support to long-term managed teams ,enabling you to scale your workforce up or down based on business needs without the overhead of permanent hiring.',
+      'Our contract staffing solutions provide skilled IT professionals on flexible engagement models  from short-term project support to long-term managed teams  enabling you to scale your workforce up or down based on business needs without the overhead of permanent hiring.',
     bgImage: '/pillars/contract-staffing.jpg',
     advantages: [
       { icon: Zap, text: 'Rapid deployment within 48-72 hours for urgent requirements' },
@@ -58,7 +58,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Find the Right People',
     subtitle: 'Every Hire is an Investment in Your Future',
     description:
-      'Our permanent placement practice identifies, evaluates, and secures top-tier technology talent for critical long-term roles ,leveraging deep industry networks, rigorous screening, and cultural fit assessment to ensure every hire delivers lasting value.',
+      'Our permanent placement practice identifies, evaluates, and secures top-tier technology talent for critical long-term roles  leveraging deep industry networks, rigorous screening, and cultural fit assessment to ensure every hire delivers lasting value.',
     bgImage: '/pillars/permanent-placement.jpg',
     advantages: [
       { icon: Search, text: 'Deep industry networks across 30+ countries' },
@@ -90,13 +90,13 @@ const subServiceData: SubServiceData[] = [
     title: 'Extend Your Team, Instantly',
     subtitle: 'Your Team, Amplified',
     description:
-      'Team augmentation embeds skilled professionals directly into your existing teams ,working under your management, using your tools, and aligned to your delivery cadence. It\'s the fastest way to fill skill gaps, accelerate delivery, and maintain project momentum.',
+      'Team augmentation embeds skilled professionals directly into your existing teams  working under your management, using your tools, and aligned to your delivery cadence. It\'s the fastest way to fill skill gaps, accelerate delivery, and maintain project momentum.',
     bgImage: '/pillars/team-augmentation.jpg',
     advantages: [
       { icon: Users, text: 'Professionals embedded directly into your team culture' },
       { icon: Zap, text: 'Rapid onboarding with minimal ramp-up time' },
       { icon: Briefcase, text: 'Full skill-gap analysis before engagement' },
-      { icon: Clock, text: 'Flexible scaling ,add or reduce team members as needed' },
+      { icon: Clock, text: 'Flexible scaling  add or reduce team members as needed' },
       { icon: Award, text: 'Knowledge transfer built into every engagement' },
     ],
     idealFor: ['Product development teams', 'Digital transformation programs', 'Enterprise IT departments', 'Agile delivery teams', 'R&D organizations'],
@@ -122,7 +122,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Leadership That Transforms',
     subtitle: 'Finding Leaders Who Move Organizations Forward',
     description:
-      'Our executive search practice identifies and attracts senior technology leaders ,CTOs, CIOs, VPs of Engineering, and digital transformation heads ,who bring the strategic vision, domain expertise, and leadership capability to drive organizational change.',
+      'Our executive search practice identifies and attracts senior technology leaders  CTOs, CIOs, VPs of Engineering, and digital transformation heads  who bring the strategic vision, domain expertise, and leadership capability to drive organizational change.',
     bgImage: '/pillars/executive-search.jpg',
     advantages: [
       { icon: Search, text: 'Confidential search with access to passive senior talent' },
@@ -234,7 +234,7 @@ export default function StaffingSolutionsSubService() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-[36px] lg:text-[42px] font-bold text-[#0050a9] mb-4">What We Deliver</h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">Every engagement delivers a transparent, quality-assured talent solution ,from sourcing to onboarding.</p>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">Every engagement delivers a transparent, quality-assured talent solution  from sourcing to onboarding.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.deliverables.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100">

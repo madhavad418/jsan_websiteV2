@@ -82,7 +82,12 @@ export default function StatsBand({
           </div>
         )}
 
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
+        {/* Three metrics fill three columns rather than leaving a hole in a four-up grid */}
+        <div
+          className={`grid grid-cols-2 gap-4 lg:gap-5 ${
+            items.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
+          }`}
+        >
           {items.map((item, index) => (
             <Stat key={item.label} item={item} index={index} start={inView} />
           ))}

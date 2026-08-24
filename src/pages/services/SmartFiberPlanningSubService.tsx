@@ -31,7 +31,7 @@ const subServiceData: SubServiceData[] = [
     title: 'AI-Driven Route Optimization & GIS Mapping',
     subtitle: 'Smarter Networks Start with Smarter Planning',
     description:
-      'Design future-ready fiber networks with AI-driven route optimization, geospatial intelligence, and demand-based capacity forecasting. We translate territory, terrain, and traffic into the most efficient deployment plan ,before a single trench is dug.',
+      'Design future-ready fiber networks with AI-driven route optimization, geospatial intelligence, and demand-based capacity forecasting. We translate territory, terrain, and traffic into the most efficient deployment plan  before a single trench is dug.',
     bgImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: MapPin, text: 'GIS-based mapping of service areas, terrain, and existing assets' },
@@ -63,7 +63,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Drone Surveys, Digital Twin & Automated Feasibility',
     subtitle: 'From Survey to Splice, Accelerated',
     description:
-      'Compress survey-to-design timelines with drone-based aerial surveys, digital twin models of the network, and automated feasibility analysis ,deploying fiber faster, safer, and with fewer surprises in the field.',
+      'Compress survey-to-design timelines with drone-based aerial surveys, digital twin models of the network, and automated feasibility analysis  deploying fiber faster, safer, and with fewer surprises in the field.',
     bgImage: 'https://images.unsplash.com/photo-1508444845599-5c89863b1c44?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: Plane, text: 'High-resolution drone aerial surveys with photogrammetry' },
@@ -95,7 +95,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Predictive Analytics & Real-Time Fault Detection',
     subtitle: 'Catch Faults Before Customers Do',
     description:
-      'Move from break-fix to predict-and-prevent. We deploy real-time network monitoring, predictive analytics, and intelligent fault detection so issues are identified ,and often resolved ,before they impact customers.',
+      'Move from break-fix to predict-and-prevent. We deploy real-time network monitoring, predictive analytics, and intelligent fault detection so issues are identified  and often resolved  before they impact customers.',
     bgImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: Activity, text: 'Real-time monitoring across the fiber network' },
@@ -127,12 +127,12 @@ const subServiceData: SubServiceData[] = [
     title: 'Preventive Programs & Asset Lifecycle Management',
     subtitle: 'Long-Term Network Health, Engineered In',
     description:
-      'Reliability is not an event ,it is a program. We deliver preventive maintenance, fiber health assessments, and SLA-backed support that keeps networks performing year after year.',
+      'Reliability is not an event  it is a program. We deliver preventive maintenance, fiber health assessments, and SLA-backed support that keeps networks performing year after year.',
     bgImage: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: Wrench, text: 'Scheduled preventive maintenance programs' },
       { icon: Eye, text: 'Periodic fiber health audits with OTDR baselines' },
-      { icon: Database, text: 'Asset lifecycle management ,deploy to decommission' },
+      { icon: Database, text: 'Asset lifecycle management  deploy to decommission' },
       { icon: Shield, text: 'SLA-based support tiers with 24/7 coverage' },
       { icon: Settings, text: 'Operational playbooks for repeatable execution' },
     ],
@@ -159,7 +159,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Centralized Insights & Performance Tracking',
     subtitle: 'One Pane of Glass for the Entire Network',
     description:
-      'Bring every metric ,topology, performance, faults, and forecasts ,into a single operational view. Our dashboards turn raw telemetry into decisions for NOC operators, planners, and executives alike.',
+      'Bring every metric  topology, performance, faults, and forecasts  into a single operational view. Our dashboards turn raw telemetry into decisions for NOC operators, planners, and executives alike.',
     bgImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: Monitor, text: 'Real-time topology and performance visualisation' },
@@ -191,7 +191,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Capacity Planning, Expansion & Cost Optimization',
     subtitle: 'Build Today, Ready for Tomorrow',
     description:
-      'Networks must grow ,but growth without planning is expensive. We deliver data-driven capacity planning, expansion roadmaps, and cost optimisation strategies that scale resilient fiber networks profitably.',
+      'Networks must grow  but growth without planning is expensive. We deliver data-driven capacity planning, expansion roadmaps, and cost optimisation strategies that scale resilient fiber networks profitably.',
     bgImage: 'https://images.unsplash.com/photo-1496450681664-3df85efbd29f?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: TrendingUp, text: 'Demand-led capacity planning with traffic forecasts' },
@@ -345,7 +345,7 @@ export default function SmartFiberPlanningSubService() {
                 What We Deliver
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Every engagement produces a comprehensive deliverable package ,field-validated, quality-assured, and ready for integration into your operations.
+                Every engagement produces a comprehensive deliverable package  field-validated, quality-assured, and ready for integration into your operations.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.deliverables.map((item, i) => (

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { LucideIcon } from 'lucide-react'
-import { ArrowRight, CheckCircle, ChevronRight } from 'lucide-react'
+import { ArrowRight, CheckCircle } from 'lucide-react'
 import Header from './Header'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
@@ -26,8 +26,27 @@ export type IndustryJourneyProps = {
   imageAlt: string
   /** What this industry is up against, in its own terms. */
   challenges: { title: string; description: string }[]
-  /** The operating model applied to this industry, stage by stage. */
-  journey: { stage: string; title: string; description: string; icon: LucideIcon }[]
+  /**
+   * This industry's delivery sequence, stage by stage. Each stage renders as a full-width
+   * row  one visual, one statement, the specific work  alternating sides down the page,
+   * rather than as a row of interchangeable cards.
+   *
+   * `image` is optional: stages without one fall back to a compact card.
+   */
+  journey: {
+    stage: string
+    title: string
+    description: string
+    icon: LucideIcon
+    image?: string
+    imageAlt?: string
+    /** The concrete work inside the stage. Four to six lines reads best. */
+    points?: string[]
+  }[]
+  /** Real situations this industry brings to JSAN. Shown against one supporting visual. */
+  useCases?: { title: string; detail: string }[]
+  useCasesImage?: string
+  useCasesImageAlt?: string
   /** Capabilities that deliver the journey; each links to a real capability page. */
   capabilities: { name: string; href: string }[]
   outcomes: string[]
@@ -56,8 +75,10 @@ export default function IndustryJourney({
   outcomes,
   services,
   scopeNote,
+  useCases,
+  useCasesImage,
+  useCasesImageAlt,
 }: IndustryJourneyProps) {
-  const stageNames = journey.map((step) => step.stage)
 
   return (
     <div className="min-h-screen bg-white">
@@ -92,7 +113,7 @@ export default function IndustryJourney({
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
           <div className="lg:w-1/2 lg:pr-12">
             <nav className="mb-4 flex items-center gap-2 text-sm text-gray-500">
-              <Link to="/industries" className="transition-colors hover:text-[#0050a9]">
+              <Link to="/industries" className="inline-flex min-h-[24px] items-center transition-colors hover:text-[#0050a9]">
                 Industries
               </Link>
               <span>/</span>
@@ -176,39 +197,12 @@ export default function IndustryJourney({
             </span>
 
             {/*
-              The operating model reads as a pipeline rather than a sentence: each stage is a chip,
-              the connectors carry the flow, and the rail underneath ties it to the numbered stage
-              cards below. Stage names come from `journey` so the chain can never drift from the cards.
+              The sequence is told by the numbered stage rows below, each with its own
+              visual. A chip chain repeating those same stage names here added nothing but
+              height, so the heading is a plain statement.
             */}
             <h2 className="mb-5 text-[30px] font-bold leading-tight text-[#0a1a3a] lg:text-[40px]">
-              <span className="sr-only">{stageNames.join(' to ')}</span>
-              <span aria-hidden="true" className="inline-flex w-full max-w-full flex-col sm:w-fit">
-              <span className="group/chain relative flex flex-col items-start gap-y-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2.5 sm:gap-y-3">
-                {stageNames.map((stage, i) => (
-                  <span key={stage} className="flex flex-col items-start gap-y-2 sm:flex-row sm:items-center sm:gap-x-2.5">
-                    <span
-                      className="group/stage relative inline-flex items-center gap-2.5 rounded-2xl border border-blue-100/80 bg-white px-4 py-2 text-[22px] shadow-[0_10px_26px_-18px_rgba(0,80,169,0.85)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0050a9]/30 hover:shadow-[0_18px_34px_-18px_rgba(0,80,169,0.9)] sm:px-5 sm:py-2.5 lg:text-[34px]"
-                    >
-                      <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#0050a9]/[0.05] to-[#00d4ff]/[0.07] opacity-0 transition-opacity duration-300 group-hover/stage:opacity-100" />
-                      <span className="relative h-2 w-2 shrink-0 rounded-full bg-gradient-to-br from-[#00d4ff] to-[#0050a9] shadow-[0_0_0_4px_rgba(0,163,224,0.12)]" />
-                      <span className="relative bg-gradient-to-r from-[#012f62] via-[#0050a9] to-[#0a1a3a] bg-clip-text text-transparent">
-                        {stage}
-                      </span>
-                    </span>
-                    {i < stageNames.length - 1 && (
-                      <ChevronRight className="ml-5 h-5 w-5 shrink-0 rotate-90 text-[#00a3e0] transition-transform duration-300 sm:ml-0 sm:h-7 sm:w-7 sm:rotate-0 sm:group-hover/chain:translate-x-0.5" />
-                    )}
-                  </span>
-                ))}
-              </span>
-              <span
-                className="mt-5 block h-[3px] w-full rounded-full"
-                style={{
-                  background:
-                    'linear-gradient(90deg, #012f62 0%, #0050a9 38%, #00a3e0 72%, rgba(0,212,255,0) 100%)',
-                }}
-              />
-              </span>
+              How a {breadcrumb.toLowerCase()} programme runs
             </h2>
 
             <p className="max-w-3xl text-lg leading-relaxed text-gray-600">
@@ -217,28 +211,117 @@ export default function IndustryJourney({
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="space-y-14 lg:space-y-20">
             {journey.map((step, i) => (
               <div
                 key={step.stage}
-                className="group relative rounded-2xl border border-gray-100 bg-gradient-to-b from-white to-gray-50 p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className={
+                  step.image
+                    ? 'grid items-center gap-8 lg:grid-cols-2 lg:gap-16'
+                    : 'grid items-center gap-8'
+                }
               >
-                <span className="absolute right-6 top-5 text-3xl font-bold text-[#0050a9]/10">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#012f62] to-[#0055b4] shadow-lg">
-                  <step.icon className="h-6 w-6 text-white" />
+                {/* Sides alternate so the sequence reads as a story rather than a table */}
+                <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
+                  <div className="flex items-center gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#012f62] to-[#0055b4] shadow-lg">
+                      <step.icon className="h-6 w-6 text-white" />
+                    </span>
+                    <span className="text-[42px] font-bold leading-none text-[#0050a9]/15 lg:text-[52px]">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+                      {step.stage}
+                    </span>
+                  </div>
+
+                  <h3 className="mb-4 mt-6 text-[24px] font-bold leading-tight text-[#0a1a3a] lg:text-[30px]">
+                    {step.title}
+                  </h3>
+                  <p className="max-w-lg text-base leading-relaxed text-gray-600 lg:text-lg">
+                    {step.description}
+                  </p>
+
+                  {step.points && step.points.length > 0 && (
+                    <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
+                      {step.points.map((point) => (
+                        <li key={point} className="flex items-start gap-2.5 text-sm text-gray-700">
+                          <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-[#00d4ff] to-[#0050a9]" />
+                          <span className="leading-relaxed">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
-                <div className="mb-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#00a3e0]">
-                  {step.stage}
-                </div>
-                <h3 className="mb-2 text-lg font-bold text-[#0a1a3a]">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-gray-600">{step.description}</p>
+
+                {step.image && (
+                  <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
+                    <div className="overflow-hidden rounded-2xl bg-gray-100 shadow-xl ring-1 ring-black/5">
+                      <img
+                        src={step.image}
+                        alt={step.imageAlt ?? ''}
+                        width={1200}
+                        height={800}
+                        className="h-[240px] w-full object-cover transition-transform duration-[900ms] ease-out hover:scale-105 lg:h-[360px]"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Where this actually gets used  one visual, one list, no card grid */}
+      {useCases && useCases.length > 0 && (
+        <section className="bg-[#05132b] py-20 lg:py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16">
+              {useCasesImage && (
+                <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
+                  <img
+                    src={useCasesImage}
+                    alt={useCasesImageAlt ?? ''}
+                    width={1200}
+                    height={900}
+                    className="h-[280px] w-full object-cover lg:h-[440px]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              )}
+
+              <div>
+                <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00d4ff]">
+                  Use Cases
+                </span>
+                <h2 className="mb-8 text-[28px] font-bold leading-tight text-white lg:text-[38px]">
+                  What {breadcrumb.toLowerCase()} teams bring us
+                </h2>
+
+                <ol className="space-y-6">
+                  {useCases.map((useCase, i) => (
+                    <li key={useCase.title} className="flex gap-5">
+                      <span className="mt-0.5 text-[13px] font-bold tabular-nums text-[#00d4ff]">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span>
+                        <span className="mb-1.5 block font-bold text-white">{useCase.title}</span>
+                        <span className="block text-sm leading-relaxed text-white/70">
+                          {useCase.detail}
+                        </span>
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Capabilities + outcomes */}
       <section className="bg-gray-50 py-20 lg:py-24">

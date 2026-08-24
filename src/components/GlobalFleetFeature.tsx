@@ -348,6 +348,13 @@ function AnimatedVehicle({
         />
       )}
 
+      {/*
+        The van glyph is ~14px across, well under the 24x24 CSS pixels WCAG 2.2 asks of a
+        pointer target. This invisible disc enlarges the hit and focus area without
+        changing what the map looks like or where the marker sits.
+      */}
+      <circle cx="0" cy="0" r="26" fill="transparent" />
+
       <VehicleIcon />
 
       {showTooltip && (
@@ -881,7 +888,7 @@ export default function GlobalFleetFeature() {
 
           <p className="text-lg leading-relaxed text-gray-600">
             JSAN establishes and operates collection fleets country by country
-            — from vehicles, sensor rigs and local crews to drive planning,
+             from vehicles, sensor rigs and local crews to drive planning,
             dispatch, tracking, maintenance, safety and operational reporting.
           </p>
         </div>

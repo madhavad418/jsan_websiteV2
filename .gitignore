@@ -9,7 +9,7 @@ node_modules/
 # Pre-optimisation image backups (scripts/optimise-images.mjs)
 .image-originals/
 
-# Build output — Railway builds from source, so it is not committed
+# Build output  Railway builds from source, so it is not committed
 dist/
 
 # Large archives must never be committed (GitHub rejects >100MB)

@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
+import NotFound from '../NotFound'
 import { ArrowRight, CheckCircle, Compass, Mail } from 'lucide-react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -15,24 +16,7 @@ export default function CapabilityDetail() {
   const { slug } = useParams<{ slug: string }>()
   const capability = capabilityBySlug(slug)
 
-  if (!capability) {
-    return (
-      <div className="min-h-screen bg-white">
-        <Header />
-        <div className="flex min-h-[70vh] items-center justify-center px-6" style={{ marginTop: '44px' }}>
-          <div className="text-center">
-            <h1 className="mb-4 text-4xl font-bold text-gray-800">Capability Not Found</h1>
-            <p className="mb-6 text-gray-600">The capability you are looking for is not available.</p>
-            <Link to="/services" className="text-[#0050a9] hover:underline">
-              &larr; Back to Capabilities
-            </Link>
-          </div>
-        </div>
-        <Footer />
-        <MobileNav />
-      </div>
-    )
-  }
+  if (!capability) return <NotFound />
 
   return (
     <div className="min-h-screen bg-white">

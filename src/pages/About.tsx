@@ -64,7 +64,7 @@ const pillarCards = [
   {
     icon: MapPin,
     title: 'Location Intelligence',
-    description: 'End-to-end location intelligence ,from data capture and enhancement to advanced analytics and custom platform development.',
+    description: 'End-to-end location intelligence  from data capture and enhancement to advanced analytics and custom platform development.',
     link: '/services/location-intelligence',
     color: '#0050a9',
     image: '/pillars/location-intelligence.jpg',
@@ -142,13 +142,13 @@ const industries = [
   {
     name: 'Energy & Utilities',
     icon: Zap,
-    href: '/industries/energy',
+    href: '/industries/utilities',
     description: 'Smart grid, asset management and operational optimisation across energy networks.',
   },
   {
     name: 'Transport & Mobility',
     icon: Truck,
-    href: '/industries/transport',
+    href: '/industries/transportation-infrastructure',
     description: 'Fleet management, routing, real-time tracking and logistics intelligence.',
   },
   {
@@ -160,7 +160,7 @@ const industries = [
   {
     name: 'Sustainability & Future Cities',
     icon: MapPin,
-    href: '/industries/smartcities',
+    href: '/industries/government-smart-cities',
     description: 'Urban analytics, traffic management, IoT infrastructure and digital twins.',
   },
 ]
@@ -186,7 +186,7 @@ export default function About() {
     )
   }
 
-  // Responsive card width (smaller ,shows neighbors)
+  // Responsive card width (smaller  shows neighbors)
   const [pillarCardWidth, setPillarCardWidth] = useState(38)
   useEffect(() => {
     const updateWidth = () => {
@@ -327,7 +327,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── 2. WHO WE ARE ,TechM style 50/50 split ── */}
+      {/* ── 2. WHO WE ARE  TechM style 50/50 split ── */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div>
@@ -339,11 +339,11 @@ export default function About() {
               JSAN is a global technology consultancy integrating digital engineering, geospatial intelligence, strategic workforce solutions, and structured program management.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
-              We operate at the intersection of innovation and execution,helping enterprises navigate complexity, optimize operations, and build sustainable competitive advantage.
+              We operate at the intersection of innovation and execution, helping enterprises navigate complexity, optimize operations, and build sustainable competitive advantage.
             </p>
           </div>
 
-          {/* Key Metrics ,below the split, full width */}
+          {/* Key Metrics  below the split, full width */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-16">
             {stats.map((stat, i) => (
               <CountUpStat key={i} end={stat.end} suffix={stat.suffix} label={stat.label} duration={stat.duration} />
@@ -365,7 +365,7 @@ export default function About() {
         <div className="absolute inset-0" style={{ background: 'linear-gradient(120deg, rgba(1,47,98,0.5), rgba(0,80,169,0.4))' }} />
       </section>
 
-      {/* ── 3. OUR STRATEGIC PILLARS ,Compact Center-mode Carousel ── */}
+      {/* ── 3. OUR STRATEGIC PILLARS  Compact Center-mode Carousel ── */}
       <section className="py-20 lg:py-24 bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden">
         {/* Ambient glow blobs */}
         <div className="absolute top-1/2 left-0 w-[500px] h-[500px] -translate-y-1/2 bg-[#0050a9]/5 rounded-full blur-3xl pointer-events-none" />
@@ -379,7 +379,7 @@ export default function About() {
             Our Strategic Pillars
           </h2>
           <p className="text-gray-600 text-base lg:text-lg max-w-2xl mx-auto">
-            Five integrated practices that power how we deliver value ,from intelligence and engineering to talent and governance.
+            Five integrated practices that power how we deliver value  from intelligence and engineering to talent and governance.
           </p>
         </div>
 
@@ -534,7 +534,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── 4. PURPOSE / PROMISE / MISSION / VALUES ,TechM Tabbed Section ── */}
+      {/* ── 4. PURPOSE / PROMISE / MISSION / VALUES  TechM Tabbed Section ── */}
       <section
         className="vm-section"
         style={{ backgroundImage: `url(${brandPillars[activeTab].bg})` }}
@@ -641,7 +641,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── 6. OUR APPROACH ,Timeline Style ── */}
+      {/* ── 6. OUR APPROACH  Timeline Style ── */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 lg:mb-20">
@@ -656,13 +656,13 @@ export default function About() {
 
           {/* Timeline */}
           <div className="relative">
-            {/* Horizontal connecting line ,desktop */}
+            {/* Horizontal connecting line  desktop */}
             <div className="hidden lg:block absolute top-[52px] left-[10%] right-[10%] h-[2px]" style={{ background: 'linear-gradient(90deg, transparent, rgba(0,80,169,0.15), rgba(0,80,169,0.3), rgba(0,80,169,0.15), transparent)' }} />
 
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4">
               {processSteps.map((step, i) => (
                 <div key={i} className="relative group h-full">
-                  {/* Vertical connector ,mobile */}
+                  {/* Vertical connector  mobile */}
                   {i < processSteps.length - 1 && (
                     <div className="md:hidden absolute left-1/2 -translate-x-1/2 top-[104px] h-8 w-[2px] bg-[#0050a9]/20" />
                   )}

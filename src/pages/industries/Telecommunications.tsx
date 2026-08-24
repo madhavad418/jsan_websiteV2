@@ -1,4 +1,4 @@
-import { Network, Truck, Layers, Brain, Code } from 'lucide-react'
+import { Network, Truck, Layers, Scan, Antenna, Code } from 'lucide-react'
 import IndustryJourney from '../../components/IndustryJourney'
 
 export default function Telecommunications() {
@@ -36,34 +36,105 @@ export default function Telecommunications() {
       ]}
       journey={[
         {
-          stage: 'Operate',
-          title: 'Mobilise survey crews',
+          stage: 'Field survey',
+          title: 'Walk the network as it is',
           description:
-            'Field teams, planning and dispatch, safety and compliance, and the logistics to keep survey moving across live build programmes.',
+            'Survey crews mobilised against live build schedules, capturing what is physically installed rather than what the design says should be there.',
           icon: Truck,
+          image: '/pillars/feildops.png',
+          imageAlt: 'Telecom survey crew capturing network assets in the field',
+          points: [
+            'Crews mobilised against build schedules',
+            'Pole, cabinet, duct and chamber survey',
+            'Coordinates captured to a stated accuracy',
+            'Safety, permits and access handled locally',
+          ],
         },
         {
-          stage: 'Map',
-          title: 'Capture the network',
+          stage: 'LiDAR',
+          title: 'Measure what a tape measure cannot',
           description:
-            'Telecom GIS, pole and asset survey, duct and route capture, LiDAR where clearance and sag matter, with coordinates you can build against.',
+            'Mobile and terrestrial LiDAR where clearance, sag and attachment height decide whether a design is buildable  measured, not estimated from a photograph.',
+          icon: Scan,
+          image: '/pillars/lidar_engineering.png',
+          imageAlt: 'LiDAR point cloud of a pole line with clearance measurement',
+          points: [
+            'Clearance and sag measurement',
+            'Attachment height and spacing',
+            'Vegetation encroachment along the route',
+            'Engineering-grade positional quality',
+          ],
+        },
+        {
+          stage: 'Pole, fibre & assets',
+          title: 'Every asset, attributed and located',
+          description:
+            'Pole loading and attachment analysis, duct and route capture, fibre asset inventory  the physical record engineering and planning teams build against.',
+          icon: Antenna,
+          image: '/pillars/pole_utility.png',
+          imageAlt: 'Pole and attachment inventory with asset attribution',
+          points: [
+            'Pole loading and make-ready inputs',
+            'Duct, chamber and route capture',
+            'Fibre and cabinet asset inventory',
+            'Attribute completeness against your schema',
+          ],
+        },
+        {
+          stage: 'GIS',
+          title: 'One network record, reconciled',
+          description:
+            'Survey, design and existing records conflated into a single network view, with exceptions raised rather than quietly absorbed into the data.',
           icon: Layers,
+          image: '/pillars/telecom.png',
+          imageAlt: 'Telecom network GIS with reconciled asset records',
+          points: [
+            'As-built reconciled against design',
+            'Duplicate and conflict resolution',
+            'Topology and connectivity validation',
+            'Exceptions reported, not absorbed',
+          ],
         },
         {
-          stage: 'Intelligence',
-          title: 'Validate and reconcile',
+          stage: 'Engineering',
+          title: 'Put it in front of the people building',
           description:
-            'As-built validation against design, attribute completeness checks, duplicate control and QA before anything reaches the network record.',
-          icon: Brain,
-        },
-        {
-          stage: 'Engineer',
-          title: 'Run it as a system',
-          description:
-            'Fibre planning tools, web GIS, operational dashboards and integrations that put the validated network in front of planning and operations teams.',
+            'Fibre planning workflows, web GIS and operational dashboards, so planners and field teams work from the reconciled network rather than a stale extract.',
           icon: Code,
+          image: '/pillars/telecom_network_engineering.png',
+          imageAlt: 'Fibre planning and operational dashboards for network teams',
+          points: [
+            'FTTx planning and route design support',
+            'Web GIS for planning and field teams',
+            'Operational dashboards and reporting',
+            'Integration into the system of record',
+          ],
         },
       ]}
+      useCases={[
+        {
+          title: 'As-built records that have drifted from design',
+          detail:
+            'Survey reconciled against design across an active build, with the differences listed as exceptions rather than silently overwriting the record.',
+        },
+        {
+          title: 'Make-ready and pole loading at programme scale',
+          detail:
+            'Pole, attachment and clearance data captured and measured consistently across thousands of structures, in a form the engineering workflow can consume.',
+        },
+        {
+          title: 'A rollout moving faster than its documentation',
+          detail:
+            'Crews working to the build schedule so the record is updated in step with construction, not months afterwards.',
+        },
+        {
+          title: 'Planning teams working from stale extracts',
+          detail:
+            'The validated network delivered into web GIS and dashboards, so planning, field and operations look at the same picture on the same day.',
+        },
+      ]}
+      useCasesImage="/pillars/fibre_optic.png"
+      useCasesImageAlt="Fibre network build with surveyed and validated assets"
       capabilities={[
         { name: 'Telecom Network Intelligence', href: '/services/telecom-network-intelligence' },
         { name: 'Smart Fiber Planning', href: '/services/smart-fiber-planning' },

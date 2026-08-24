@@ -33,20 +33,20 @@ const industries = [
     name: 'Transportation & Infrastructure',
     description:
       'Spatial data and field intelligence supporting roads, rail, infrastructure and asset operations.',
-    href: '/industries/transport',
+    href: '/industries/transportation-infrastructure',
     image: '/pillars/trasport.png',
   },
   {
     name: 'Utilities',
     description: 'Geospatial intelligence for electricity, water, gas and infrastructure asset networks.',
-    href: '/industries/energy',
+    href: '/industries/utilities',
     image: '/pillars/utilities.png',
   },
   {
     name: 'Government & Smart Cities',
     description:
       'Field data, GIS, infrastructure intelligence and managed programs supporting public-sector operations.',
-    href: '/industries/smartcities',
+    href: '/industries/government-smart-cities',
     image: '/pillars/smart_city.png',
   },
 ]
@@ -75,6 +75,8 @@ export default function IndustryPanels() {
                 src={industry.image}
                 alt=""
                 aria-hidden="true"
+                width={1200}
+                height={900}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
                 loading="lazy"
               />

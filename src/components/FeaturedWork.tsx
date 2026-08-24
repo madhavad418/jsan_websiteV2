@@ -1,91 +1,14 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { caseStudies } from '../data/work'
 
 /**
  * SECTION 08  FEATURED WORK
  *
- * Anonymised until client naming permission is in place. Swap `client` in once approved.
- *
- * NO INVENTED NUMBERS. Scale and Outcome are written qualitatively on purpose  every
- * numerical claim has to be verified before it appears here. Where a figure is approved,
- * add it to the `scale` / `outcome` copy and record the source in the case study brief.
+ * Three programmes, each with a real page at /work/<slug>. Content comes from
+ * src/data/work.ts so the homepage summary and the case study page cannot drift apart.
  */
-type CaseStudy = {
-  id: string
-  number: string
-  title: string
-  summary: string
-  tags: string[]
-  image: string
-  challenge: string
-  role: string
-  operatingModel: string
-  technology: string
-  scale: string
-  outcome: string
-}
-
-const caseStudies: CaseStudy[] = [
-  {
-    id: 'multi-country-mapping',
-    number: '01',
-    title: 'Multi-Country Mapping Operations',
-    summary:
-      'Mobilising field teams, collection vehicles, route operations, data logistics and QA for large-scale street-level mapping.',
-    tags: ['Field Operations', 'Fleet', 'Mapping', 'QA'],
-    image: '/pillars/multi_country.png',
-    challenge:
-      'A mapping programme needed consistent street-level coverage across several countries, where addressing conventions, permitting and local access rules differ at every border, and where earlier collection had produced uneven quality between markets.',
-    role: 'End-to-end delivery partner for mobilisation, collection, data logistics and quality assurance.',
-    operatingModel:
-      'Mobilise and Collect, running into Process and Validate. Vehicles, sensor rigs and local crews stood up market by market, with drive planning, dispatch and daily operational reporting against coverage targets.',
-    technology:
-      'Panoramic and street-level imagery capture, LiDAR runs, GIS data engineering, annotation tooling and a QA workflow with reviewer calibration.',
-    scale: 'Multi-country programme run across more than one delivery region, on a recurring refresh cycle rather than one-off capture.',
-    outcome:
-      'Consistent capture specification and QA standard applied across every market, with coverage and productivity reported per drive and per cycle.',
-  },
-  {
-    id: 'lidar-infrastructure',
-    number: '02',
-    title: 'LiDAR & Infrastructure Intelligence',
-    summary:
-      'Processing LiDAR and panoramic imagery into validated engineering and GIS-ready asset intelligence.',
-    tags: ['LiDAR', 'Computer Vision', 'GIS', 'Infrastructure'],
-    image: '/pillars/lidar_infrastructure.png',
-    challenge:
-      'Raw LiDAR and imagery held the asset detail engineering teams needed, but not in a form they could plan against  features were unextracted, unclassified and unreconciled with the existing asset record.',
-    role: 'Data operations partner for feature extraction, classification, validation and GIS delivery.',
-    operatingModel:
-      'Process and Validate. Automated extraction paired with human-in-the-loop review, so accuracy rests on reviewer calibration and sampling rather than model confidence alone.',
-    technology:
-      'LiDAR feature extraction, computer vision and OCR, controlled-ontology annotation, spatial analytics and GIS data engineering.',
-    scale: 'Production-scale processing pipeline operating continuously rather than as a fixed-term extraction project.',
-    outcome:
-      'Engineering-grade asset intelligence delivered into GIS with classification, positional quality and evidence attached to each feature.',
-  },
-  {
-    id: 'telecom-network',
-    number: '03',
-    title: 'Telecom Network Engineering',
-    summary:
-      'Combining field evidence, GIS and engineering workflows to support telecom network planning and infrastructure validation.',
-    tags: ['Telecom', 'GIS', 'Engineering', 'Field Operations'],
-    image: '/pillars/telecom_network_engineering.png',
-    challenge:
-      'As-built network records had drifted from design across an active build programme, leaving planning teams working from a network view that no longer matched what was physically installed.',
-    role: 'Field survey, network GIS and as-built validation partner alongside the operator’s engineering function.',
-    operatingModel:
-      'Operate, Map and Validate. Survey crews mobilised against live build schedules, capture reconciled to design, and exceptions raised rather than absorbed into the record.',
-    technology:
-      'Telecom GIS, pole and asset survey, fibre planning workflows, LiDAR where clearance mattered, and operational dashboards for planning teams.',
-    scale: 'Sustained programme support spanning survey, validation and the systems planning teams work in daily.',
-    outcome:
-      'A network record reconciled against design, with attribute and coordinate quality checked before entering the system of record.',
-  },
-]
-
 export default function FeaturedWork() {
   const [active, setActive] = useState(0)
   const study = caseStudies[active]
@@ -118,7 +41,7 @@ export default function FeaturedWork() {
         <div className="mb-8 grid gap-4 md:grid-cols-3">
           {caseStudies.map((cs, i) => (
             <button
-              key={cs.id}
+              key={cs.slug}
               type="button"
               onClick={() => setActive(i)}
               aria-current={i === active}
@@ -144,6 +67,8 @@ export default function FeaturedWork() {
               key={study.image}
               src={study.image}
               alt={study.title}
+              width={1200}
+              height={800}
               className="h-full w-full animate-fade-in object-cover"
               loading="lazy"
             />
@@ -175,13 +100,20 @@ export default function FeaturedWork() {
           </div>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10 flex flex-wrap items-center gap-4">
           <Link
-            to="/contact"
+            to={`/work/${study.slug}`}
             className="group inline-flex items-center gap-2.5 rounded-lg px-7 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_-14px_rgba(0,80,169,0.9)]"
             style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}
           >
-            Discuss a Similar Program
+            Read the full case study
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+          <Link
+            to="/work"
+            className="group inline-flex items-center gap-2 rounded-lg border-2 border-[#0050a9]/20 px-7 py-3.5 font-semibold text-[#0050a9] transition-all duration-300 hover:border-[#0050a9] hover:bg-[#0050a9] hover:text-white"
+          >
+            All Work
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>

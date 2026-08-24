@@ -4,39 +4,39 @@ import { Linkedin, Twitter, Facebook, Instagram, Youtube } from 'lucide-react'
 /* Six columns, kept deliberately short. A footer stuffed with every URL on the site
    helps nobody  each column carries the handful of destinations that matter. */
 const capabilityLinks = [
-  { name: 'Geospatial & Mapping', href: '/services/geospatial', isRoute: true },
-  { name: 'Fleet & Field Operations', href: '/services/global-fleet-collection-operations', isRoute: true },
-  { name: 'GeoAI & Data Operations', href: '/services/geoai-computer-vision', isRoute: true },
-  { name: 'Telecom & Infrastructure', href: '/services/telecom-network-intelligence', isRoute: true },
-  { name: 'Digital Engineering', href: '/services/digital-engineering', isRoute: true },
-  { name: 'Program Management', href: '/services/program-management', isRoute: true },
+  { name: 'Geospatial & Mapping', href: '/capabilities/geospatial-mapping', isRoute: true },
+  { name: 'Fleet & Field Operations', href: '/capabilities/global-fleet-field-operations', isRoute: true },
+  { name: 'GeoAI & Data Operations', href: '/capabilities/geoai-data-operations', isRoute: true },
+  { name: 'Telecom & Infrastructure', href: '/capabilities/telecom-infrastructure', isRoute: true },
+  { name: 'Digital Engineering', href: '/capabilities/digital-engineering', isRoute: true },
+  { name: 'Program & Managed Services', href: '/capabilities/program-managed-services', isRoute: true },
 ]
 
 const industryLinks = [
   { name: 'Mapping & Location Platforms', href: '/industries/mapping-location-platforms', isRoute: true },
   { name: 'Autonomous Mobility', href: '/industries/autonomous-mobility', isRoute: true },
   { name: 'Telecommunications', href: '/industries/telecommunications', isRoute: true },
-  { name: 'Transportation & Infrastructure', href: '/industries/transport', isRoute: true },
-  { name: 'Utilities', href: '/industries/energy', isRoute: true },
-  { name: 'Government & Smart Cities', href: '/industries/smartcities', isRoute: true },
+  { name: 'Transportation & Infrastructure', href: '/industries/transportation-infrastructure', isRoute: true },
+  { name: 'Utilities', href: '/industries/utilities', isRoute: true },
+  { name: 'Government & Smart Cities', href: '/industries/government-smart-cities', isRoute: true },
 ]
 
 const companyLinks = [
-  { name: 'About JSAN', href: '/about', isRoute: true },
-  { name: 'Our Leadership', href: '/about', isRoute: true },
-  { name: 'Work', href: '/in-house-apps', isRoute: true },
+  { name: 'About JSAN', href: '/company', isRoute: true },
+  { name: 'Our Leadership', href: '/company', isRoute: true },
+  { name: 'Work', href: '/work', isRoute: true },
   { name: 'Contact', href: '/contact', isRoute: true },
 ]
 
 const resourceLinks = [
-  { name: 'Insights', href: '/blogs', isRoute: true },
+  { name: 'Insights', href: '/insights', isRoute: true },
   { name: 'News', href: '/news', isRoute: true },
   { name: 'Technologies', href: '/technologies', isRoute: true },
   { name: 'Sitemap', href: '/sitemap.xml', isRoute: false },
 ]
 
 const careerLinks = [
-  { name: 'Life at JSAN', href: '/about', isRoute: true },
+  { name: 'Life at JSAN', href: '/company', isRoute: true },
   { name: 'Open Roles', href: '/careers', isRoute: true },
 ]
 
@@ -55,8 +55,10 @@ const legalLinks = [
   { label: 'Accessibility', href: '#' },
 ]
 
+/* min-h on phones only: a 28px text link is fine with a mouse, not with a thumb. Paired
+   with the two-column mobile layout this keeps the footer short as well as tappable. */
 const linkClass =
-  'group inline-flex items-center gap-1.5 text-sm leading-7 text-white/70 transition-colors hover:text-white'
+  'group inline-flex min-h-[36px] items-center gap-1.5 text-sm leading-6 text-white/70 transition-colors hover:text-white sm:min-h-0 sm:leading-7'
 
 function FooterLink({ link }: { link: { name: string; href: string; isRoute: boolean } }) {
   const content = (
@@ -110,11 +112,11 @@ export default function Footer() {
       />
 
       <div className="relative mx-auto max-w-[1440px] px-6">
-        <div className="grid grid-cols-1 gap-10 pt-14 pb-12 sm:grid-cols-2 lg:grid-cols-[repeat(15,minmax(0,1fr))] lg:gap-12">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-7 pt-12 pb-10 sm:gap-x-8 sm:pt-14 sm:pb-12 lg:grid-cols-[repeat(15,minmax(0,1fr))] lg:gap-12">
           {/* Brand */}
-          <div className="lg:col-span-5">
+          <div className="col-span-2 lg:col-span-5">
             <Link to="/" className="inline-block">
-              <img src="/logo-white.png" alt="JSAN" className="h-auto w-[160px]" />
+              <img src="/logo-white.png" alt="JSAN" width={376} height={120} className="h-auto w-[160px]" />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">
               Real-World Operations. Spatial Intelligence. Digital Engineering. Supporting global
@@ -130,7 +132,7 @@ export default function Footer() {
                   aria-label={social.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 bg-white/[0.07] text-white/75 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00d4ff]/50 hover:bg-[#00d4ff]/15 hover:text-white"
+                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/15 bg-white/[0.07] text-white/75 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#00d4ff]/50 hover:bg-[#00d4ff]/15 hover:text-white"
                 >
                   <social.icon className="h-[18px] w-[18px]" />
                 </a>
@@ -143,11 +145,17 @@ export default function Footer() {
             { heading: 'Industries', links: industryLinks },
             { heading: 'Company', links: companyLinks },
             { heading: 'Resources', links: resourceLinks },
-            { heading: 'Careers', links: careerLinks },
+            /* Five columns pair off two-up on phones, which leaves Careers on a row of its
+               own. It only has two links, so it spans the row and lays them out side by
+               side rather than sitting next to an empty half. */
+            { heading: 'Careers', links: careerLinks, wide: true },
           ].map((column) => (
-            <div key={column.heading} className="lg:col-span-2">
+            <div
+              key={column.heading}
+              className={column.wide ? 'col-span-2 lg:col-span-2' : 'lg:col-span-2'}
+            >
               <ColumnHeading>{column.heading}</ColumnHeading>
-              <ul className="space-y-0.5">
+              <ul className={column.wide ? 'flex flex-wrap gap-x-8 lg:block lg:space-y-0.5' : 'space-y-0.5'}>
                 {column.links.map((link) => (
                   <li key={link.name}>
                     <FooterLink link={link} />
@@ -169,7 +177,7 @@ export default function Footer() {
               <Link
                 key={link.label}
                 to={link.href}
-                className="text-sm text-white/60 transition-colors hover:text-white"
+                className="inline-flex min-h-[24px] items-center py-1 text-sm text-white/60 transition-colors hover:text-white"
               >
                 {link.label}
               </Link>

@@ -47,11 +47,11 @@ export default function FinalCTA() {
             to="/contact"
             className="group inline-flex items-center gap-2.5 rounded-lg bg-white px-8 py-4 font-semibold text-[#0050a9] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_-16px_rgba(0,212,255,0.9)]"
           >
-            Discuss Your Program
+            Discuss a Program
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
           <Link
-            to="/services"
+            to="/capabilities"
             className="group inline-flex items-center gap-2 rounded-lg border-2 border-white/30 px-8 py-4 font-semibold text-white transition-all duration-300 hover:border-white/70 hover:bg-white/10"
           >
             View Capabilities

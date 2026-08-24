@@ -19,7 +19,7 @@ is required for the site to come up.
 
 ## Environment variables
 
-Set these under **Variables** on the service. Both are optional — the site builds and
+Set these under **Variables** on the service. Both are optional  the site builds and
 runs without them.
 
 | Variable | Purpose |
@@ -28,9 +28,9 @@ runs without them.
 | `VITE_MAPTILER_KEY` | MapTiler key for the interactive world map. Falls back to the key currently hardcoded in `WorldMap.tsx`. |
 
 These are build-time variables (Vite inlines `VITE_*` at build). After changing one,
-**redeploy** — restarting alone will not pick it up.
+**redeploy**  restarting alone will not pick it up.
 
-## The API — read this before going live
+## The API  read this before going live
 
 `public/api/` contains **PHP** endpoints (`blogs.php`, `jobs.php`, `auth.php`,
 `upload.php`). Railway's Node runtime cannot execute PHP, so on Railway:
@@ -38,7 +38,7 @@ These are build-time variables (Vite inlines `VITE_*` at build). After changing 
 - The **public site works fully.** Blogs and job listings fall back to the data
   bundled into the build (`src/data/blogs.ts`, `src/data/jobs.ts`), which is what
   `useContent.ts` already does whenever the API is unreachable.
-- **`/admin` will not work** — login, editing and uploads all need the PHP endpoints.
+- **`/admin` will not work**  login, editing and uploads all need the PHP endpoints.
 
 Three ways to handle it:
 
@@ -66,11 +66,11 @@ npm start          # http://localhost:8080
 
 [`server.js`](server.js) is deliberately dependency-free:
 
-- **SPA fallback** — unknown paths return `index.html`, so `/services/...`,
+- **SPA fallback**  unknown paths return `index.html`, so `/services/...`,
   `/capabilities/...` and `/blogs/...` survive a hard refresh or a shared link.
   Paths that look like files (they have an extension) return a real 404 instead, so a
   missing script never gets served as HTML.
-- **Cache headers** — `/assets/*` is fingerprinted by Vite and served
+- **Cache headers**  `/assets/*` is fingerprinted by Vite and served
   `immutable, max-age=1y`; `index.html` is `no-cache`, so a deploy is visible at once.
 - **gzip** for HTML, JS, CSS, JSON, SVG and XML (the largest chunk drops from ~1.2 MB
   to ~350 KB).
@@ -82,7 +82,7 @@ npm start          # http://localhost:8080
 
 - `.nvmrc` pins Node 20; `engines.node` is `>=20`.
 - `puppeteer-extra` and `puppeteer-extra-plugin-stealth` were moved to
-  `devDependencies` — they are only used by `scripts/`, and shipping them made the
+  `devDependencies`  they are only used by `scripts/`, and shipping them made the
   deploy install much larger.
 - `vercel.json` and `scripts/cpanel-deploy.js` are untouched; deploying to Railway
   does not affect either of those paths.

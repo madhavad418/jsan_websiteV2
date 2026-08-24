@@ -34,7 +34,7 @@ const features = [
     title: 'End-to-End Expertise',
     short: 'End-to-End',
     description:
-      'Unlike niche providers, we cover the entire geospatial value chain ,from field data collection to AI-powered analytics and custom software development ,all under one roof.',
+      'Unlike niche providers, we cover the entire geospatial value chain  from field data collection to AI-powered analytics and custom software development  all under one roof.',
     image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop',
   },
   {
@@ -58,7 +58,7 @@ const features = [
     title: 'Turnkey Ownership',
     short: 'Turnkey',
     description:
-      "We don't just deliver reports ,we build, deploy, and optimize solutions tailored to your operational workflows.",
+      "We don't just deliver reports  we build, deploy, and optimize solutions tailored to your operational workflows.",
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop',
   },
   {

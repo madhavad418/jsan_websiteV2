@@ -9,7 +9,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.jsanconsulting.com/about</loc>
+    <loc>https://www.jsanconsulting.com/company</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -33,7 +33,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.jsanconsulting.com/blogs</loc>
+    <loc>https://www.jsanconsulting.com/insights</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -130,7 +130,7 @@
   <url><loc>https://www.jsanconsulting.com/services/location-intelligence/navigation-data</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.jsanconsulting.com/services/location-intelligence/strategy-advisory</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.jsanconsulting.com/services/location-intelligence/custom-platforms</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.jsanconsulting.com/services/location-intelligence/advance-analytics</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.jsanconsulting.com/services/location-intelligence/advanced-analytics</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.jsanconsulting.com/services/location-intelligence/data-capture</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- Technology Consultancy sub-services -->
@@ -195,10 +195,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url><loc>https://www.jsanconsulting.com/industries/transport</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.jsanconsulting.com/industries/energy</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.jsanconsulting.com/industries/transportation-infrastructure</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.jsanconsulting.com/industries/utilities</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.jsanconsulting.com/industries/consulting</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.jsanconsulting.com/industries/smartcities</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.jsanconsulting.com/industries/government-smart-cities</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
   <!-- ============ PRODUCTS / IN-HOUSE APPS ============ -->
   <url>
@@ -326,6 +326,77 @@
   <url>
     <loc>https://www.jsanconsulting.com/capabilities/data-operations</loc>
     <lastmod>2026-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+
+  <!-- ============ CAPABILITY PILLARS ============ -->
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/geospatial-mapping</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/global-fleet-field-operations</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/geoai-data-operations</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/telecom-infrastructure</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/digital-engineering</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/program-managed-services</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ============ WORK ============ -->
+  <url>
+    <loc>https://www.jsanconsulting.com/work</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/work/multi-country-mapping</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/work/lidar-infrastructure-intelligence</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/work/telecom-network-engineering</loc>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

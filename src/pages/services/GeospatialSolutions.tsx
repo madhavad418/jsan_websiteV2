@@ -114,7 +114,7 @@ export default function GeospatialSolutions() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section ,Full Viewport */}
+      {/* Hero Section  Full Viewport */}
       <ServiceHero
         breadcrumb={"Geospatial Solutions"}
         eyebrow={"Core Service"}
