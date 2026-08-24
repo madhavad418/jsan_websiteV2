@@ -93,7 +93,7 @@ export default function UtilityNetworkIntelligence() {
         title={"Utility Network Intelligence"}
         subtitle={"From field reality to operational utility intelligence across electrical, water and gas."}
         description={"A connected operating model for field survey, asset digitization, consumer indexing, topology validation and enterprise GIS migration one delivery backbone, configured per utility domain."}
-        image="/pillars/utility-network.jpg"
+        image="/pillars/pole_utility.png"
         imageAlt="Utility network intelligence"
         stats={stats}
       />

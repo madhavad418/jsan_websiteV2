@@ -61,9 +61,9 @@ const navigation: NavItem[] = [
         items: [
           { name: 'Computer Vision', href: '/services/geoai-computer-vision' },
           { name: 'LiDAR Feature Extraction', href: '/capabilities/lidar-feature-extraction' },
-          { name: 'Data Annotation', href: '/services/basemap-poi-annotation' },
+  
           { name: 'OCR & Sign Intelligence', href: '/capabilities/ocr-sign-intelligence' },
-          { name: 'Spatial Analytics', href: '/services/location-intelligence' },
+          { name: 'Location Analytics', href: '/services/location-intelligence' },
           { name: 'Human-in-the-Loop QA', href: '/capabilities/human-in-the-loop-qa' },
           { name: 'Data Validation', href: '/capabilities/data-validation' },
         ],

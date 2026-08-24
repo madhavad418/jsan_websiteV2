@@ -87,7 +87,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Routable Centrelines, Connectivity and Attribution Built for Navigation',
     description:
       'We build and maintain the road network layer that navigation, logistics and mobility platforms route on  centreline geometry, junction modelling, connectivity and the attribution that makes a network usable rather than merely drawn. Networks are compiled from street-level imagery, LiDAR, probe traces, authoritative records and our own field crews, then reconciled into one topologically clean model against your schema.',
-    bgImage: '/pillars/navigation-data.jpg',
+    bgImage: '/pillars/road.png',
     highlights: [
       { icon: Route, text: 'Centreline geometry, alignment and junction modelling' },
       { icon: GitMerge, text: 'Connectivity, turn restrictions, one-ways and grade separation' },
@@ -149,7 +149,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Ground Truth, Captured On Site and Backed by Evidence',
     description:
       'Desk research and imagery take data most of the way; field verification closes the gap. Our crews confirm what is actually on the ground  an asset, an access point, a business, a restriction  and return GPS-stamped, photo-backed evidence against a structured checklist, so your dataset carries proof rather than assumption.',
-    bgImage: '/pillars/data-capture.jpg',
+    bgImage: '/pillars/feild_verify.png',
     highlights: [
       { icon: MapPin, text: 'On-site confirmation of features, assets, POI and access' },
       { icon: Camera, text: 'GPS and time-stamped photographic evidence per record' },

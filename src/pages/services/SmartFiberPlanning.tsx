@@ -101,7 +101,7 @@ export default function SmartFiberPlanning() {
         title={"Smart Fiber Planning"}
         subtitle={"AI-driven fiber network planning, intelligent deployment, and proactive maintenance for future-ready telecom infrastructure."}
         description={"We partner with telecom operators to design, deploy, and maintain resilient fiber networks  combining GIS, drone surveys, digital twins, and predictive analytics into a single, data-driven workflow."}
-        image="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1920&auto=format&fit=crop"
+        image="/pillars/fibre_optic.png"
         imageAlt="Smart fiber network planning"
       />
 

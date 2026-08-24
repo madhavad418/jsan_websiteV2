@@ -1,7 +1,7 @@
 import StatementHero from './StatementHero'
 
 /**
- * SECTION 01 &mdash; HERO
+ * SECTION 01  HERO
  *
  * The home page's use of the house hero. Layout and styling live in
  * StatementHero, which the capabilities landing page shares.

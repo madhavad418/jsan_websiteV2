@@ -15,7 +15,7 @@ export default function MappingLocationPlatforms() {
         { value: '1,000+', label: 'Field Specialists' },
         { value: '360°', label: 'Imagery Capture' },
       ]}
-      image="/pillars/navigation-data.jpg"
+      image="/pillars/mapping_intel.png"
       imageAlt="Street-level navigation data collection"
       challenges={[
         {

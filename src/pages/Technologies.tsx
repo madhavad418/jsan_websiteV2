@@ -173,7 +173,7 @@ export default function Technologies() {
               One partner across your entire technology stack.
             </h1>
             <p className="mb-9 max-w-2xl text-lg leading-relaxed text-gray-600">
-              From geospatial and analytics to cloud, security and automation &mdash; {technologies.length} technology
+              From geospatial and analytics to cloud, security and automation  {technologies.length} technology
               domains, delivered by certified specialists.
             </p>
 

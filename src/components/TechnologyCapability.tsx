@@ -54,7 +54,7 @@ export default function TechnologyCapability() {
             Technology that strengthens operations
           </h2>
           <p className="text-lg leading-relaxed text-gray-600">
-            Tooling is chosen for what it lets a programme do in the field and in delivery &mdash; not for the
+            Tooling is chosen for what it lets a programme do in the field and in delivery  not for the
             logo it puts on a slide.
           </p>
         </div>

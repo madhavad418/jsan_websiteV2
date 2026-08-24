@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
       <section className="bg-gradient-to-br from-[#0050a9] via-[#0a1a3a] to-[#0050a9] pt-32 pb-16" style={{ marginTop: '44px' }}>
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-white text-[36px] md:text-[48px] font-bold mb-4">Privacy Policy</h1>
-          <p className="text-white/70 text-lg">JSAN Consulting LTD &mdash; Your privacy matters to us</p>
+          <p className="text-white/70 text-lg">JSAN Consulting LTD  Your privacy matters to us</p>
         </div>
       </section>
 

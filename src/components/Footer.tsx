@@ -118,7 +118,7 @@ export default function Footer() {
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">
               Real-World Operations. Spatial Intelligence. Digital Engineering. Supporting global
-              mapping, mobility, telecom and infrastructure programs &mdash; from field mobilisation and
+              mapping, mobility, telecom and infrastructure programs  from field mobilisation and
               data collection through engineering, GeoAI, quality assurance and managed operations.
             </p>
 

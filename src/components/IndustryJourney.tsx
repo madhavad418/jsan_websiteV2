@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import type { LucideIcon } from 'lucide-react'
-import { ArrowRight, CheckCircle } from 'lucide-react'
+import { ArrowRight, CheckCircle, ChevronRight } from 'lucide-react'
 import Header from './Header'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
@@ -57,6 +57,8 @@ export default function IndustryJourney({
   services,
   scopeNote,
 }: IndustryJourneyProps) {
+  const stageNames = journey.map((step) => step.stage)
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -168,14 +170,48 @@ export default function IndustryJourney({
       {/* The operating model, applied */}
       <section className="bg-white py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-14 max-w-3xl">
+          <div className="mb-14">
             <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
               How JSAN Delivers
             </span>
-            <h2 className="mb-4 text-[30px] font-bold leading-tight text-[#0a1a3a] lg:text-[40px]">
-              Operate &rarr; Map &rarr; Intelligence &rarr; Engineer
+
+            {/*
+              The operating model reads as a pipeline rather than a sentence: each stage is a chip,
+              the connectors carry the flow, and the rail underneath ties it to the numbered stage
+              cards below. Stage names come from `journey` so the chain can never drift from the cards.
+            */}
+            <h2 className="mb-5 text-[30px] font-bold leading-tight text-[#0a1a3a] lg:text-[40px]">
+              <span className="sr-only">{stageNames.join(' to ')}</span>
+              <span aria-hidden="true" className="inline-flex w-full max-w-full flex-col sm:w-fit">
+              <span className="group/chain relative flex flex-col items-start gap-y-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2.5 sm:gap-y-3">
+                {stageNames.map((stage, i) => (
+                  <span key={stage} className="flex flex-col items-start gap-y-2 sm:flex-row sm:items-center sm:gap-x-2.5">
+                    <span
+                      className="group/stage relative inline-flex items-center gap-2.5 rounded-2xl border border-blue-100/80 bg-white px-4 py-2 text-[22px] shadow-[0_10px_26px_-18px_rgba(0,80,169,0.85)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0050a9]/30 hover:shadow-[0_18px_34px_-18px_rgba(0,80,169,0.9)] sm:px-5 sm:py-2.5 lg:text-[34px]"
+                    >
+                      <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#0050a9]/[0.05] to-[#00d4ff]/[0.07] opacity-0 transition-opacity duration-300 group-hover/stage:opacity-100" />
+                      <span className="relative h-2 w-2 shrink-0 rounded-full bg-gradient-to-br from-[#00d4ff] to-[#0050a9] shadow-[0_0_0_4px_rgba(0,163,224,0.12)]" />
+                      <span className="relative bg-gradient-to-r from-[#012f62] via-[#0050a9] to-[#0a1a3a] bg-clip-text text-transparent">
+                        {stage}
+                      </span>
+                    </span>
+                    {i < stageNames.length - 1 && (
+                      <ChevronRight className="ml-5 h-5 w-5 shrink-0 rotate-90 text-[#00a3e0] transition-transform duration-300 sm:ml-0 sm:h-7 sm:w-7 sm:rotate-0 sm:group-hover/chain:translate-x-0.5" />
+                    )}
+                  </span>
+                ))}
+              </span>
+              <span
+                className="mt-5 block h-[3px] w-full rounded-full"
+                style={{
+                  background:
+                    'linear-gradient(90deg, #012f62 0%, #0050a9 38%, #00a3e0 72%, rgba(0,212,255,0) 100%)',
+                }}
+              />
+              </span>
             </h2>
-            <p className="text-lg leading-relaxed text-gray-600">
+
+            <p className="max-w-3xl text-lg leading-relaxed text-gray-600">
               One accountable operating model, from mobilising crews in the field through to the systems your
               teams run every day.
             </p>
