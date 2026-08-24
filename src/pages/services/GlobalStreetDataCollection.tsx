@@ -224,7 +224,7 @@ export default function GlobalStreetDataCollection() {
 
             <div className="lg:pt-2">
               <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <img src="/ground_truth.png" alt="Street-level data capture" className="w-full h-64 md:h-80 object-cover" />
+                <img src="/public/pillars/ground_truth.png" alt="Street-level data capture" className="w-full h-64 md:h-80 object-cover" />
               </div>
 
               <div className="mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
