@@ -169,7 +169,7 @@ export default function IndustryJourney({
       {/* Challenges */}
       <section className="section-y bg-[#f7f8fa]">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-16 max-w-3xl lg:mb-20">
+          <div className="mb-12 max-w-3xl lg:mb-14">
             <SectionLabel>The Challenge</SectionLabel>
             <h2 className="t-section text-[#0a1a3a]">What makes this hard</h2>
           </div>
@@ -190,7 +190,7 @@ export default function IndustryJourney({
       {/* The operating model, applied */}
       <section className="section-y bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-20 lg:mb-28">
+          <div className="mb-12 lg:mb-16">
             <SectionLabel>How JSAN Delivers</SectionLabel>
 
             {/*
@@ -208,7 +208,7 @@ export default function IndustryJourney({
             </p>
           </div>
 
-          <div className="space-y-24 lg:space-y-36">
+          <div className="space-y-16 lg:space-y-24">
             {journey.map((step, i) => (
               <div
                 key={step.stage}

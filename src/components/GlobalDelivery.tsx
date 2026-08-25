@@ -49,7 +49,7 @@ export default function GlobalDelivery() {
   return (
     <section className="section-y bg-white">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 max-w-3xl lg:mb-20">
+        <div className="mb-12 max-w-3xl lg:mb-14">
           <SectionLabel>Global Delivery</SectionLabel>
           <h2 className="t-section mb-7 text-[#0a1a3a]">
             Global reach. Local execution. Central governance.
@@ -64,7 +64,7 @@ export default function GlobalDelivery() {
 
         {/* Region selector */}
         {/* A segmented row, not three cards: only the current region carries colour. */}
-        <div className="mt-14 grid gap-0 border-t border-gray-200 sm:grid-cols-3">
+        <div className="mt-10 grid gap-0 border-t border-gray-200 sm:grid-cols-3">
           {regionKeys.map((key) => {
             const count = offices.filter((o) => o.region === key).length
             const isOn = key === active
@@ -90,7 +90,7 @@ export default function GlobalDelivery() {
         </div>
 
         {/* Region detail */}
-        <div className="mt-14 border-t border-gray-200 pt-12">
+        <div className="mt-10 border-t border-gray-200 pt-9">
           <div className="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-1">
             <h3 className="text-xl font-bold text-[#0a1a3a] lg:text-2xl">{detail.label}</h3>
             <span className="text-sm text-gray-500">

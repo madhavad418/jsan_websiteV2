@@ -73,17 +73,17 @@
 @layer components {
   /* Vertical rhythm. 76px on a phone, 136px on desktop: the whitespace is the design. */
   .section-y {
-    padding-block: 76px;
+    padding-block: 56px;
   }
   .section-y-sm {
-    padding-block: 56px;
+    padding-block: 40px;
   }
   @media (min-width: 1024px) {
     .section-y {
-      padding-block: 136px;
+      padding-block: 96px;
     }
     .section-y-sm {
-      padding-block: 96px;
+      padding-block: 68px;
     }
   }
 

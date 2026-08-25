@@ -36,7 +36,7 @@ export default function Work() {
 
       <section className="section-y bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="space-y-16 lg:space-y-24">
+          <div className="space-y-12 lg:space-y-16">
             {caseStudies.map((cs) => (
               <Link
                 key={cs.slug}

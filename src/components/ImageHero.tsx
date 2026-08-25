@@ -86,7 +86,7 @@ export default function ImageHero({
 
   return (
     <section
-      className="relative isolate flex min-h-[620px] items-center overflow-hidden bg-[#03101f] sm:min-h-[72vh] lg:max-h-[920px] lg:min-h-[80vh]"
+      className="relative isolate flex min-h-[calc(100svh-44px)] items-center overflow-hidden bg-[#03101f]"
       style={
         {
           marginTop: '44px',

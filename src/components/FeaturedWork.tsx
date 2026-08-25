@@ -20,7 +20,7 @@ export default function FeaturedWork() {
     <section className="section-y bg-white">
       <div className="mx-auto max-w-7xl px-6">
         {/* Heading left, the way through to everything else on the right. */}
-        <div className="mb-14 flex flex-col gap-8 lg:mb-20 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+        <div className="mb-10 flex flex-col gap-8 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
           <div className="max-w-3xl">
             <SectionLabel>Featured Work</SectionLabel>
             <h2 className="t-section mb-7 text-[#0a1a3a]">
@@ -45,7 +45,7 @@ export default function FeaturedWork() {
             <Link
               key={cs.slug}
               to={`/work/${cs.slug}`}
-              className="group relative flex h-[420px] flex-col justify-end overflow-hidden rounded-2xl lg:h-[520px]"
+              className="group relative flex h-[380px] flex-col justify-end overflow-hidden rounded-2xl lg:h-[460px]"
             >
               <img
                 src={cs.image}

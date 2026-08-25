@@ -41,7 +41,7 @@ export default function GovernanceModel() {
   return (
     <section className="section-y bg-[#f7f8fa]">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="mb-16 max-w-3xl lg:mb-20">
+        <div className="mb-12 max-w-3xl lg:mb-14">
           <SectionLabel>Governance Model</SectionLabel>
           <h2 className="t-section text-[#0a1a3a]">
             One governance layer between you and delivery

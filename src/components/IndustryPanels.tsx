@@ -71,7 +71,7 @@ export default function IndustryPanels() {
   return (
     <section className="section-y bg-[#f7f8fa]">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 max-w-3xl lg:mb-20">
+        <div className="mb-12 max-w-3xl lg:mb-14">
           <SectionLabel>Industries</SectionLabel>
           <h2 className="t-section text-[#0a1a3a]">
             Built for operations where location matters
@@ -111,7 +111,7 @@ export default function IndustryPanels() {
           ))}
         </div>
 
-        <div className="mt-14">
+        <div className="mt-10">
           <Link
             to="/industries"
             className="group inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-[#0050a9] px-8 font-semibold text-white transition-colors duration-300 hover:bg-[#013e82]"

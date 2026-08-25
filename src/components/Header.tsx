@@ -333,20 +333,20 @@ export default function Header() {
               not move when the logo or CTA changes size. */}
           <nav className="relative flex h-[76px] items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex shrink-0 items-center pr-4">
               <img
                 src="/footer-logo.png"
                 alt="JSAN"
                 width={172}
                 height={56}
-                className={`h-auto w-[142px] transition-all duration-300 ${
+                className={`h-auto w-[118px] transition-all duration-300 xl:w-[142px] ${
                   showLight ? '' : 'brightness-0 invert'
                 }`}
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <div className="hidden items-center gap-x-5 lg:flex xl:gap-x-8">
               {navigation.map((item) => {
                 const hasMenu = Boolean(item.dropdown || item.groups)
 
@@ -441,7 +441,7 @@ export default function Header() {
                   inverts to white so it stays the brightest thing on the row. */}
               <Link
                 to="/contact"
-                className={`group inline-flex min-h-[44px] items-center gap-2 rounded-full px-6 text-[15px] font-semibold transition-colors duration-300 ${
+                className={`group inline-flex min-h-[44px] shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-5 text-[14px] font-semibold transition-colors duration-300 xl:px-6 xl:text-[15px] ${
                   showLight
                     ? 'bg-[#0050a9] text-white hover:bg-[#013e82]'
                     : 'bg-white text-[#0a1a3a] hover:bg-white/90'

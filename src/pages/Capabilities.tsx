@@ -48,7 +48,7 @@ export default function Capabilities() {
       {/* The six pillars, as editorial panels rather than a card grid */}
       <section className="section-y bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-20 max-w-3xl lg:mb-28">
+          <div className="mb-12 max-w-3xl lg:mb-16">
             <SectionLabel>Capability Pillars</SectionLabel>
             <h2 className="t-section text-[#0a1a3a]">Six pillars, one accountable programme</h2>
           </div>
@@ -61,7 +61,7 @@ export default function Capabilities() {
             Six equal cards said "here are six things". At this size each pillar reads as
             a business in its own right, which is closer to the truth.
           */}
-          <div className="space-y-28 lg:space-y-40">
+          <div className="space-y-16 lg:space-y-24">
             {capabilityPillars.map((pillar, i) => {
               const imageFirst = i % 2 === 0
 
@@ -91,7 +91,7 @@ export default function Capabilities() {
                       height={800}
                       loading="lazy"
                       decoding="async"
-                      className="h-[300px] w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03] lg:h-[540px]"
+                      className="h-[300px] w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03] lg:h-[460px]"
                     />
                   </Link>
 

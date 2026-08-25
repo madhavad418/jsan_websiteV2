@@ -63,7 +63,7 @@ export default function WhatJsanDoes() {
   return (
     <section className="section-y bg-white">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-20 max-w-3xl lg:mb-28">
+        <div className="mb-12 max-w-3xl lg:mb-16">
           <SectionLabel>Operate &bull; Map &bull; Intelligence &bull; Engineer</SectionLabel>
           <h2 className="t-section mb-7 text-[#0a1a3a]">
             From the field to decision-ready intelligence
@@ -74,7 +74,7 @@ export default function WhatJsanDoes() {
           </p>
         </div>
 
-        <div className="space-y-24 lg:space-y-36">
+        <div className="space-y-16 lg:space-y-24">
           {modules.map((m, i) => (
             <div
               key={m.num}
@@ -93,7 +93,7 @@ export default function WhatJsanDoes() {
                 </div>
 
                 <h3 className="t-sub mb-5 mt-7 text-[#0a1a3a]">{m.title}</h3>
-                <p className="t-body mb-9 max-w-lg text-gray-600">{m.description}</p>
+                <p className="t-body mb-7 max-w-lg text-gray-600">{m.description}</p>
 
                 <Link
                   to={m.cta.href}
