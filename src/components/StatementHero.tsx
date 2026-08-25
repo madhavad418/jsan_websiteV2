@@ -109,7 +109,7 @@ export default function StatementHero({
                   <li key={item} className="flex items-center gap-3">
                     <span className="text-[13px] font-semibold text-[#0a1a3a]/70">{item}</span>
                     {i < strip.length - 1 && (
-                      <span className="text-[#00a3e0]" aria-hidden="true">
+                      <span className="text-[#0050a9]" aria-hidden="true">
                         &bull;
                       </span>
                     )}

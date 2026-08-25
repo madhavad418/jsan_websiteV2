@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import SectionLabel from './SectionLabel'
 import type { LucideIcon } from 'lucide-react'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 import Header from './Header'
@@ -120,8 +121,8 @@ export default function IndustryJourney({
               <span className="font-medium text-[#0050a9]">{breadcrumb}</span>
             </nav>
 
-            <span className="mb-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-              {EyebrowIcon && <EyebrowIcon className="h-4 w-4" />}
+            <span className="mb-5 inline-flex items-center gap-2 t-label text-gray-500">
+              {EyebrowIcon && <EyebrowIcon className="h-4 w-4 text-[#0050a9]" aria-hidden="true" />}
               {eyebrow}
             </span>
 
@@ -166,22 +167,20 @@ export default function IndustryJourney({
       </section>
 
       {/* Challenges */}
-      <section className="bg-gray-50 py-20 lg:py-24">
+      <section className="section-y bg-[#f7f8fa]">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-14 max-w-3xl">
-            <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-              The Challenge
-            </span>
-            <h2 className="text-[30px] font-bold leading-tight text-[#0a1a3a] lg:text-[40px]">
-              What makes this hard
-            </h2>
+          <div className="mb-16 max-w-3xl lg:mb-20">
+            <SectionLabel>The Challenge</SectionLabel>
+            <h2 className="t-section text-[#0a1a3a]">What makes this hard</h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          {/* Three paragraphs, not three cards. A rule above each is enough to separate
+              them, and the text can then be read at a comfortable size. */}
+          <div className="grid gap-x-12 gap-y-12 md:grid-cols-3">
             {challenges.map((c) => (
-              <div key={c.title} className="rounded-2xl border border-gray-100 bg-white p-7 shadow-sm">
-                <h3 className="mb-2.5 text-lg font-bold text-[#0050a9]">{c.title}</h3>
-                <p className="text-sm leading-relaxed text-gray-600">{c.description}</p>
+              <div key={c.title} className="border-t border-gray-300 pt-7">
+                <h3 className="mb-3.5 text-[20px] font-bold leading-snug text-[#0a1a3a]">{c.title}</h3>
+                <p className="leading-relaxed text-gray-600">{c.description}</p>
               </div>
             ))}
           </div>
@@ -189,29 +188,27 @@ export default function IndustryJourney({
       </section>
 
       {/* The operating model, applied */}
-      <section className="bg-white py-20 lg:py-24">
+      <section className="section-y bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-14">
-            <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-              How JSAN Delivers
-            </span>
+          <div className="mb-20 lg:mb-28">
+            <SectionLabel>How JSAN Delivers</SectionLabel>
 
             {/*
               The sequence is told by the numbered stage rows below, each with its own
               visual. A chip chain repeating those same stage names here added nothing but
               height, so the heading is a plain statement.
             */}
-            <h2 className="mb-5 text-[30px] font-bold leading-tight text-[#0a1a3a] lg:text-[40px]">
+            <h2 className="t-section mb-7 text-[#0a1a3a]">
               How a {breadcrumb.toLowerCase()} programme runs
             </h2>
 
-            <p className="max-w-3xl text-lg leading-relaxed text-gray-600">
+            <p className="t-body measure text-gray-600">
               One accountable operating model, from mobilising crews in the field through to the systems your
               teams run every day.
             </p>
           </div>
 
-          <div className="space-y-14 lg:space-y-20">
+          <div className="space-y-24 lg:space-y-36">
             {journey.map((step, i) => (
               <div
                 key={step.stage}
@@ -224,29 +221,22 @@ export default function IndustryJourney({
                 {/* Sides alternate so the sequence reads as a story rather than a table */}
                 <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
                   <div className="flex items-center gap-4">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#012f62] to-[#0055b4] shadow-lg">
-                      <step.icon className="h-6 w-6 text-white" />
-                    </span>
-                    <span className="text-[42px] font-bold leading-none text-[#0050a9]/15 lg:text-[52px]">
+                    <span className="text-[40px] font-bold leading-none tracking-[-0.04em] text-[#868e9c] lg:text-[52px]">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-                      {step.stage}
-                    </span>
+                    <span aria-hidden="true" className="h-px w-8 bg-gray-300" />
+                    <step.icon className="h-5 w-5 text-[#0050a9]" aria-hidden="true" />
+                    <span className="t-label text-gray-500">{step.stage}</span>
                   </div>
 
-                  <h3 className="mb-4 mt-6 text-[24px] font-bold leading-tight text-[#0a1a3a] lg:text-[30px]">
-                    {step.title}
-                  </h3>
-                  <p className="max-w-lg text-base leading-relaxed text-gray-600 lg:text-lg">
-                    {step.description}
-                  </p>
+                  <h3 className="t-sub mb-5 mt-7 text-[#0a1a3a]">{step.title}</h3>
+                  <p className="t-body max-w-lg text-gray-600">{step.description}</p>
 
                   {step.points && step.points.length > 0 && (
-                    <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
+                    <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                       {step.points.map((point) => (
-                        <li key={point} className="flex items-start gap-2.5 text-sm text-gray-700">
-                          <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-[#00d4ff] to-[#0050a9]" />
+                        <li key={point} className="flex items-start gap-2.5 text-[15px] text-gray-600">
+                          <span className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-gray-400" />
                           <span className="leading-relaxed">{point}</span>
                         </li>
                       ))}
@@ -256,7 +246,7 @@ export default function IndustryJourney({
 
                 {step.image && (
                   <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
-                    <div className="overflow-hidden rounded-2xl bg-gray-100 shadow-xl ring-1 ring-black/5">
+                    <div className="overflow-hidden rounded-sm bg-gray-100">
                       <img
                         src={step.image}
                         alt={step.imageAlt ?? ''}
@@ -277,7 +267,7 @@ export default function IndustryJourney({
 
       {/* Where this actually gets used  one visual, one list, no card grid */}
       {useCases && useCases.length > 0 && (
-        <section className="bg-[#05132b] py-20 lg:py-24">
+        <section className="section-y bg-[#05132b]">
           <div className="mx-auto max-w-7xl px-6">
             <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16">
               {useCasesImage && (
@@ -295,10 +285,8 @@ export default function IndustryJourney({
               )}
 
               <div>
-                <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00d4ff]">
-                  Use Cases
-                </span>
-                <h2 className="mb-8 text-[28px] font-bold leading-tight text-white lg:text-[38px]">
+                <SectionLabel tone="dark">Use Cases</SectionLabel>
+                <h2 className="t-section mb-10 text-white">
                   What {breadcrumb.toLowerCase()} teams bring us
                 </h2>
 
@@ -324,19 +312,17 @@ export default function IndustryJourney({
       )}
 
       {/* Capabilities + outcomes */}
-      <section className="bg-gray-50 py-20 lg:py-24">
+      <section className="section-y bg-[#f7f8fa]">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
+          <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
             <div>
-              <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-                Capabilities Applied
-              </span>
-              <h2 className="mb-6 text-[28px] font-bold leading-tight text-[#0a1a3a] lg:text-[36px]">
+              <SectionLabel>Capabilities Applied</SectionLabel>
+              <h2 className="t-section mb-8 text-[#0a1a3a]">
                 The parts of JSAN this programme uses
               </h2>
               {services && services.length > 0 && (
                 <div className="mb-8">
-                  <div className="mb-3 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
+                  <div className="mb-3 t-label text-gray-500">
                     Services
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -367,16 +353,12 @@ export default function IndustryJourney({
             </div>
 
             <div>
-              <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-                Outcomes
-              </span>
-              <h2 className="mb-6 text-[28px] font-bold leading-tight text-[#0a1a3a] lg:text-[36px]">
-                What you get
-              </h2>
+              <SectionLabel>Outcomes</SectionLabel>
+              <h2 className="t-section mb-8 text-[#0a1a3a]">What you get</h2>
               <ul className="space-y-4">
                 {outcomes.map((o) => (
                   <li key={o} className="flex items-start gap-3 text-gray-700">
-                    <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-[#0050a9]" />
+                    <CheckCircle className="mt-1 h-5 w-5 shrink-0 text-[#0050a9]" aria-hidden="true" />
                     <span className="leading-relaxed">{o}</span>
                   </li>
                 ))}
@@ -400,7 +382,7 @@ export default function IndustryJourney({
       )}
 
       {/* CTA */}
-      <section className="py-20 lg:py-24" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
+      <section className="section-y" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="mb-5 text-[30px] font-bold text-white lg:text-[40px]">
             Let&rsquo;s scope your {breadcrumb.toLowerCase()} programme

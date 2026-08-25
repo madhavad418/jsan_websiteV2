@@ -80,7 +80,7 @@ function FooterLink({ link }: { link: { name: string; href: string; isRoute: boo
 
 function ColumnHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-[#00d4ff]">
+    <h3 className="mb-4 t-label text-white/85">
       {children}
     </h3>
   )

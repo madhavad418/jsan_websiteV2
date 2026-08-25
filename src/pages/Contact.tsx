@@ -192,7 +192,7 @@ export default function Contact() {
             </nav>
 
             {/* Re-import Globe from lucide-react if this is uncommented.
-            <span className="mb-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+            <span className="mb-5 inline-flex items-center gap-2 t-label text-gray-500">
               <Globe className="h-4 w-4" />
               25+ Offices Worldwide
             </span> */}
@@ -209,11 +209,11 @@ export default function Contact() {
 
             <div className="mb-7 flex flex-wrap gap-x-8 gap-y-3">
               <a href="mailto:info@jsanconsulting.com" className="group flex items-center gap-3 text-gray-700 transition-colors hover:text-[#0050a9]">
-                <Mail className="h-5 w-5 text-[#00a3e0]" />
+                <Mail className="h-5 w-5 text-[#0050a9]" />
                 <span>info@jsanconsulting.com</span>
               </a>
               <a href="tel:+442038650798" className="group flex items-center gap-3 text-gray-700 transition-colors hover:text-[#0050a9]">
-                <Phone className="h-5 w-5 text-[#00a3e0]" />
+                <Phone className="h-5 w-5 text-[#0050a9]" />
                 <span>+44 20 3865 0798</span>
               </a>
             </div>
@@ -240,7 +240,7 @@ export default function Contact() {
             <h2 className="text-[36px] lg:text-[48px] font-bold text-[#0050a9] mb-4">
               Get in Touch
             </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Tell us what you would like to discuss and we will route it to the right team.
             </p>
           </div>
@@ -393,7 +393,7 @@ export default function Contact() {
                     </button>
                   </div>
 
-                  <p className="text-xs text-gray-400">
+                  <p className="text-xs text-gray-500">
                     This site is protected by reCAPTCHA and the Google{' '}
                     <a href="#" className="text-[#0050a9] underline">Privacy Policy</a> and{' '}
                     <a href="#" className="text-[#0050a9] underline">Terms of Service</a> apply.
@@ -438,7 +438,7 @@ export default function Contact() {
                     <div>
                       <h4 className="font-bold text-gray-900 mb-1">Call Us</h4>
                       <span className="text-[#0050a9] text-sm font-medium">+44 20 3865 0798</span>
-                      <p className="text-gray-400 text-xs mt-1">Mon-Fri, 9am-6pm GMT</p>
+                      <p className="text-gray-500 text-xs mt-1">Mon-Fri, 9am-6pm GMT</p>
                     </div>
                   </div>
                 </a>
@@ -639,7 +639,7 @@ export default function Contact() {
       <section className="bg-white py-20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="mb-10 text-center">
-            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#00b4d8]">
+            <span className="t-label text-gray-500">
               Find Your Nearest Team
             </span>
             <h2 className="text-gradient mb-3 mt-4 text-[32px] font-bold lg:text-[40px]">
@@ -685,7 +685,7 @@ export default function Contact() {
                     key={filter}
                     onClick={() => setDirectoryRegion(filter)}
                     className={`group relative pb-1 text-sm font-semibold transition-colors duration-300 ${
-                      isActive ? 'text-[#0050a9]' : 'text-gray-400 hover:text-[#0050a9]'
+                      isActive ? 'text-[#0050a9]' : 'text-gray-500 hover:text-[#0050a9]'
                     }`}
                   >
                     {filter}
@@ -714,7 +714,7 @@ export default function Contact() {
                   <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#0050a9]">
                     {region.name}
                   </h3>
-                  <span className="text-xs text-gray-400">{offices.length}</span>
+                  <span className="text-xs text-gray-500">{offices.length}</span>
                   <span className="h-px flex-1 bg-gray-100" />
                 </div>
 
@@ -729,21 +729,21 @@ export default function Contact() {
                       <div className="min-w-0 flex-1">
                         <p className="flex items-center gap-2 font-semibold text-gray-800 transition-colors duration-300 group-hover:text-[#0050a9]">
                           {office.city}
-                          <span className="font-normal text-gray-400">{office.country}</span>
+                          <span className="font-normal text-gray-500">{office.country}</span>
                           {'isHQ' in office && office.isHQ && (
                             <span className="rounded bg-blue-50 px-1.5 py-0.5 text-[10px] font-bold text-[#0050a9]">
                               HQ
                             </span>
                           )}
                         </p>
-                        <p className="truncate text-xs text-gray-400">{office.address}</p>
+                        <p className="truncate text-xs text-gray-500">{office.address}</p>
                       </div>
 
                       <div className="flex shrink-0 items-center gap-3">
                         <a
                           href={`mailto:${office.email}`}
                           aria-label={`Email the ${office.city} office`}
-                          className="-m-2.5 flex h-11 w-11 items-center justify-center text-gray-300 transition-colors duration-300 hover:text-[#0050a9]"
+                          className="-m-2.5 flex h-11 w-11 items-center justify-center text-[#0050a9] transition-colors duration-300 hover:text-[#013e82]"
                         >
                           <Mail className="h-4 w-4" />
                         </a>
@@ -752,7 +752,7 @@ export default function Contact() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`Directions to the ${office.city} office`}
-                          className="-m-2.5 flex h-11 w-11 items-center justify-center text-gray-300 transition-colors duration-300 hover:text-[#0050a9]"
+                          className="-m-2.5 flex h-11 w-11 items-center justify-center text-[#0050a9] transition-colors duration-300 hover:text-[#013e82]"
                         >
                           <Navigation className="h-4 w-4" />
                         </a>

@@ -200,7 +200,7 @@ export default function OurServices() {
         <div className="mt-14 flex flex-col items-center gap-5">
           <div className="flex w-full max-w-lg items-center gap-4">
             <span className="h-px flex-1 bg-gradient-to-r from-transparent to-gray-200" />
-            <span className="whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
+            <span className="whitespace-nowrap t-label text-gray-500">
               Showing {featuredServices.length} of {services.length}
             </span>
             <span className="h-px flex-1 bg-gradient-to-l from-transparent to-gray-200" />

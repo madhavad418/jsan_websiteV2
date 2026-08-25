@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, Truck, Layers, Brain, Code } from 'lucide-react'
+import SectionLabel from './SectionLabel'
 
 /**
  * SECTION 03  OPERATE, MAP, INTELLIGENCE, ENGINEER
@@ -60,22 +61,20 @@ const modules = [
 
 export default function WhatJsanDoes() {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="section-y bg-white">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 max-w-3xl lg:mb-20">
-          <span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-            Operate &bull; Map &bull; Intelligence &bull; Engineer
-          </span>
-          <h2 className="mb-5 text-[32px] font-bold leading-[1.1] tracking-tight text-[#0a1a3a] lg:text-[46px]">
+        <div className="mb-20 max-w-3xl lg:mb-28">
+          <SectionLabel>Operate &bull; Map &bull; Intelligence &bull; Engineer</SectionLabel>
+          <h2 className="t-section mb-7 text-[#0a1a3a]">
             From the field to decision-ready intelligence
           </h2>
-          <p className="text-lg leading-relaxed text-gray-600 lg:text-xl">
+          <p className="t-body measure text-gray-600">
             JSAN brings together field execution, geospatial engineering, data operations and enterprise
             technology under one delivery model.
           </p>
         </div>
 
-        <div className="space-y-14 lg:space-y-20">
+        <div className="space-y-24 lg:space-y-36">
           {modules.map((m, i) => (
             <div
               key={m.num}
@@ -83,29 +82,22 @@ export default function WhatJsanDoes() {
             >
               {/* Alternate sides so the page has rhythm rather than four identical rows */}
               <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
+                {/* Numeral, hairline, label  no filled tile, no coloured chip. */}
                 <div className="flex items-center gap-4">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#012f62] to-[#0055b4] shadow-lg">
-                    <m.icon className="h-6 w-6 text-white" />
-                  </span>
-                  <span className="text-[42px] font-bold leading-none text-[#0050a9]/15 lg:text-[56px]">
+                  <span className="text-[40px] font-bold leading-none tracking-[-0.04em] text-[#868e9c] lg:text-[52px]">
                     {m.num}
                   </span>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-                    {m.stage}
-                  </span>
+                  <span aria-hidden="true" className="h-px w-8 bg-gray-300" />
+                  <m.icon className="h-5 w-5 text-[#0050a9]" aria-hidden="true" />
+                  <span className="t-label text-gray-500">{m.stage}</span>
                 </div>
 
-                <h3 className="mb-4 mt-6 text-[24px] font-bold leading-tight text-[#0a1a3a] lg:text-[32px]">
-                  {m.title}
-                </h3>
-                <p className="mb-7 max-w-lg text-base leading-relaxed text-gray-600 lg:text-lg">
-                  {m.description}
-                </p>
+                <h3 className="t-sub mb-5 mt-7 text-[#0a1a3a]">{m.title}</h3>
+                <p className="t-body mb-9 max-w-lg text-gray-600">{m.description}</p>
 
                 <Link
                   to={m.cta.href}
-                  className="group inline-flex items-center gap-2.5 rounded-lg px-7 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_-14px_rgba(0,80,169,0.9)]"
-                  style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}
+                  className="group inline-flex min-h-[44px] items-center gap-2.5 border-b border-[#0a1a3a]/20 pb-1 font-semibold text-[#0a1a3a] transition-colors duration-300 hover:border-[#0050a9] hover:text-[#0050a9]"
                 >
                   {m.cta.label}
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -113,13 +105,13 @@ export default function WhatJsanDoes() {
               </div>
 
               <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
-                <div className="overflow-hidden rounded-2xl bg-gray-100 shadow-xl ring-1 ring-black/5">
+                <div className="overflow-hidden rounded-2xl bg-gray-100">
                   <img
                     src={m.image}
                     alt={m.imageAlt}
                     width={1200}
                     height={800}
-                    className="h-[260px] w-full object-cover transition-transform duration-[900ms] ease-out hover:scale-105 lg:h-[380px]"
+                    className="h-[280px] w-full object-cover transition-transform duration-[900ms] ease-out hover:scale-[1.03] lg:h-[440px]"
                     loading="lazy"
                   />
                 </div>

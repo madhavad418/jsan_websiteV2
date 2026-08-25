@@ -32,7 +32,7 @@ export default function NotFound({ gone = false }: { gone?: boolean }) {
 
       <main className="px-6 pb-20 pt-32 lg:pb-28 lg:pt-40" style={{ marginTop: '44px' }}>
         <div className="mx-auto max-w-3xl">
-          <span className="mb-4 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+          <span className="mb-4 inline-flex items-center gap-2 t-label text-gray-500">
             <Compass className="h-4 w-4" />
             {gone ? 'Page removed' : 'Page not found'}
           </span>

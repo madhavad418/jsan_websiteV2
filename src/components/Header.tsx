@@ -252,11 +252,50 @@ export default function Header() {
     setIsMobileMenuOpen(false)
   }, [location.pathname])
 
-  // Header is always solid white and sticky
-  const showLight = true
+  /*
+   * The bar is transparent while it sits on a dark hero and turns solid as soon as the
+   * visitor scrolls, so the hero reads full-bleed instead of starting under a white slab.
+   *
+   * `data-hero="dark"` is set by ImageHero on the pages that have one. Every other page
+   * gets the solid bar immediately, because navy-on-white is unreadable over a light hero.
+   */
+  const [scrolled, setScrolled] = useState(false)
+  const [darkHero, setDarkHero] = useState(false)
 
-  const navLinkClass = `text-base font-semibold transition-colors flex items-center gap-1 ${
-    showLight ? 'text-[#0050a9] hover:text-[#0050a9]' : 'text-white/90 hover:text-white'
+  useEffect(() => {
+    const read = () => setDarkHero(document.body.dataset.hero === 'dark')
+    read()
+    // The hero mounts after the header, and again on every route change.
+    const observer = new MutationObserver(read)
+    observer.observe(document.body, { attributes: true, attributeFilter: ['data-hero'] })
+    return () => observer.disconnect()
+  }, [location.pathname])
+
+  useEffect(() => {
+    let frame = 0
+    const onScroll = () => {
+      if (frame) return
+      frame = requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 24)
+        frame = 0
+      })
+    }
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (frame) cancelAnimationFrame(frame)
+    }
+  }, [])
+
+  // An open menu forces the solid bar: the mega panel is white and needs something to
+  // sit against.
+  const showLight = !darkHero || scrolled || Boolean(openDropdown) || isMobileMenuOpen
+
+  /* Navigation is charcoal on the solid bar, not blue: the one blue thing up here is
+     the CTA. */
+  const navLinkClass = `flex items-center gap-1 text-[15px] font-semibold transition-colors ${
+    showLight ? 'text-[#0a1a3a] hover:text-[#0050a9]' : 'text-white/90 hover:text-white'
   }`
 
   return (
@@ -269,13 +308,30 @@ export default function Header() {
       {/* Main Header */}
       <header
         ref={headerRef}
-        className={`fixed top-11 left-0 right-0 z-50 transition-all duration-300 ${showLight
-          ? 'bg-white shadow-md py-3'
-          : 'bg-transparent py-4'
-          }`}
+        className={`fixed top-11 left-0 right-0 z-50 transition-colors duration-300 ${
+          showLight ? 'border-b border-gray-200/80 bg-white' : 'bg-transparent'
+        }`}
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <nav className="flex items-center justify-between">
+        {/*
+          Transparent does not mean "nothing". A photograph can be bright anywhere, and
+          white nav text over the bright half of this hero measured 2.3:1. This gradient
+          is the contrast floor: strong enough behind the nav row to clear AA whatever
+          image is used, gone by the bottom edge so the bar still reads as open.
+        */}
+        {!showLight && (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 h-[130%]"
+            style={{
+              background:
+                'linear-gradient(180deg, rgba(3,16,31,0.72) 0%, rgba(3,16,31,0.62) 55%, rgba(3,16,31,0) 100%)',
+            }}
+          />
+        )}
+        <div className="relative max-w-7xl mx-auto px-6">
+          {/* A fixed 76px bar rather than padding around the content, so the height does
+              not move when the logo or CTA changes size. */}
+          <nav className="relative flex h-[76px] items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center">
               <img
@@ -283,7 +339,9 @@ export default function Header() {
                 alt="JSAN"
                 width={172}
                 height={56}
-                className={`transition-all w-[150px] h-auto ${showLight ? '' : 'brightness-0 invert'}`}
+                className={`h-auto w-[142px] transition-all duration-300 ${
+                  showLight ? '' : 'brightness-0 invert'
+                }`}
               />
             </Link>
 
@@ -303,7 +361,7 @@ export default function Header() {
                       onMouseLeave={scheduleClose}
                     >
                       {item.href ? (
-                        <span className={`${navLinkClass} py-2 ${isActive ? 'text-[#012f62]' : ''}`}>
+                        <span className={`${navLinkClass} py-2 ${isActive ? (showLight ? 'text-[#0050a9]' : 'text-white') : ''}`}>
                           <Link
                             to={item.href}
                             onFocus={() => openMenu(item.name)}
@@ -332,7 +390,7 @@ export default function Header() {
                           onFocus={() => openMenu(item.name)}
                           aria-expanded={isOpen}
                           aria-current={isActive ? 'true' : undefined}
-                          className={`${navLinkClass} py-2 ${isActive ? 'text-[#012f62]' : ''}`}
+                          className={`${navLinkClass} py-2 ${isActive ? (showLight ? 'text-[#0050a9]' : 'text-white') : ''}`}
                         >
                           {item.name}
                           <ChevronDown
@@ -343,9 +401,9 @@ export default function Header() {
                       {/* Underline: shown while the panel is open, and kept on for
                           the section the current page belongs to */}
                       <span
-                        className={`pointer-events-none absolute -bottom-1 left-0 h-0.5 rounded-full bg-gradient-to-r from-[#0050a9] to-[#00d4ff] transition-all duration-300 ${
-                          isOpen || isActive ? 'w-full opacity-100' : 'w-0 opacity-0'
-                        }`}
+                        className={`pointer-events-none absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
+                          showLight ? 'bg-[#0050a9]' : 'bg-white'
+                        } ${isOpen || isActive ? 'w-full opacity-100' : 'w-0 opacity-0'}`}
                       />
                     </div>
                   )
@@ -359,14 +417,14 @@ export default function Header() {
                         to={item.href!}
                         onMouseEnter={scheduleClose}
                         aria-current={isActive ? 'page' : undefined}
-                        className={`${navLinkClass} py-2 ${isActive ? 'text-[#012f62]' : ''}`}
+                        className={`${navLinkClass} py-2 ${isActive ? (showLight ? 'text-[#0050a9]' : 'text-white') : ''}`}
                       >
                         {item.name}
                       </Link>
                       <span
-                        className={`pointer-events-none absolute -bottom-1 left-0 h-0.5 rounded-full bg-gradient-to-r from-[#0050a9] to-[#00d4ff] transition-all duration-300 ${
-                          isActive ? 'w-full opacity-100' : 'w-0 opacity-0'
-                        }`}
+                        className={`pointer-events-none absolute -bottom-1 left-0 h-0.5 transition-all duration-300 ${
+                          showLight ? 'bg-[#0050a9]' : 'bg-white'
+                        } ${isActive ? 'w-full opacity-100' : 'w-0 opacity-0'}`}
                       />
                     </div>
                   )
@@ -379,12 +437,17 @@ export default function Header() {
                 )
               })}
 
+              {/* The only prominent CTA in the header. On the transparent bar it
+                  inverts to white so it stays the brightest thing on the row. */}
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_28px_-12px_rgba(0,80,169,0.95)]"
-                style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}
+                className={`group inline-flex min-h-[44px] items-center gap-2 rounded-full px-6 text-[15px] font-semibold transition-colors duration-300 ${
+                  showLight
+                    ? 'bg-[#0050a9] text-white hover:bg-[#013e82]'
+                    : 'bg-white text-[#0a1a3a] hover:bg-white/90'
+                }`}
               >
-                Talk to JSAN
+                Talk to our team
                 <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>

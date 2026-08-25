@@ -381,7 +381,7 @@ export default function TechnologyDetail() {
               <span className="font-medium text-[#0050a9]">{tech.title}</span>
             </nav>
 
-            <span className="mb-5 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+            <span className="mb-5 inline-block t-label text-gray-500">
               {tech.title}
             </span>
             <h1 className="mb-5 text-[34px] font-bold leading-[1.06] tracking-tight text-[#0a1a3a] lg:text-[52px]">

@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import SectionLabel from './SectionLabel'
 
 /**
  * SECTION 05  INDUSTRIES
  *
- * Six image panels, each opening a dedicated industry journey rather than dropping the
+ * Image panels, each opening a dedicated industry journey rather than dropping the
  * visitor into a service list to work out which part applies to them.
+ *
+ * The homepage shows three; /industries carries the full set. All six stay defined here
+ * so changing which ones are featured is a one-line edit to FEATURED below, not a
+ * rewrite  and so the copy for the others does not have to be reconstructed later.
  */
 const industries = [
   {
@@ -51,25 +56,34 @@ const industries = [
   },
 ]
 
+/** The three shown on the homepage, in the order they appear. */
+const FEATURED = [
+  '/industries/mapping-location-platforms',
+  '/industries/utilities',
+  '/industries/government-smart-cities',
+]
+
+const featuredIndustries = FEATURED.map(
+  (href) => industries.find((industry) => industry.href === href)
+).filter((industry): industry is (typeof industries)[number] => Boolean(industry))
+
 export default function IndustryPanels() {
   return (
-    <section className="bg-gray-50 py-20 lg:py-28">
+    <section className="section-y bg-[#f7f8fa]">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-14 max-w-3xl lg:mb-16">
-          <span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-            Industries
-          </span>
-          <h2 className="text-[30px] font-bold leading-[1.1] tracking-tight text-[#0a1a3a] lg:text-[46px]">
+        <div className="mb-16 max-w-3xl lg:mb-20">
+          <SectionLabel>Industries</SectionLabel>
+          <h2 className="t-section text-[#0a1a3a]">
             Built for operations where location matters
           </h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {industries.map((industry) => (
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {featuredIndustries.map((industry) => (
             <Link
               key={industry.name}
               to={industry.href}
-              className="group relative flex h-[340px] flex-col justify-end overflow-hidden rounded-2xl shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
+              className="group relative flex h-[360px] flex-col justify-end overflow-hidden rounded-sm transition-all duration-500 lg:h-[420px]"
             >
               <img
                 src={industry.image}
@@ -81,12 +95,14 @@ export default function IndustryPanels() {
                 loading="lazy"
               />
               {/* The panels sit on photography, so the overlay carries the contrast */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#05132b] via-[#05132b]/75 to-[#05132b]/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#05132b] via-[#05132b]/70 to-transparent transition-opacity duration-500 group-hover:from-[#05132b]" />
 
-              <div className="relative p-7">
-                <h3 className="mb-2.5 text-xl font-bold leading-tight text-white">{industry.name}</h3>
-                <p className="mb-5 text-sm leading-relaxed text-white/75">{industry.description}</p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#00d4ff]">
+              <div className="relative p-8">
+                <h3 className="t-sub mb-3 text-white">{industry.name}</h3>
+                <p className="mb-6 max-w-sm text-[15px] leading-relaxed text-white/70">
+                  {industry.description}
+                </p>
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-white">
                   Explore
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
@@ -95,11 +111,10 @@ export default function IndustryPanels() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-14">
           <Link
             to="/industries"
-            className="group inline-flex items-center gap-2.5 rounded-lg px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_-14px_rgba(0,80,169,0.9)]"
-            style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}
+            className="group inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-[#0050a9] px-8 font-semibold text-white transition-colors duration-300 hover:bg-[#013e82]"
           >
             Explore Industries
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

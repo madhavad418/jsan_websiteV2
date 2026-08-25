@@ -86,8 +86,8 @@ export default function ServiceHero({
             <span className="font-medium text-[#0050a9]">{breadcrumb}</span>
           </nav>
 
-          <span className="mb-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-            {EyebrowIcon && <EyebrowIcon className="h-4 w-4" />}
+          <span className="mb-5 inline-flex items-center gap-2 t-label text-gray-500">
+            {EyebrowIcon && <EyebrowIcon className="h-4 w-4 text-[#0050a9]" aria-hidden="true" />}
             {eyebrow}
           </span>
 

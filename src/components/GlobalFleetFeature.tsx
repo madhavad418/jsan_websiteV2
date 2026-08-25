@@ -873,11 +873,11 @@ function OperationalRegionsVisual() {
 
 export default function GlobalFleetFeature() {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="section-y bg-white">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section intro */}
         <div className="mb-14 max-w-3xl lg:mb-16">
-          <span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+          <span className="mb-4 inline-block t-label text-gray-500">
             Global Field Operations
           </span>
 
@@ -898,28 +898,24 @@ export default function GlobalFleetFeature() {
           <OperationalRegionsVisual />
 
           <div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            {/* Six operating figures. They were six bordered cards with a blue icon
+                tile each; as plain numbers on hairlines they read faster and stop the
+                column competing with the map beside it. */}
+            <div className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
               {operationalCards.map((card) => {
                 const Icon = card.icon
 
                 return (
-                  <div
-                    key={card.label}
-                    className="group rounded-xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0050a9]/10 hover:shadow-md"
-                  >
-                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#e8f4fc] transition-colors duration-300 group-hover:bg-[#dceffc]">
-                      <Icon className="h-5 w-5 text-[#0050a9]" />
-                    </div>
+                  <div key={card.label} className="border-t border-gray-200 pt-5">
+                    <Icon className="mb-4 h-5 w-5 text-[#0050a9]" aria-hidden="true" />
 
-                    <div className="text-2xl font-bold leading-none text-[#0050a9]">
+                    <div className="text-[34px] font-bold leading-none tracking-[-0.03em] text-[#0a1a3a]">
                       {card.value}
                     </div>
 
-                    <div className="mt-1.5 text-sm font-semibold text-[#0a1a3a]">
-                      {card.label}
-                    </div>
+                    <div className="mt-3 t-label text-gray-500">{card.label}</div>
 
-                    <div className="mt-0.5 text-xs leading-relaxed text-gray-500">
+                    <div className="mt-2 text-sm leading-relaxed text-gray-500">
                       {card.detail}
                     </div>
                   </div>
@@ -929,10 +925,9 @@ export default function GlobalFleetFeature() {
 
             <Link
               to="/services/global-fleet-collection-operations"
-              className="group mt-8 inline-flex items-center gap-2.5 rounded-lg px-7 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_-14px_rgba(0,80,169,0.9)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00a3e0] focus-visible:ring-offset-2"
+              className="group mt-12 inline-flex min-h-[52px] items-center gap-2.5 rounded-full px-8 font-semibold text-white transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0050a9] focus-visible:ring-offset-2"
               style={{
-                background:
-                  'linear-gradient(120deg, #012f62, #0055b4)',
+                background: '#0050a9',
               }}
             >
               Explore Global Fleet &amp; Field Operations

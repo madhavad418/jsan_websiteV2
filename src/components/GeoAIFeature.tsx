@@ -31,10 +31,10 @@ export default function GeoAIFeature() {
   const [split, setSplit] = useState(50)
 
   return (
-    <section className="bg-gray-50 py-20 lg:py-28">
+    <section className="section-y bg-[#f7f8fa]">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-14 max-w-3xl lg:mb-16">
-          <span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+          <span className="mb-4 inline-block t-label text-gray-500">
             GeoAI &amp; Computer Vision
           </span>
           <h2 className="mb-5 text-[28px] font-bold leading-[1.12] tracking-tight text-[#0a1a3a] lg:text-[42px]">
@@ -47,7 +47,7 @@ export default function GeoAIFeature() {
         </div>
 
         {/* Before / after */}
-        <div className="relative overflow-hidden rounded-2xl bg-[#05132b] shadow-xl ring-1 ring-black/5">
+        <div className="relative overflow-hidden rounded-sm bg-[#05132b]">
           <div className="relative h-[300px] select-none sm:h-[420px] lg:h-[520px]">
             {/* After  detected and classified */}
             <img
@@ -104,14 +104,12 @@ export default function GeoAIFeature() {
 
         {/* Detections */}
         <div className="mt-10">
-          <div className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-[#00a3e0]">
-            Example detections
-          </div>
+          <div className="mb-5 t-label text-gray-500">Example detections</div>
           <div className="flex flex-wrap gap-2.5">
             {detections.map((d) => (
               <span
                 key={d}
-                className="rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-medium text-[#0050a9]"
+                className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-700"
               >
                 {d}
               </span>
@@ -120,27 +118,23 @@ export default function GeoAIFeature() {
         </div>
 
         {/* Process */}
-        <div className="mt-12 rounded-2xl border border-gray-100 bg-white p-7 shadow-sm lg:p-9">
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
-            {process.map((step, i) => (
-              <div key={step.name} className="relative">
-                <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#012f62] to-[#0055b4] shadow-md">
-                  <step.icon className="h-5 w-5 text-white" />
-                </div>
-                <div className="text-sm font-bold text-[#0a1a3a]">{step.name}</div>
-                {i < process.length - 1 && (
-                  <ArrowRight className="absolute -right-4 top-3 hidden h-4 w-4 text-[#0050a9]/25 lg:block" />
-                )}
+        {/* A sequence, not five cards: numerals and a rule carry the order. */}
+        <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-gray-200 pt-10 sm:grid-cols-3 lg:grid-cols-5">
+          {process.map((step, i) => (
+            <div key={step.name}>
+              <div className="mb-3 text-[13px] font-bold tabular-nums text-[#868e9c]">
+                {String(i + 1).padStart(2, '0')}
               </div>
-            ))}
-          </div>
+              <step.icon className="mb-3 h-5 w-5 text-[#0050a9]" aria-hidden="true" />
+              <div className="text-[15px] font-semibold text-[#0a1a3a]">{step.name}</div>
+            </div>
+          ))}
         </div>
 
         <div className="mt-10">
           <Link
             to="/services/geoai-computer-vision"
-            className="group inline-flex items-center gap-2.5 rounded-lg px-7 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_-14px_rgba(0,80,169,0.9)]"
-            style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}
+            className="group inline-flex min-h-[52px] items-center gap-2.5 rounded-full bg-[#0050a9] px-8 font-semibold text-white transition-colors duration-300 hover:bg-[#013e82]"
           >
             Explore GeoAI
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

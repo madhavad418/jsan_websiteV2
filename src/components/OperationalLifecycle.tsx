@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import SectionLabel from './SectionLabel'
 import { ChevronRight } from 'lucide-react'
 
 /**
@@ -62,7 +63,7 @@ export default function OperationalLifecycle() {
   const current = stages[active]
 
   return (
-    <section className="relative overflow-hidden bg-[#05132b] py-20 lg:py-28">
+    <section className="section-y relative overflow-hidden bg-[#05132b]">
       <div className="pointer-events-none absolute inset-0">
         <div
           className="absolute inset-0"
@@ -79,14 +80,12 @@ export default function OperationalLifecycle() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="mb-14 max-w-3xl lg:mb-16">
-          <span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00d4ff]">
-            How JSAN Delivers
-          </span>
-          <h2 className="mb-5 text-[30px] font-bold leading-[1.1] tracking-tight text-white lg:text-[46px]">
+        <div className="mb-16 max-w-3xl lg:mb-20">
+          <SectionLabel tone="dark">How JSAN Delivers</SectionLabel>
+          <h2 className="t-section mb-7 text-white">
             Mobilise. Collect. Operate. Process. Validate. Deliver.
           </h2>
-          <p className="text-lg leading-relaxed text-white/70">
+          <p className="t-body measure text-white/65">
             One sequence, one accountable owner. Every programme runs through the same six
             stages, whichever part of it you engage us for.
           </p>
@@ -94,7 +93,7 @@ export default function OperationalLifecycle() {
 
         {/* Desktop: preview above, interactive rail below */}
         <div className="hidden lg:block">
-          <div className="mb-8 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
+          <div className="mb-12 overflow-hidden rounded-sm">
             <div className="relative h-[420px]">
               {stages.map((stage, i) => (
                 <img
@@ -129,22 +128,24 @@ export default function OperationalLifecycle() {
                   onFocus={() => setActive(i)}
                   onClick={() => setActive(i)}
                   aria-current={i === active}
-                  className={`flex-1 rounded-xl border p-5 text-left transition-all duration-300 ${
+                  /* A rule per stage rather than six boxes: only the selected one
+                     carries colour. */
+                  className={`flex-1 border-t-2 px-1 py-6 text-left transition-colors duration-300 ${
                     i === active
-                      ? 'border-[#00d4ff]/50 bg-[#00d4ff]/10'
-                      : 'border-white/10 bg-white/[0.03] hover:border-white/25 hover:bg-white/[0.07]'
+                      ? 'border-[#00d4ff]'
+                      : 'border-white/15 hover:border-white/40'
                   }`}
                 >
                   <div
-                    className={`mb-1 text-[10px] font-bold tracking-[0.2em] ${
-                      i === active ? 'text-[#00d4ff]' : 'text-white/40'
+                    className={`mb-2 text-xs font-bold tabular-nums ${
+                      i === active ? 'text-[#00d4ff]' : 'text-white/35'
                     }`}
                   >
                     {String(i + 1).padStart(2, '0')}
                   </div>
                   <div
-                    className={`mb-3 text-sm font-bold uppercase tracking-wider ${
-                      i === active ? 'text-white' : 'text-white/70'
+                    className={`mb-4 text-[17px] font-bold ${
+                      i === active ? 'text-white' : 'text-white/60'
                     }`}
                   >
                     {stage.name}
@@ -174,7 +175,7 @@ export default function OperationalLifecycle() {
         {/* Mobile: vertical sequence, each stage carrying its own visual */}
         <div className="space-y-5 lg:hidden">
           {stages.map((stage, i) => (
-            <div key={stage.id} className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
+            <div key={stage.id} className="overflow-hidden rounded-sm border-t-2 border-white/15">
               <div className="relative h-44">
                 <img
                   src={stage.image}

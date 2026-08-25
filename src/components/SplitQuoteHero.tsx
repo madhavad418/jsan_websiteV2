@@ -50,7 +50,7 @@ export default function SplitQuoteHero({
         {/* Copy */}
         <div className="animate-[fadeIn_0.45s_ease-out_both] motion-reduce:animate-none">
           {eyebrow && (
-            <span className="mb-5 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+            <span className="mb-5 inline-block t-label text-gray-500">
               {eyebrow}
             </span>
           )}

@@ -23,10 +23,10 @@ const pillars = [
 
 export default function OperationalAssurance() {
   return (
-    <section className="bg-gray-50 py-20 lg:py-28">
+    <section className="section-y bg-[#f7f8fa]">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-14 max-w-3xl lg:mb-16">
-          <span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+          <span className="mb-4 inline-block t-label text-gray-500">
             Operational Assurance
           </span>
           <h2 className="mb-5 text-[30px] font-bold leading-[1.1] tracking-tight text-[#0a1a3a] lg:text-[46px]">

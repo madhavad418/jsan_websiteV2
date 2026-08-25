@@ -62,7 +62,7 @@ export default function EnquiryFields({ topicId }: { topicId: string | null }) {
 
   return (
     <div key={key} className="rounded-2xl border border-blue-100 bg-[#f7fbff] p-5 lg:p-6">
-      <div className="mb-1 text-[11px] font-bold uppercase tracking-[0.2em] text-[#00a3e0]">
+      <div className="mb-1 t-label text-gray-500">
         About your {topic.label.toLowerCase()} enquiry
       </div>
       {topic.hint && <p className="mb-5 text-sm text-gray-600">{topic.hint}</p>}

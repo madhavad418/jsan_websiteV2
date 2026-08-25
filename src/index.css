@@ -59,6 +59,85 @@
 }
 
 /* ============================================
+   SECTION RHYTHM & TYPE SCALE
+
+   The design system the sections actually use. Changing the feel of the site  more air,
+   larger headings, a quieter palette  happens here rather than in forty components.
+
+   RESTRAINT RULES (why so little blue below)
+     - Neutrals carry roughly 80% of the page: white, off-white, charcoal, deep navy.
+     - JSAN blue is reserved for things that are actually actionable or actually selected:
+       the primary CTA, a live link, the current state. Not every icon, border and label.
+     - Cyan is a dark-section accent only. On white it shouted.
+   ============================================ */
+@layer components {
+  /* Vertical rhythm. 76px on a phone, 136px on desktop: the whitespace is the design. */
+  .section-y {
+    padding-block: 76px;
+  }
+  .section-y-sm {
+    padding-block: 56px;
+  }
+  @media (min-width: 1024px) {
+    .section-y {
+      padding-block: 136px;
+    }
+    .section-y-sm {
+      padding-block: 96px;
+    }
+  }
+
+  /* Hero headline: the largest thing on the page by a clear margin. 40 -> 72px. */
+  .t-display {
+    font-size: clamp(2.5rem, 1.4rem + 4.6vw, 4.5rem);
+    line-height: 1.03;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+  }
+
+  /* Section heading: 32 -> 54px. Big enough to structure the page on its own. */
+  .t-section {
+    font-size: clamp(2rem, 1.35rem + 2.7vw, 3.375rem);
+    line-height: 1.07;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  /* Sub-heading inside a section: 21 -> 30px. */
+  .t-sub {
+    font-size: clamp(1.3125rem, 1.15rem + 0.75vw, 1.875rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  /* Body: 17 -> 19px, generous leading. */
+  .t-body {
+    font-size: clamp(1.0625rem, 1.02rem + 0.2vw, 1.1875rem);
+    line-height: 1.72;
+  }
+
+  /* Small uppercase label. Neutral by default; the accent lives in the rule beside it. */
+  .t-label {
+    font-size: 0.75rem;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  /* Standard measure for a lead paragraph, so it never runs the full container width. */
+  .measure {
+    max-width: 62ch;
+  }
+
+  /* Anchor targets clear the fixed ticker (44px) and header (76px) when jumped to. */
+  .jump-target {
+    scroll-margin-top: 132px;
+  }
+}
+
+/* ============================================
    BASE STYLES
    ============================================ */
 * {

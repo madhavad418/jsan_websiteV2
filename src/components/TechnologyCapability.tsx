@@ -47,7 +47,7 @@ export default function TechnologyCapability() {
     <section className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-14 max-w-3xl lg:mb-16">
-          <span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+          <span className="mb-4 inline-block t-label text-gray-500">
             Technology
           </span>
           <h2 className="mb-5 text-[28px] font-bold leading-[1.12] tracking-tight text-[#0a1a3a] lg:text-[42px]">

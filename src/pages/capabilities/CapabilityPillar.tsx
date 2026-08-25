@@ -63,8 +63,8 @@ export default function CapabilityPillar() {
               <span className="font-medium text-[#0050a9]">{pillar.name}</span>
             </nav>
 
-            <span className="mb-5 inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-              <pillar.icon className="h-4 w-4" />
+            <span className="mb-5 inline-flex items-center gap-2 t-label text-gray-500">
+              <pillar.icon className="h-4 w-4 text-[#0050a9]" aria-hidden="true" />
               Capability Pillar
             </span>
 
@@ -107,9 +107,9 @@ export default function CapabilityPillar() {
       </section>
 
       {/* Where this pillar sits in the lifecycle */}
-      <section className="border-y border-gray-100 bg-gray-50 py-10">
+      <section className="border-y border-gray-200 bg-[#f7f8fa] py-12">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-5 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
+          <div className="mb-5 t-label text-gray-500">
             Lifecycle stages owned
           </div>
           <div className="flex flex-col items-start gap-y-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2.5">
@@ -125,7 +125,7 @@ export default function CapabilityPillar() {
                   </span>
                 </span>
                 {i < pillar.stages.length - 1 && (
-                  <ChevronRight className="ml-5 h-4 w-4 shrink-0 rotate-90 text-[#00a3e0] sm:ml-0 sm:rotate-0" />
+                  <ChevronRight className="ml-5 h-4 w-4 shrink-0 rotate-90 text-[#0050a9] sm:ml-0 sm:rotate-0" />
                 )}
               </span>
             ))}
@@ -134,10 +134,10 @@ export default function CapabilityPillar() {
       </section>
 
       {/* What it covers  each line is a real page */}
-      <section className="bg-white py-20 lg:py-24">
+      <section className="section-y bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 max-w-3xl">
-            <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+            <span className="mb-3 inline-block t-label text-gray-500">
               What It Covers
             </span>
             <h2 className="text-[28px] font-bold leading-tight text-[#0a1a3a] lg:text-[38px]">
@@ -164,11 +164,11 @@ export default function CapabilityPillar() {
       </section>
 
       {/* Outcomes + industries */}
-      <section className="bg-gray-50 py-20 lg:py-24">
+      <section className="section-y bg-[#f7f8fa]">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
             <div>
-              <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+              <span className="mb-3 inline-block t-label text-gray-500">
                 Outcomes
               </span>
               <h2 className="mb-6 text-[26px] font-bold leading-tight text-[#0a1a3a] lg:text-[34px]">
@@ -185,7 +185,7 @@ export default function CapabilityPillar() {
             </div>
 
             <div>
-              <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+              <span className="mb-3 inline-block t-label text-gray-500">
                 Where It Applies
               </span>
               <h2 className="mb-6 text-[26px] font-bold leading-tight text-[#0a1a3a] lg:text-[34px]">
@@ -204,7 +204,7 @@ export default function CapabilityPillar() {
                 ))}
               </div>
 
-              <div className="mb-3 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
+              <div className="mb-3 t-label text-gray-500">
                 Other pillars
               </div>
               <div className="flex flex-wrap gap-2">
@@ -224,7 +224,7 @@ export default function CapabilityPillar() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 lg:py-24" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
+      <section className="section-y" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="mb-5 text-[28px] font-bold text-white lg:text-[38px]">
             Let&rsquo;s scope the {pillar.name.toLowerCase()} you need

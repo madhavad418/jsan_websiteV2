@@ -84,9 +84,9 @@ export default function WorkDetail() {
       </section>
 
       {/* Lifecycle stages this programme ran */}
-      <section className="border-b border-gray-100 bg-white py-10">
+      <section className="border-b border-gray-200 bg-white py-12">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mb-5 text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
+          <div className="mb-5 t-label text-gray-500">
             Lifecycle stages run
           </div>
           <div className="flex flex-col items-start gap-y-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-2.5">
@@ -102,7 +102,7 @@ export default function WorkDetail() {
                   </span>
                 </span>
                 {i < study.stages.length - 1 && (
-                  <ChevronRight className="ml-5 h-4 w-4 shrink-0 rotate-90 text-[#00a3e0] sm:ml-0 sm:rotate-0" />
+                  <ChevronRight className="ml-5 h-4 w-4 shrink-0 rotate-90 text-[#0050a9] sm:ml-0 sm:rotate-0" />
                 )}
               </span>
             ))}
@@ -111,12 +111,12 @@ export default function WorkDetail() {
       </section>
 
       {/* The programme, answered the same way every time */}
-      <section className="bg-white py-16 lg:py-20">
+      <section className="section-y-sm bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-x-14 gap-y-10 md:grid-cols-2">
             {detail.map((row) => (
               <div key={row.label}>
-                <div className="mb-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#00a3e0]">
+                <div className="mb-2.5 t-label text-gray-500">
                   {row.label}
                 </div>
                 <p className="leading-relaxed text-gray-600">{row.value}</p>
@@ -127,11 +127,11 @@ export default function WorkDetail() {
       </section>
 
       {/* Where to go next */}
-      <section className="bg-gray-50 py-16 lg:py-20">
+      <section className="section-y-sm bg-[#f7f8fa]">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
-              <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+              <span className="mb-3 inline-block t-label text-gray-500">
                 Capabilities Applied
               </span>
               <h2 className="mb-6 text-[24px] font-bold leading-tight text-[#0a1a3a] lg:text-[30px]">
@@ -159,7 +159,7 @@ export default function WorkDetail() {
             </div>
 
             <div>
-              <span className="mb-3 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+              <span className="mb-3 inline-block t-label text-gray-500">
                 More Work
               </span>
               <h2 className="mb-6 text-[24px] font-bold leading-tight text-[#0a1a3a] lg:text-[30px]">
@@ -173,7 +173,7 @@ export default function WorkDetail() {
                     className="group flex items-center justify-between gap-4 rounded-xl border border-gray-200 bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#0050a9]/30 hover:shadow-md"
                   >
                     <span>
-                      <span className="mb-1 block text-[10px] font-bold tracking-[0.2em] text-[#00a3e0]">
+                      <span className="mb-1 block t-label text-gray-500">
                         CASE STUDY {cs.number}
                       </span>
                       <span className="font-bold text-[#0a1a3a]">{cs.title}</span>
@@ -188,7 +188,7 @@ export default function WorkDetail() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 lg:py-24" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
+      <section className="section-y" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="mb-5 text-[28px] font-bold text-white lg:text-[38px]">
             Planning a programme like this?

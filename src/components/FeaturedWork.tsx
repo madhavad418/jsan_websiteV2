@@ -1,121 +1,76 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import SectionLabel from './SectionLabel'
 import { caseStudies } from '../data/work'
 
 /**
  * SECTION 08  FEATURED WORK
  *
- * Three programmes, each with a real page at /work/<slug>. Content comes from
- * src/data/work.ts so the homepage summary and the case study page cannot drift apart.
+ * Three photographs, each one a link into its case study at /work/<slug>.
+ *
+ * The homepage used to carry the whole case study inline  challenge, role, operating
+ * model, technology, scale and outcome, for whichever tab was selected. That is the case
+ * study page's job. Here the picture and the programme name are enough to decide whether
+ * to open it, and the page reads as work rather than as a document.
+ *
+ * Content comes from src/data/work.ts, so this and the case study pages cannot drift.
  */
 export default function FeaturedWork() {
-  const [active, setActive] = useState(0)
-  const study = caseStudies[active]
-
-  const detail: { label: string; value: string }[] = [
-    { label: 'Challenge', value: study.challenge },
-    { label: 'JSAN Role', value: study.role },
-    { label: 'Operating Model', value: study.operatingModel },
-    { label: 'Technology', value: study.technology },
-    { label: 'Scale', value: study.scale },
-    { label: 'Outcome', value: study.outcome },
-  ]
-
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="section-y bg-white">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-12 max-w-3xl lg:mb-14">
-          <span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
-            Featured Work
-          </span>
-          <h2 className="mb-5 text-[28px] font-bold leading-[1.12] tracking-tight text-[#0a1a3a] lg:text-[42px]">
-            Operational capability demonstrated in the real world
-          </h2>
-          <p className="text-lg leading-relaxed text-gray-600">
-            Programmes are shown anonymised where client naming permission is not yet in place.
-          </p>
-        </div>
-
-        {/* Selector */}
-        <div className="mb-8 grid gap-4 md:grid-cols-3">
-          {caseStudies.map((cs, i) => (
-            <button
-              key={cs.slug}
-              type="button"
-              onClick={() => setActive(i)}
-              aria-current={i === active}
-              className={`rounded-2xl border p-6 text-left transition-all duration-300 ${
-                i === active
-                  ? 'border-[#0050a9] bg-[#f0f7ff] shadow-md'
-                  : 'border-gray-100 bg-white hover:-translate-y-0.5 hover:border-[#0050a9]/30 hover:shadow-sm'
-              }`}
-            >
-              <div className="mb-2 text-[11px] font-bold tracking-[0.2em] text-[#00a3e0]">
-                CASE STUDY {cs.number}
-              </div>
-              <div className="mb-2 text-lg font-bold leading-tight text-[#0a1a3a]">{cs.title}</div>
-              <p className="text-sm leading-relaxed text-gray-600">{cs.summary}</p>
-            </button>
-          ))}
-        </div>
-
-        {/* Detail */}
-        <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-lg">
-          <div className="relative h-48 lg:h-64">
-            <img
-              key={study.image}
-              src={study.image}
-              alt={study.title}
-              width={1200}
-              height={800}
-              className="h-full w-full animate-fade-in object-cover"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#05132b] via-[#05132b]/50 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-7">
-              <h3 className="mb-3 text-xl font-bold text-white lg:text-2xl">{study.title}</h3>
-              <div className="flex flex-wrap gap-2">
-                {study.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-medium text-white backdrop-blur-sm"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
+        {/* Heading left, the way through to everything else on the right. */}
+        <div className="mb-14 flex flex-col gap-8 lg:mb-20 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+          <div className="max-w-3xl">
+            <SectionLabel>Featured Work</SectionLabel>
+            <h2 className="t-section mb-7 text-[#0a1a3a]">
+              Operational capability demonstrated in the real world
+            </h2>
+            <p className="t-body measure text-gray-600">
+              Programmes are shown anonymised where client naming permission is not yet in place.
+            </p>
           </div>
 
-          <div className="grid gap-x-10 gap-y-7 bg-white p-7 md:grid-cols-2 lg:p-9">
-            {detail.map((row) => (
-              <div key={row.label}>
-                <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#00a3e0]">
-                  {row.label}
-                </div>
-                <p className="text-sm leading-relaxed text-gray-600">{row.value}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <Link
-            to={`/work/${study.slug}`}
-            className="group inline-flex items-center gap-2.5 rounded-lg px-7 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_-14px_rgba(0,80,169,0.9)]"
-            style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}
-          >
-            Read the full case study
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
           <Link
             to="/work"
-            className="group inline-flex items-center gap-2 rounded-lg border-2 border-[#0050a9]/20 px-7 py-3.5 font-semibold text-[#0050a9] transition-all duration-300 hover:border-[#0050a9] hover:bg-[#0050a9] hover:text-white"
+            className="group inline-flex min-h-[52px] shrink-0 items-center gap-2.5 rounded-full bg-[#0050a9] px-8 font-semibold text-white transition-colors duration-300 hover:bg-[#013e82]"
           >
-            All Work
+            All work
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {caseStudies.map((cs) => (
+            <Link
+              key={cs.slug}
+              to={`/work/${cs.slug}`}
+              className="group relative flex h-[420px] flex-col justify-end overflow-hidden rounded-2xl lg:h-[520px]"
+            >
+              <img
+                src={cs.image}
+                alt=""
+                aria-hidden="true"
+                width={1200}
+                height={800}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+              />
+              {/* The label sits on the photograph rather than under it, so the card stays
+                  a picture and the type still has something to read against. */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#05132b] via-[#05132b]/55 to-transparent transition-colors duration-500 group-hover:from-[#05132b] group-hover:via-[#05132b]/70" />
+
+              <div className="relative p-7">
+                <div className="mb-3 t-label text-white/60">Case Study {cs.number}</div>
+                <h3 className="t-sub mb-5 text-white">{cs.title}</h3>
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-white">
+                  Read the case study
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

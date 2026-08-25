@@ -10,7 +10,7 @@ import { ArrowRight } from 'lucide-react'
  */
 export default function FinalCTA() {
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32">
+    <section className="section-y relative overflow-hidden">
       <div className="absolute inset-0">
         <img
           src="/pillars/navigation-data.jpg"
@@ -34,10 +34,10 @@ export default function FinalCTA() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <h2 className="mb-6 text-[28px] font-bold leading-[1.12] tracking-tight text-white lg:text-[44px]">
+        <h2 className="t-section mb-8 text-white">
           Planning a complex geospatial or field operations program?
         </h2>
-        <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-white/75">
+        <p className="t-body mx-auto mb-12 max-w-2xl text-white/70">
           Bring us the operating challenge. We&rsquo;ll help define the mobilisation, delivery, technology and
           governance model required to execute it at scale.
         </p>

@@ -466,7 +466,7 @@ export default function CareerDetail() {
                         </div>
                       ) : (
                         <>
-                          <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                          <Upload className="w-8 h-8 text-[#0050a9] mx-auto mb-2" />
                           <p className="text-sm text-gray-600">
                             Click to upload or drag and drop
                           </p>

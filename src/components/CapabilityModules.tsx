@@ -32,7 +32,7 @@ export default function CapabilityModules({ eyebrow, heading, intro, modules, to
     <section className={tone === 'white' ? 'bg-white py-20 lg:py-24' : 'bg-gray-50 py-20 lg:py-24'}>
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-14 max-w-3xl">
-          <span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+          <span className="mb-4 inline-block t-label text-gray-500">
             {eyebrow}
           </span>
           <h2 className="mb-4 text-[28px] font-bold leading-[1.12] tracking-tight text-[#0a1a3a] lg:text-[40px]">
@@ -63,7 +63,7 @@ export default function CapabilityModules({ eyebrow, heading, intro, modules, to
                     { label: 'Output', value: m.pipeline.output },
                   ].map((row) => (
                     <div key={row.label} className="flex gap-2.5">
-                      <span className="w-[68px] shrink-0 text-[10px] font-bold uppercase tracking-wider text-[#00a3e0]">
+                      <span className="w-[68px] shrink-0 text-[10px] font-bold uppercase tracking-wider text-[#0050a9]">
                         {row.label}
                       </span>
                       <span className="text-xs leading-snug text-gray-600">{row.value}</span>

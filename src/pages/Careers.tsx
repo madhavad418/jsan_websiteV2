@@ -355,7 +355,7 @@ export default function Careers() {
             <div className="mt-10 flex flex-col items-center gap-4">
               <div className="flex w-full max-w-lg items-center gap-4">
                 <span className="h-px flex-1 bg-gradient-to-r from-transparent to-gray-200" />
-                <span className="whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400">
+                <span className="whitespace-nowrap t-label text-gray-500">
                   Showing {Math.min(visibleCount, filteredJobs.length)} of {filteredJobs.length}
                 </span>
                 <span className="h-px flex-1 bg-gradient-to-l from-transparent to-gray-200" />
@@ -378,7 +378,7 @@ export default function Careers() {
 
           {filteredJobs.length === 0 && (
             <div className="text-center py-16 bg-gray-50 rounded-lg">
-              <Briefcase className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <Briefcase className="w-16 h-16 text-[#0050a9]/40 mx-auto mb-4" />
               <p className="text-gray-500 text-lg mb-2">No positions found matching your criteria</p>
               <button
                 onClick={() => {

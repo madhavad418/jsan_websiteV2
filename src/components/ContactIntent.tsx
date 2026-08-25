@@ -25,7 +25,7 @@ export default function ContactIntent({ value, onSelect }: Props) {
 
   return (
     <div className="mb-10">
-      <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">Step 1</div>
+      <div className="mb-2 t-label text-gray-500">Step 1</div>
       <h3 className="mb-6 text-[22px] font-bold leading-tight text-[#0a1a3a] lg:text-[28px]">
         What would you like to discuss?
       </h3>

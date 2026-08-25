@@ -4,87 +4,58 @@ import { useCountUp, useInView, parseStat } from '../lib/useCountUp'
 export type StatItem = {
   number: string
   label: string
+  /** Accepted for compatibility; the band no longer draws icons  see the note below. */
   icon?: LucideIcon
 }
 
+/**
+ * The large-numbers moment.
+ *
+ * Previously four bordered, blurred, hover-lifting tiles with an icon in each  four cards
+ * saying what four numbers could say on their own. Now the numbers ARE the design: set
+ * large, separated by hairlines, on a plain deep-navy field. No boxes, no icons, no
+ * hover state, nothing competing with the figures.
+ */
 function Stat({ item, index, start }: { item: StatItem; index: number; start: boolean }) {
   const { number, suffix } = parseStat(item.number)
   const count = useCountUp(number, start, 1400 + index * 120)
-  const Icon = item.icon
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-7 text-center backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#00d4ff]/40 hover:bg-white/[0.1] hover:shadow-[0_14px_32px_-14px_rgba(0,212,255,0.55)] ${
-        start ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+      className={`px-2 py-6 text-center transition-all duration-700 sm:px-6 lg:py-2 lg:text-left ${
+        start ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
       }`}
       style={{ transitionDelay: `${index * 90}ms` }}
     >
-      <span className="pointer-events-none absolute inset-x-6 -top-px h-px bg-gradient-to-r from-transparent via-[#00d4ff] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-      {Icon && (
-        <div className="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/10 transition-all duration-300 group-hover:scale-110 group-hover:border-[#00d4ff]/40 group-hover:bg-[#00d4ff]/15">
-          <Icon className="h-5 w-5 text-[#00d4ff]" />
-        </div>
-      )}
-
-      <div className="mb-1.5 text-[30px] font-bold leading-none tracking-tight text-white tabular-nums lg:text-[38px]">
+      <div className="text-[clamp(2.5rem,1.6rem+3.4vw,4rem)] font-bold leading-none tracking-[-0.04em] text-white tabular-nums">
         {count}
-        <span className="text-[#00d4ff]">{suffix}</span>
+        <span className="text-white/45">{suffix}</span>
       </div>
-      <div className="text-[11px] font-medium uppercase tracking-wider text-white/70">{item.label}</div>
+      <div className="mt-4 t-label text-white/55">{item.label}</div>
     </div>
   )
 }
 
-/**
- * Full-width stats band with numbers that count up the first time the band
- * scrolls into view.
- */
-export default function StatsBand({
-  items,
-  eyebrow,
-}: {
-  items: StatItem[]
-  eyebrow?: string
-}) {
+export default function StatsBand({ items, eyebrow }: { items: StatItem[]; eyebrow?: string }) {
   const { ref, inView } = useInView<HTMLDivElement>()
 
   return (
-    <section
-      ref={ref}
-      className="relative overflow-hidden py-14 lg:py-16"
-      style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}
-    >
-      {/* Depth: faint grid + accent glows */}
+    <section ref={ref} className="section-y-sm relative overflow-hidden bg-[#0a1a3a]">
+      {/* One quiet accent, bottom right, instead of a grid plus two glows. */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.7) 1px, transparent 1px)',
-          backgroundSize: '56px 56px',
-        }}
-      />
-      <div
-        className="pointer-events-none absolute -left-32 -top-40 h-[420px] w-[420px] rounded-full"
-        style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.18), transparent 65%)' }}
-      />
-      <div
-        className="pointer-events-none absolute -bottom-44 -right-24 h-[480px] w-[480px] rounded-full"
-        style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.12), transparent 65%)' }}
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-40 -right-24 h-[420px] w-[420px] rounded-full"
+        style={{ background: 'radial-gradient(circle, rgba(0,212,255,0.10), transparent 65%)' }}
       />
 
       <div className="relative mx-auto max-w-7xl px-6">
         {eyebrow && (
-          <div className="mb-9 text-center">
-            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#00d4ff]">
-              {eyebrow}
-            </span>
-          </div>
+          <div className="mb-10 t-label text-white/45 lg:mb-14">{eyebrow}</div>
         )}
 
-        {/* Three metrics fill three columns rather than leaving a hole in a four-up grid */}
+        {/* Hairline dividers rather than boxes: the separation is implied, not drawn. */}
         <div
-          className={`grid grid-cols-2 gap-4 lg:gap-5 ${
+          className={`grid grid-cols-2 divide-white/10 lg:divide-x [&>*+*]:border-t [&>*+*]:border-white/10 sm:[&>*+*]:border-t-0 ${
             items.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-4'
           }`}
         >

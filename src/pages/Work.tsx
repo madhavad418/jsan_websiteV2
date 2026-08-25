@@ -34,16 +34,16 @@ export default function Work() {
         imageStyle="filled"
       />
 
-      <section className="bg-white py-20 lg:py-24">
+      <section className="section-y bg-white">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="space-y-8">
+          <div className="space-y-16 lg:space-y-24">
             {caseStudies.map((cs) => (
               <Link
                 key={cs.slug}
                 to={`/work/${cs.slug}`}
-                className="group grid overflow-hidden rounded-2xl border border-gray-100 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#0050a9]/25 hover:shadow-[0_28px_55px_-24px_rgba(1,47,98,0.6)] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]"
+                className="group grid overflow-hidden border-t border-gray-300 pt-10 transition-colors duration-300 hover:border-[#0050a9] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12"
               >
-                <div className="relative h-56 overflow-hidden lg:h-full lg:min-h-[300px]">
+                <div className="relative h-64 overflow-hidden rounded-sm lg:h-full lg:min-h-[340px]">
                   <img
                     src={cs.image}
                     alt=""
@@ -56,27 +56,23 @@ export default function Work() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#05132b]/70 via-[#05132b]/20 to-transparent lg:bg-gradient-to-r" />
                 </div>
 
-                <div className="bg-white p-7 lg:p-10">
-                  <div className="mb-3 text-[11px] font-bold tracking-[0.2em] text-[#00a3e0]">
-                    CASE STUDY {cs.number}
-                  </div>
-                  <h2 className="mb-3 text-[24px] font-bold leading-tight text-[#0a1a3a] lg:text-[30px]">
-                    {cs.title}
-                  </h2>
-                  <p className="mb-6 max-w-xl text-base leading-relaxed text-gray-600">{cs.summary}</p>
+                <div className="bg-white pt-8 lg:pt-2">
+                  <div className="mb-4 t-label text-gray-500">Case Study {cs.number}</div>
+                  <h2 className="t-section mb-5 text-[#0a1a3a]">{cs.title}</h2>
+                  <p className="t-body mb-8 max-w-xl text-gray-600">{cs.summary}</p>
 
                   <div className="mb-7 flex flex-wrap gap-2">
                     {cs.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-blue-100 bg-[#f0f7ff] px-3 py-1 text-[11px] font-medium text-[#0050a9]"
+                        className="rounded-full border border-gray-200 px-3.5 py-1.5 text-xs text-gray-600"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <span className="inline-flex items-center gap-2 font-semibold text-[#0050a9]">
+                  <span className="inline-flex items-center gap-2 font-semibold text-[#0a1a3a] transition-colors group-hover:text-[#0050a9]">
                     Read the case study
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
@@ -87,12 +83,10 @@ export default function Work() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-16">
+      <section className="section-y-sm bg-[#f7f8fa]">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-5 px-6 text-center">
           <Briefcase className="h-7 w-7 text-[#0050a9]" />
-          <h2 className="text-[26px] font-bold leading-tight text-[#0a1a3a] lg:text-[34px]">
-            Working on something similar?
-          </h2>
+          <h2 className="t-section text-[#0a1a3a]">Working on something similar?</h2>
           <p className="max-w-2xl leading-relaxed text-gray-600">
             Tell us the geography, the assets and the timelines. We will come back with a mobilisation
             plan, a delivery model and a costed approach.

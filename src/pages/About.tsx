@@ -277,7 +277,7 @@ export default function About() {
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
           <div className="lg:w-1/2 lg:pr-12">
-            <span className="mb-5 inline-block text-[11px] font-bold uppercase tracking-[0.25em] text-[#00a3e0]">
+            <span className="mb-5 inline-block t-label text-gray-500">
               About JSAN
             </span>
             <h1 className="mb-3 text-[38px] font-bold leading-[1.08] text-[#0a1a3a] lg:text-[54px]">
