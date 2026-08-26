@@ -389,9 +389,10 @@ export default function ImageHero({
         }
 
         .jsan-hero-photo {
+          /* The photograph sits still. The slow ambient drift that used to run here was
+             removed on request; it also fought the route overlay, which projects the
+             map's coordinates assuming the image is untransformed. */
           transform-origin: 58% 50%;
-          animation: jsanHeroDrift 18s ease-in-out infinite alternate;
-          will-change: transform;
         }
 
         .jsan-hero-grid {
@@ -494,15 +495,6 @@ export default function ImageHero({
 
           .jsan-hero-cta-secondary:hover .jsan-hero-secondary-arrow {
             transform: translateX(4px);
-          }
-        }
-
-        @keyframes jsanHeroDrift {
-          0% {
-            transform: scale(1.012) translate3d(-0.18%, 0, 0);
-          }
-          100% {
-            transform: scale(1.045) translate3d(0.32%, -0.24%, 0);
           }
         }
 

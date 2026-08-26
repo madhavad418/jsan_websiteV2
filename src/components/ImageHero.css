@@ -41,9 +41,10 @@
 }
 
 .jsan-hero-photo {
+  /* The photograph sits still. The slow ambient drift that used to run here was removed
+     on request: it also fought the route overlay, which projects the map's coordinates
+     assuming the image is untransformed. */
   transform-origin: 58% 50%;
-  animation: jsanHeroDrift 18s ease-in-out 1500ms infinite alternate;
-  will-change: transform;
 }
 
 .jsan-hero-intro-veil {
@@ -416,15 +417,6 @@
   }
 }
 
-@keyframes jsanHeroDrift {
-  0% {
-    transform: scale(1.012) translate3d(-0.18%, 0, 0);
-  }
-  100% {
-    transform: scale(1.045) translate3d(0.32%, -0.24%, 0);
-  }
-}
-
 @keyframes jsanHeroReveal {
   0% {
     opacity: 0;
@@ -607,7 +599,6 @@
   }
 
   .jsan-hero-photo {
-    animation-duration: 22s;
     transform-origin: 44% 50%;
   }
 

@@ -56,10 +56,6 @@ export default {
         'slide-in-right': 'slideInRight 0.6s ease-out forwards',
         'scale-in': 'scaleIn 0.4s ease-out forwards',
         'float': 'float 6s ease-in-out infinite',
-        /* Hero background: a very slow drift, so the picture breathes without drawing
-           attention to itself. Applied with motion-safe:, so it stops for anyone who has
-           asked for reduced motion. */
-        'hero-drift': 'heroDrift 32s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'gradient': 'gradientShift 15s ease infinite',
         'draw-line': 'drawLine 1.2s ease-out forwards',
@@ -72,10 +68,6 @@ export default {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
-        },
-        heroDrift: {
-          '0%, 100%': { transform: 'scale(1.06) translate3d(0, 0, 0)' },
-          '50%': { transform: 'scale(1.12) translate3d(-1.2%, -1%, 0)' },
         },
         slideUp: {
           '0%': { opacity: '0', transform: 'translateY(30px)' },
