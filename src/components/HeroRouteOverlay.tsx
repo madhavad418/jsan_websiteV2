@@ -44,32 +44,35 @@ type Route = {
 const ROUTES: Route[] = [
   {
     id: 'north-america',
-    // Read off the artwork: the old start was in the Pacific, just off California.
+    // Across the interior. An earlier line ended on Lake Michigan - both ends can be on
+    // land while the curve still crosses water.
     start: [0.631, 0.219],
-    c1: [0.646, 0.197],
-    c2: [0.661, 0.194],
-    end: [0.674, 0.206],
+    c1: [0.645, 0.222],
+    c2: [0.662, 0.219],
+    end: [0.678, 0.213],
     duration: 13,
     delay: 0,
   },
   {
     id: 'europe-asia',
-    // Earlier attempts put this end in the Bay of Biscay, then the North Sea. It runs
-    // Scandinavia to western Russia now, which is land the whole way.
-    start: [0.7994, 0.1444],
-    c1: [0.815, 0.155],
-    c2: [0.835, 0.168],
-    end: [0.858, 0.185],
+    // Third attempt at this one: the Bay of Biscay, then the North Sea, then the Gulf of
+    // Bothnia. It runs west-to-east across continuous land now.
+    start: [0.806, 0.176],
+    c1: [0.822, 0.166],
+    c2: [0.842, 0.168],
+    end: [0.862, 0.18],
     duration: 15,
     delay: 2.5,
   },
   {
     id: 'africa',
-    // The old end fell in the Gulf of Guinea; this runs Sahara to southern Africa.
-    start: [0.7825, 0.311],
-    c1: [0.7956, 0.35],
-    c2: [0.8087, 0.398],
-    end: [0.8125, 0.437],
+    // Shifted east onto the interior. The previous line ran down the coast and the middle
+    // of the curve crossed the Gulf of Guinea: at y 0.36-0.40 the coastline sits at
+    // x 0.788-0.800, so anything west of that is water even when both ends are on land.
+    start: [0.7975, 0.312],
+    c1: [0.8125, 0.352],
+    c2: [0.8155, 0.4],
+    end: [0.812, 0.443],
     duration: 17,
     delay: 5,
   },
@@ -87,7 +90,7 @@ const ROUTES: Route[] = [
 /** Survey pings, also on land. */
 const PINGS: { id: string; at: Point; delay: number }[] = [
   { id: 'ping-na', at: [0.64, 0.215], delay: 1.5 },
-  { id: 'ping-africa', at: [0.795, 0.375], delay: 6 },
+  { id: 'ping-africa', at: [0.81, 0.375], delay: 6 },
 ]
 
 /** One vehicle, seen from above, drawn pointing along +x and centred on the origin. */
