@@ -1,14 +1,16 @@
-import ImageHero, { HeroAccent } from './ImageHero'
+import ImageHero, { HeroAccent, HeroTitleLine } from './ImageHero'
 
 /**
  * SECTION 01  HOME HERO
  *
- * Content only. The full-bleed photographic layout, scrims and CTA treatment live in
- * ImageHero, which the capabilities landing shares.
+ * The photograph remains the hero. Motion is restrained and editorial:
+ * - slow cinematic image drift
+ * - tiny pointer / scroll parallax
+ * - sequential headline reveal
+ * - subtle global network pulses over the map
+ * - engineered CTA micro-interactions
  *
- * To change the picture: drop a file under /public, point `image` at it, and set
- * `imageSize` to its real pixel dimensions. `focal` / `focalMobile` are CSS
- * object-position values if the subject needs recentring in either crop.
+ * ImageHero owns the shared layout; this file only provides home-page content.
  */
 export default function Hero() {
   return (
@@ -17,16 +19,18 @@ export default function Hero() {
       imageSize={{ width: 1916, height: 821 }}
       focal="58% 50%"
       focalMobile="42% 50%"
+      showNetworkOverlay
       /* The Operating Scale band starts in this navy, so the hero dissolves into it. */
       fadeTo="rgba(1,47,98,0.9)"
+      routes
       eyebrow={<>Global Geospatial &bull; Field Operations &bull; Technology</>}
       title={
         <>
-          Real-World Operations.
-          <br />
-          Spatial Intelligence.
-          <br />
-          <HeroAccent>Digital Engineering.</HeroAccent>
+          <HeroTitleLine delay={150}>Real-World Operations.</HeroTitleLine>
+          <HeroTitleLine delay={280}>Spatial Intelligence.</HeroTitleLine>
+          <HeroTitleLine delay={410}>
+            <HeroAccent>Digital Engineering.</HeroAccent>
+          </HeroTitleLine>
         </>
       }
       description={
