@@ -21,7 +21,7 @@ const modules = [
     description:
       'Fleet mobilisation, crew operations, dispatch, tracking, maintenance, logistics and program governance.',
     cta: { label: 'Explore Field Operations', href: '/services/global-fleet-collection-operations' },
-    image: '/pillars/operate.png',
+    image: '/pillars/crew.png',
     imageAlt: 'JSAN fleet and field operations',
   },
   {
