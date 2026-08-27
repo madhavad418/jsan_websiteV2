@@ -14,6 +14,7 @@ import FinalCTA from '../components/FinalCTA'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
 import Chatbot from '../components/Chatbot'
+import FleetPreviewModal from '../components/products/FleetPreviewModal'
 
 /**
  * The homepage tells one business story, in this order, and does not grow past it:
@@ -46,6 +47,11 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Header />
+
+      {/* Shown once on a first visit, a moment after the page paints. It introduces the
+          flagship product and hands the visitor to its page; see the component for why it
+          is gated on storage rather than on the session. */}
+      <FleetPreviewModal />
       <JumpTo items={JUMP_ITEMS} />
       <main>
         {/* jump-target adds the scroll offset for the fixed header. */}

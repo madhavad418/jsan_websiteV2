@@ -135,6 +135,7 @@ const navigation: NavItem[] = [
       { name: 'Multi-Country Mapping', href: '/work/multi-country-mapping' },
       { name: 'LiDAR & Infrastructure Intelligence', href: '/work/lidar-infrastructure-intelligence' },
       { name: 'Telecom Network Engineering', href: '/work/telecom-network-engineering' },
+      { name: 'JSAN ATLAS Ops', href: '/products/fleet-intelligence' },
       { name: 'JSAN VTS', href: '/products/jsan-vts' },
       { name: 'JSAN POI Express', href: '/products/poi-express' },
       { name: 'JSAN Travel Desk', href: '/products/travel-desk' },

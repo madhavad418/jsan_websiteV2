@@ -6,6 +6,16 @@ import MobileNav from '../components/MobileNav'
 
 const products = [
   {
+    name: 'JSAN ATLAS Ops',
+    label: 'Autonomous Tracking & Coverage Intelligence',
+    status: 'FLAGSHIP',
+    description:
+      'Tracking that starts itself, keeps working with no signal, and reports progress against the road network a client contracted for rather than against kilometres travelled. Every road counts once, however many crews pass down it.',
+    image: '/pillars/live_tracking.png',
+    features: ['Automatic Trip Capture', 'Coverage Reporting', 'Verified Distance', 'Works Offline'],
+    learnMoreUrl: '/products/fleet-intelligence',
+  },
+  {
     name: 'JSAN VTS',
     label: 'Vehicle Tracking System',
     status: 'LIVE',
@@ -69,7 +79,7 @@ export default function InHouseApps() {
           </p>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-2xl">
             {[
-              { value: '4', label: 'Live Products' },
+              { value: '5', label: 'Live Products' },
               { value: '500+', label: 'Active Users' },
               { value: '30+', label: 'Countries' },
             ].map((stat, i) => (

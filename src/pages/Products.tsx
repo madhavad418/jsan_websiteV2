@@ -5,13 +5,29 @@ import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
 
 const metrics = [
-  { number: '4', label: 'Live Products', icon: Rocket },
+  { number: '5', label: 'Live Products', icon: Rocket },
   { number: '24/7', label: 'Support', icon: Clock },
   { number: '360°', label: 'Integration', icon: RefreshCw },
   { number: '99.9%', label: 'Uptime', icon: CheckCircle },
 ]
 
 const liveProducts = [
+  {
+    name: 'JSAN ATLAS Ops',
+    slug: '/products/atlas-ops',
+    category: 'Autonomous Tracking & Coverage Intelligence',
+    description:
+      'The flagship field-operations platform. Trips record themselves, work done out of signal is never lost, and progress is reported as a share of the road network a client contracted for instead of as raw kilometres.',
+    features: [
+      { icon: Radar, label: 'Automatic Trip Capture' },
+      { icon: CheckCircle, label: 'Coverage Reporting' },
+      { icon: Navigation, label: 'Verified Distance' },
+      { icon: WifiOff, label: 'Works Offline' },
+    ],
+    image: '/pillars/live_tracking.png',
+    color: 'from-blue-700 to-cyan-500',
+    hasDemo: false,
+  },
   {
     name: 'JSAN VTS',
     slug: '/products/jsan-vts',

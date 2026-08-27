@@ -37,7 +37,7 @@ export default function Capabilities() {
           <>
             Six capability pillars, run as{' '}
             <strong className="font-semibold text-white">one operating model</strong> rather than six
-            separate suppliers &mdash; from mobilising crews in the field to the systems your teams work in
+            separate suppliers  from mobilising crews in the field to the systems your teams work in
             every day.
           </>
         }

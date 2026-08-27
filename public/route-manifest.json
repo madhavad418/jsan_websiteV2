@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-26T14:00:51.071Z",
+  "generated": "2026-08-27T13:28:56.776Z",
   "careers": [
     "aem-content-author-email-developer",
     "arcgis-technical-trainer",
@@ -103,6 +103,7 @@
     "^/news/[^/]+/?$",
     "^/privacy-policy/?$",
     "^/products/?$",
+    "^/products/fleet-intelligence/?$",
     "^/products/geodiscover/?$",
     "^/products/jsan-vts/?$",
     "^/products/poi-express/?$",

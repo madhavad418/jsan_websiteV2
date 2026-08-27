@@ -20,6 +20,7 @@ const JsanVTS = lazy(() => import('./pages/products/JsanVTS'))
 const JsanPOIExpress = lazy(() => import('./pages/products/JsanPOIExpress'))
 const JsanTravelDesk = lazy(() => import('./pages/products/JsanTravelDesk'))
 const JsanGeoDiscover = lazy(() => import('./pages/products/JsanGeoDiscover'))
+const JsanFleetIntelligence = lazy(() => import('./pages/products/JsanFleetIntelligence'))
 const GeospatialSolutions = lazy(() => import('./pages/services/GeospatialSolutions'))
 const GeospatialSubService = lazy(() => import('./pages/services/GeospatialSubService'))
 const LocationIntelligence = lazy(() => import('./pages/services/LocationIntelligence'))
@@ -119,6 +120,7 @@ function App() {
           <Route path="/products/poi-express" element={<JsanPOIExpress />} />
           <Route path="/products/travel-desk" element={<JsanTravelDesk />} />
           <Route path="/products/geodiscover" element={<JsanGeoDiscover />} />
+          <Route path="/products/fleet-intelligence" element={<JsanFleetIntelligence />} />
           <Route path="/industries/transportation-infrastructure" element={<TransportMobility />} />
           <Route path="/industries/utilities" element={<Energy />} />
           <Route path="/industries/government-smart-cities" element={<SmartCities />} />
