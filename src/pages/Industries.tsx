@@ -8,56 +8,104 @@ import {
   Award,
   Target,
   Lightbulb,
-  Briefcase
+  Briefcase,
+  Map,
+  Navigation,
+  Signal
 } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
 
+/**
+ * Every industry the site has a page for, in the order the header lists them.
+ *
+ * This used to carry four of the seven, under names the header had since moved on from -
+ * "Energy & Utilities" here against "Utilities" in the menu, and so on. One industry
+ * cannot be called two things depending on which way a visitor arrived, so the names
+ * below are the header's names. Add an industry to the header and it belongs here too.
+ */
 const industries = [
   {
-    id: 'energy',
-    name: 'Energy & Utilities',
-    shortName: 'Energy & Utilities',
-    description: 'Technology solutions for energy companies including smart grid implementation, asset management, sustainability initiatives, and operational optimization.',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop',
-    services: ['Smart Grid Solutions', 'Asset Management', 'Sustainability Tech', 'Operational Excellence', 'Renewable Energy'],
-    link: '/industries/utilities',
+    id: 'mapping',
+    name: 'Mapping & Location Platforms',
+    shortName: 'Mapping & Location',
+    description:
+      'Street-level collection, map data production and continuous refresh for the platforms people navigate by, with quality assurance built into every stage rather than inspected at the end.',
+    image: '/pillars/Mapping_Location_Platforms.png',
+    services: ['Street-Level Collection', 'Map Data Production', 'POI & Address Data', 'Change Detection', 'Quality Assurance'],
+    link: '/industries/mapping-location-platforms',
+  },
+  {
+    id: 'autonomous',
+    name: 'Autonomous Mobility',
+    shortName: 'Autonomous Mobility',
+    description:
+      'Ground truth, annotation and validation work for autonomy programmes, run at production scale with the reviewer calibration and sampling that make accuracy defensible.',
+    image: '/pillars/autonomous_mobilitynew.png',
+    services: ['HD Map Support', 'Ground Truth Data', 'Sensor Data Operations', 'Annotation at Scale', 'Validation & QA'],
+    link: '/industries/autonomous-mobility',
+  },
+  {
+    id: 'telecom',
+    name: 'Telecommunications',
+    shortName: 'Telecommunications',
+    description:
+      'Field survey, network GIS and as-built validation alongside operator engineering teams, reconciling what was designed against what was actually installed.',
+    image: '/pillars/telecommunications.png',
+    services: ['Telecom GIS', 'Fibre & Pole Survey', 'As-Built Validation', 'Network Planning Support', 'Field Operations'],
+    link: '/industries/telecommunications',
   },
   {
     id: 'transport',
-    name: 'Navigation, Transport & Mobility',
-    shortName: 'Transport & Mobility',
-    description: 'Comprehensive solutions for the transport sector including fleet management, route optimization, real-time tracking, mobility platforms, and logistics intelligence.',
+    name: 'Transportation & Infrastructure',
+    shortName: 'Transport & Infrastructure',
+    description:
+      'Asset intelligence and operational support across road, rail and infrastructure programmes, from LiDAR and imagery through to the GIS the planning teams work in.',
     image: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&h=600&fit=crop',
-    services: ['Fleet Management', 'Route Optimization', 'Real-time Tracking', 'Mobility Platforms', 'Logistics Intelligence'],
+    services: ['Asset Intelligence', 'LiDAR & Imagery', 'Route Operations', 'Condition Surveys', 'GIS Delivery'],
     link: '/industries/transportation-infrastructure',
   },
   {
+    id: 'energy',
+    name: 'Utilities',
+    shortName: 'Utilities',
+    description:
+      'Network records that match the ground: pole and asset survey, connectivity and attribution, and the field operations that keep a utility network current rather than historic.',
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop',
+    services: ['Pole & Asset Survey', 'Network Records', 'Connectivity & Attribution', 'Field Operations', 'Data Quality'],
+    link: '/industries/utilities',
+  },
+  {
+    id: 'smartcities',
+    name: 'Government & Smart Cities',
+    shortName: 'Government & Smart Cities',
+    description:
+      'Basemaps, address and asset data for public bodies, delivered against the boundaries and identifiers they already work to so every figure reconciles with their own records.',
+    image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&h=600&fit=crop',
+    services: ['Urban Analytics', 'Address & Basemap Data', 'Asset Registers', 'Digital Twin', 'Programme Reporting'],
+    link: '/industries/government-smart-cities',
+  },
+  {
     id: 'consulting',
-    name: 'Consulting & Professional Services',
-    shortName: 'Consulting',
-    description: 'Partnership solutions for consulting firms including resource augmentation, specialized expertise, delivery partnership, and knowledge transfer.',
+    name: 'Enterprise Technology',
+    shortName: 'Enterprise Technology',
+    description:
+      'Delivery partnership for firms that need geospatial and data capability inside their own programmes: specialist resources, quality ownership and knowledge transfer.',
     image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop',
     services: ['Technical Resources', 'Specialized Expertise', 'Delivery Partnership', 'Quality Assurance', 'Knowledge Transfer'],
     link: '/industries/consulting',
   },
-  {
-    id: 'smartcities',
-    name: 'Sustainability & Future Cities',
-    shortName: 'Sustainability & Future Cities',
-    description: 'Sustainability and urban planning solutions including IoT infrastructure, traffic management, urban analytics, and sustainable city development.',
-    image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&h=600&fit=crop',
-    services: ['Urban Analytics', 'Traffic Management', 'IoT Infrastructure', 'Sustainable Planning', 'Digital Twin'],
-    link: '/industries/government-smart-cities',
-  },
 ]
 
 const industryIcons: { [key: string]: React.ElementType } = {
+  'mapping': Map,
+  'autonomous': Navigation,
+  'telecom': Signal,
   'transport': Truck,
   'energy': Zap,
-  'consulting': Briefcase,
   'smartcities': Building2,
+  'consulting': Briefcase,
 }
 
 const whyExpertise = [
@@ -130,7 +178,8 @@ export default function Industries() {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 bg-cyan-400/20 backdrop-blur border border-cyan-400/30 text-cyan-300 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Building2 className="w-4 h-4" />
-              4 INDUSTRY VERTICALS
+              {/* Counted, not typed. This said 4 for as long as the list held four. */}
+              {industries.length} INDUSTRY VERTICALS
             </span>
             <h1 className="text-white text-[42px] lg:text-[60px] font-bold leading-[1.05] mb-6">
               Industry-Specific<br />Expertise
