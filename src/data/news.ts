@@ -15,6 +15,21 @@ export type NewsArticle = {
 // and this page all reference the same article(s).
 export const newsArticles: NewsArticle[] = [
   {
+    slug: 'jsan-atlas-ops',
+    title: 'JSAN ATLAS Ops: coverage reporting for field delivery programmes',
+    date: 'August 4, 2026',
+    category: 'Product',
+    description:
+      'JSAN’s field platform reports how much of a contracted road network is finished, rather than how many kilometres a fleet happened to travel.',
+    image: '/pillars/jsan_atlasops.png',
+    body: [
+      'JSAN ATLAS Ops is the platform JSAN builds and runs for its own field delivery programmes. Trips record themselves, work carried out with no mobile signal is reconciled when the vehicle returns to range, and progress is reported against the road network a client contracted for.',
+      'The distinction matters commercially. Conventional fleet tracking reports kilometres travelled, which is a number with nothing to compare it against; it cannot say how much of the job remains, and it counts the same street again every time a crew passes down it. ATLAS Ops counts each road once, whichever crew reached it first.',
+      'For operations teams the platform brings live positions, replay of any completed drive, and coverage dashboards broken down by area and by client priority. For the client conversation it produces progress reporting that reconciles against their own records, asset custody that survives every reassignment, and exports in formats their teams already open.',
+      'The platform runs on a phone the driver already carries, so there is no hardware to fit to a vehicle, nothing to recover when one leaves the fleet, and no wait on equipment before a new market can begin work.',
+    ],
+  },
+  {
     slug: 'jsan-launches-modern-vehicle-tracking-platform',
     title: 'JSAN Launches Modern Vehicle Tracking Platform',
     date: 'January 12, 2026',

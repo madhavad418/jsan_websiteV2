@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { ArrowRight, X } from 'lucide-react'
+import {
+  PRODUCT_PREVIEW_EVENT,
+  type PreviewMode,
+  type ProductPreviewDetail,
+} from '../../lib/productPreview'
 
 /**
  * The first-visit preview for JSAN Fleet Intelligence, shown on the homepage.
@@ -9,10 +14,18 @@ import { ArrowRight, X } from 'lucide-react'
  * a visitor does not yet know exists. Someone already reading /products/fleet-intelligence
  * has found it, and interrupting them with a summary of the page they are on is noise.
  *
- * Shown on every load of the homepage, by request. It was gated on stored state at first
- * so a return visit was not interrupted twice; that gate is gone, so a refresh brings it
- * back. Dismissing it holds for the rest of that visit - it is mounted with the page, not
- * on a timer that can fire again.
+ * Two ways in, and they are not the same thing:
+ *
+ *   - it opens itself on every load of the homepage. That one is a task: focus moves into
+ *     it, the page behind cannot scroll, and it stays until it is dismissed. Dismissing it
+ *     holds for the rest of that visit.
+ *   - resting a pointer on the ATLAS Ops item in the news bar opens it as a preview. That
+ *     one takes no focus and locks nothing, and it leaves when the pointer does. A pointer
+ *     that travels onto the panel itself keeps it open, because a preview that vanishes
+ *     while you are reading it is worse than no preview.
+ *
+ * Mounted once at the application root rather than on a page, so the news bar behaves the
+ * same everywhere it appears. Only the homepage opens it unprompted.
  *
  * The interface on the left is an illustration of the product and is labelled as one. It is
  * drawn rather than screenshotted so it stays legible at this size, and its figures are
@@ -146,38 +159,84 @@ const FOCUSABLE =
 
 export default function FleetPreviewModal() {
   const [open, setOpen] = useState(false)
+  const [mode, setMode] = useState<PreviewMode>('auto')
   const [active, setActive] = useState(0)
   const [animate, setAnimate] = useState(true)
 
   const panelRef = useRef<HTMLDivElement>(null)
   const returnFocusTo = useRef<Element | null>(null)
+  /* Lets a pointer cross the gap between the news item and the panel. */
+  const leaveTimer = useRef<number | null>(null)
 
+  const { pathname } = useLocation()
   const view = VIEWS[active]
 
-  /* Open after the page has had a moment to paint, on every load. */
+  /* The homepage opens it unprompted, once the page has had a moment to paint. */
   useEffect(() => {
     setAnimate(!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)
+    if (pathname !== '/') return
 
     const timer = window.setTimeout(() => {
       returnFocusTo.current = document.activeElement
+      setMode('auto')
       setOpen(true)
     }, OPEN_DELAY_MS)
 
     return () => window.clearTimeout(timer)
+  }, [pathname])
+
+  /* Hover requests from the news bar. */
+  useEffect(() => {
+    const onRequest = (event: Event) => {
+      const detail = (event as CustomEvent<ProductPreviewDetail>).detail
+      if (!detail) return
+
+      if (detail.open) {
+        if (leaveTimer.current) window.clearTimeout(leaveTimer.current)
+        setMode(detail.mode)
+        setOpen(true)
+        return
+      }
+
+      /* A deliberate dialog is not dismissed by a pointer wandering off a link. */
+      setOpen((wasOpen) => {
+        if (!wasOpen) return wasOpen
+        if (leaveTimer.current) window.clearTimeout(leaveTimer.current)
+        leaveTimer.current = window.setTimeout(() => setOpen(false), 160)
+        return wasOpen
+      })
+    }
+
+    window.addEventListener(PRODUCT_PREVIEW_EVENT, onRequest)
+    return () => {
+      window.removeEventListener(PRODUCT_PREVIEW_EVENT, onRequest)
+      if (leaveTimer.current) window.clearTimeout(leaveTimer.current)
+    }
   }, [])
+
+  /* A route change should never leave a preview hanging over the new page. */
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
 
   const close = useCallback(() => {
     setOpen(false)
+    if (leaveTimer.current) window.clearTimeout(leaveTimer.current)
     const target = returnFocusTo.current
     if (target instanceof HTMLElement) target.focus()
   }, [])
 
-  /* Escape closes, Tab cycles inside, and the page behind stays put. */
+  /*
+   * Escape closes either way. The rest - taking focus, trapping Tab, freezing the page
+   * behind - belongs to the deliberate dialog. Doing any of it to a hover preview would
+   * hijack a pointer that is only passing through.
+   */
   useEffect(() => {
     if (!open) return
 
+    const isTask = mode === 'auto'
     const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+    if (isTask) document.body.style.overflow = 'hidden'
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -185,7 +244,7 @@ export default function FleetPreviewModal() {
         close()
         return
       }
-      if (event.key !== 'Tab') return
+      if (event.key !== 'Tab' || !isTask) return
 
       const panel = panelRef.current
       if (!panel) return
@@ -209,14 +268,14 @@ export default function FleetPreviewModal() {
     /* Once the entry animation is under way, so focus does not fight the transform.
        The panel takes it rather than the close button, so the first thing a screen reader
        reads is the dialog's own name and the first Tab lands on the close control. */
-    const focusTimer = window.setTimeout(() => panelRef.current?.focus(), 80)
+    const focusTimer = isTask ? window.setTimeout(() => panelRef.current?.focus(), 80) : null
 
     return () => {
       document.removeEventListener('keydown', onKeyDown)
-      window.clearTimeout(focusTimer)
-      document.body.style.overflow = previousOverflow
+      if (focusTimer) window.clearTimeout(focusTimer)
+      if (isTask) document.body.style.overflow = previousOverflow
     }
-  }, [open, close])
+  }, [open, close, mode])
 
   if (!open) return null
 
@@ -226,11 +285,23 @@ export default function FleetPreviewModal() {
   const trace = animate ? 'jsan-preview-trace' : ''
   const bar = animate ? 'jsan-preview-bar' : ''
 
+  const isTask = mode === 'auto'
+
   return (
     <div
-      className={`fixed inset-0 z-[200] flex items-center justify-center bg-[#04101f]/45 p-3 backdrop-blur-[3px] sm:p-6 ${veil}`}
+      /*
+        The same treatment either way - a preview that arrived on hover should not look
+        like a lesser thing than the one that opens itself.
+
+        pointer-events-none is the only difference, and it is not a visual one: the veil
+        is painted but not hit-tested, so the pointer can travel back to the news bar
+        without the backdrop catching it and closing the very thing it is over.
+      */
+      className={`fixed inset-0 z-[200] flex items-center justify-center bg-[#04101f]/45 p-3 backdrop-blur-[3px] sm:p-6 ${veil} ${
+        isTask ? '' : 'pointer-events-none'
+      }`}
       onMouseDown={(event) => {
-        if (event.target === event.currentTarget) close()
+        if (isTask && event.target === event.currentTarget) close()
       }}
     >
       <div
@@ -242,7 +313,13 @@ export default function FleetPreviewModal() {
         aria-describedby="fleet-preview-description"
         /* Translucent over the page rather than a solid slab, with a heavy blur behind it
            so the copy still has something even to sit on. */
-        className={`jsan-preview flex max-h-[95vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#0a1424]/88 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl focus:outline-none ${panelIn}`}
+        onMouseEnter={() => {
+          if (leaveTimer.current) window.clearTimeout(leaveTimer.current)
+        }}
+        onMouseLeave={() => {
+          if (!isTask) setOpen(false)
+        }}
+        className={`jsan-preview pointer-events-auto flex max-h-[95vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#0a1424]/88 shadow-[0_40px_120px_-30px_rgba(0,0,0,0.9)] backdrop-blur-2xl focus:outline-none ${panelIn}`}
       >
         {/* Header */}
         <header className="flex shrink-0 items-start justify-between gap-5 border-b border-white/10 px-5 py-3.5 sm:px-6 sm:py-4">

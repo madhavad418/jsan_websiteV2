@@ -148,7 +148,7 @@ const navigation: NavItem[] = [
     href: '/company',
     dropdown: [
       { name: 'About JSAN', href: '/company' },
-      { name: 'Our Leadership', href: '/company' },
+      { name: 'Our Leadership', href: '/company/leadership' },
       { name: 'Careers', href: '/careers' },
       { name: 'Contact', href: '/contact' },
     ],
