@@ -8,8 +8,15 @@
  * Originals are copied to .image-originals/ (git-ignored) before anything is written, so
  * this is reversible. Re-running is safe: files already at or under the target are skipped.
  *
- *   node scripts/optimise-images.mjs          # report only, writes nothing
- *   node scripts/optimise-images.mjs --write  # actually optimise
+ *   node scripts/optimise-images.mjs                 # report only, writes nothing
+ *   node scripts/optimise-images.mjs --write         # actually optimise
+ *   node scripts/optimise-images.mjs --missing-only  # only files with no .webp sibling
+ *
+ * --missing-only is the safe way to pick up images added since the last run. A full pass
+ * re-encodes everything, and because a file is only copied to .image-originals the first
+ * time, a second pass re-compresses an already-compressed file with no pristine copy left
+ * to compare against - visible generational loss on JPEGs. Anything that already has a
+ * .webp beside it has been through this script, so skipping it is exactly right.
  */
 import { readdir, stat, mkdir, copyFile, readFile, writeFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
@@ -22,6 +29,7 @@ const MAX_WIDTH = 2000 // nothing on the site is displayed wider than this
 const JPEG_QUALITY = 80
 const WEBP_QUALITY = 78
 const WRITE = process.argv.includes('--write')
+const MISSING_ONLY = process.argv.includes('--missing-only')
 
 const exts = new Set(['.jpg', '.jpeg', '.png'])
 
@@ -37,7 +45,16 @@ async function walk(dir) {
 
 const mb = (n) => (n / 1048576).toFixed(2)
 
-const files = await walk(PUBLIC_DIR)
+const all = await walk(PUBLIC_DIR)
+const files = MISSING_ONLY
+  ? all.filter((f) => !existsSync(f.replace(/\.(jpe?g|png)$/i, '.webp')))
+  : all
+
+if (MISSING_ONLY) {
+  console.log(`--missing-only: ${files.length} of ${all.length} images have no .webp sibling
+`)
+}
+
 let before = 0
 let after = 0
 let webpTotal = 0
