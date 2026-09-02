@@ -124,7 +124,7 @@ export default function GeospatialSolutions() {
         description={"From street-level imagery and LiDAR to roads, addresses, POIs and infrastructure assets, JSAN delivers geospatial data engineered for operational use."}
         image="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1600"
         imageAlt="Geospatial satellite earth view"
-        stats={[{ value: '50M+', label: 'Features Mapped' }, { value: '100+', label: 'Projects' }, { value: '500+', label: 'GIS Experts' }, { value: '30+', label: 'Countries' }]}
+        // stats={[{ value: '50M+', label: 'Features Mapped' }, { value: '100+', label: 'Projects' }, { value: '500+', label: 'GIS Experts' }, { value: '30+', label: 'Countries' }]}
       />
 
 

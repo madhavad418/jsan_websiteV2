@@ -73,7 +73,7 @@ export default function LocationIntelligence() {
         description={"Through the power of Location Intelligence, JSAN empowers businesses with actionable insights for site selection, risk assessment, supply chain optimization, and strategic planning."}
         image="/pillars/location-intelligence-hero.jpg"
         imageAlt="Location intelligence global data visualization"
-        stats={[{ value: '100M+', label: 'Data Points Processed' }, { value: '200+', label: 'Projects Delivered' }, { value: '500+', label: 'Experts' }, { value: '30+', label: 'Countries' }]}
+        stats={[{ value: '100M+', label: 'Data Points Processed' }, { value: '200+', label: 'Projects Delivered' }, { value: '500+', label: 'Experts' }, { value: '25+', label: 'Countries' }]}
       />
 
       {/* Subservice Cards */}

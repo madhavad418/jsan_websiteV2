@@ -61,7 +61,7 @@ const subServiceData: SubServiceData[] = [
       'Our permanent placement practice identifies, evaluates, and secures top-tier technology talent for critical long-term roles  leveraging deep industry networks, rigorous screening, and cultural fit assessment to ensure every hire delivers lasting value.',
     bgImage: '/pillars/permanent-placement.jpg',
     advantages: [
-      { icon: Search, text: 'Deep industry networks across 30+ countries' },
+      { icon: Search, text: 'Deep industry networks across 25+ countries' },
       { icon: Target, text: 'Multi-stage technical and behavioral assessment' },
       { icon: Users, text: 'Cultural fit evaluation aligned with your values' },
       { icon: TrendingUp, text: 'Salary benchmarking with market intelligence' },

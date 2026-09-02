@@ -117,7 +117,7 @@ const stack = ['PyTorch', 'TensorFlow', 'YOLO / Detectron2', 'U-Net & Mask R-CNN
 const stats = [
   { value: '95%+', label: 'Trained Class Accuracy' },
   { value: '100x', label: 'Faster Than Manual' },
-  { value: '200+', label: 'CAD / GIS Engineers' },
+  { value: '100+', label: 'CAD / GIS Engineers' },
 ]
 
 export default function GeoAIComputerVision() {

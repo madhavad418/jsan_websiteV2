@@ -75,9 +75,9 @@ const roadmap = [
 ]
 
 const stats = [
-  { value: '200+', label: 'CAD / GIS Engineers' },
-  { value: '150+', label: 'Field Experts' },
-  { value: '10+', label: 'Network Intelligence Managers' },
+  { value: '100+', label: 'CAD / GIS Engineers' },
+  { value: '75+', label: 'Field Experts' },
+  { value: '5+', label: 'Network Intelligence Managers' },
 ]
 
 export default function UtilityNetworkIntelligence() {

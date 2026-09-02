@@ -15,7 +15,7 @@ import { useInView } from '../lib/useCountUp'
 const HERO_IMAGE = '/careers/interview.png'
 
 const baseStats = [
-  { number: '30+', label: 'Countries' },
+  { number: '25+', label: 'Countries' },
   { number: '1000+', label: 'Team Members' },
   { number: '6', label: 'Continents' },
 ]

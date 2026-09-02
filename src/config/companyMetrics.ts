@@ -33,7 +33,7 @@ export const companyMetrics: CompanyMetric[] = [
   },
   {
     id: 'countries',
-    value: '30+',
+    value: '25+',
     label: 'Countries Supported',
     verified: false,
     note: 'Carried over from Careers. Service pages elsewhere say 20+  the two disagree.',

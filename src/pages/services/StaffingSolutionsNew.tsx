@@ -63,7 +63,7 @@ export default function StaffingSolutionsNew() {
         description={"Our end-to-end approach ensures you access the right skills at the right time while minimizing administrative burden and optimizing cost efficiency."}
         image="/pillars/staffing.png"
         imageAlt="Staffing solutions global recruitment"
-        stats={[{ value: '5,000+', label: 'Placements Made' }, { value: '200+', label: 'Active Clients' }, { value: '48hrs', label: 'Avg. Response Time' }, { value: '30+', label: 'Countries' }]}
+        stats={[{ value: '5,000+', label: 'Placements Made' }, { value: '200+', label: 'Active Clients' }, { value: '48hrs', label: 'Avg. Response Time' }, { value: '25+', label: 'Countries' }]}
       />
 
       {/* Subservice Cards */}

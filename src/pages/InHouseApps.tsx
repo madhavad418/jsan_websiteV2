@@ -81,7 +81,7 @@ export default function InHouseApps() {
             {[
               { value: '5', label: 'Live Products' },
               { value: '500+', label: 'Active Users' },
-              { value: '30+', label: 'Countries' },
+              { value: '25+', label: 'Countries' },
             ].map((stat, i) => (
               <div key={i} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center border border-white/10">
                 <div className="text-2xl lg:text-3xl font-bold text-white">{stat.value}</div>

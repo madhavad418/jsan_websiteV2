@@ -93,19 +93,70 @@ const PINGS: { id: string; at: Point; delay: number }[] = [
   { id: 'ping-africa', at: [0.81, 0.375], delay: 6 },
 ]
 
+/**
+ * The overlay was drawn for a photograph dimmed behind a navy scrim. On the light
+ * editorial hero the picture is left bright, so pale cyan on a pale map disappears -
+ * that variant swaps to JSAN navy/blue, which the near-white ocean carries cleanly.
+ */
+type Tone = 'dark' | 'light'
+
+const PALETTE: Record<
+  Tone,
+  { road: string; roadOpacity: number; live: string; liveOpacity: number; halo: string; body: string; cabin: string; lamp: string; end: string; endOpacity: number; ping: string; pingOpacity: string }
+> = {
+  dark: {
+    road: '#bfeaff',
+    roadOpacity: 0.3,
+    live: '#7fdcff',
+    liveOpacity: 0.55,
+    halo: '#7fdcff',
+    body: '#eef8ff',
+    cabin: '#0b2a4a',
+    lamp: '#7fdcff',
+    end: '#ffffff',
+    endOpacity: 0.35,
+    ping: '#7fdcff',
+    pingOpacity: '0.5;0',
+  },
+  light: {
+    road: '#0a1a3a',
+    roadOpacity: 0.26,
+    live: '#0050a9',
+    liveOpacity: 0.8,
+    halo: '#0050a9',
+    body: '#0a1a3a',
+    cabin: '#dff2ff',
+    lamp: '#00d4ff',
+    end: '#0050a9',
+    endOpacity: 0.55,
+    ping: '#0050a9',
+    pingOpacity: '0.55;0',
+  },
+}
+
 /** One vehicle, seen from above, drawn pointing along +x and centred on the origin. */
-function Car({ path, duration, begin }: { path: string; duration: number; begin: number }) {
+function Car({
+  path,
+  duration,
+  begin,
+  c,
+}: {
+  path: string
+  duration: number
+  begin: number
+  c: (typeof PALETTE)[Tone]
+}) {
   return (
     <g>
       {/* Soft halo, so the car still reads against a busy photograph */}
-      <circle r="8" fill="#7fdcff" fillOpacity="0.18" />
+      <circle r="8" fill={c.halo} fillOpacity="0.18" />
 
       {/* Body, cabin and headlights only: wheels just read as noise at this size. */}
       <g transform="translate(-10.5, -5)">
-        <rect width="21" height="10" rx="3.2" fill="#eef8ff" fillOpacity="0.96" />
-        <rect x="6" y="2" width="8" height="6" rx="1.9" fill="#0b2a4a" fillOpacity="0.72" />
-        <rect x="19.3" y="1.6" width="1.5" height="2.1" rx="0.75" fill="#7fdcff" />
-        <rect x="19.3" y="6.3" width="1.5" height="2.1" rx="0.75" fill="#7fdcff" />
+        <rect width="21" height="10" rx="3.2" fill={c.body} fillOpacity="0.96" />
+        <rect x="6" y="2" width="8" height="6" rx="1.9" fill={c.cabin} fillOpacity="0.72" />
+        <rect x="19.3" y="1.6" width="1.5" height="2.1" rx="0.75" fill={c.lamp} />
+        <rect x="19.3" y="6.3" width="1.5" height="2.1" rx="0.75" fill={c.lamp} />
       </g>
 
       {/* rotate="auto" turns the glyph to follow the path, so it corners properly. */}
@@ -123,7 +174,8 @@ function Car({ path, duration, begin }: { path: string; duration: number; begin:
   )
 }
 
-export default function HeroRouteOverlay() {
+export default function HeroRouteOverlay({ tone = 'dark' }: { tone?: Tone }) {
+  const c = PALETTE[tone]
   const ref = useRef<HTMLDivElement>(null)
   const [animate, setAnimate] = useState(false)
   const [box, setBox] = useState<{ w: number; h: number } | null>(null)
@@ -195,8 +247,8 @@ export default function HeroRouteOverlay() {
                 {/* The road itself */}
                 <path
                   d={d}
-                  stroke="#bfeaff"
-                  strokeOpacity="0.3"
+                  stroke={c.road}
+                  strokeOpacity={c.roadOpacity}
                   strokeWidth="1.6"
                   strokeLinecap="round"
                 />
@@ -205,8 +257,8 @@ export default function HeroRouteOverlay() {
                 {animate && (
                   <path
                     d={d}
-                    stroke="#7fdcff"
-                    strokeOpacity="0.55"
+                    stroke={c.live}
+                    strokeOpacity={c.liveOpacity}
                     strokeWidth="2.2"
                     strokeLinecap="round"
                     strokeDasharray="40 900"
@@ -222,15 +274,15 @@ export default function HeroRouteOverlay() {
                   </path>
                 )}
 
-                {animate && <Car path={d} duration={route.duration} begin={route.delay} />}
+                {animate && <Car path={d} duration={route.duration} begin={route.delay} c={c} />}
 
                 {/* Where the drive finishes */}
                 <circle
                   cx={project(route.end)[0]}
                   cy={project(route.end)[1]}
                   r="2.6"
-                  fill="#ffffff"
-                  fillOpacity="0.35"
+                  fill={c.end}
+                  fillOpacity={c.endOpacity}
                 />
               </g>
             )
@@ -241,7 +293,7 @@ export default function HeroRouteOverlay() {
             PINGS.map((ping) => {
               const [cx, cy] = project(ping.at)
               return (
-                <circle key={ping.id} cx={cx} cy={cy} fill="none" stroke="#7fdcff" strokeWidth="1.2">
+                <circle key={ping.id} cx={cx} cy={cy} fill="none" stroke={c.ping} strokeWidth="1.2">
                   <animate
                     attributeName="r"
                     values="3;26"
@@ -251,7 +303,7 @@ export default function HeroRouteOverlay() {
                   />
                   <animate
                     attributeName="stroke-opacity"
-                    values="0.5;0"
+                    values={c.pingOpacity}
                     dur="4.5s"
                     begin={`${ping.delay}s`}
                     repeatCount="indefinite"

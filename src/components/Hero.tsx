@@ -20,8 +20,12 @@ export default function Hero() {
       focal="58% 50%"
       focalMobile="42% 50%"
       showNetworkOverlay
-      /* The Operating Scale band starts in this navy, so the hero dissolves into it. */
-      fadeTo="rgba(1,47,98,0.9)"
+      /* Light editorial treatment: the daylight photograph is left bright and the copy
+         sits in a frosted panel instead of on a navy scrim. */
+      tone="light"
+      /* The Operating Scale band below is solid #0a1a3a, so the foot resolves into it
+         rather than ending on a bright edge against a dark slab. */
+      fadeTo="#0a1a3a"
       routes
       eyebrow={<>Global Geospatial &bull; Field Operations &bull; Technology</>}
       title={
@@ -36,7 +40,7 @@ export default function Hero() {
       description={
         <>
           JSAN helps organisations{' '}
-          <strong className="font-semibold text-white">
+          <strong className="font-semibold text-[#0a1a3a]">
             mobilise, collect, process, validate and operationalise
           </strong>{' '}
           real-world data across mapping, mobility, telecom and infrastructure programs.

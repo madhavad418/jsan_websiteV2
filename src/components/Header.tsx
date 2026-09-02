@@ -257,8 +257,9 @@ export default function Header() {
    * The bar is transparent while it sits on a dark hero and turns solid as soon as the
    * visitor scrolls, so the hero reads full-bleed instead of starting under a white slab.
    *
-   * `data-hero="dark"` is set by ImageHero on the pages that have one. Every other page
-   * gets the solid bar immediately, because navy-on-white is unreadable over a light hero.
+   * ImageHero sets `data-hero` to its own tone. Only `"dark"` earns the transparent bar;
+   * a light hero writes `"light"` and every other page writes nothing, and both take the
+   * solid bar immediately, because white nav text is unreadable over a bright photograph.
    */
   const [scrolled, setScrolled] = useState(false)
   const [darkHero, setDarkHero] = useState(false)

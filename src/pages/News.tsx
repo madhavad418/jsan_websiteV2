@@ -14,14 +14,14 @@ import { useCountUp, useInView, parseStat } from '../lib/useCountUp'
 const linkedInStats = [
   { icon: Users, number: '5K+', label: 'Followers' },
   { icon: Briefcase, number: '100+', label: 'Posts Yearly' },
-  { icon: MapPin, number: '30+', label: 'Countries' },
+  { icon: MapPin, number: '25+', label: 'Countries' },
   { icon: Globe, number: '24/7', label: 'Global Updates' },
 ]
 
 const companyStats = [
   { number: '7+', label: 'Years in Operation', icon: CalendarCheck },
   { number: '50+', label: 'Global Clients', icon: Handshake },
-  { number: '30+', label: 'Countries Served', icon: Globe },
+  { number: '25+', label: 'Countries Served', icon: Globe },
   { number: '500+', label: 'Completed Projects', icon: CheckCircle2 },
 ]
 export type { NewsArticle }

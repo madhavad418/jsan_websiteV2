@@ -31,7 +31,7 @@ const techData: TechData[] = [
       { value: '50M+', label: 'Features Mapped' },
       { value: '500+', label: 'GIS Projects' },
       { value: '100+', label: 'GIS Experts' },
-      { value: '30+', label: 'Countries' },
+      { value: '25+', label: 'Countries' },
     ],
     whyTitle: 'Location Is the Common Thread Across Every Decision.',
     whyDescription: 'Over 80% of enterprise data has a spatial component. Our GIS expertise transforms raw geographic data into strategic intelligence, powering smarter decisions across urban planning, logistics, utilities, real estate, and environmental management. We also build and operate our own GIS products, proving our capabilities through real-world application.',
