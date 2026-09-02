@@ -59,6 +59,17 @@ export function HeroAccent({ children }: { children: ReactNode }) {
 /**
  * Keeps each headline line independently animatable without forcing ImageHero to know
  * the page-specific wording. Use it inside the `title` prop.
+ *
+ * Each line starts translated down and rises into view from the bottom edge of a mask.
+ * That edge is the line box, and at the headline's leading of 1.055 the line box sits
+ * about 9px above the glyphs at desktop size, so a plain overflow-hidden sliced the
+ * descenders off "Engineering" and "Operations".
+ *
+ * The mask is therefore a clip-path with a negative bottom inset rather than overflow:
+ * it drops the masking edge below the descenders while changing no geometry at all.
+ * Padding plus a negative margin looks like the same fix but is not - the h1 has no
+ * bottom padding, so that margin collapses straight through it and drags the paragraph
+ * underneath up with it.
  */
 export function HeroTitleLine({
   children,
@@ -68,7 +79,7 @@ export function HeroTitleLine({
   delay?: number
 }) {
   return (
-    <span className="block overflow-hidden">
+    <span className="block [clip-path:inset(0_0_-0.2em_0)]">
       <span
         className="jsan-hero-reveal block"
         style={{ '--hero-delay': `${delay}ms` } as CSSProperties}
