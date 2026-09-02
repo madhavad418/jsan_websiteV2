@@ -23,9 +23,10 @@ export default function Hero() {
       /* Light editorial treatment: the daylight photograph is left bright and the copy
          sits in a frosted panel instead of on a navy scrim. */
       tone="light"
-      /* The Operating Scale band below is solid #0a1a3a, so the foot resolves into it
-         rather than ending on a bright edge against a dark slab. */
-      fadeTo="#0a1a3a"
+      /* No fade into the band below. Grading a bright photograph down into #0a1a3a just
+         turned its bottom third to haze, which sat badly between a crisp hero and a band
+         whose whole idea is hairlines and no boxes. The two meet on a clean cut instead,
+         and VerifiedScale draws the lit rule that marks the join. */
       routes
       eyebrow={<>Global Geospatial &bull; Field Operations &bull; Technology</>}
       title={

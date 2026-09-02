@@ -401,12 +401,8 @@ export default function ImageHero({
       {fadeTo && (
         <div
           aria-hidden="true"
-          className={`absolute inset-x-0 bottom-0 ${light ? 'h-24' : 'h-32'}`}
-          style={{
-            background: light
-              ? `linear-gradient(180deg, transparent 0%, ${fadeTo} 88%, ${fadeTo} 100%)`
-              : `linear-gradient(180deg, transparent 0%, ${fadeTo} 100%)`,
-          }}
+          className="absolute inset-x-0 bottom-0 h-32"
+          style={{ background: `linear-gradient(180deg, transparent 0%, ${fadeTo} 100%)` }}
         />
       )}
 

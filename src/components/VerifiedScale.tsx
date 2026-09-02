@@ -35,5 +35,6 @@ export default function VerifiedScale() {
 
   if (items.length === 0) return null
 
-  return <StatsBand items={items} eyebrow="Operating Scale" />
+  /* topRule: this is the one place the band sits directly under the hero. */
+  return <StatsBand items={items} eyebrow="Operating Scale" topRule />
 }

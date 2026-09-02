@@ -36,11 +36,42 @@ function Stat({ item, index, start }: { item: StatItem; index: number; start: bo
   )
 }
 
-export default function StatsBand({ items, eyebrow }: { items: StatItem[]; eyebrow?: string }) {
+export default function StatsBand({
+  items,
+  eyebrow,
+  topRule = false,
+}: {
+  items: StatItem[]
+  eyebrow?: string
+  /**
+   * Draw a lit hairline along the top edge. For where this band sits directly under the
+   * bright home hero: the two meet on a hard cut, and this is what marks the join.
+   *
+   * It has to live here rather than at the foot of the hero, because cyan needs a dark
+   * ground to register - over the last row of a daylight photograph the same line is
+   * invisible at 1x. Held to the same max-w-7xl column as the eyebrow below it, so it
+   * reads as a drawn rule rather than a border.
+   */
+  topRule?: boolean
+}) {
   const { ref, inView } = useInView<HTMLDivElement>()
 
   return (
     <section ref={ref} className="section-y-sm relative overflow-hidden bg-[#0a1a3a]">
+      {topRule && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 mx-auto w-full max-w-7xl px-6"
+        >
+          <div
+            className="h-px w-full"
+            style={{
+              background:
+                'linear-gradient(90deg, rgba(0,212,255,0.95) 0%, rgba(0,212,255,0.8) 34%, rgba(0,212,255,0.3) 66%, rgba(0,212,255,0) 100%)',
+            }}
+          />
+        </div>
+      )}
       {/* One quiet accent, bottom right, instead of a grid plus two glows. */}
       <div
         aria-hidden="true"
