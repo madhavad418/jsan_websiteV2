@@ -75,7 +75,7 @@ const VIEWS: View[] = [
     tab: 'Overview',
     nav: 'Overview',
     context: 'Programme: Live',
-    video: '/pillars/atlas.mp4',
+    video: '/pillars/atlasops.mp4',
     poster: '/pillars/jsan_atlasops.png',
     mediaLabel:
       'A recording of the JSAN ATLAS Ops operations view, following a vehicle along its route',
