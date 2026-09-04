@@ -1,4 +1,5 @@
 import { Navigation, Truck, Layers, Route, Users, ShieldCheck } from 'lucide-react'
+import { allocationStats, industrySplit } from '../../config/countAllocations'
 import IndustryJourney from '../../components/IndustryJourney'
 
 export default function AutonomousMobility() {
@@ -11,11 +12,12 @@ export default function AutonomousMobility() {
       subtitle="Autonomous Mobility"
       description="JSAN supports autonomous mobility programs with field operations, mapping, fleet readiness, route evidence, geospatial QA and scalable operational support."
       stats={[
-        { value: '360°', label: 'Imagery & LiDAR' },
+        ...allocationStats(industrySplit, 'autonomous-mobility'),
         { value: '24/7', label: 'Collection Operations' },
-        { value: '1,000+', label: 'Field Specialists' },
       ]}
-      image="/pillars/autonomous_support.png"
+      image="/pillars/autonomous_support.webp"
+      copySide="left"
+      imagePosition="50% 55%"
       imageAlt="LiDAR and sensor data capture for autonomous mobility"
       challenges={[
         {
@@ -41,7 +43,7 @@ export default function AutonomousMobility() {
           description:
             'Corridor and ODD survey work: what the route physically contains, where the signage, markings and furniture actually are, and what has changed since the last pass.',
           icon: Route,
-          image: '/pillars/route.png',
+          image: '/pillars/route.webp',
           imageAlt: 'Route corridor survey for autonomous operation',
           points: [
             'Corridor survey against the planned ODD',
@@ -56,7 +58,7 @@ export default function AutonomousMobility() {
           description:
             'Local crews supporting depot operations, on-route assistance, incident documentation and the day-to-day work a remote team cannot do from a screen.',
           icon: Users,
-          image: '/pillars/feild_support.png',
+          image: '/pillars/feild_support.webp',
           imageAlt: 'Field support crew working with an autonomous test vehicle',
           points: [
             'Depot and on-route field support',
@@ -71,7 +73,7 @@ export default function AutonomousMobility() {
           description:
             'Vehicle and sensor rigs, drivers and operators, dispatch, tracking, maintenance and compliance  managed against route and coverage targets, not ad hoc.',
           icon: Truck,
-          image: '/pillars/live_tracking.png',
+          image: '/pillars/live_tracking.webp',
           imageAlt: 'Managed collection and test fleet with sensor rigs',
           points: [
             'Sensor rig fitting and upkeep',
@@ -86,7 +88,7 @@ export default function AutonomousMobility() {
           description:
             'Imagery, LiDAR and geometry captured to a defined sensor configuration, with lineage attached, so any observation can be traced back to the run that produced it.',
           icon: Layers,
-          image: '/pillars/point_cloud.png',
+          image: '/pillars/point_cloud.webp',
           imageAlt: 'LiDAR point cloud captured along a test route',
           points: [
             'Imagery and LiDAR to specification',
@@ -101,7 +103,7 @@ export default function AutonomousMobility() {
           description:
             'Annotation and extraction run under a controlled ontology with reviewer calibration and sampling, so accuracy is a number you can report rather than a claim.',
           icon: ShieldCheck,
-          image: '/pillars/quality.png',
+          image: '/pillars/quality.webp',
           imageAlt: 'Annotation quality review with reviewer calibration',
           points: [
             'Controlled ontology and labelling rules',
@@ -133,7 +135,7 @@ export default function AutonomousMobility() {
             'Repeat passes compared against the previous capture, so what changed is surfaced explicitly rather than left for the model to discover.',
         },
       ]}
-      useCasesImage="/pillars/autonomous_mobilitynew.png"
+      useCasesImage="/pillars/autonomous_mobilitynew.webp"
       useCasesImageAlt="Autonomous vehicle operating on a surveyed corridor"
       scopeNote="JSAN provides operational, mapping and data services in support of autonomous mobility programs. JSAN does not certify autonomous vehicles, act as a regulatory or approval authority, provide Technical Supervision, or independently approve ODD operations, except where specifically contracted and legally authorised to do so."
       services={[
@@ -154,7 +156,7 @@ export default function AutonomousMobility() {
         { name: 'GeoAI & Computer Vision', href: '/services/geoai-computer-vision' },
         { name: 'Data Annotation', href: '/services/basemap-poi-annotation' },
         { name: 'LiDAR & 3D Mapping', href: '/services/geospatial' },
-        { name: 'Tracking & Telematics', href: '/products/jsan-vts' },
+        { name: 'Tracking & Telematics', href: '/products' },
       ]}
       outcomes={[
         'Repeatable capture against a defined route and sensor specification',

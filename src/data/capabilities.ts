@@ -87,7 +87,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Routable Centrelines, Connectivity and Attribution Built for Navigation',
     description:
       'We build and maintain the road network layer that navigation, logistics and mobility platforms route on centreline geometry, junction modelling, connectivity and the attribution that makes a network usable rather than merely drawn. Networks are compiled from street-level imagery, LiDAR, probe traces, authoritative records and our own field crews, then reconciled into one topologically clean model against your schema.',
-    bgImage: '/pillars/road.png',
+    bgImage: '/pillars/road.webp',
     highlights: [
       { icon: Route, text: 'Centreline geometry, alignment and junction modelling' },
       { icon: GitMerge, text: 'Connectivity, turn restrictions, one-ways and grade separation' },
@@ -149,7 +149,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Ground Truth, Captured On Site and Backed by Evidence',
     description:
       'Desk research and imagery take data most of the way; field verification closes the gap. Our crews confirm what is actually on the ground  an asset, an access point, a business, a restriction  and return GPS-stamped, photo-backed evidence against a structured checklist, so your dataset carries proof rather than assumption.',
-    bgImage: '/pillars/feild_verify.png',
+    bgImage: '/pillars/feild_verify.webp',
     highlights: [
       { icon: MapPin, text: 'On-site confirmation of features, assets, POI and access' },
       { icon: Camera, text: 'GPS and time-stamped photographic evidence per record' },
@@ -213,7 +213,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Coverage Plans, Drive Schedules and Live Tasking for Collection Fleets',
     description:
       'Getting a fleet to the right places, in the right order, at the right time is the difference between a collection program that hits its coverage targets and one that burns fuel. We plan coverage, build drive and task schedules, dispatch crews daily, and re-plan around weather, access restrictions, equipment failures and re-drives.',
-    bgImage: '/pillars/globalfleet.png',
+    bgImage: '/pillars/globalfleet.webp',
     highlights: [
       { icon: Compass, text: 'Coverage design and route sequencing against target geographies' },
       { icon: Timer, text: 'Shift, roster and drive-window scheduling' },
@@ -275,7 +275,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Safe Crews, Compliant Vehicles, Defensible Records',
     description:
       'Field programs run across jurisdictions, each with its own rules on driving, data capture, privacy and site access. We operate the safety and compliance layer around a collection or field program  driver standards, vehicle checks, permits, privacy handling and incident management  so operations stay lawful, insurable and auditable wherever they run.',
-    bgImage: '/pillars/safety.png',
+    bgImage: '/pillars/safety.webp',
     highlights: [
       { icon: HardHat, text: 'Driver induction, safety briefing and competency records' },
       { icon: Truck, text: 'Vehicle inspection, maintenance and roadworthiness checks' },
@@ -339,7 +339,7 @@ export const capabilities: Capability[] = [
     subtitle: 'From Raw Point Cloud to Classified, Usable Geospatial Features',
     description:
       'A point cloud on its own is a measurement, not an asset register. We classify and extract the features our clients actually work with  poles, conductors, signs, kerbs, road edges, vegetation, building footprints and terrain  combining automated classification with trained human extraction and review, delivered in the CAD and GIS formats your engineering teams already use.',
-    bgImage: '/pillars/feature_extraction.png',
+    bgImage: '/pillars/feature_extraction.webp',
     highlights: [
       { icon: Scan, text: 'Point-cloud classification  ground, vegetation, structures, assets' },
       { icon: Layers, text: 'Feature extraction  poles, wires, signs, kerbs and road edges' },
@@ -401,7 +401,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Reading the Street  Signs, Text and Numbers Turned Into Map Attributes',
     description:
       'Street-level imagery is full of information that only becomes useful once it is read, classified and located. We detect and interpret traffic signs, regulatory text, house numbers, business fascia and roadside text across languages and scripts, then turn each reading into a positioned, attributed map feature with the source image retained as evidence.',
-    bgImage: '/pillars/ocr.png',
+    bgImage: '/pillars/ocr.webp',
     highlights: [
       { icon: Type, text: 'Multilingual OCR across scripts and roadside text' },
       { icon: Signal, text: 'Traffic and regulatory sign detection and classification' },
@@ -463,7 +463,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Trained Reviewers Where Automation Stops Being Reliable',
     description:
       'Models are fast and confident, including when they are wrong. We provide the human review layer around automated pipelines  sampling model output, adjudicating low-confidence and edge cases, maintaining gold sets and feeding corrections back as training data  so accuracy is measured and improving rather than assumed.',
-    bgImage: '/pillars/quality.png',
+    bgImage: '/pillars/quality.webp',
     highlights: [
       { icon: Users, text: 'Trained, calibrated reviewers with documented decision rules' },
       { icon: Target, text: 'Confidence-based routing of edge cases to human review' },
@@ -525,7 +525,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Schema, Topology and Truth  Checked Before It Reaches Production',
     description:
       'Validation is what stands between a delivery and a production incident. We build and run validation regimes for geospatial and enterprise datasets  schema and domain conformance, topology and geometry rules, completeness, cross-source comparison and statistical outlier detection  and issue an acceptance report that says plainly what passed, what failed and what was fixed.',
-    bgImage: '/pillars/data_validate.png',
+    bgImage: '/pillars/data_validate.webp',
     highlights: [
       { icon: FileSearch, text: 'Schema, domain and attribute-completeness conformance' },
       { icon: Network, text: 'Topology, geometry and connectivity rule checks' },
@@ -589,7 +589,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Site Candidacy, Street Furniture and the Geospatial Layer Behind Densification',
     description:
       'Small-cell densification is won or lost on site data. We provide the geospatial groundwork behind 5G rollout  candidate identification on poles, streetlights and rooftops, line-of-sight and clutter analysis, structural and power context, and the permitting datasets local authorities require  so RF and deployment teams work from verified sites rather than desktop guesses.',
-    bgImage: '/pillars/5g.png',
+    bgImage: '/pillars/5g.webp',
     highlights: [
       { icon: Antenna, text: 'Candidate site identification on poles, lighting and rooftops' },
       { icon: Eye, text: 'Line-of-sight, clutter and obstruction analysis' },
@@ -651,7 +651,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Engineering Answers Derived From Aerial, Mobile and Terrestrial Scans',
     description:
       'Beyond capture and classification sits the engineering question: will it clear, will it hold, where does it conflict? We turn LiDAR into engineering deliverables for utility and telecom corridors  pole loading inputs, conductor clearance and sag analysis, vegetation encroachment, corridor models and make-ready assessments  in the formats design teams and regulators expect.',
-    bgImage: '/pillars/lidar_engineering.png',
+    bgImage: '/pillars/lidar_engineering.webp',
     highlights: [
       { icon: Activity, text: 'Conductor clearance, sag and thermal-condition analysis' },
       { icon: Wrench, text: 'Pole loading and make-ready engineering inputs' },
@@ -713,7 +713,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Closing the Gap Between What Was Designed and What Was Built',
     description:
       'Networks are rarely built exactly as drawn, and the difference quietly corrupts every system that depends on the records. We validate constructed infrastructure against design  capturing what exists in the field, reconciling contractor redlines, resolving discrepancies and updating the GIS  so as-built records can be trusted for operations, maintenance and future design.',
-    bgImage: '/pillars/asbuilt.png',
+    bgImage: '/pillars/asbuilt.webp',
     highlights: [
       { icon: ClipboardCheck, text: 'Field capture of constructed assets and routes' },
       { icon: GitMerge, text: 'Reconciliation of design, redlines and field evidence' },
@@ -766,68 +766,6 @@ export const capabilities: Capability[] = [
       'A clean asset base for downstream operations',
     ],
   },
-  {
-    slug: 'utilities-mapping',
-    group: 'Telecom & Infrastructure',
-    category: 'UTILITIES MAPPING',
-    icon: Network,
-    title: 'Utilities Mapping',
-    subtitle: 'Electric, Gas, Water and Telecom Networks Modelled as Connected Assets',
-    description:
-      'We map and model utility networks  capturing and digitising assets, converting legacy records, aligning networks to an accurate landbase and building the connectivity model that makes a network analysable rather than merely drawable. The result is an asset base your operations, planning and outage systems can rely on.',
-    bgImage: '/pillars/utility.png',
-    highlights: [
-      { icon: Network, text: 'Connectivity and network-model construction' },
-      { icon: Layers, text: 'Electric, gas, water and telecom asset capture' },
-      { icon: RefreshCw, text: 'Legacy record and paper-map conversion' },
-      { icon: Map, text: 'Landbase alignment and spatial accuracy improvement' },
-      { icon: Database, text: 'Delivery into your GIS / ADMS data model' },
-    ],
-    approach: [
-      {
-        title: 'Source inventory',
-        detail:
-          'Existing records  CAD, paper, scanned maps, spreadsheets and legacy GIS  are inventoried and assessed for coverage, age and reliability.',
-      },
-      {
-        title: 'Conversion & capture',
-        detail:
-          'Assets are digitised and attributed to your data model, with field capture filling the gaps that records cannot answer.',
-      },
-      {
-        title: 'Network modelling',
-        detail:
-          'Connectivity, phasing, devices and flow direction are modelled so the network supports tracing, analysis and outage management.',
-      },
-      {
-        title: 'Validation & migration',
-        detail:
-          'Topology and attribute validation clear the dataset before migration into your production GIS, with a documented lineage per asset class.',
-      },
-    ],
-    deliverables: [
-      'Digitised utility asset layers',
-      'Connectivity / network model',
-      'Landbase-aligned spatial data',
-      'Converted legacy records',
-      'Attribute and topology validation reports',
-      'Migration-ready GIS packages',
-    ],
-    idealFor: [
-      'Electric, gas and water utilities',
-      'Telecom and fibre operators',
-      'Municipal utility departments',
-      'GIS modernisation programs',
-      'Asset and outage management teams',
-    ],
-    outcomes: [
-      'A single, connected view of the network',
-      'Legacy records rescued into a modern data model',
-      'Tracing and analysis that behave correctly',
-      'Field crews working from accurate maps',
-      'A foundation for outage, planning and digital-twin systems',
-    ],
-  },
 
   /* ---------------- Program & Managed Services ---------------- */
   {
@@ -839,7 +777,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Governance, Cadence and Visibility Across a Portfolio of Work',
     description:
       'We set up and run project management offices for data, geospatial and technology programs  defining governance, standing up cadence and reporting, tracking scope, risk, cost and benefits, and giving leadership one honest view of where the portfolio actually stands. Whether you need a PMO built or an existing one operated, we cover both.',
-    bgImage: '/pillars/pmo-setup.jpg',
+    bgImage: '/pillars/pmo-setup.webp',
     highlights: [
       { icon: Workflow, text: 'PMO design  governance, roles, gates and decision rights' },
       { icon: ClipboardList, text: 'RAID management: risks, assumptions, issues, dependencies' },
@@ -901,7 +839,7 @@ export const capabilities: Capability[] = [
     subtitle: 'A Quality System, Not a Final Inspection',
     description:
       'Quality that depends on a check at the end is quality you find out about too late. We design and run quality operations for data and delivery programs  specifications, sampling plans, tiered QC and QA, auditor calibration, defect taxonomy and corrective action  so quality is produced within the process and measured continuously.',
-    bgImage: '/pillars/quality_check.png',
+    bgImage: '/pillars/quality_check.webp',
     highlights: [
       { icon: ShieldCheck, text: 'Quality management framework and written specifications' },
       { icon: Target, text: 'Sampling plans and statistically defensible acceptance' },
@@ -963,7 +901,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Running Production Data Programs to Throughput, Quality and SLA',
     description:
       'Some data work is a project; most of it is an operation that has to deliver every day. We run production data operations end to end  intake, workflow orchestration, trained teams, throughput and capacity management, quality gates, tooling and change control  reporting against SLAs so you can treat data delivery as a dependable service rather than a standing risk.',
-    bgImage: '/pillars/data_ops.png',
+    bgImage: '/pillars/data_ops.webp',
     highlights: [
       { icon: Workflow, text: 'Workflow design, orchestration and task routing' },
       { icon: Users, text: 'Trained production teams with defined competency levels' },

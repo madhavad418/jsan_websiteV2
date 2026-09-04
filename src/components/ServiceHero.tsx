@@ -2,21 +2,17 @@ import type { LucideIcon } from 'lucide-react'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import HeroStat from './HeroStat'
+import HeroBackdrop, { heroCopyColumn } from './HeroBackdrop'
 
 /**
- * The light hero used across the service pages, matching Careers, Contact and About.
+ * The hero used across the service and capability pages.
  *
- * The photo bleeds off the right edge of the viewport and flares outward at the
- * bottom left. That flare is the fiddly part: an overlay can only ever bite INTO
- * the image, so the panel is widened 7rem past its visible edge and a white strip
- * masks the overhang. Because the strip's own bottom-right corner is rounded, it
- * peels away at the bottom and the photo sweeps out to the left. The strip width
- * and the radius must stay equal, or the arc stops being a clean quarter circle.
+ * It used to crop the photograph into a panel on the right, behind a curved white flare.
+ * That panel showed roughly a third of any wide photograph, so the hero now runs the
+ * picture full width and puts the copy on it instead  see HeroBackdrop for the scrim and
+ * the header offset that make that readable.
  *
- * The strip is painted flat white, so the hero background has to be flat white
- * underneath it too  the brand wash is kept inside a container that stops at 44%,
- * well clear of the panel at 48%, and fades to zero alpha on its own so there is no
- * hard cut at its edge either.
+ * copySide has to be read off each photograph: it decides which half the scrim darkens.
  */
 
 type Cta = { label: string; href: string }
@@ -35,6 +31,10 @@ export type ServiceHeroProps = {
   stats?: { value: string; label?: string }[]
   image: string
   imageAlt: string
+  /** Which half the copy sits on. Read it off the photograph, not off taste. */
+  copySide?: 'left' | 'right'
+  /** background-position for the photograph, e.g. '50% 60%'. */
+  imagePosition?: string
   primaryCta?: Cta
   secondaryCta?: Cta
 }
@@ -49,71 +49,56 @@ export default function ServiceHero({
   stats,
   image,
   imageAlt,
+  copySide = 'left',
+  imagePosition = '50% 50%',
   primaryCta = { label: 'Talk to Our Team', href: '/contact' },
   secondaryCta = { label: 'All Services', href: '/services' },
 }: ServiceHeroProps) {
   return (
     <section
-      className="relative flex items-center overflow-hidden bg-white pt-24 lg:min-h-[700px] lg:pt-28 pb-16 lg:pb-20"
+      className="relative flex min-h-[500px] items-center overflow-hidden bg-[#03142d] pt-24 sm:min-h-[560px] sm:pt-28 lg:min-h-[680px] lg:pt-32 pb-12 sm:pb-16 lg:pb-20"
       style={{ marginTop: '44px' }}
     >
-      {/* Brand wash  see the note above on why it must stay clear of the panel */}
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 w-[44%]"
-        style={{
-          background:
-            'radial-gradient(50% 45% at 5% 10%, rgba(0,80,169,0.07) 0%, rgba(0,80,169,0) 100%), ' +
-            'radial-gradient(45% 55% at 30% 95%, rgba(0,212,255,0.11) 0%, rgba(0,212,255,0) 100%)',
-        }}
-      />
-
-      <div
-        className="absolute inset-y-6 right-0 hidden w-[52%] bg-gray-100 bg-cover bg-center lg:block"
-        style={{ backgroundImage: `url(${image})` }}
-        role="img"
-        aria-label={imageAlt}
-      >
-        <div className="absolute inset-y-0 left-0 w-28 rounded-br-[7rem] bg-white" />
-      </div>
+      <HeroBackdrop image={image} imageAlt={imageAlt} copySide={copySide} position={imagePosition} />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
-        <div className="lg:w-1/2 lg:pr-12">
-          <nav className="mb-4 flex items-center gap-2 text-sm text-gray-500">
-            <Link to="/services" className="transition-colors hover:text-[#0050a9]">
+        <div className={heroCopyColumn(copySide)}>
+          <nav className="mb-3 flex items-center gap-2 text-[13px] text-white/60 sm:mb-4 sm:text-sm">
+            <Link to="/services" className="transition-colors hover:text-white">
               Services
             </Link>
             <span>/</span>
-            <span className="font-medium text-[#0050a9]">{breadcrumb}</span>
+            <span className="font-medium text-white">{breadcrumb}</span>
           </nav>
 
-          <span className="mb-5 inline-flex items-center gap-2 t-label text-gray-500">
-            {EyebrowIcon && <EyebrowIcon className="h-4 w-4 text-[#0050a9]" aria-hidden="true" />}
+          <span className="mb-5 inline-flex items-center gap-2 t-label text-[#00d4ff]">
+            {EyebrowIcon && <EyebrowIcon className="h-4 w-4 text-[#00d4ff]" aria-hidden="true" />}
             {eyebrow}
           </span>
 
-          <h1 className="mb-3 text-[34px] font-bold leading-[1.08] text-[#0a1a3a] lg:text-[48px]">
+          <h1 className="mb-3 text-[26px] font-bold leading-[1.12] text-white sm:text-[30px] sm:leading-[1.08] lg:text-[48px]">
             {title}
           </h1>
 
           {subtitle && (
-            <p className="mb-6 text-[22px] font-semibold leading-tight text-[#0050a9] lg:text-[28px]">
+            <p className="mb-5 text-[17px] font-semibold leading-snug text-[#7cc6ff] sm:mb-6 sm:text-[20px] lg:text-[28px]">
               {subtitle}
             </p>
           )}
 
-          <p className="mb-8 max-w-lg text-lg leading-relaxed text-gray-600">{description}</p>
+          <p className="mb-7 max-w-lg text-[15px] leading-relaxed text-white/75 sm:mb-8 sm:text-lg">{description}</p>
 
           {stats && stats.length > 0 && (
-            <div className="mb-8 flex flex-wrap gap-2.5">
+            <div className="mb-7 flex flex-wrap gap-2 sm:mb-8 sm:gap-2.5">
               {stats.map((stat) => (
                 <div
                   key={stat.value + (stat.label ?? '')}
-                  className="rounded-lg border border-blue-100 bg-blue-50/70 px-4 py-2.5 text-center"
+                  className="rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-center backdrop-blur-sm sm:px-4 sm:py-2.5"
                 >
-                  <div className="text-base font-bold tabular-nums text-[#0050a9] lg:text-lg">
+                  <div className="text-sm font-bold tabular-nums text-white sm:text-base lg:text-lg">
                     <HeroStat value={stat.value} />
                   </div>
-                  {stat.label && <div className="text-[11px] text-[#0050a9]">{stat.label}</div>}
+                  {stat.label && <div className="text-[10px] text-white/70 sm:text-[11px]">{stat.label}</div>}
                 </div>
               ))}
             </div>
@@ -122,8 +107,7 @@ export default function ServiceHero({
           <div className="flex flex-wrap items-center gap-4">
             <a
               href={primaryCta.href}
-              className="group inline-flex items-center gap-2.5 rounded-lg px-7 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_-14px_rgba(0,80,169,0.9)]"
-              style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}
+              className="group inline-flex items-center gap-2.5 rounded-lg bg-white px-5 py-3 text-[15px] font-semibold sm:px-7 sm:py-3.5 sm:text-base text-[#0050a9] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100"
             >
               {primaryCta.label}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -131,22 +115,12 @@ export default function ServiceHero({
 
             <a
               href={secondaryCta.href}
-              className="group inline-flex items-center gap-2 rounded-lg border-2 border-[#0050a9]/20 px-7 py-3.5 font-semibold text-[#0050a9] transition-all duration-300 hover:border-[#0050a9] hover:bg-[#0050a9] hover:text-white"
+              className="group inline-flex items-center gap-2 rounded-lg border-2 border-white/40 px-5 py-3 text-[15px] font-semibold sm:px-7 sm:py-3.5 sm:text-base text-white transition-all duration-300 hover:border-white hover:bg-white/10"
             >
               {secondaryCta.label}
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
-        </div>
-
-        {/* Below lg there is no room to bleed, so the photo stacks under the copy */}
-        <div className="mt-12 overflow-hidden rounded-2xl bg-gray-100 shadow-xl lg:hidden">
-          <img
-            src={image}
-            alt={imageAlt}
-            className="h-[280px] w-full object-cover sm:h-[340px]"
-            loading="eager"
-          />
         </div>
       </div>
     </section>

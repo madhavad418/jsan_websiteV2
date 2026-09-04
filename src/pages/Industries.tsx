@@ -13,6 +13,8 @@ import {
   Navigation,
   Signal
 } from 'lucide-react'
+import HeroBackdrop, { heroCopyColumn } from '../components/HeroBackdrop'
+import SectionLabel from '../components/SectionLabel'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
@@ -32,7 +34,7 @@ const industries = [
     shortName: 'Mapping & Location',
     description:
       'Street-level collection, map data production and continuous refresh for the platforms people navigate by, with quality assurance built into every stage rather than inspected at the end.',
-    image: '/pillars/Mapping_Location_Platforms.png',
+    image: '/pillars/mapping_location.webp',
     services: ['Street-Level Collection', 'Map Data Production', 'POI & Address Data', 'Change Detection', 'Quality Assurance'],
     link: '/industries/mapping-location-platforms',
   },
@@ -42,7 +44,7 @@ const industries = [
     shortName: 'Autonomous Mobility',
     description:
       'Ground truth, annotation and validation work for autonomy programmes, run at production scale with the reviewer calibration and sampling that make accuracy defensible.',
-    image: '/pillars/autonomous_mobilitynew.png',
+    image: '/pillars/autonomous_mobilitynew.webp',
     services: ['HD Map Support', 'Ground Truth Data', 'Sensor Data Operations', 'Annotation at Scale', 'Validation & QA'],
     link: '/industries/autonomous-mobility',
   },
@@ -52,7 +54,7 @@ const industries = [
     shortName: 'Telecommunications',
     description:
       'Field survey, network GIS and as-built validation alongside operator engineering teams, reconciling what was designed against what was actually installed.',
-    image: '/pillars/telecommunications.png',
+    image: '/pillars/telecommunications.webp',
     services: ['Telecom GIS', 'Fibre & Pole Survey', 'As-Built Validation', 'Network Planning Support', 'Field Operations'],
     link: '/industries/telecommunications',
   },
@@ -134,132 +136,146 @@ export default function Industries() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section with Full Image */}
-      <section className="relative min-h-[650px] flex items-center overflow-hidden pt-28 lg:pt-32 pb-28 lg:pb-32" style={{ marginTop: '44px' }}>
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop"
-            alt="Industries"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0050a9]/95 via-[#0050a9]/80 to-transparent"></div>
-        </div>
+      {/* Hero  same full-bleed treatment as the industry, capability and service pages.
+          What was here before had three problems this fixes: the photograph started at the
+          section top, so its top 77px sat behind the fixed header; a near-opaque blue wash
+          (#0050a9/95) left almost none of it visible; and the copy ran to max-w-3xl, past
+          the point where the scrim has faded. A decorative SVG over the right half went
+          with the wash  with a photograph actually showing through, it only added noise. */}
+      <section
+        className="relative flex min-h-[500px] items-center overflow-hidden bg-[#03142d] pb-12 pt-24 sm:min-h-[560px] sm:pb-16 sm:pt-28 lg:min-h-[660px] lg:pb-20 lg:pt-32"
+        style={{ marginTop: '44px' }}
+      >
+        <HeroBackdrop
+          image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop"
+          imageAlt="Industries JSAN delivers into"
+        />
 
-        {/* Animated Geometric Pattern */}
-        <div className="absolute right-0 top-0 w-1/2 h-full opacity-30 pointer-events-none">
-          <svg viewBox="0 0 800 600" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="indGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#00d4ff" stopOpacity="0.6" />
-                <stop offset="100%" stopColor="#0050a9" stopOpacity="0.2" />
-              </linearGradient>
-            </defs>
-            <polygon points="400,50 750,200 750,450 400,600 200,400 200,150" fill="url(#indGrad)" />
-            <polygon points="450,100 700,220 700,420 450,540 280,380 280,180" fill="none" stroke="#00d4ff" strokeWidth="2" opacity="0.6" />
-            <polygon points="500,150 650,240 650,390 500,480 340,360 340,210" fill="none" stroke="#00d4ff" strokeWidth="1" opacity="0.4" />
-          </svg>
-        </div>
-
-        {/* Sub-header */}
-        <div className="absolute top-0 left-0 right-0 bg-black/20 backdrop-blur-sm">
-          <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-            <span className="text-white/90 font-medium">Industries</span>
-            <Link to="/contact" className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white px-4 py-2 rounded transition-colors">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-              </svg>
-              Contact
-            </Link>
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 bg-cyan-400/20 backdrop-blur border border-cyan-400/30 text-cyan-300 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-              <Building2 className="w-4 h-4" />
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
+          <div className={heroCopyColumn()}>
+            <span className="mb-5 inline-flex items-center gap-2 t-label text-[#00d4ff]">
+              <Building2 className="h-4 w-4" aria-hidden="true" />
               {/* Counted, not typed. This said 4 for as long as the list held four. */}
-              {industries.length} INDUSTRY VERTICALS
+              {industries.length} Industry Verticals
             </span>
-            <h1 className="text-white text-[42px] lg:text-[60px] font-bold leading-[1.05] mb-6">
-              Industry-Specific<br />Expertise
+
+            <h1 className="mb-4 text-[26px] font-bold leading-[1.12] text-white sm:text-[30px] sm:leading-[1.08] lg:text-[48px]">
+              Industry-Specific Expertise
             </h1>
-            <p className="text-white/80 text-xl lg:text-2xl leading-relaxed mb-10">
-              Deep domain knowledge across multiple industries enables us to deliver solutions that address your unique challenges and opportunities.
+            <p className="mb-5 text-[17px] font-semibold leading-snug text-[#7cc6ff] sm:mb-6 sm:text-[20px] lg:text-[28px]">
+              The same operating model, tuned to what each sector has to prove.
             </p>
+            <p className="mb-7 max-w-lg text-[15px] leading-relaxed text-white/75 sm:mb-8 sm:text-lg">
+              Deep domain knowledge across multiple industries lets us deliver solutions that
+              address the challenges specific to your sector rather than generic ones.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="#industries"
+                className="group inline-flex items-center gap-2.5 rounded-lg bg-white px-5 py-3 text-[15px] font-semibold sm:px-7 sm:py-3.5 sm:text-base text-[#0050a9] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100"
+              >
+                Browse Industries
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+              <Link
+                to="/contact"
+                className="group inline-flex items-center gap-2 rounded-lg border-2 border-white/40 px-5 py-3 text-[15px] font-semibold sm:px-7 sm:py-3.5 sm:text-base text-white transition-all duration-300 hover:border-white hover:bg-white/10"
+              >
+                Talk to JSAN
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </div>
           </div>
         </div>
-
       </section>
 
-      {/* Industries Grid */}
-      <section id="industries" className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-[36px] lg:text-[48px] font-bold text-[#0050a9] mb-4">
-              Industries We Serve
+      {/* The seven industries, as editorial panels rather than a card grid  the same
+          treatment /capabilities gives its pillars. */}
+      <section id="industries" className="section-y scroll-mt-28 bg-white">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-12 max-w-3xl lg:mb-16">
+            <SectionLabel>Industries We Serve</SectionLabel>
+            <h2 className="t-section text-[#0a1a3a]">
+              Seven sectors, one operating model
             </h2>
-            <p className="text-gray-600 text-xl max-w-3xl mx-auto">
-              From transportation to smart cities, we bring specialized expertise to every sector.
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {industries.map((industry) => {
+          {/*
+            One panel per industry: a large documentary photograph on roughly 57% of the
+            width, the positioning statement beside it, the work it actually covers, and one
+            way in. Sides alternate down the page.
+
+            Seven equal cards said "here are seven things". At this size each industry reads
+            as a practice in its own right, which is closer to the truth.
+          */}
+          <div className="space-y-16 lg:space-y-24">
+            {industries.map((industry, i) => {
               const IconComponent = industryIcons[industry.id]
+              const imageFirst = i % 2 === 0
+
               return (
-                <div
+                <article
                   key={industry.id}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3"
+                  /* The wide column has to follow the image across the alternation, or the
+                     photograph shrinks on every second panel. */
+                  className={`grid items-center gap-10 lg:gap-16 ${
+                    imageFirst
+                      ? 'lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]'
+                      : 'lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]'
+                  }`}
                 >
-                  {/* Image */}
-                  <div className="relative h-64 overflow-hidden">
+                  <Link
+                    to={industry.link}
+                    aria-hidden="true"
+                    tabIndex={-1}
+                    className={`group block overflow-hidden rounded-2xl bg-gray-100 ${
+                      imageFirst ? '' : 'lg:order-2'
+                    }`}
+                  >
                     <img
                       src={industry.image}
-                      alt={industry.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      alt=""
+                      width={1200}
+                      height={800}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-[300px] w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03] lg:h-[460px]"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0050a9]/90 via-[#0050a9]/40 to-transparent"></div>
+                  </Link>
 
-                    {/* Icon Badge */}
-                    <div className="absolute top-4 right-4 w-14 h-14 bg-white/20 backdrop-blur-md border border-white/30 rounded-xl flex items-center justify-center group-hover:bg-[#0050a9] transition-colors">
-                      <IconComponent className="w-7 h-7 text-white" />
+                  <div className={imageFirst ? '' : 'lg:order-1'}>
+                    <div className="mb-6 flex items-center gap-4">
+                      <span className="text-[34px] font-bold leading-none tracking-[-0.04em] text-[#868e9c]">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span aria-hidden="true" className="h-px w-8 bg-gray-300" />
+                      <IconComponent className="h-5 w-5 text-[#0050a9]" aria-hidden="true" />
                     </div>
 
-                    {/* Title on Image */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-white text-2xl font-bold mb-2">{industry.shortName}</h3>
-                      <div className="flex flex-wrap gap-2">
-                        {industry.services.slice(0, 2).map((service, idx) => (
-                          <span
-                            key={idx}
-                            className="text-xs bg-white/20 backdrop-blur text-white px-3 py-1 rounded-full"
-                          >
-                            {service}
-                          </span>
-                        ))}
-                        <span className="text-xs bg-cyan-400/30 text-cyan-300 px-3 py-1 rounded-full">
-                          +{industry.services.length - 2} more
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                    <h3 className="t-sub mb-5 text-[#0a1a3a]">{industry.name}</h3>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                      {industry.description}
-                    </p>
+                    <p className="t-body mb-9 max-w-md text-gray-600">{industry.description}</p>
+
+                    {/* The four things this industry actually covers. */}
+                    <ul className="mb-10 space-y-3 border-t border-gray-200 pt-7">
+                      {industry.services.slice(0, 4).map((service) => (
+                        <li key={service} className="flex items-start gap-3 text-[15px] text-gray-700">
+                          <span aria-hidden="true" className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-[#0050a9]" />
+                          {service}
+                        </li>
+                      ))}
+                    </ul>
 
                     <Link
                       to={industry.link}
-                      className="inline-flex items-center gap-2 text-[#0050a9] font-semibold hover:gap-4 transition-all group/link"
+                      className="group inline-flex min-h-[44px] items-center gap-2.5 border-b border-[#0a1a3a]/20 pb-1 font-semibold text-[#0a1a3a] transition-colors duration-300 hover:border-[#0050a9] hover:text-[#0050a9]"
                     >
-                      Learn More
-                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                      Explore industry
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </div>
-                </div>
+                </article>
               )
             })}
           </div>

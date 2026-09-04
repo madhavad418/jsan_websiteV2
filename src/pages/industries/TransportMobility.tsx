@@ -13,6 +13,8 @@ import {
   Users,
   Target
 } from 'lucide-react'
+import { allocationStats, industrySplit } from '../../config/countAllocations'
+import HeroBackdrop from '../../components/HeroBackdrop'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
@@ -75,15 +77,14 @@ export default function TransportMobility() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[650px] flex items-center overflow-hidden pt-28 lg:pt-32 pb-28 lg:pb-32" style={{ marginTop: '44px' }}>
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1920&h=1080&fit=crop"
-            alt="Transport and Mobility"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0050a9]/95 via-[#0050a9]/85 to-transparent"></div>
-        </div>
+      <section className="relative min-h-[500px] sm:min-h-[560px] lg:min-h-[650px] flex items-center overflow-hidden pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-32" style={{ marginTop: '44px' }}>
+        {/* top-[77px] clears the fixed header, which the section otherwise slides under.
+            Same directional navy scrim as the technology, work and journey heroes: opaque
+            under the copy, clearing over the half of the photograph that carries it. */}
+        <HeroBackdrop
+          image="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1920&h=1080&fit=crop"
+          imageAlt="Transport and mobility infrastructure"
+        />
 
         {/* Sub-header */}
         <div className="absolute top-0 left-0 right-0 bg-black/20 backdrop-blur-sm">
@@ -101,15 +102,16 @@ export default function TransportMobility() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="max-w-3xl">
+          {/* Held to the scrimmed half so the copy never runs onto the bright side */}
+          <div className="max-w-3xl lg:w-[52%] lg:max-w-none lg:pr-8">
             <span className="inline-flex items-center gap-2 bg-cyan-400/20 backdrop-blur border border-cyan-400/30 text-cyan-300 px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Truck className="w-4 h-4" />
               NAVIGATION, TRANSPORT & MOBILITY
             </span>
-            <h1 className="text-white text-[42px] lg:text-[60px] font-bold leading-[1.05] mb-6">
+            <h1 className="text-white text-[27px] sm:text-[34px] lg:text-[60px] font-bold leading-[1.12] sm:leading-[1.05] mb-5 sm:mb-6">
               Powering the Future of Transportation
             </h1>
-            <p className="text-white/80 text-xl lg:text-2xl leading-relaxed mb-10">
+            <p className="text-white/80 text-[15px] sm:text-lg lg:text-2xl leading-relaxed mb-8 sm:mb-10">
               End-to-end solutions for fleet management, route optimization, real-time tracking, and mobility intelligence that drive operational excellence.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -117,10 +119,18 @@ export default function TransportMobility() {
                 Discuss a Transport Program
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link to="/products/jsan-vts" className="inline-flex items-center gap-3 border-2 border-white/40 hover:bg-white/10 text-white px-8 py-4 font-semibold rounded-lg transition-colors">
-                View VTS Product
+              <Link to="/products" className="inline-flex items-center gap-3 border-2 border-white/40 hover:bg-white/10 text-white px-8 py-4 font-semibold rounded-lg transition-colors">
+                See Our Platforms
                 <Play className="w-5 h-5" />
               </Link>
+            </div>
+            <div className="mt-10 flex flex-wrap gap-x-10 gap-y-6 border-t border-white/20 pt-8">
+              {allocationStats(industrySplit, 'transportation-infrastructure').map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-white text-3xl lg:text-4xl font-bold">{stat.value}</div>
+                  <div className="text-white/60 text-sm mt-1">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

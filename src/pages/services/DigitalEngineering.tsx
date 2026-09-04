@@ -2,6 +2,7 @@ import { Code, Globe2, BarChart3, Smartphone, Building2, Cloud, Database, Plug, 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
+import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 import CapabilityModules from '../../components/CapabilityModules'
 // import ServiceContactForm from '../../components/ServiceContactForm'
@@ -18,8 +19,9 @@ export default function DigitalEngineering() {
         title="Build the systems that turn operational data into action."
         subtitle="Digital Engineering"
         description="JSAN develops GIS, data and enterprise applications that connect field workflows, operational intelligence and business systems."
-        image="/pillars/tech-web.jpg"
+        image="/pillars/web_gis.webp"
         imageAlt="Digital engineering and enterprise applications"
+        stats={allocationStats(serviceSplit, 'digital-engineering')}
       />
 
       <CapabilityModules

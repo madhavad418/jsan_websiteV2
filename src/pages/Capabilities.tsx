@@ -21,7 +21,7 @@ export default function Capabilities() {
 
       {/* Same full-bleed treatment as the home page; only the content differs. */}
       <ImageHero
-        image="/pillars/feildops.png"
+        image="/pillars/feildops.webp"
         imageSize={{ width: 1916, height: 821 }}
         focal="62% 55%"
         focalMobile="58% 55%"

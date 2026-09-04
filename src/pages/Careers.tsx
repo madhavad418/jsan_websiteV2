@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, Briefcase, Clock, Users, Globe, GraduationCap, Heart, Sparkles, Search, Filter, ArrowRight, Building, X, Send } from 'lucide-react'
+import { totals } from '../config/countAllocations'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
@@ -16,15 +17,14 @@ const HERO_IMAGE = '/careers/interview.png'
 
 const baseStats = [
   { number: '25+', label: 'Countries' },
-  { number: '1000+', label: 'Team Members' },
-  { number: '6', label: 'Continents' },
+  { number: totals.people, label: 'Team Members' },
 ]
 
 const benefits = [
   {
     icon: Globe,
     title: 'Global Opportunities',
-    description: 'Work across 20+ countries with diverse, international teams on projects that make a real impact.',
+    description: 'Work across 25+ countries with diverse, international teams on projects that make a real impact.',
   },
   {
     icon: GraduationCap,
@@ -117,7 +117,7 @@ export default function Careers() {
         primaryCta={{ label: 'Explore Opportunities', href: '#openings' }}
         secondaryCta={{ label: 'Life at JSAN', href: '/company' }}
         bullets={[
-          'Opportunities across 20+ countries.',
+          'Opportunities across 25+ countries.',
           'Field, office and hybrid roles.',
           'Structured learning and career growth.',
         ]}
@@ -180,7 +180,7 @@ export default function Careers() {
                   <div className="w-10 h-10 bg-[#0050a9] rounded-full flex items-center justify-center">
                     <Building className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-white text-lg">Modern offices in 20+ locations worldwide</span>
+                  <span className="text-white text-lg">Modern offices in 25+ locations worldwide</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 bg-[#0050a9] rounded-full flex items-center justify-center">

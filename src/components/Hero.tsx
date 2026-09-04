@@ -15,7 +15,7 @@ import ImageHero, { HeroAccent, HeroTitleLine } from './ImageHero'
 export default function Hero() {
   return (
     <ImageHero
-      image="/pillars/homepage.png"
+      image="/pillars/homepage.webp"
       imageSize={{ width: 1916, height: 821 }}
       focal="58% 50%"
       focalMobile="42% 50%"

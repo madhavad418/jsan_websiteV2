@@ -28,7 +28,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'From Checklist Compliance to Risk Reduction',
     description:
       'Procedure-led preventive maintenance across four levels  scheduled health inspections, MOP-controlled execution, condition-based signals and lifecycle scoring  planning maintenance against risk instead of the calendar alone.',
-    bgImage: '/pillars/quality-assurance.jpg',
+    bgImage: '/pillars/quality-assurance.webp',
     advantages: [
       { icon: ClipboardCheck, text: 'Scheduled monthly / quarterly / annual health inspections' },
       { icon: ShieldCheck, text: 'MOP, checklist, safety and photo-evidence controls' },
@@ -60,7 +60,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Repair as a Controlled Restoration Process',
     description:
       'A governed six-step restoration process  detect, diagnose, plan, repair, validate and improve  across compute, storage, network, power and facilities. No blind action, no undocumented change, no closure without service validation.',
-    bgImage: '/pillars/tech-devops.jpg',
+    bgImage: '/pillars/tech-devops.webp',
     advantages: [
       { icon: Search, text: 'Structured diagnosis  logs, serials, isolation and part need' },
       { icon: Wrench, text: 'MOP-controlled swap, cabling, power and configuration' },
@@ -92,7 +92,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Connect IT Support with Site Resilience',
     description:
       'Power-chain, thermal and high-density readiness under one service governance model  UPS, batteries, generator coordination, ATS and PDU care, thermal assurance and AI/HPC rack readiness, with electrical safety controls.',
-    bgImage: '/pillars/tech-infrastructure.jpg',
+    bgImage: '/pillars/tech-infrastructure.webp',
     advantages: [
       { icon: Zap, text: 'UPS, battery, generator, ATS and PDU inspection' },
       { icon: Thermometer, text: 'Thermal assurance  airflow, hot spots and environmental monitoring' },
@@ -124,7 +124,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Premium Support When Your Engineers Can’t Be Onsite',
     description:
       'Your remote eyes, ears and hands onsite  a governed request, approve and execute model for power cycles, patching, media, console and installs, with backout plans, evidence capture and NBD / 4-hour tiering.',
-    bgImage: '/pillars/tech-automation.jpg',
+    bgImage: '/pillars/tech-automation.webp',
     advantages: [
       { icon: Hand, text: 'Approved execution  power cycle, patch, media, console, install' },
       { icon: ShieldCheck, text: 'Risk, maintenance window and backout plan on every task' },
@@ -156,7 +156,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Turn Maintenance Events into Infrastructure Decisions',
     description:
       'Identity, condition, lifecycle and control for every asset  CMDB, EOL/EOS, warranty, spares readiness, refresh waves, secure disposal and chain-of-custody  so monthly service data becomes a risk-and-refresh conversation.',
-    bgImage: '/pillars/asset-management.jpg',
+    bgImage: '/pillars/asset-management.webp',
     advantages: [
       { icon: Database, text: 'Asset identity  tag, serial, rack/U, model, firmware, owner, site' },
       { icon: Gauge, text: 'Condition  health score, incidents, PM exceptions, recurrence' },
@@ -188,7 +188,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Coordinated Field Action for Critical Incidents',
     description:
       'When power, compute and network incidents need coordinated site action  P1 command bridges, controlled dispatch, a defined spares path and OEM/partner escalation to restore service to its agreed state.',
-    bgImage: '/pillars/tech-cybersecurity.jpg',
+    bgImage: '/pillars/tech-cybersecurity.webp',
     advantages: [
       { icon: LifeBuoy, text: 'P1 command bridge and critical-incident coordination' },
       { icon: Wrench, text: 'Controlled dispatch and approved onsite execution' },
@@ -220,7 +220,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'The Integrated Control Layer',
     description:
       'Service health, risk and improvement visible every month  service desk, NOC, ticketing, MOP/EOP, CMDB, dashboards and a review cadence from daily incident bridges to quarterly business reviews, with RCA/CAPA and a live risk register.',
-    bgImage: '/pillars/tech-analytics.jpg',
+    bgImage: '/pillars/tech-analytics.webp',
     advantages: [
       { icon: BarChart3, text: 'SLA scorecards, dashboards and monthly service reviews' },
       { icon: ClipboardList, text: 'Ticketing, MOP/EOP and CMDB discipline' },

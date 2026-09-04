@@ -1,6 +1,6 @@
 import { Zap, ClipboardList, Layers, Network, Boxes } from 'lucide-react'
 import IndustryJourney from '../../components/IndustryJourney'
-import { metric } from '../../config/companyMetrics'
+import { allocationStats, industrySplit } from '../../config/countAllocations'
 
 /**
  * /industries/utilities
@@ -11,13 +11,13 @@ import { metric } from '../../config/companyMetrics'
  *
  * The previous version of this page carried a "Regional Power Utility" case study with
  * outage, cost and reliability percentages that exist nowhere in the business records.
- * Those are gone. Figures here come from src/config/companyMetrics.ts or not at all.
+ * Those are gone. The project and headcount figures are this industry's slice of the
+ * company totals, taken from src/config/countAllocations.ts.
  */
 const stats = [
-  { value: metric('countries'), label: 'Countries Supported' },
-  { value: metric('professionals'), label: 'Professionals' },
-  { value: metric('programs'), label: 'Programs Delivered' },
-].filter((s): s is { value: string; label: string } => Boolean(s.value))
+  ...allocationStats(industrySplit, 'utilities'),
+  { value: '25+', label: 'Countries Supported' },
+]
 
 export default function Energy() {
   return (
@@ -29,7 +29,9 @@ export default function Energy() {
       subtitle="From field inventory to asset workflows."
       description="For electricity, water and gas networks carrying decades of inherited records, where the asset register, the GIS and the physical network have quietly drifted apart."
       stats={stats}
-      image="/pillars/utility_network.png"
+      image="/pillars/utility_network.webp"
+      copySide="right"
+      imagePosition="50% 60%"
       imageAlt="Utility network assets captured and mapped in the field"
       challenges={[
         {
@@ -55,7 +57,7 @@ export default function Energy() {
           description:
             'Crews surveying assets on the ground  poles, transformers, valves, meters, chambers  captured with coordinates, condition and dated photographic evidence.',
           icon: ClipboardList,
-          image: '/pillars/feild_verify.png',
+          image: '/pillars/feild_verify.webp',
           imageAlt: 'Field crew capturing utility asset inventory on site',
           points: [
             'Asset capture with coordinates and condition',
@@ -70,7 +72,7 @@ export default function Energy() {
           description:
             'Captured assets built into connected network geometry  feeders, spans, mains and service connections  rather than a scatter of unrelated points.',
           icon: Layers,
-          image: '/pillars/utility.png',
+          image: '/pillars/utility.webp',
           imageAlt: 'Utility network geometry built from field survey',
           points: [
             'Connectivity and topology construction',
@@ -85,7 +87,7 @@ export default function Energy() {
           description:
             'Validation, gap analysis and spatial analytics against the built network, so planning and operations teams can see risk, load and exposure rather than raw geometry.',
           icon: Network,
-          image: '/pillars/net_intel.png',
+          image: '/pillars/net_intel.webp',
           imageAlt: 'Utility network analytics and validation dashboards',
           points: [
             'Topology and completeness validation',
@@ -100,7 +102,7 @@ export default function Energy() {
           description:
             'The validated network delivered into enterprise GIS, asset management and digital twin workflows, with the update path defined rather than left as a one-off migration.',
           icon: Boxes,
-          image: '/pillars/twinning.png',
+          image: '/pillars/twinning.webp',
           imageAlt: 'Digital twin and asset lifecycle workflows for utility networks',
           points: [
             'Enterprise GIS migration and loading',
@@ -132,12 +134,12 @@ export default function Energy() {
             'Structured condition capture in the field, recorded against the asset record rather than in notebooks and individual inspection reports.',
         },
       ]}
-      useCasesImage="/pillars/gis_usecase.png"
+      useCasesImage="/pillars/gis_usecase.webp"
       useCasesImageAlt="Electricity, water and gas network assets in the field"
       capabilities={[
-        { name: 'Utility Network Intelligence', href: '/services/utility-network-intelligence' },
+        { name: 'Utilities Mapping', href: '/services/utility-network-intelligence' },
+        { name: 'Pole & Asset Intelligence', href: '/services/pole-asset-intelligence' },
         { name: 'Field Verification', href: '/capabilities/field-verification' },
-        { name: 'Utilities Mapping', href: '/capabilities/utilities-mapping' },
         { name: 'GIS Data Engineering', href: '/technologies/gis' },
         { name: 'LiDAR Engineering', href: '/capabilities/lidar-engineering' },
         { name: 'Data Validation', href: '/capabilities/data-validation' },

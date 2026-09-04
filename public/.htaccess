@@ -21,9 +21,12 @@ DirectorySlash Off
 
 RedirectMatch 301 ^/about/?$ /company
 RedirectMatch 301 ^/blogs/?$ /insights
+RedirectMatch 301 ^/projects/?$ /products
+RedirectMatch 301 ^/news/?$ /insights
 RedirectMatch 301 ^/industries/energy/?$ /industries/utilities
 RedirectMatch 301 ^/industries/transport/?$ /industries/transportation-infrastructure
 RedirectMatch 301 ^/industries/smartcities/?$ /industries/government-smart-cities
+RedirectMatch 301 ^/capabilities/utilities-mapping/?$ /services/utility-network-intelligence
 RedirectMatch 301 ^/services/location-intelligence/advance-analytics/?$ /services/location-intelligence/advanced-analytics
 
 # ===== END GENERATED REDIRECTS =====

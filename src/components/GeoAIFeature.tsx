@@ -51,7 +51,7 @@ export default function GeoAIFeature() {
           <div className="relative h-[300px] select-none sm:h-[420px] lg:h-[520px]">
             {/* After  detected and classified */}
             <img
-              src="/pillars/after.png"
+              src="/pillars/after.webp"
               alt="Detected and classified assets in street imagery"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
@@ -63,7 +63,7 @@ export default function GeoAIFeature() {
               style={{ clipPath: `inset(0 ${100 - split}% 0 0)` }}
             >
               <img
-                src="/pillars/before.png"
+                src="/pillars/before.webp"
                 alt="Raw street-level imagery before processing"
                 className="absolute inset-0 h-full w-full object-cover"
                 loading="lazy"

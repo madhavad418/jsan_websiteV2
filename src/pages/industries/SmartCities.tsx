@@ -1,6 +1,6 @@
 import { Building2, Camera, Brain, Construction, ShieldCheck } from 'lucide-react'
 import IndustryJourney from '../../components/IndustryJourney'
-import { metric } from '../../config/companyMetrics'
+import { allocationStats, industrySplit } from '../../config/countAllocations'
 
 /**
  * /industries/government-smart-cities
@@ -9,14 +9,14 @@ import { metric } from '../../config/companyMetrics'
  * story is its own: evidence gathered in the field, turned into geospatial intelligence,
  * applied to infrastructure decisions, under governance that has to survive scrutiny.
  *
- * Figures come from src/config/companyMetrics.ts or are absent. The previous version of
- * this page carried illustrative smart-city metrics that were never validated.
+ * The previous version of this page carried illustrative smart-city metrics that were
+ * never validated. The project and headcount figures are this industry's slice of the
+ * company totals, taken from src/config/countAllocations.ts.
  */
 const stats = [
-  { value: metric('countries'), label: 'Countries Supported' },
-  { value: metric('professionals'), label: 'Professionals' },
-  { value: metric('programs'), label: 'Programs Delivered' },
-].filter((s): s is { value: string; label: string } => Boolean(s.value))
+  ...allocationStats(industrySplit, 'government-smart-cities'),
+  { value: '25+', label: 'Countries Supported' },
+]
 
 export default function SmartCities() {
   return (
@@ -28,7 +28,9 @@ export default function SmartCities() {
       subtitle="From field evidence to defensible governance."
       description="For municipalities, agencies and public infrastructure bodies where a decision has to be explainable months later  to an auditor, a council, or a resident who asks why."
       stats={stats}
-      image="/pillars/smart_city.png"
+      image="/pillars/smart_city.webp"
+      copySide="right"
+      imagePosition="50% 62%"
       imageAlt="Municipal infrastructure captured as geospatial data"
       challenges={[
         {
@@ -54,7 +56,7 @@ export default function SmartCities() {
           description:
             'Street-level survey of roads, footways, signage, lighting, drainage and street furniture, captured with coordinates, condition and dated imagery.',
           icon: Camera,
-          image: '/pillars/globalstreet.png',
+          image: '/pillars/globalstreet.webp',
           imageAlt: 'Street-level survey of municipal assets and public realm',
           points: [
             'Road, footway and furniture condition survey',
@@ -69,7 +71,7 @@ export default function SmartCities() {
           description:
             'Extraction, classification and spatial analysis across the captured evidence, so departments work from one current view instead of separate partial ones.',
           icon: Brain,
-          image: '/pillars/evidence.png',
+          image: '/pillars/evidence.webp',
           imageAlt: 'Spatial analysis across municipal asset data',
           points: [
             'Feature extraction from imagery and LiDAR',
@@ -84,7 +86,7 @@ export default function SmartCities() {
           description:
             'Condition, risk and accessibility analysis feeding maintenance prioritisation, capital planning and works programmes  the decisions the survey was funded for.',
           icon: Construction,
-          image: '/pillars/decisions.png',
+          image: '/pillars/decisions.webp',
           imageAlt: 'Infrastructure condition and maintenance planning',
           points: [
             'Condition and risk prioritisation',
@@ -99,7 +101,7 @@ export default function SmartCities() {
           description:
             'Lineage on every record, defined QA gates, structured reporting and a single accountable delivery line, so the programme survives review rather than merely finishing.',
           icon: ShieldCheck,
-          image: '/pillars/governance.png',
+          image: '/pillars/governance.webp',
           imageAlt: 'Programme governance, QA gates and structured reporting',
           points: [
             'Per-record lineage: date, source, reviewer',
@@ -131,7 +133,7 @@ export default function SmartCities() {
             'Method, dates, reviewers and sampling recorded as the work runs, so the evidence trail is assembled during delivery instead of reconstructed afterwards.',
         },
       ]}
-      useCasesImage="/pillars/usecases.png"
+      useCasesImage="/pillars/usecases.webp"
       useCasesImageAlt="Municipal infrastructure and public realm assets"
       capabilities={[
         { name: 'Field Verification', href: '/capabilities/field-verification' },

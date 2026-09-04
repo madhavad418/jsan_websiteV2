@@ -13,7 +13,7 @@ export default function FinalCTA() {
     <section className="section-y relative overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src="/pillars/navigation-data.jpg"
+          src="/pillars/navigation-data.webp"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full scale-110 object-cover motion-safe:animate-[float_18s_ease-in-out_infinite]"

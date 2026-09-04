@@ -27,7 +27,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'From Raw Data to Decision-Ready Intelligence',
     description:
       'We capture, clean, and enhance geospatial data from diverse sources  field surveys, satellite imagery, public databases, and IoT sensors  transforming raw information into structured, analysis-ready datasets that power enterprise decision-making.',
-    bgImage: '/pillars/data-capture.jpg',
+    bgImage: '/pillars/data-capture.webp',
     advantages: [
       { icon: Database, text: 'Multi-source data integration from field, aerial, and digital sources' },
       { icon: Search, text: 'Automated data cleansing, deduplication, and QA/QC pipelines' },
@@ -59,7 +59,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Spatial Data Science for Smarter Decisions',
     description:
       'Our advanced analytics solutions combine spatial data science with machine learning to uncover hidden patterns, forecast trends, and deliver actionable insights  from demand prediction and site selection to risk modelling and market intelligence.',
-    bgImage: '/pillars/advance-analytics.jpg',
+    bgImage: '/pillars/advance-analytics.webp',
     advantages: [
       { icon: Brain, text: 'Machine learning models trained on geospatial features' },
       { icon: BarChart3, text: 'Advanced geostatistical modelling and spatial regression' },
@@ -91,7 +91,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Your Vision, Our Engineering',
     description:
       'We design and develop custom location intelligence platforms  from interactive web dashboards and mobile field apps to full-scale enterprise GIS portals  tailored to your workflows, data, and business objectives.',
-    bgImage: '/pillars/custom-platforms.jpg',
+    bgImage: '/pillars/custom-platforms.webp',
     advantages: [
       { icon: Settings, text: 'Fully customised UI/UX designed for your specific workflows' },
       { icon: Cpu, text: 'Scalable cloud-native architecture with API-first design' },
@@ -123,7 +123,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'From Vision to Value Realisation',
     description:
       'From technology selection and data governance to organizational readiness and ROI planning for measurable business value, we help organizations craft their location intelligence strategy.',
-    bgImage: '/pillars/strategy-advisory.jpg',
+    bgImage: '/pillars/strategy-advisory.webp',
     advantages: [
       { icon: Compass, text: 'Comprehensive geospatial maturity assessment' },
       { icon: TrendingUp, text: 'Technology roadmaps aligned with business objectives' },
@@ -155,7 +155,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Powering Movement with Accurate Location Data',
     description:
       'We build, maintain, and enhance navigation datasets  from road networks and address databases to real-time traffic and fleet routing  powering logistics, delivery, ride-hailing, and autonomous mobility applications across regions.',
-    bgImage: '/pillars/navigation-data.jpg',
+    bgImage: '/pillars/navigation-data.webp',
     advantages: [
       { icon: Navigation, text: 'High-precision road network mapping with turn restrictions' },
       { icon: Map, text: 'Comprehensive address database creation and maintenance' },

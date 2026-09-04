@@ -24,37 +24,37 @@ export const leadership: Leader[] = [
   {
     name: 'Ram Reddy',
     role: 'CEO',
-    photo: '/pillars/Ram.jpg',
+    photo: '/pillars/Ram.webp',
     focus: 'Strategic vision · Enterprise leadership',
   },
   {
     name: 'Navin Surapaneni',
     role: 'Director of Operations – India',
-    photo: '/pillars/naveen.png',
+    photo: '/pillars/naveen.webp',
     focus: 'Operations excellence · Capacity building',
   },
   {
     name: 'Chandrika B R',
     role: 'Senior Vice President – Strategy & Business Growth',
-    photo: '/pillars/chandrika.png',
+    photo: '/pillars/chandrika.webp',
     focus: 'Growth leadership · Business transformation',
   },
   {
     name: 'Satish Voleti',
     role: 'Practice Head – Geospatial & Field Operations',
-    photo: '/pillars/sathish.png',
+    photo: '/pillars/sathish.webp',
     focus: 'Capability building · Quality ownership',
   },
   {
     name: 'Santosh Kumar Panda',
     role: 'Delivery Head – GIS Data Services',
-    photo: '/pillars/santhosh.png',
+    photo: '/pillars/santhosh.webp',
     focus: 'Process · Performance',
   },
   {
     name: 'Kalpesh Mehta',
     role: 'Global Head – Recruitment',
-    photo: '/pillars/kalpesh.png',
+    photo: '/pillars/kalpesh.webp',
     focus: 'Staffing solutions',
   },
   {

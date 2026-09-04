@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import HeroBackdrop, { heroCopyColumn } from './HeroBackdrop'
 
 /**
  * The house hero: statement type on the left, a cut-out image floating off a deep
@@ -29,10 +30,15 @@ export type StatementHeroProps = {
   imageAlt: string
   /**
    * How the image meets the panel.
-   *  cutout  transparent PNG, sized past the panel so it breaks out (home)
-   *  filled  ordinary photograph, cropped to fill the panel itself
+   *  cutout    transparent PNG, sized past the panel so it breaks out (home)
+   *  filled    ordinary photograph, cropped to fill the panel itself
+   *  backdrop  no panel at all: the photograph is the hero background and the copy
+   *            sits on it in white. For wide banner artwork that a 4:5 panel would
+   *            crop to nothing. See the backdrop branch below.
    */
-  imageStyle?: 'cutout' | 'filled'
+  imageStyle?: 'cutout' | 'filled' | 'backdrop'
+  /** backdrop only: which half the copy sits on, so the other half of the photo stays clear. */
+  copySide?: 'left' | 'right'
   /** Focal point for a filled photograph, e.g. "60% center". */
   imagePosition?: string
   /**
@@ -61,7 +67,25 @@ export default function StatementHero({
   imagePosition = 'center center',
   cutoutSize = 'default',
   viewportHeight = false,
+  copySide = 'left',
 }: StatementHeroProps) {
+  if (imageStyle === 'backdrop') {
+    return (
+      <BackdropHero
+        eyebrow={eyebrow}
+        title={title}
+        description={description}
+        primaryCta={primaryCta}
+        secondaryCta={secondaryCta}
+        strip={strip}
+        image={image}
+        imageAlt={imageAlt}
+        imagePosition={imagePosition}
+        copySide={copySide}
+      />
+    )
+  }
+
   const isCutout = imageStyle === 'cutout'
   const cutoutWidth =
     cutoutSize === 'large' ? 'w-[112%] sm:w-[96%] lg:w-[112%]' : 'w-[100%] sm:w-[84%] lg:w-[96%]'
@@ -183,17 +207,99 @@ export default function StatementHero({
   )
 }
 
-function HeroCta({ cta, variant }: { cta: Cta; variant: 'primary' | 'secondary' }) {
+/**
+ * The backdrop variant: the photograph is the whole hero rather than a panel beside it.
+ *
+ * Two things it has to get right that the panel layout does not:
+ *  - top-[77px] is the fixed header's height. The section slides under the header, so
+ *    without it the top of the photograph is hidden behind an opaque white bar.
+ *  - The scrim is directional, not flat. It goes opaque under the copy and clears on the
+ *    other half, so the side of the picture that carries the subject stays readable.
+ *    copySide picks which half is which.
+ */
+function BackdropHero({
+  eyebrow,
+  title,
+  description,
+  primaryCta,
+  secondaryCta,
+  strip = [],
+  image,
+  imageAlt,
+  imagePosition,
+  copySide,
+}: Required<Pick<StatementHeroProps, 'eyebrow' | 'title' | 'description' | 'primaryCta' | 'image' | 'imageAlt' | 'imagePosition' | 'copySide'>> &
+  Pick<StatementHeroProps, 'secondaryCta' | 'strip'>) {
+  return (
+    <section
+      className="relative flex min-h-[500px] items-center overflow-hidden bg-[#03142d] pt-24 pb-12 sm:min-h-[560px] sm:pt-28 sm:pb-16 lg:min-h-[680px] lg:pt-32 lg:pb-20"
+      style={{ marginTop: '44px' }}
+    >
+      <HeroBackdrop image={image} imageAlt={imageAlt} copySide={copySide} position={imagePosition} />
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 max-[359px]:px-[18px] sm:px-6">
+        <div className={heroCopyColumn(copySide)}>
+          <span className="block text-[11px] font-bold uppercase leading-relaxed tracking-[0.14em] text-[#00d4ff]">
+            {eyebrow}
+          </span>
+
+          <h1 className="mt-5 max-w-[620px] text-[clamp(27px,7.4vw,44px)] font-bold leading-[1.1] tracking-[-0.03em] text-white sm:mt-6 sm:leading-[1.05] lg:text-[clamp(46px,4.4vw,64px)]">
+            {title}
+          </h1>
+
+          <p className="mt-5 max-w-[540px] text-[15px] leading-[1.65] text-white/75 sm:mt-6 sm:text-base lg:text-[17px]">
+            {description}
+          </p>
+
+          <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+            <HeroCta cta={primaryCta} variant="onDarkPrimary" />
+            {secondaryCta && <HeroCta cta={secondaryCta} variant="onDarkSecondary" />}
+          </div>
+
+          {strip.length > 0 && (
+            <ul className="mt-10 flex flex-wrap items-center gap-x-2.5 gap-y-2 border-t border-white/20 pt-7 lg:mt-12">
+              {strip.map((item, i) => (
+                <li key={item} className="flex items-center gap-3">
+                  <span className="text-[13px] font-semibold text-white/75">{item}</span>
+                  {i < strip.length - 1 && (
+                    <span className="text-[#00d4ff]" aria-hidden="true">
+                      &bull;
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function HeroCta({
+  cta,
+  variant,
+}: {
+  cta: Cta
+  variant: 'primary' | 'secondary' | 'onDarkPrimary' | 'onDarkSecondary'
+}) {
   const primary =
     'group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[#0050a9] pl-6 pr-2.5 font-semibold text-white transition-colors duration-200 hover:bg-[#013e82] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0050a9]'
   const secondary =
     'group inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border-2 border-[#0050a9]/25 px-6 font-semibold text-[#0050a9] transition-colors duration-200 hover:border-[#0050a9] hover:bg-[#0050a9] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0050a9]'
+  /* Same shapes, inverted for the backdrop hero's photograph */
+  const onDarkPrimary =
+    'group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-white pl-6 pr-2.5 font-semibold text-[#0050a9] transition-colors duration-200 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+  const onDarkSecondary =
+    'group inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border-2 border-white/40 px-6 font-semibold text-white transition-colors duration-200 hover:border-white hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+
+  const isPrimary = variant === 'primary' || variant === 'onDarkPrimary'
 
   const content =
-    variant === 'primary' ? (
+    isPrimary ? (
       <>
         {cta.label}
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/15 transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transform-none">
+        <span className={`flex h-9 w-9 items-center justify-center rounded-full transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transform-none ${variant === 'onDarkPrimary' ? 'bg-[#0050a9]/12' : 'bg-white/15'}`}>
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </span>
       </>
@@ -207,7 +313,14 @@ function HeroCta({ cta, variant }: { cta: Cta; variant: 'primary' | 'secondary' 
       </>
     )
 
-  const className = variant === 'primary' ? primary : secondary
+  const className =
+    variant === 'primary'
+      ? primary
+      : variant === 'secondary'
+        ? secondary
+        : variant === 'onDarkPrimary'
+          ? onDarkPrimary
+          : onDarkSecondary
 
   return cta.href.startsWith('/') ? (
     <Link to={cta.href} className={className}>

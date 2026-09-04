@@ -1,4 +1,5 @@
 import { Map, Truck, Layers, Route, MapPin, ClipboardCheck, ShieldCheck } from 'lucide-react'
+import { allocationStats, industrySplit } from '../../config/countAllocations'
 import IndustryJourney from '../../components/IndustryJourney'
 
 export default function MappingLocationPlatforms() {
@@ -11,11 +12,12 @@ export default function MappingLocationPlatforms() {
       subtitle="Ground truth at platform scale."
       description="For map and navigation providers, address authorities and location-data businesses that need local freshness, verifiable coverage and a partner who can mobilise in a new market without a standing start."
       stats={[
-        { value: '20+', label: 'Countries Operated' },
-        { value: '1,000+', label: 'Field Specialists' },
+        ...allocationStats(industrySplit, 'mapping-location-platforms'),
         { value: '360°', label: 'Imagery Capture' },
       ]}
-      image="/pillars/mapping_intel.png"
+      image="/pillars/mapping_intel.webp"
+      copySide="left"
+      imagePosition="50% 68%"
       imageAlt="Street-level navigation data collection"
       challenges={[
         {
@@ -41,7 +43,7 @@ export default function MappingLocationPlatforms() {
           description:
             'Vehicles, sensor rigs, local crews, permits and dispatch stood up country by country, driving against a coverage plan rather than an availability guess.',
           icon: Truck,
-          image: '/pillars/globalstreet.png',
+          image: '/pillars/globalstreet.webp',
           imageAlt: 'JSAN collection vehicle capturing street-level imagery',
           points: [
             '360° imagery and mobile LiDAR runs',
@@ -56,7 +58,7 @@ export default function MappingLocationPlatforms() {
           description:
             'Centreline geometry, junction modelling, connectivity and the attribution that makes a network navigable instead of merely drawn.',
           icon: Route,
-          image: '/pillars/roads_tracing.png',
+          image: '/pillars/roads_tracing.webp',
           imageAlt: 'Road centreline network with connectivity and attribution',
           points: [
             'Geometry, alignment and junctions',
@@ -71,7 +73,7 @@ export default function MappingLocationPlatforms() {
           description:
             'Points of interest collected, categorised against your ontology, deduplicated and confidence-scored, with the source recorded on every record.',
           icon: MapPin,
-          image: '/pillars/poi.png',
+          image: '/pillars/poi.webp',
           imageAlt: 'Points of interest captured and categorised on a basemap',
           points: [
             'Category mapping to your ontology',
@@ -86,7 +88,7 @@ export default function MappingLocationPlatforms() {
           description:
             'Address points reconciled against authoritative records and what the crew actually found on site, market by market, convention by convention.',
           icon: Layers,
-          image: '/pillars/adress.png',
+          image: '/pillars/adress.webp',
           imageAlt: 'Address point verification against building frontage',
           points: [
             'Local addressing conventions per market',
@@ -101,7 +103,7 @@ export default function MappingLocationPlatforms() {
           description:
             'Where the data cannot be trusted from a desk, crews verify on site and bring back dated, geolocated evidence rather than an opinion.',
           icon: ClipboardCheck,
-          image: '/pillars/feild_verify.png',
+          image: '/pillars/feild_verify.webp',
           imageAlt: 'Field crew verifying map data on site',
           points: [
             'Targeted field checks on low-confidence records',
@@ -116,7 +118,7 @@ export default function MappingLocationPlatforms() {
           description:
             'Automated validation for what a rule can catch, trained reviewers for what it cannot, and sampling that measures the result rather than assuming it.',
           icon: ShieldCheck,
-          image: '/pillars/quality_check.png',
+          image: '/pillars/quality_check.webp',
           imageAlt: 'Quality control queue with reviewer evidence',
           points: [
             'Schema, topology and completeness rules',
@@ -148,7 +150,7 @@ export default function MappingLocationPlatforms() {
             'Deduplication, ontology mapping and field verification applied together, so conflicting sources resolve into one record with a confidence score.',
         },
       ]}
-      useCasesImage="/pillars/mapping.png"
+      useCasesImage="/pillars/mapping.webp"
       useCasesImageAlt="Street-level capture resolving into structured map data"
       capabilities={[
         { name: 'Street-Level Imagery', href: '/services/global-street-data-collection' },

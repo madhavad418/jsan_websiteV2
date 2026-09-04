@@ -76,7 +76,7 @@ const VIEWS: View[] = [
     nav: 'Overview',
     context: 'Programme: Live',
     video: '/pillars/atlasops.mp4',
-    poster: '/pillars/jsan_atlasops.png',
+    poster: '/pillars/jsan_atlasops.webp',
     mediaLabel:
       'A recording of the JSAN ATLAS Ops operations view, following a vehicle along its route',
   },
@@ -586,8 +586,10 @@ export default function FleetPreviewModal() {
               className={`mt-auto flex flex-col gap-3 sm:flex-row ${rise}`}
               style={animate ? { animationDelay: '660ms' } : undefined}
             >
+              {/* The individual project pages are still routed but are no longer linked
+                  from the UI, so this lands on the /products index rather than the ATLAS Ops page. */}
               <Link
-                to="/products/fleet-intelligence"
+                to="/products"
                 onClick={close}
                 className="group inline-flex min-h-[44px] flex-1 items-center justify-center gap-2.5 whitespace-nowrap rounded-lg bg-[#0a63c9] px-4 text-[13.5px] font-semibold text-white transition-colors duration-300 hover:bg-[#0050a9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5cb3ff]"
               >

@@ -28,10 +28,26 @@ export const redirects = [
   // Insights is the canonical index; articles keep their /blogs/<slug> URLs
   { from: '/blogs', to: '/insights', status: 301 },
 
+  // The in-house platform index was briefly at /projects, which collided with the case
+  // studies. It is Products now, on the /products index it already owned the children of.
+  { from: '/projects', to: '/products', status: 301 },
+
+  // The newsroom was merged into Insights, which now carries both streams. Individual
+  // stories keep their /news/<slug> URLs and are still served.
+  { from: '/news', to: '/insights', status: 301 },
+
   // Industry URLs now say what they are
   { from: '/industries/energy', to: '/industries/utilities', status: 301 },
   { from: '/industries/transport', to: '/industries/transportation-infrastructure', status: 301 },
   { from: '/industries/smartcities', to: '/industries/government-smart-cities', status: 301 },
+
+  // The thin Utilities Mapping capability page duplicated the utility service page; its
+  // content was folded into that page, which is now titled Utilities Mapping.
+  {
+    from: '/capabilities/utilities-mapping',
+    to: '/services/utility-network-intelligence',
+    status: 301,
+  },
 
   // "Advance Analytics" was a typo for "Advanced Analytics"; the slug moved with the label
   {

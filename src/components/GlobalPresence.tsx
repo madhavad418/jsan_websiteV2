@@ -50,7 +50,7 @@ export default function GlobalPresence() {
             Our Worldwide Network
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            With offices across 20+ countries, we deliver local expertise with global standards.
+            With offices across 25+ countries, we deliver local expertise with global standards.
           </p>
         </motion.div>
 

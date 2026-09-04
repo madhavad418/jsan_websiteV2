@@ -13,7 +13,7 @@ const services = [
     slug: '/services/location-intelligence',
     icon: MapPin,
     description: 'End-to-end location intelligence, from data capture and enhancement to advanced analytics and custom platform development.',
-    image: '/pillars/location-intelligence.jpg',
+    image: '/pillars/location-intelligence.webp',
     features: ['Data Capture & Enhancement', 'Advanced Analytics', 'Custom Platforms', 'Strategic Advisory', 'Navigation Data'],
   },
   {
@@ -22,7 +22,7 @@ const services = [
     slug: '/services/telecom-network-intelligence',
     icon: Network,
     description: 'Spatial intelligence for modern telecom networks RF propagation, 5G small-cell siting, tower and fiber asset mapping, and real-time network analytics.',
-    image: '/pillars/utility-network.jpg',
+    image: '/pillars/utility-network.webp',
     features: ['5G Site Planning', 'RF Propagation', 'Tower & Fiber Mapping', 'Network Analytics', 'Outage Correlation'],
   },
   {
@@ -31,7 +31,7 @@ const services = [
     slug: '/services/utility-network-intelligence',
     icon: Zap,
     description: 'GIS delivery for electrical, water and gas networks  field survey, asset digitization, consumer indexing, topology validation and enterprise GIS migration.',
-    image: '/pillars/asset-management.jpg',
+    image: '/pillars/asset-management.webp',
     features: ['Electrical', 'Water', 'Gas', 'Enterprise GIS Migration'],
   },
   {
@@ -40,7 +40,7 @@ const services = [
     slug: '/services/global-street-data-collection',
     icon: Map,
     description: 'Street-level capture programmes run end to end: 360° imagery and LiDAR runs, road network and signage survey, address and POI ground truthing, and privacy-compliant processing.',
-    image: '/pillars/navigation-data.jpg',
+    image: '/pillars/navigation-data.webp',
     features: ['360° Imagery', 'Road Network Survey', 'Address & POI Ground Truth', 'Signage Inventory', 'Mobile LiDAR', 'Privacy Compliance'],
   },
   {
@@ -49,7 +49,7 @@ const services = [
     slug: '/services/global-fleet-collection-operations',
     icon: Truck,
     description: 'Managed collection fleets country by country: vehicles and sensor rigs, local driver and crew hiring, drive planning and dispatch, live tracking, maintenance, safety and permits.',
-    image: '/pillars/smart-city.jpg',
+    image: '/pillars/smart-city.webp',
     features: ['Fleet Mobilisation', 'Driver & Crew Operations', 'Drive Planning & Dispatch', 'Live Tracking', 'Maintenance', 'Safety & Permits'],
   },
   {
@@ -67,7 +67,7 @@ const services = [
     slug: '/services/data-center-lifecycle',
     icon: Server,
     description: 'SLA-driven multi-vendor data center lifecycle and field support  preventive & corrective maintenance, smart hands, power & facilities, asset lifecycle and governed reporting.',
-    image: '/pillars/cloud-infrastructure.jpg',
+    image: '/pillars/cloud-infrastructure.webp',
     features: ['Preventive & Corrective', 'Smart Hands', 'Power & Facilities', 'Asset Lifecycle'],
   },
   {
@@ -85,7 +85,7 @@ const services = [
     slug: '/services/technology-consultancy',
     icon: Cpu,
     description: 'Modernise how your business runs on technology. We help organizations leverage smart technologies and intelligent solutions.',
-    image: '/pillars/technology-consultancy.jpg',
+    image: '/pillars/technology-consultancy.webp',
     features: ['Digital Transformation', 'Enterprise Architecture', 'Cloud & Infrastructure', 'Data Analytics & AI'],
   },
   {
@@ -94,7 +94,7 @@ const services = [
     slug: '/services/erp',
     icon: Layers,
     description: 'Streamline operations with SAP, Oracle, and Microsoft Dynamics ERP implementation, customisation, and managed services for enterprise-scale efficiency.',
-    image: '/pillars/tech-erp.jpg',
+    image: '/pillars/tech-erp.webp',
     features: ['SAP Implementation', 'Oracle ERP Cloud', 'Microsoft Dynamics 365', 'ERP Customisation', 'ERP Migration', 'Managed Services'],
   },
   {
@@ -102,8 +102,8 @@ const services = [
     group: 'work',
     slug: '/services/staffing-solutions',
     icon: Users,
-    description: 'People as a Service, your global recruitment partner. We connect organizations with top IT talent across 20+ countries.',
-    image: '/pillars/staffing-workforce.jpg',
+    description: 'People as a Service, your global recruitment partner. We connect organizations with top IT talent across 25+ countries.',
+    image: '/pillars/staffing-workforce.webp',
     features: ['Contract Staffing', 'Permanent Placement', 'Team Augmentation', 'Executive Search'],
   },
   {
@@ -112,7 +112,7 @@ const services = [
     slug: '/services/program-management',
     icon: FolderKanban,
     description: 'End-to-end program and project management services that ensure successful delivery of complex initiatives on time and within budget.',
-    image: '/pillars/program-management.jpg',
+    image: '/pillars/program-management.webp',
     features: ['PMO Setup', 'Agile Transformation', 'Quality Assurance'],
   },
 ]
@@ -161,7 +161,7 @@ export default function Services() {
           'Digital Engineering',
           'Managed Services',
         ]}
-        image="/pillars/all_services.png"
+        image="/pillars/all_services.webp"
         cutoutSize="large"
         imageAlt="JSAN capability stack: collection vehicle, drone and satellite capture, basemap and LiDAR layers, network assets and operations dashboards"
       />

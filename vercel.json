@@ -17,6 +17,16 @@
       "permanent": true
     },
     {
+      "source": "/projects",
+      "destination": "/products",
+      "permanent": true
+    },
+    {
+      "source": "/news",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
       "source": "/industries/energy",
       "destination": "/industries/utilities",
       "permanent": true
@@ -29,6 +39,11 @@
     {
       "source": "/industries/smartcities",
       "destination": "/industries/government-smart-cities",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/utilities-mapping",
+      "destination": "/services/utility-network-intelligence",
       "permanent": true
     },
     {

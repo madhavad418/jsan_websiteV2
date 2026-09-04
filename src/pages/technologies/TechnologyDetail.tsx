@@ -1,9 +1,11 @@
 import { useParams, Link } from 'react-router-dom'
 import NotFound from '../NotFound'
 import { Play, CheckCircle, Globe, Zap, Shield, Target, DollarSign, Cpu, BarChart3, Network, Lock, Cloud, Database, Settings, Code, Server, Bot, Layers, Monitor, GitBranch, Container, Workflow, Map , ArrowRight } from 'lucide-react'
+import HeroBackdrop, { heroCopyColumn } from '../../components/HeroBackdrop'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
+import { allocationStats, technologySplit } from '../../config/countAllocations'
 import HeroStat from '../../components/HeroStat'
 
 interface TechData {
@@ -20,17 +22,35 @@ interface TechData {
   techStack: string[]
 }
 
+/**
+ * Which half of the hero the copy sits on, per technology.
+ *
+ * The hero photo is full-bleed rather than a cropped side panel, because these images are
+ * wide banners (up to 2.5:1) whose subject runs across the whole frame  a 50%-wide panel
+ * threw most of each one away. At full width the scrim is what has to give instead, so it
+ * only darkens the copy's half and leaves the other half of the photograph clear.
+ *
+ * So this map really answers "which half of this picture must stay readable":
+ *   analytics  the dashboard monitors fill the left of the frame
+ *   gis        the map on the monitor sits left of centre
+ *   the rest   subject is right of centre (screens, racks, diagrams) or the left is empty
+ *
+ * If you swap an image, look at it and set this to match, or the new photo gets buried.
+ */
+const COPY_SIDE: Record<string, 'left' | 'right'> = {
+  analytics: 'right',
+  gis: 'right',
+}
+
 const techData: TechData[] = [
   {
     slug: 'gis',
     title: 'GIS',
     headline: 'See the World Through Location Intelligence.',
     heroDescription: 'Harness details with our Geographic Information System solutions, from spatial analysis and enterprise mapping to in-house developed products that power real-time fleet tracking, point-of-interest management, and travel planning.',
-    heroImage: '/pillars/tech-gis.jpg',
+    heroImage: '/pillars/tech-gis.webp',
     stats: [
       { value: '50M+', label: 'Features Mapped' },
-      { value: '500+', label: 'GIS Projects' },
-      { value: '100+', label: 'GIS Experts' },
       { value: '25+', label: 'Countries' },
     ],
     whyTitle: 'Location Is the Common Thread Across Every Decision.',
@@ -56,12 +76,10 @@ const techData: TechData[] = [
     title: 'API Integration',
     headline: 'Connect Everything. Automate Anything.',
     heroDescription: 'Connect systems, applications, and data sources with our expert API integration services. We design, develop, and manage APIs that power your digital ecosystem.',
-    heroImage: '/pillars/tech-api.jpg',
+    heroImage: '/pillars/API_Integration.webp',
     stats: [
       { value: '100+', label: 'APIs Developed' },
       { value: '99.9%', label: 'API Uptime' },
-      { value: '<50ms', label: 'Avg Response Time' },
-      { value: '50+', label: 'Integrations' },
     ],
     whyTitle: 'Break Down Data Silos, Accelerate Innovation.',
     whyDescription: 'Modern enterprises run on connected systems. Our API integration services eliminate data silos, automate workflows, and enable real-time data flow across your entire technology stack.',
@@ -88,11 +106,10 @@ const techData: TechData[] = [
     title: 'Analytics & Information Management',
     headline: 'Turn Data into Decisions.',
     heroDescription: 'Transform raw data into actionable insights with advanced analytics, business intelligence, and information management solutions that drive smarter decisions.',
-    heroImage: '/pillars/tech-analytics.jpg',
+    heroImage: '/pillars/operational_dashboards.webp',
     stats: [
       { value: '200+', label: 'Dashboards Built' },
       { value: '40%', label: 'Faster Insights' },
-      { value: '10+', label: 'BI Projects Handled' },
     ],
     whyTitle: 'From Raw Data to Strategic Advantage.',
     whyDescription: 'Data is only valuable when it drives action. Our analytics solutions combine data engineering, business intelligence, and advanced analytics to help organisations make faster, smarter decisions.',
@@ -119,12 +136,10 @@ const techData: TechData[] = [
     title: 'Cloud Technologies',
     headline: 'Scale Without Limits.',
     heroDescription: 'Leverage the power of cloud computing with our AWS, Azure, and Google Cloud expertise. From migration to optimisation, we help you build a cloud-native future.',
-    heroImage: '/pillars/tech-cloud.jpg',
+    heroImage: '/pillars/cloud_platform.webp',
     stats: [
       { value: '300+', label: 'Cloud Migrations' },
       { value: '99.99%', label: 'Availability' },
-      { value: '35%', label: 'Cost Savings' },
-      { value: '3', label: 'Cloud Platforms' },
     ],
     whyTitle: 'Cloud-First, Future-Ready.',
     whyDescription: 'Cloud is not just infrastructure; it is the foundation for innovation. We help organizations migrate, modernize, and optimize their cloud environments for performance, security, and cost efficiency.',
@@ -151,12 +166,10 @@ const techData: TechData[] = [
     title: 'Cyber Security',
     headline: 'Defend. Detect. Respond.',
     heroDescription: 'Protect your digital assets with comprehensive cybersecurity solutions, ranging from threat assessment and SIEM to zero-trust architecture and compliance management.',
-    heroImage: '/pillars/tech-cybersecurity.jpg',
+    heroImage: '/pillars/tech-cybersecurity.webp',
     stats: [
       { value: '24/7', label: 'SOC Monitoring' },
-      { value: '500+', label: 'Threats Mitigated' },
       { value: '100%', label: 'Compliance Rate' },
-      { value: '50+', label: 'Security Audits' },
     ],
     whyTitle: 'Security is Not Optional  It is Foundational.',
     whyDescription: 'With evolving cyber threats and regulatory demands, organisations need proactive security strategies. We protect your data, systems, and reputation with defence-in-depth approaches.',
@@ -183,7 +196,7 @@ const techData: TechData[] = [
     title: 'Data Warehouse',
     headline: 'One Source of Truth.',
     heroDescription: 'Build scalable data warehouse solutions for efficient storage, retrieval, and analysis of enterprise data, enabling analytics, reporting, and AI at scale.',
-    heroImage: '/pillars/tech-datawarehouse.jpg',
+    heroImage: '/pillars/data_engineering.webp',
     stats: [
       { value: '100+', label: 'Warehouses Managed' },
       { value: '60%', label: 'Cost Reduction' },
@@ -213,12 +226,10 @@ const techData: TechData[] = [
     title: 'DevOps',
     headline: 'Ship Faster. Break Less.',
     heroDescription: 'Accelerate software delivery with DevOps practices, CI/CD pipelines, infrastructure as code, and site reliability engineering.',
-    heroImage: '/pillars/tech-devops.jpg',
+    heroImage: '/pillars/tech-devops.webp',
     stats: [
       { value: '10x', label: 'Deploy Frequency' },
-      { value: '70%', label: 'Lead Time Reduction' },
       { value: '99.9%', label: 'Deployment Success' },
-      { value: '<1hr', label: 'Recovery Time' },
     ],
     whyTitle: 'Automate the Path from Code to Production.',
     whyDescription: 'DevOps is about speed, reliability, and collaboration. We implement CI/CD pipelines, infrastructure automation, and observability platforms that let your teams ship confidently and recover fast.',
@@ -245,12 +256,10 @@ const techData: TechData[] = [
     title: 'Intelligent Automation & Robotics',
     headline: 'Automate the Mundane. Amplify the Human.',
     heroDescription: 'Transform business processes with RPA, AI-powered automation, and intelligent document processing.',
-    heroImage: '/pillars/tech-automation.jpg',
+    heroImage: '/pillars/tech-automation.webp',
     stats: [
       { value: '200+', label: 'Bots Deployed' },
-      { value: '80%', label: 'Process Time Saved' },
       { value: '99%', label: 'Bot Accuracy' },
-      { value: '5x', label: 'ROI Achieved' },
     ],
     whyTitle: 'From Manual to Autonomous.',
     whyDescription: 'Repetitive, rule-based tasks consume valuable human time. Our intelligent automation solutions combine RPA, AI, and process mining to automate end-to-end business processes with precision.',
@@ -277,12 +286,10 @@ const techData: TechData[] = [
     title: 'IT Infrastructure & Managed Services',
     headline: 'Built to Run. Managed to Perform.',
     heroDescription: 'From NOC operations and cloud hosting, to network design and 24/7 support, build and manage robust IT infrastructure with our services',
-    heroImage: '/pillars/tech-infrastructure.jpg',
+    heroImage: '/pillars/managed_delivery.webp',
     stats: [
       { value: '24/7', label: 'NOC Operations' },
       { value: '99.99%', label: 'Uptime SLA' },
-      { value: '500+', label: 'Endpoints Managed' },
-      { value: '15min', label: 'Response Time' },
     ],
     whyTitle: 'Reliable Infrastructure, Zero Headaches.',
     whyDescription: 'Your infrastructure should enable your business, not slow it down. We design, deploy, and manage IT environments that are secure, scalable, and always available.',
@@ -309,12 +316,10 @@ const techData: TechData[] = [
     title: 'Web Technologies',
     headline: 'Build for the Modern Web.',
     heroDescription: 'Create powerful web applications with modern frameworks, responsive design, and current frameworks, measured against real user outcomes.',
-    heroImage: '/pillars/tech-web.jpg',
+    heroImage: '/pillars/webtech.webp',
     stats: [
       { value: '200+', label: 'Web Apps Built' },
-      { value: '100%', label: 'Responsive Design' },
       { value: '<2s', label: 'Load Time Target' },
-      { value: '50+', label: 'Active Projects' },
     ],
     whyTitle: 'Fast, Accessible, Beautiful.',
     whyDescription: 'The web is your primary digital touchpoint. We build high-performance, accessible web applications with modern frameworks and best practices that delight users and drive business results.',
@@ -344,60 +349,53 @@ export default function TechnologyDetail() {
 
   if (!tech) return <NotFound />
 
+  const copySide = COPY_SIDE[tech.slug] ?? 'left'
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-white pt-24 lg:pt-28 pb-16 lg:pb-20" style={{ marginTop: '44px' }}>
-        {/* Same treatment as the Technologies landing hero: brand wash plus a faint
-            blueprint grid, so a white hero still reads as JSAN rather than as empty */}
-        <div className="pointer-events-none absolute inset-0">
-          <div
-            className="absolute inset-0 opacity-[0.05]"
-            style={{
-              backgroundImage:
-                'linear-gradient(rgba(0,80,169,.8) 1px, transparent 1px), linear-gradient(90deg, rgba(0,80,169,.8) 1px, transparent 1px)',
-              backgroundSize: '46px 46px',
-            }}
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'radial-gradient(38% 55% at 4% 8%, rgba(0,80,169,0.08) 0%, rgba(0,80,169,0) 100%), ' +
-                'radial-gradient(42% 50% at 78% 95%, rgba(0,212,255,0.12) 0%, rgba(0,212,255,0) 100%)',
-            }}
-          />
-        </div>
+      {/* Hero  full-bleed photo, see the note above techData on why it is full width */}
+      <section
+        className="relative flex min-h-[500px] items-center overflow-hidden bg-[#03142d] pt-24 pb-12 sm:min-h-[560px] sm:pt-28 sm:pb-16 lg:min-h-[660px] lg:pt-32 lg:pb-20"
+        style={{ marginTop: '44px' }}
+      >
+        {/* Held above centre: these banners carry their captions and diagrams high in the
+            frame, and the bottom is desk and floor. */}
+        <HeroBackdrop
+          image={tech.heroImage}
+          imageAlt={`${tech.title} technology`}
+          copySide={copySide}
+          position="50% 12%"
+        />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
-          <div className="max-w-3xl">
-            <nav className="mb-4 flex items-center gap-2 text-sm text-gray-500">
-              <Link to="/technologies" className="transition-colors hover:text-[#0050a9]">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
+          <div className={heroCopyColumn(copySide)}>
+            <nav className="mb-3 flex items-center gap-2 text-[13px] text-white/60 sm:mb-4 sm:text-sm">
+              <Link to="/technologies" className="transition-colors hover:text-white">
                 Technologies
               </Link>
               <span>/</span>
-              <span className="font-medium text-[#0050a9]">{tech.title}</span>
+              <span className="font-medium text-white">{tech.title}</span>
             </nav>
 
-            <span className="mb-5 inline-block t-label text-gray-500">
+            <span className="mb-5 inline-block t-label text-[#00d4ff]">
               {tech.title}
             </span>
-            <h1 className="mb-5 text-[34px] font-bold leading-[1.06] tracking-tight text-[#0a1a3a] lg:text-[52px]">
+            <h1 className="mb-4 text-[26px] font-bold leading-[1.12] tracking-tight text-white sm:mb-5 sm:text-[30px] sm:leading-[1.06] lg:text-[52px]">
               {tech.headline}
             </h1>
-            <p className="mb-9 max-w-2xl text-lg leading-relaxed text-gray-600">
+            <p className="mb-7 max-w-2xl text-[15px] leading-relaxed text-white/75 sm:mb-9 sm:text-lg">
               {tech.heroDescription}
             </p>
 
-            <div className="mb-9 flex flex-wrap gap-x-10 gap-y-5">
-              {tech.stats.map((stat, i) => (
+            <div className="mb-7 flex flex-wrap gap-x-7 gap-y-4 sm:mb-9 sm:gap-x-10 sm:gap-y-5">
+              {[...allocationStats(technologySplit, tech.slug), ...tech.stats].map((stat, i) => (
                 <div key={i}>
-                  <div className="text-2xl font-bold tabular-nums text-[#0050a9] lg:text-3xl">
+                  <div className="text-xl font-bold tabular-nums text-white sm:text-2xl lg:text-3xl">
                     <HeroStat value={stat.value} />
                   </div>
-                  <div className="mt-0.5 text-xs text-[#0050a9]">{stat.label}</div>
+                  <div className="mt-0.5 text-xs text-white/60">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -405,15 +403,14 @@ export default function TechnologyDetail() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2.5 rounded-lg px-7 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_-14px_rgba(0,80,169,0.9)]"
-                style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}
+                className="group inline-flex items-center gap-2.5 rounded-lg bg-white px-5 py-3 text-[15px] font-semibold sm:px-7 sm:py-3.5 sm:text-base text-[#0050a9] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100"
               >
                 Schedule a Consultation
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/technologies"
-                className="group inline-flex items-center gap-2 rounded-lg border-2 border-[#0050a9]/20 px-7 py-3.5 font-semibold text-[#0050a9] transition-all duration-300 hover:border-[#0050a9] hover:bg-[#0050a9] hover:text-white"
+                className="group inline-flex items-center gap-2 rounded-lg border-2 border-white/40 px-5 py-3 text-[15px] font-semibold sm:px-7 sm:py-3.5 sm:text-base text-white transition-all duration-300 hover:border-white hover:bg-white/10"
               >
                 All Technologies
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

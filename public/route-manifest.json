@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-02T10:19:07.570Z",
+  "generated": "2026-09-04T11:40:12.361Z",
   "careers": [
     "aem-content-author-email-developer",
     "arcgis-technical-trainer",
@@ -53,8 +53,7 @@
     "quality-operations",
     "road-network-geometry",
     "safety-compliance",
-    "telecom-infrastructure",
-    "utilities-mapping"
+    "telecom-infrastructure"
   ],
   "technologies": [
     "analytics",
@@ -83,6 +82,7 @@
     "^/capabilities/global-fleet-field-operations/?$",
     "^/capabilities/program-managed-services/?$",
     "^/capabilities/telecom-infrastructure/?$",
+    "^/capabilities/utilities-mapping/?$",
     "^/careers/?$",
     "^/careers/[^/]+/?$",
     "^/company/?$",
@@ -110,6 +110,7 @@
     "^/products/jsan-vts/?$",
     "^/products/poi-express/?$",
     "^/products/travel-desk/?$",
+    "^/projects/?$",
     "^/services/?$",
     "^/services/basemap-poi-annotation/?$",
     "^/services/basemap-poi-annotation/[^/]+/?$",
@@ -125,6 +126,7 @@
     "^/services/global-street-data-collection/?$",
     "^/services/location-intelligence/?$",
     "^/services/location-intelligence/[^/]+/?$",
+    "^/services/pole-asset-intelligence/?$",
     "^/services/program-management/?$",
     "^/services/program-management/[^/]+/?$",
     "^/services/smart-fiber-planning/?$",

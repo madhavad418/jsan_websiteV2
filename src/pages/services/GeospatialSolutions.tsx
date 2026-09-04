@@ -3,6 +3,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
+import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 import CapabilityModules from '../../components/CapabilityModules'
 
@@ -13,7 +14,7 @@ const subServices = [
     title: 'Data-Driven Decisions for Smarter Cities',
     description:
       'Our solutions integrate location context with traditional data analysis to uncover trends in fields such as urban planning, business, and environmental management.',
-    bgImage: '/pillars/spatial-analytics.jpg',
+    bgImage: '/pillars/spatial-analytics.webp',
     cardTitle: 'Spatial Analytics',
     highlights: ['Predictive Modelling', 'Urban Planning GIS', 'Geostatistics', 'Demand Forecasting'],
   },
@@ -23,7 +24,7 @@ const subServices = [
     title: 'Connected Urban Ecosystems',
     description:
       'Through real-time location data and sensors we provide customised solutions for efficient, responsive cities via traffic management, energy optimization, and public safety.',
-    bgImage: '/pillars/smart-city.jpg',
+    bgImage: '/pillars/smart-city.webp',
     cardTitle: 'Smart City Solutions',
     highlights: ['IoT Sensor Networks', 'Urban Analytics', 'Traffic Intelligence', 'Environmental Monitoring'],
   },
@@ -33,7 +34,7 @@ const subServices = [
     title: 'Track, Monitor & Optimise Every Asset',
     description:
       'With the help of location data, we track, visualize, and maintain physical infrastructure, spanning from utility networks, to energy infra, fleets and facilities. This gives real-times insights to companies enabling proactive maintenance and comprehensive lifecycle planning.',
-    bgImage: '/pillars/asset-management.jpg',
+    bgImage: '/pillars/asset-management.webp',
     cardTitle: 'Asset Management',
     highlights: ['Asset Tracking', 'Lifecycle Planning', 'Condition Monitoring', 'Inventory Mapping'],
   },
@@ -43,7 +44,7 @@ const subServices = [
     title: 'Precision Mapping from the Sky',
     description:
       'The use of drones equipped with LiDAR sensors to capture high-precision 3D point clouds and terrain data from above, even in challenging environments like dense vegetation. It enables rapid, accurate topographic surveys, volumetric measurements, and detailed mapping for applications in surveying, forestry, and infrastructure inspection.',
-    bgImage: '/pillars/drone-lidar.jpg',
+    bgImage: '/pillars/drone-lidar.webp',
     cardTitle: 'Drone & LiDAR Mapping',
     highlights: ['Orthomosaic Generation', 'Point Cloud Processing', 'Terrain Modelling', 'Asset Inspection'],
   },
@@ -53,7 +54,7 @@ const subServices = [
     title: 'Mirror the Real World in 3D',
     description:
       'Digital Twins are virtual replicas of assets or cities that support simulation, monitoring, predictive analysis, and immersive visualization for enhanced urban planning, infrastructure upgrades, and better decision-making across parameters.',
-    bgImage: '/pillars/digital-twin-new.jpg',
+    bgImage: '/pillars/digital-twin-new.webp',
     cardTitle: '3D Mapping & Digital Twins',
     highlights: ['City-Scale Twins', 'IoT Integration', 'BIM + GIS Fusion', 'Real-Time Monitoring'],
   },
@@ -73,7 +74,7 @@ const subServices = [
     title: 'Intelligent Infrastructure at Scale',
     description:
       'The geospatial documentation and visualization of utility infrastructure networks such as water, electricity, supports network analysis, outage management, maintenance planning, and regulatory compliance by providing accurate location-based utility data.',
-    bgImage: '/pillars/utility-network.jpg',
+    bgImage: '/pillars/utility-network.webp',
     cardTitle: 'Utility Network Mapping',
     highlights: ['Fibre Route Mapping', 'Asset Digitisation', 'Outage Management', 'Network Planning'],
   },
@@ -124,7 +125,7 @@ export default function GeospatialSolutions() {
         description={"From street-level imagery and LiDAR to roads, addresses, POIs and infrastructure assets, JSAN delivers geospatial data engineered for operational use."}
         image="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1600"
         imageAlt="Geospatial satellite earth view"
-        // stats={[{ value: '50M+', label: 'Features Mapped' }, { value: '100+', label: 'Projects' }, { value: '500+', label: 'GIS Experts' }, { value: '30+', label: 'Countries' }]}
+        stats={[...allocationStats(serviceSplit, 'geospatial'), { value: '50M+', label: 'Features Mapped' }, { value: '25+', label: 'Countries' }]}
       />
 
 

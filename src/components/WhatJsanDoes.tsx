@@ -21,7 +21,7 @@ const modules = [
     description:
       'Fleet mobilisation, crew operations, dispatch, tracking, maintenance, logistics and program governance.',
     cta: { label: 'Explore Field Operations', href: '/services/global-fleet-collection-operations' },
-    image: '/pillars/crew.png',
+    image: '/pillars/crew.webp',
     imageAlt: 'JSAN fleet and field operations',
   },
   {
@@ -32,7 +32,7 @@ const modules = [
     description:
       'Street imagery, LiDAR, roads, addresses, POIs, telecom infrastructure and field-verified spatial datasets.',
     cta: { label: 'Explore Geospatial', href: '/services/global-street-data-collection' },
-    image: '/pillars/map.png',
+    image: '/pillars/map.webp',
     imageAlt: 'Street capture and 3D point cloud data',
   },
   {
@@ -43,7 +43,7 @@ const modules = [
     description:
       'Computer vision, GeoAI, feature extraction, OCR, annotation, spatial analytics and human-validated QA.',
     cta: { label: 'Explore GeoAI', href: '/services/geoai-computer-vision' },
-    image: '/pillars/Intelligence.png',
+    image: '/pillars/Intelligence.webp',
     imageAlt: 'Imagery with asset detection overlay',
   },
   {
@@ -54,7 +54,7 @@ const modules = [
     description:
       'Web GIS, mobile applications, dashboards, enterprise platforms, APIs, cloud engineering and managed technology services.',
     cta: { label: 'Explore Digital Engineering', href: '/services/digital-engineering' },
-    image: '/pillars/engineer.png',
+    image: '/pillars/engineer.webp',
     imageAlt: 'JSAN application dashboard',
   },
 ]

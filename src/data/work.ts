@@ -38,7 +38,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       'Mobilising field teams, collection vehicles, route operations, data logistics and QA for large-scale street-level mapping.',
     tags: ['Field Operations', 'Fleet', 'Mapping', 'QA'],
-    image: '/pillars/multi_country.png',
+    image: '/pillars/multi_country.webp',
     challenge:
       'A mapping programme needed consistent street-level coverage across several countries, where addressing conventions, permitting and local access rules differ at every border, and where earlier collection had produced uneven quality between markets.',
     role: 'End-to-end delivery partner for mobilisation, collection, data logistics and quality assurance.',
@@ -64,7 +64,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       'Processing LiDAR and panoramic imagery into validated engineering and GIS-ready asset intelligence.',
     tags: ['LiDAR', 'Computer Vision', 'GIS', 'Infrastructure'],
-    image: '/pillars/lidar_infrastructure.png',
+    image: '/pillars/lidar_infrastructure.webp',
     challenge:
       'Raw LiDAR and imagery held the asset detail engineering teams needed, but not in a form they could plan against  features were unextracted, unclassified and unreconciled with the existing asset record.',
     role: 'Data operations partner for feature extraction, classification, validation and GIS delivery.',
@@ -90,7 +90,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       'Combining field evidence, GIS and engineering workflows to support telecom network planning and infrastructure validation.',
     tags: ['Telecom', 'GIS', 'Engineering', 'Field Operations'],
-    image: '/pillars/telecom_network_engineering.png',
+    image: '/pillars/telecom_network_engineering.webp',
     challenge:
       'As-built network records had drifted from design across an active build programme, leaving planning teams working from a network view that no longer matched what was physically installed.',
     role: 'Field survey, network GIS and as-built validation partner alongside the operator’s engineering function.',

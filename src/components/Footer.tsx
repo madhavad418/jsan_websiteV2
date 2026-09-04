@@ -24,13 +24,13 @@ const industryLinks = [
 const companyLinks = [
   { name: 'About JSAN', href: '/company', isRoute: true },
   { name: 'Our Leadership', href: '/company', isRoute: true },
-  { name: 'Work', href: '/work', isRoute: true },
+  { name: 'Case Studies', href: '/work', isRoute: true },
+  { name: 'Products', href: '/products', isRoute: true },
   { name: 'Contact', href: '/contact', isRoute: true },
 ]
 
 const resourceLinks = [
   { name: 'Insights', href: '/insights', isRoute: true },
-  { name: 'News', href: '/news', isRoute: true },
   { name: 'Technologies', href: '/technologies', isRoute: true },
   { name: 'Sitemap', href: '/sitemap.xml', isRoute: false },
 ]

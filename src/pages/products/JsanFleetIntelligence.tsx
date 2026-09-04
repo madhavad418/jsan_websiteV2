@@ -330,7 +330,7 @@ export default function JsanFleetIntelligence() {
       <section className="relative overflow-hidden" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
           <img
-            src="/pillars/atlas_hero.png"
+            src="/pillars/atlas_hero.webp"
             alt=""
             aria-hidden="true"
             width={1536}
@@ -493,13 +493,13 @@ export default function JsanFleetIntelligence() {
             <div className="order-2 grid gap-5 lg:order-1 lg:min-h-[560px] lg:grid-rows-2">
               {[
                 {
-                  src: '/pillars/jsan_atlasops.png',
+                  src: '/pillars/jsan_atlasops.webp',
                   alt: 'The operations view following a vehicle along its route, coloured by speed',
                   width: 1672,
                   height: 941,
                 },
                 {
-                  src: '/pillars/atlsops.png',
+                  src: '/pillars/atlsops.webp',
                   alt: 'A collection vehicle on a city street, with the road network it is covering drawn over the road',
                   width: 1536,
                   height: 1024,
@@ -646,7 +646,7 @@ export default function JsanFleetIntelligence() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/pillars/tunnols.png"
+            src="/pillars/tunnols.webp"
             alt=""
             aria-hidden="true"
             width={1536}

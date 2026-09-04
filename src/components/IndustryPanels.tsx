@@ -18,41 +18,41 @@ const industries = [
     description:
       'Collection, enrichment, verification and operational support for location platforms and mapping programs.',
     href: '/industries/mapping-location-platforms',
-    image: '/pillars/mapping.png',
+    image: '/pillars/mapping.webp',
   },
   {
     name: 'Autonomous Mobility',
     description:
       'Field deployment, route readiness, mapping operations, fleet support, evidence collection and geospatial QA.',
     href: '/industries/autonomous-mobility',
-    image: '/pillars/autonomous_mobilitynew.png',
+    image: '/pillars/autonomous_mobilitynew.webp',
   },
   {
     name: 'Telecommunications',
     description:
       'Field intelligence, network GIS, LiDAR engineering, fibre, pole loading, small cells and as-built validation.',
     href: '/industries/telecommunications',
-    image: '/pillars/telecommunications.png',
+    image: '/pillars/telecommunications.webp',
   },
   {
     name: 'Transportation & Infrastructure',
     description:
       'Spatial data and field intelligence supporting roads, rail, infrastructure and asset operations.',
     href: '/industries/transportation-infrastructure',
-    image: '/pillars/trasport.png',
+    image: '/pillars/trasport.webp',
   },
   {
     name: 'Utilities',
     description: 'Geospatial intelligence for electricity, water, gas and infrastructure asset networks.',
     href: '/industries/utilities',
-    image: '/pillars/utilities.png',
+    image: '/pillars/utilities.webp',
   },
   {
     name: 'Government & Smart Cities',
     description:
       'Field data, GIS, infrastructure intelligence and managed programs supporting public-sector operations.',
     href: '/industries/government-smart-cities',
-    image: '/pillars/smart_city.png',
+    image: '/pillars/smart_city.webp',
   },
 ]
 

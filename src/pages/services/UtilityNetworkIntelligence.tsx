@@ -1,4 +1,4 @@
-import { Network, Zap, Droplets, Flame, Map, Crosshair, CheckCircle, Share2, Database, Gauge, ShieldCheck } from 'lucide-react'
+import { Network, Zap, Droplets, Flame, Map, Crosshair, CheckCircle, Share2, Database, Gauge, ShieldCheck, Layers, RefreshCw, FileCheck2 } from 'lucide-react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
@@ -6,7 +6,25 @@ import QualityGates from '../../components/QualityGates'
 import RoadmapTimeline from '../../components/RoadmapTimeline'
 import ProcessFlow from '../../components/ProcessFlow'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
+import CapabilityModules from '../../components/CapabilityModules'
+import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
+
+/**
+ * /services/utility-network-intelligence  "Utilities Mapping"
+ *
+ * This page used to be titled "Utility Network Intelligence" and sat in the nav under
+ * "Pole & Asset Intelligence", while a second, much thinner /capabilities/utilities-mapping
+ * entry covered the same subject. Two nav items, one topic. The capability entry's content
+ * (network-model construction, legacy record conversion, landbase alignment, deliverables
+ * and outcomes) has been folded in here and that route now 301s to this one.
+ *
+ * Poles as infrastructure in their own right  inventory, condition, joint use, make-ready
+ * and clearance  moved out to /services/pole-asset-intelligence, which is what the
+ * "Pole & Asset Intelligence" nav item now points at.
+ *
+ * The URL is unchanged because roughly ten other files link to it.
+ */
 
 /* The three utility domains */
 const domains = [
@@ -18,7 +36,7 @@ const domains = [
     description:
       'Land-base extraction, drone/mobile field survey and pole/line/transformer digitization codified, QA-checked and migrated to enterprise platforms such as GE Smallworld and ArcGIS.',
     icon: Zap,
-    bgImage: '/pillars/utility-network.jpg',
+    bgImage: '/pillars/utility-network.webp',
     highlights: ['Pole / Line / Transformer', 'Pole Codification', 'Consumer Indexing', 'Smallworld / ArcGIS'],
   },
   {
@@ -74,11 +92,67 @@ const roadmap = [
   { n: '05', title: 'Migrate & operate', desc: 'GDB packaging, target GIS migration, dashboards and handover.', exit: 'Operational GIS + support model' },
 ]
 
-const stats = [
-  { value: '100+', label: 'CAD / GIS Engineers' },
-  { value: '75+', label: 'Field Experts' },
-  { value: '5+', label: 'Network Intelligence Managers' },
+/* Modelling and conversion work, carried over from the /capabilities/utilities-mapping
+   entry that this page absorbed. It is what turns captured assets into a network that
+   can be traced and analysed rather than merely drawn. */
+const modellingModules = [
+  {
+    name: 'Network model construction',
+    description:
+      'Connectivity, phasing, devices and flow direction modelled so tracing, isolation and outage analysis behave correctly rather than just looking right on a map.',
+    icon: Network,
+  },
+  {
+    name: 'Multi-utility asset capture',
+    description:
+      'Electric, gas, water and telecom assets captured and attributed to your data model, with field survey filling the gaps that existing records cannot answer.',
+    icon: Layers,
+  },
+  {
+    name: 'Legacy record conversion',
+    description:
+      'CAD, paper, scanned maps, spreadsheets and legacy GIS inventoried, assessed for coverage and age, then digitised into a modern, queryable asset base.',
+    icon: RefreshCw,
+  },
+  {
+    name: 'Landbase alignment',
+    description:
+      'Networks aligned to an accurate landbase so assets sit where they physically are, and spatial accuracy is stated per asset class instead of assumed.',
+    icon: Map,
+  },
+  {
+    name: 'Topology & attribute validation',
+    description:
+      'Gaps, overlaps, orphaned devices and attribute violations cleared before migration, with a documented validation report per asset class.',
+    icon: FileCheck2,
+  },
+  {
+    name: 'GIS / ADMS delivery',
+    description:
+      'Migration-ready packages built to your production schema (Smallworld, ArcGIS or an ADMS data model) with lineage preserved through the handover.',
+    icon: Database,
+  },
 ]
+
+/* What the customer ends up holding, and what changes for them once they do. */
+const deliverables = [
+  'Digitised utility asset layers',
+  'Connectivity / network model',
+  'Landbase-aligned spatial data',
+  'Converted legacy records',
+  'Attribute and topology validation reports',
+  'Migration-ready GIS packages',
+]
+
+const outcomes = [
+  'A single, connected view of the network',
+  'Legacy records rescued into a modern data model',
+  'Tracing and analysis that behave correctly',
+  'Field crews working from accurate maps',
+  'A foundation for outage, planning and digital-twin systems',
+]
+
+const stats = allocationStats(serviceSplit, 'utility-network-intelligence')
 
 export default function UtilityNetworkIntelligence() {
   return (
@@ -87,14 +161,14 @@ export default function UtilityNetworkIntelligence() {
 
       {/* Hero */}
       <ServiceHero
-        breadcrumb={"Utility Network Intelligence"}
+        breadcrumb={"Utilities Mapping"}
         eyebrow={"Core Service"}
         eyebrowIcon={Network}
-        title={"Utility Network Intelligence"}
-        subtitle={"From field reality to operational utility intelligence across electrical, water and gas."}
-        description={"A connected operating model for field survey, asset digitization, consumer indexing, topology validation and enterprise GIS migration one delivery backbone, configured per utility domain."}
-        image="/pillars/pole_utility.png"
-        imageAlt="Utility network intelligence"
+        title={"Utilities Mapping"}
+        subtitle={"Electric, gas, water and telecom networks modelled as connected assets."}
+        description={"We map and model utility networks end to end: field survey and asset digitization, legacy record conversion, landbase alignment, consumer indexing, and the connectivity model that makes a network analysable rather than merely drawable, delivered into your production GIS."}
+        image="/pillars/utility.webp"
+        imageAlt="Utilities mapping across electric, gas and water networks"
         stats={stats}
       />
 
@@ -114,6 +188,15 @@ export default function UtilityNetworkIntelligence() {
                     <CapabilityShowcase items={domains} basePath="/services/utility-network-intelligence" />
         </div>
       </section>
+
+      {/* Modelling & conversion  absorbed from the old /capabilities/utilities-mapping page */}
+      <CapabilityModules
+        tone="white"
+        eyebrow="Mapping & Modelling"
+        heading="From scattered records to a network that can be traced"
+        intro="Capturing an asset is only half the job. These are the steps that turn a drawing into a model your operations, planning and outage systems can actually run on."
+        modules={modellingModules}
+      />
 
       {/* Operating model */}
       <section className="py-20" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
@@ -174,6 +257,39 @@ export default function UtilityNetworkIntelligence() {
           </div>
 
           <RoadmapTimeline steps={roadmap} />
+        </div>
+      </section>
+
+      {/* Deliverables & outcomes  absorbed from the old /capabilities/utilities-mapping page */}
+      <section className="bg-white py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <span className="inline-block text-[#00d4ff] font-bold text-xs md:text-sm uppercase tracking-widest mb-3">What You Receive</span>
+              <h2 className="text-[28px] md:text-[36px] font-bold mb-6 text-gradient">Deliverables</h2>
+              <ul className="space-y-3">
+                {deliverables.map((item) => (
+                  <li key={item} className="flex items-start gap-3 rounded-xl bg-gray-50 p-4">
+                    <CheckCircle className="w-5 h-5 text-[#0050a9] shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm md:text-base">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <span className="inline-block text-[#00d4ff] font-bold text-xs md:text-sm uppercase tracking-widest mb-3">What Changes</span>
+              <h2 className="text-[28px] md:text-[36px] font-bold mb-6 text-gradient">Outcomes</h2>
+              <ul className="space-y-3">
+                {outcomes.map((item) => (
+                  <li key={item} className="flex items-start gap-3 rounded-xl bg-[#eef5ff] border border-blue-100 p-4">
+                    <Gauge className="w-5 h-5 text-[#0050a9] shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm md:text-base">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -28,7 +28,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Pole-to-Pole Capture to Enterprise GIS Migration',
     description:
       'We move electrical networks from base-map preparation through pole-to-pole field survey, codification and topology QA to enterprise GIS migration  land-base extraction, drone/mobile capture, GDB creation and final network maps ready for GE Smallworld or ArcGIS.',
-    bgImage: '/pillars/utility-network.jpg',
+    bgImage: '/pillars/utility-network.webp',
     advantages: [
       { icon: Zap, text: 'Pole, line and transformer digitization across the network' },
       { icon: MapPin, text: 'Land-base extraction from satellite imagery with base-map fit' },
@@ -60,7 +60,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Distribution Assets & Consumer Indexing for Zone-Level Control',
     description:
       'We connect distribution assets and consumer indexing to maintenance, leak-response and zone-level planning  GPS-enabled capture of valves, hydrants, meters and consumer connections, delivered as water-distribution GIS and zonal / DMA map outputs.',
-    bgImage: '/pillars/spatial-analytics.jpg',
+    bgImage: '/pillars/spatial-analytics.webp',
     advantages: [
       { icon: Droplets, text: 'GPS-enabled capture of valves, hydrants and meters' },
       { icon: MapPin, text: 'Consumer connection mapping and indexing' },
@@ -92,7 +92,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Safety-Critical Asset Traceability & Pressure-Area Intelligence',
     description:
       'We prioritize safety-critical asset traceability, service connections and pressure-area intelligence  GPS survey, photo documentation and optional barcode/QR capture of pipelines, valves, regulators, pressure stations and service connections, delivered as GIS and pressure-zone / service-area maps.',
-    bgImage: '/pillars/asset-management.jpg',
+    bgImage: '/pillars/asset-management.webp',
     advantages: [
       { icon: Flame, text: 'Safety-focused inventory of pipelines, valves and regulators' },
       { icon: Gauge, text: 'Pressure stations and pressure-zone / service-area mapping' },

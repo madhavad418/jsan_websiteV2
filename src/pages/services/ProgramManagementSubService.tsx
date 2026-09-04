@@ -27,7 +27,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Governance, Standards, and Delivery Excellence',
     description:
       'We design, establish, and operationalize Project Management Offices  from lightweight governance frameworks for agile organizations to full-scale enterprise PMOs with standardized processes, tools, templates, and reporting structures.',
-    bgImage: '/pillars/pmo-setup.jpg',
+    bgImage: '/pillars/pmo-setup.webp',
     advantages: [
       { icon: Settings, text: 'Customized PMO frameworks tailored to your maturity level' },
       { icon: ClipboardCheck, text: 'Standardized templates, processes, and methodologies' },
@@ -59,7 +59,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Embedding Agility Across Your Organization',
     description:
       'Our agile transformation services help organizations shift from traditional waterfall delivery to agile and hybrid methodologies  embedding Scrum, SAFe, and Kanban practices across teams to accelerate delivery, improve quality, and increase stakeholder satisfaction.',
-    bgImage: '/pillars/agile-transformation.jpg',
+    bgImage: '/pillars/agile-transformation.webp',
     advantages: [
       { icon: RefreshCw, text: 'Scrum, SAFe, and Kanban implementation across teams' },
       { icon: GitBranch, text: 'Hybrid methodology design for complex programs' },
@@ -91,7 +91,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Quality Built In, Not Bolted On',
     description:
       'Our QA practice embeds quality throughout the project lifecycle  from requirements validation and test strategy to automated testing, performance benchmarking, and continuous improvement  ensuring every deliverable meets the highest standards.',
-    bgImage: '/pillars/quality-assurance.jpg',
+    bgImage: '/pillars/quality-assurance.webp',
     advantages: [
       { icon: ClipboardCheck, text: 'Comprehensive test strategy and planning' },
       { icon: Zap, text: 'Automated testing frameworks reducing manual effort by 80%' },

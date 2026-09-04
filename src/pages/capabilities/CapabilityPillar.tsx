@@ -1,5 +1,6 @@
 import { Link, Navigate, useLocation, useParams } from 'react-router-dom'
 import { ArrowRight, CheckCircle, ChevronRight } from 'lucide-react'
+import HeroBackdrop, { heroCopyColumn } from '../../components/HeroBackdrop'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
@@ -29,79 +30,50 @@ export default function CapabilityPillar() {
 
       {/* Hero */}
       <section
-        className="relative flex items-center overflow-hidden bg-white pb-16 pt-24 lg:min-h-[560px] lg:pb-20 lg:pt-28"
+        className="relative flex min-h-[480px] items-center overflow-hidden bg-[#03142d] pb-12 pt-24 sm:min-h-[540px] sm:pb-16 sm:pt-28 lg:min-h-[620px] lg:pb-20 lg:pt-32"
         style={{ marginTop: '44px' }}
       >
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-[44%]">
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'radial-gradient(50% 45% at 5% 10%, rgba(0,80,169,0.07) 0%, rgba(0,80,169,0) 100%), ' +
-                'radial-gradient(45% 55% at 30% 95%, rgba(0,212,255,0.11) 0%, rgba(0,212,255,0) 100%)',
-            }}
-          />
-        </div>
-
-        <div className="absolute inset-y-6 right-0 hidden w-[52%] lg:block">
-          <div
-            className="absolute inset-0 bg-gray-100 bg-cover bg-center"
-            style={{ backgroundImage: `url(${pillar.image})` }}
-            role="img"
-            aria-label={pillar.imageAlt}
-          />
-          <div className="absolute inset-y-0 left-0 w-28 rounded-br-[7rem] bg-white" />
-        </div>
+        <HeroBackdrop image={pillar.image} imageAlt={pillar.imageAlt} />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
-          <div className="lg:w-1/2 lg:pr-12">
-            <nav className="mb-4 flex items-center gap-2 text-sm text-gray-500">
-              <Link to="/capabilities" className="inline-flex min-h-[24px] items-center transition-colors hover:text-[#0050a9]">
+          <div className={heroCopyColumn()}>
+            <nav className="mb-3 flex items-center gap-2 text-[13px] text-white/60 sm:mb-4 sm:text-sm">
+              <Link to="/capabilities" className="inline-flex min-h-[24px] items-center transition-colors hover:text-white">
                 Capabilities
               </Link>
               <span>/</span>
-              <span className="font-medium text-[#0050a9]">{pillar.name}</span>
+              <span className="font-medium text-white">{pillar.name}</span>
             </nav>
 
-            <span className="mb-5 inline-flex items-center gap-2 t-label text-gray-500">
-              <pillar.icon className="h-4 w-4 text-[#0050a9]" aria-hidden="true" />
+            <span className="mb-5 inline-flex items-center gap-2 t-label text-[#00d4ff]">
+              <pillar.icon className="h-4 w-4 text-[#00d4ff]" aria-hidden="true" />
               Capability Pillar
             </span>
 
-            <h1 className="mb-4 text-[34px] font-bold leading-[1.08] text-[#0a1a3a] lg:text-[46px]">
+            <h1 className="mb-4 text-[26px] font-bold leading-[1.12] text-white sm:text-[30px] sm:leading-[1.08] lg:text-[46px]">
               {pillar.name}
             </h1>
-            <p className="mb-6 text-[20px] font-semibold leading-tight text-[#0050a9] lg:text-[24px]">
+            <p className="mb-5 text-[17px] font-semibold leading-snug text-[#7cc6ff] sm:mb-6 sm:text-[19px] lg:text-[24px]">
               {pillar.summary}
             </p>
-            <p className="mb-8 max-w-lg text-lg leading-relaxed text-gray-600">{pillar.description}</p>
+            <p className="mb-7 max-w-lg text-[15px] leading-relaxed text-white/75 sm:mb-8 sm:text-lg">{pillar.description}</p>
 
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2.5 rounded-lg px-7 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_-14px_rgba(0,80,169,0.9)]"
-                style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}
+                className="group inline-flex items-center gap-2.5 rounded-lg bg-white px-5 py-3 text-[15px] font-semibold sm:px-7 sm:py-3.5 sm:text-base text-[#0050a9] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100"
               >
                 Discuss a Program
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/work"
-                className="group inline-flex items-center gap-2 rounded-lg border-2 border-[#0050a9]/20 px-7 py-3.5 font-semibold text-[#0050a9] transition-all duration-300 hover:border-[#0050a9] hover:bg-[#0050a9] hover:text-white"
+                className="group inline-flex items-center gap-2 rounded-lg border-2 border-white/40 px-5 py-3 text-[15px] font-semibold sm:px-7 sm:py-3.5 sm:text-base text-white transition-all duration-300 hover:border-white hover:bg-white/10"
               >
                 See Our Work
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
-          </div>
-
-          <div className="mt-12 overflow-hidden rounded-2xl bg-gray-100 shadow-xl lg:hidden">
-            <img
-              src={pillar.image}
-              alt={pillar.imageAlt}
-              className="h-[260px] w-full object-cover sm:h-[320px]"
-              loading="eager"
-            />
           </div>
         </div>
       </section>

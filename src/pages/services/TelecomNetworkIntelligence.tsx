@@ -4,6 +4,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import ProcessFlow from '../../components/ProcessFlow'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
+import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 import CapabilityModules from '../../components/CapabilityModules'
 
@@ -27,7 +28,7 @@ const capabilities = [
       'AI-driven fiber network planning, intelligent deployment, and proactive maintenance for future-ready telecom infrastructure from route optimization to predictive maintenance.',
     icon: Network,
     cardTitle: 'Smart Fiber Planning',
-    bgImage: '/pillars/fibre.png',
+    bgImage: '/pillars/fibre.webp',
     highlights: ['AI Route Optimization', 'Drone Surveys', 'Digital Twin', 'Predictive Maintenance'],
     customHref: '/services/smart-fiber-planning',
   },
@@ -58,8 +59,9 @@ export default function TelecomNetworkIntelligence() {
         title={"Geospatial intelligence for modern telecom infrastructure."}
         subtitle={"Telecom Network Intelligence"}
         description={"JSAN combines field data, LiDAR, GIS and engineering workflows to help telecom organisations plan, validate and manage physical network infrastructure."}
-        image="/pillars/utility-network.jpg"
+        image="/pillars/utility-network.webp"
         imageAlt="Telecom network intelligence"
+        stats={allocationStats(serviceSplit, 'telecom-network-intelligence')}
       />
 
       <CapabilityModules

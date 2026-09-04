@@ -9,7 +9,7 @@ const products = [
     description:
       'Real-time fleet tracking, driver management and route optimization across web and mobile, powering our own collection fleets.',
     icon: Navigation,
-    image: '/pillars/jsan-vts.png',
+    image: '/pillars/jsan-vts.webp',
     href: '/products/jsan-vts',
     highlights: ['Live GPS Tracking', 'Driver Management', 'Route Optimization'],
   },
@@ -19,7 +19,7 @@ const products = [
     description:
       'AI-assisted POI capture with enterprise quality control and an offline-first mobile experience built for field teams.',
     icon: Brain,
-    image: '/pillars/jsan-poi-express.png',
+    image: '/pillars/jsan-poi-express.webp',
     href: '/products/poi-express',
     highlights: ['AI POI Detection', 'Offline-First', 'Smart Polygons'],
   },
@@ -29,7 +29,7 @@ const products = [
     description:
       'Role-based travel workflows with multi-stage approvals, quotations and budget control for distributed teams.',
     icon: GitBranch,
-    image: '/pillars/jsan-travel-desk.jpg',
+    image: '/pillars/jsan-travel-desk.webp',
     href: '/products/travel-desk',
     highlights: ['Multi-Stage Approval', 'Quotation System', 'Budget Control'],
   },
@@ -39,7 +39,7 @@ const products = [
     description:
       'Evidence-backed comparison of independent map providers, showing what each one is missing across any area you choose.',
     icon: GitCompare,
-    image: '/pillars/jsan-geodiscover.jpg',
+    image: '/pillars/jsan-geodiscover.webp',
     href: '/products/geodiscover',
     highlights: ['Dual-Provider Sweep', 'Evidence Tiers', 'Cost Guardrails'],
   },

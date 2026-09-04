@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Play, Shield, Zap, Globe, Award, Map, Network, BarChart3, Cloud, Lock, Database, GitBranch, Bot, Server, Code } from 'lucide-react'
+import { totals } from '../config/countAllocations'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
@@ -12,7 +13,7 @@ const technologies = [
     group: 'data',
     slug: '/technologies/gis',
     description: 'Harness geographic data with our Geographic Information System solutions for spatial analysis and mapping.',
-    image: '/pillars/tech-gis.jpg',
+    image: '/pillars/tech-gis.webp',
     tags: ['QGIS', 'PostGIS', 'Mapbox'],
   },
   {
@@ -21,7 +22,7 @@ const technologies = [
     group: 'apps',
     slug: '/technologies/api-integration',
     description: 'Connect systems, applications, and data sources with our expert API integration services.',
-    image: '/pillars/tech-api.jpg',
+    image: '/pillars/tech-api.webp',
     tags: ['REST APIs', 'GraphQL', 'Microservices'],
   },
   {
@@ -30,7 +31,7 @@ const technologies = [
     group: 'data',
     slug: '/technologies/analytics',
     description: 'Transform raw data into actionable insights with advanced analytics and information management solutions.',
-    image: '/pillars/tech-analytics.jpg',
+    image: '/pillars/tech-analytics.webp',
     tags: ['Power BI', 'Tableau', 'Big Data'],
   },
   {
@@ -39,7 +40,7 @@ const technologies = [
     group: 'cloud',
     slug: '/technologies/cloud',
     description: 'Leverage the power of cloud computing with our AWS, Azure, and Google Cloud expertise.',
-    image: '/pillars/tech-cloud.jpg',
+    image: '/pillars/tech-cloud.webp',
     tags: ['AWS', 'Azure', 'Google Cloud'],
   },
   {
@@ -48,7 +49,7 @@ const technologies = [
     group: 'cloud',
     slug: '/technologies/cyber-security',
     description: 'Protect your digital assets with comprehensive cybersecurity solutions and threat management.',
-    image: '/pillars/tech-cybersecurity.jpg',
+    image: '/pillars/tech-cybersecurity.webp',
     tags: ['SIEM', 'Zero Trust', 'Compliance'],
   },
   {
@@ -57,7 +58,7 @@ const technologies = [
     group: 'data',
     slug: '/technologies/data-warehouse',
     description: 'Build scalable data warehouse solutions for efficient storage, retrieval, and analysis of enterprise data.',
-    image: '/pillars/tech-datawarehouse.jpg',
+    image: '/pillars/tech-datawarehouse.webp',
     tags: ['Snowflake', 'Redshift', 'BigQuery'],
   },
   {
@@ -66,7 +67,7 @@ const technologies = [
     group: 'cloud',
     slug: '/technologies/devops',
     description: 'Accelerate software delivery with our DevOps practices, CI/CD pipelines, and automation expertise.',
-    image: '/pillars/tech-devops.jpg',
+    image: '/pillars/tech-devops.webp',
     tags: ['CI/CD', 'Kubernetes', 'Docker'],
   },
   {
@@ -75,7 +76,7 @@ const technologies = [
     group: 'apps',
     slug: '/technologies/automation',
     description: 'Transform business processes with RPA, AI-powered automation, and intelligent robotics solutions.',
-    image: '/pillars/tech-automation.jpg',
+    image: '/pillars/tech-automation.webp',
     tags: ['RPA', 'UiPath', 'AI/ML'],
   },
   {
@@ -84,7 +85,7 @@ const technologies = [
     group: 'cloud',
     slug: '/technologies/it-infrastructure',
     description: 'Build and manage robust IT infrastructure with our comprehensive managed services solutions.',
-    image: '/pillars/tech-infrastructure.jpg',
+    image: '/pillars/tech-infrastructure.webp',
     tags: ['NOC', '24/7 Support', 'Cloud Infra'],
   },
   {
@@ -93,15 +94,15 @@ const technologies = [
     group: 'apps',
     slug: '/technologies/web',
     description: 'Create powerful web applications with modern frameworks, responsive design, and current, well-supported technologies.',
-    image: '/pillars/tech-web.jpg',
+    image: '/pillars/tech-web.webp',
     tags: ['React', 'Node.js', 'TypeScript'],
   },
 ]
 
 const stats = [
   { value: '11+', label: 'Technology Domains' },
-  { value: '200+', label: 'Tech Experts' },
-  { value: '500+', label: 'Projects Delivered' },
+  { value: totals.people, label: 'Specialists' },
+  { value: totals.projects, label: 'Projects Delivered' },
   { value: '24/7', label: 'Support Available' },
 ]
 
@@ -119,7 +120,7 @@ const whyChoose = [
   {
     icon: Globe,
     title: 'Global Delivery',
-    description: '24/7 support with teams across 20+ countries worldwide.',
+    description: '24/7 support with teams across 25+ countries worldwide.',
   },
   {
     icon: Shield,

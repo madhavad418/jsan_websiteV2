@@ -27,7 +27,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Location Intelligence Meets Advanced Analytics',
     description:
       'Our spatial analytics solutions integrate location context with traditional data analysis to uncover trends in urban planning, business intelligence, and environmental management. We transform raw geospatial data into predictive models and interactive dashboards that drive informed decision-making.',
-    bgImage: '/pillars/spatial-analytics.jpg',
+    bgImage: '/pillars/spatial-analytics.webp',
     advantages: [
       { icon: BarChart3, text: 'Advanced geostatistical modelling and spatial regression' },
       { icon: Target, text: 'Precision demand forecasting with location context' },
@@ -59,7 +59,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Building the Cities of Tomorrow',
     description:
       'Through real-time location data and IoT sensor networks, we provide customised smart city solutions for efficient, responsive urban environments  from intelligent traffic management and energy optimization to public safety systems and environmental monitoring.',
-    bgImage: '/pillars/smart-city.jpg',
+    bgImage: '/pillars/smart-city.webp',
     advantages: [
       { icon: Network, text: 'IoT sensor integration with geospatial platforms' },
       { icon: Zap, text: 'Real-time monitoring and automated alerting' },
@@ -91,7 +91,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Geospatial Lifecycle Management',
     description:
       'Geospatial asset management leverages location data to track, visualise, and maintain physical infrastructure  from utility poles and pipelines to fleet vehicles and facilities  enabling proactive maintenance, lifecycle planning, and real-time operational visibility.',
-    bgImage: '/pillars/asset-management.jpg',
+    bgImage: '/pillars/asset-management.webp',
     advantages: [
       { icon: MapPin, text: 'Accurate location tracking of all physical assets' },
       { icon: Clock, text: 'Predictive maintenance scheduling based on asset condition' },
@@ -123,7 +123,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Drone & LiDAR Solutions for Every Industry',
     description:
       'Using drones equipped with LiDAR sensors to capture high-precision 3D point clouds and terrain data from above, even in challenging environments like dense vegetation. We enable rapid, accurate topographic surveys, volumetric measurements, and detailed mapping for surveying, forestry, and infrastructure inspection.',
-    bgImage: '/pillars/drone-lidar.jpg',
+    bgImage: '/pillars/drone-lidar.webp',
     advantages: [
       { icon: Camera, text: 'High-resolution orthomosaic and oblique imagery' },
       { icon: Target, text: 'Sub-centimetre accuracy with RTK/PPK GNSS' },
@@ -155,7 +155,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Virtual Replicas for Real-World Decisions',
     description:
       'Creating detailed three-dimensional representations of physical environments combined with real-time data to form digital twins  virtual replicas of assets or cities. These geospatial models support simulation, monitoring, predictive analysis, and immersive visualization for urban planning, infrastructure, and operational optimization.',
-    bgImage: '/pillars/digital-twin.jpg',
+    bgImage: '/pillars/digital-twin.webp',
     advantages: [
       { icon: Box, text: 'Photorealistic 3D city and facility models' },
       { icon: Zap, text: 'Real-time IoT data integration and live updates' },

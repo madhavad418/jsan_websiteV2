@@ -4,6 +4,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
 // import ServiceContactForm from '../../components/ServiceContactForm'
+import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 /* Overview  the three pillars of the service */
@@ -16,7 +17,7 @@ const deliver = [
     description:
       'Road and transport networks, buildings, land use, hydrography and administrative boundaries compiled from imagery, LiDAR, field and authoritative sources, and kept continuously up to date.',
     icon: Layers,
-    bgImage: '/pillars/geospatial-solutions.jpg',
+    bgImage: '/pillars/basemap.webp',
     highlights: ['Road Networks', 'Buildings & Land Use', 'Boundaries', 'Continuous Updates'],
   },
   {
@@ -27,7 +28,7 @@ const deliver = [
     description:
       'A defensible POI lifecycle sourced, normalized, matched, field-validated and delivered with evidence so your places data stays fresh, deduplicated and trustworthy.',
     icon: MapPin,
-    bgImage: '/pillars/poi.png',
+    bgImage: '/pillars/poi.webp',
     highlights: ['Field Validation', 'Deduplication', 'Confidence Scoring', 'Change Management'],
   },
   // {
@@ -38,7 +39,7 @@ const deliver = [
   //   description:
   //     'Controlled-ontology annotation of imagery and map features  bounding boxes, classes, OCR and segmentation  with reviewer calibration and QC-on-QC, producing traceable AI training data.',
   //   icon: PenTool,
-  //   bgImage: '/pillars/data-analytics-ai.jpg',
+  //   bgImage: '/pillars/data-analytics-ai.webp',
   //   highlights: ['Controlled Ontology', 'Reviewer Calibration', 'OCR & Segmentation', 'Gold Sets'],
   // },
 ]
@@ -100,7 +101,7 @@ export default function BasemapPOIAnnotation() {
         description={"For map and navigation providers, mobility platforms, address providers and location-data businesses that need local freshness at scale."}
         image="/gis-mapping.jpeg"
         imageAlt="Basemap, POI and annotation services"
-        stats={[{ value: 'Basemap Production' }, { value: 'POI Operations' }]}
+        stats={allocationStats(serviceSplit, 'basemap-poi-annotation')}
       />
 
       {/* What We Deliver */}

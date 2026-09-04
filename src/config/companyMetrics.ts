@@ -13,6 +13,8 @@
  * - Do not add a metric just because an old page displayed it.
  */
 
+import { totals } from './countAllocations'
+
 export type CompanyMetric = {
   id: string
   /** Display figure, e.g. '1,000+'. null means "no validated figure yet"  not rendered. */
@@ -26,24 +28,24 @@ export type CompanyMetric = {
 export const companyMetrics: CompanyMetric[] = [
   {
     id: 'professionals',
-    value: '1,000+',
+    value: totals.people,
     label: 'Professionals',
     verified: false,
-    note: 'Carried over from the Careers page ("Team Members"). Needs confirmation.',
+    note: 'Company total. Per-page slices live in src/config/countAllocations.ts.',
   },
   {
     id: 'countries',
     value: '25+',
     label: 'Countries Supported',
     verified: false,
-    note: 'Carried over from Careers. Service pages elsewhere say 20+  the two disagree.',
+    note: 'Company total, matching About, Contact and Careers.',
   },
   {
     id: 'programs',
-    value: '500+',
+    value: totals.projects,
     label: 'Programs Delivered',
     verified: false,
-    note: 'Carried over from the Technologies page ("Projects Delivered").',
+    note: 'Company total, matching the About page. Per-page slices live in src/config/countAllocations.ts.',
   },
   {
     id: 'fieldKm',

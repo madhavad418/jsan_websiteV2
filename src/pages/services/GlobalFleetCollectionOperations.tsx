@@ -7,6 +7,7 @@ import RoadmapTimeline from '../../components/RoadmapTimeline'
 import ProcessFlow from '../../components/ProcessFlow'
 // import ServiceContactForm from '../../components/ServiceContactForm'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
+import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHeroV2 from '../../components/ServiceHeroV2'
 
 /* What the operation covers */
@@ -117,16 +118,14 @@ const opsStack = ['JSAN VTS', 'GPS Telematics', 'Mobile Capture Apps', 'Shift & 
 
 /* Hero (v2 layout, under evaluation on this page only) */
 const heroMetrics = [
-  { value: '1,000+', label: 'Field Experts' },
-  { value: '20+', label: 'Countries' },
+  ...allocationStats(serviceSplit, 'global-fleet-collection-operations'),
   { value: 'GPS', label: 'Live Tracking' },
 ]
 /* Stats from the previous hero, kept for reference while the v2 hero is on trial.
    The v2 hero shows at most three, see heroMetrics above.
 const stats = [
-  { value: '1,000+', label: 'Field Experts' },
-  { value: '20+', label: 'Countries' },
-  { value: '35+', label: 'Fleet Management Team' },
+  ...allocationStats(serviceSplit, 'global-fleet-collection-operations'),
+  { value: '25+', label: 'Countries' },
   { value: 'GPS', label: 'Live Fleet Tracking' },
 ]
 */
@@ -148,7 +147,7 @@ export default function GlobalFleetCollectionOperations() {
         secondaryCta={{ label: 'Explore capabilities', href: '#capabilities' }}
         metrics={heroMetrics}
         heroImage="/images/services/global-fleet-hero.webp"
-        fallbackImage="/pillars/fleet.png"
+        fallbackImage="/pillars/fleet.webp"
         heroImageAlt="JSAN collection vehicles and field crew preparing sensor rigs before a drive"
         heroPositionDesktop="65% center"
         heroPositionTablet="60% center"
@@ -241,7 +240,7 @@ export default function GlobalFleetCollectionOperations() {
 
             <div className="lg:pt-2">
               <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <img src="/pillars/globalfleet.png" alt="Collection fleet on the road" className="w-full h-64 md:h-80 object-cover" />
+                <img src="/pillars/globalfleet.webp" alt="Collection fleet on the road" className="w-full h-64 md:h-80 object-cover" />
               </div>
 
               <div className="mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">

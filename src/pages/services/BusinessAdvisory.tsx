@@ -2,13 +2,16 @@ import { TrendingUp, Target, Users, Briefcase, PieChart, FileText, Play, ArrowRi
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
+import { serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
+const advisory = serviceSplit['business-advisory']
+
 const metrics = [
+  { value: `${advisory.projects}+`, label: 'Projects Delivered', description: 'Successfully completed' },
+  { value: `${advisory.people}+`, label: 'Specialists', description: 'Advisory practice' },
   { value: '30%', label: 'Cost Reduction', description: 'Average client savings' },
   { value: '95%', label: 'Client Satisfaction', description: 'Recommendation rate' },
-  { value: '150+', label: 'Engagements', description: 'Successfully completed' },
-  { value: '7+', label: 'Years Experience', description: 'Industry expertise' },
 ]
 
 const services = [
@@ -51,11 +54,13 @@ const outcomes = [
   { value: '80%', label: 'Goal Achievement', description: 'Strategic objectives met' },
 ]
 
+/* Splits this practice's own project count (serviceSplit['business-advisory']) by sector,
+   so the four tiles add back up to the figure in the hero rather than exceeding it. */
 const industries = [
-  { icon: Building2, name: 'Manufacturing', projects: '40+' },
-  { icon: Handshake, name: 'Professional Services', projects: '35+' },
-  { icon: LineChart, name: 'Financial Services', projects: '30+' },
-  { icon: DollarSign, name: 'Retail & Consumer', projects: '25+' },
+  { icon: Building2, name: 'Manufacturing', projects: '4' },
+  { icon: Handshake, name: 'Professional Services', projects: '3' },
+  { icon: LineChart, name: 'Financial Services', projects: '2' },
+  { icon: DollarSign, name: 'Retail & Consumer', projects: '2' },
 ]
 
 const approach = [

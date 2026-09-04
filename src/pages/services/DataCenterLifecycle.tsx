@@ -4,6 +4,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import ProcessFlow from '../../components/ProcessFlow'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
+import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 /* Seven service towers */
@@ -16,7 +17,7 @@ const towers = [
     description:
       'Procedure-led PM from scheduled inspections to condition-based signals MOP checklists, health scorecards, exceptions logs and photo evidence that reduce risk instead of just ticking boxes.',
     icon: ClipboardCheck,
-    bgImage: '/pillars/checklist.png',
+    bgImage: '/pillars/checklist.webp',
     highlights: ['Scheduled Inspections', 'MOP & Checklists', 'Condition Signals', 'Health Scorecards'],
   },
   {
@@ -27,7 +28,7 @@ const towers = [
     description:
       'Detect, diagnose, plan, repair, validate and improve across compute, storage, network, power and facilities. No blind action, no undocumented change, and no closure without service validation.',
     icon: Wrench,
-    bgImage: '/pillars/corrective.png',
+    bgImage: '/pillars/corrective.webp',
     highlights: ['Triage & Diagnosis', 'MOP-Controlled Repair', 'Service Validation', 'RCA / CAPA'],
   },
   {
@@ -38,7 +39,7 @@ const towers = [
     description:
       'UPS, battery, generator, ATS and PDU care, thermal assurance, high-density AI/HPC readiness and electrical safety controls IT hardware support and facilities coordination under one governance model.',
     icon: Zap,
-    bgImage: '/pillars/tech-infrastructure.jpg',
+    bgImage: '/pillars/tech-infrastructure.webp',
     highlights: ['Power Chain', 'Thermal Assurance', 'High-Density / AI-HPC', 'Safety & LOTO'],
   },
   {
@@ -49,7 +50,7 @@ const towers = [
     description:
       'Your remote eyes, ears and hands onsite approved, evidence-captured execution of power cycles, patching, media, console and installs, with backout plans and NBD / 4-hour tiering.',
     icon: Hand,
-    bgImage: '/pillars/smartremote.png',
+    bgImage: '/pillars/smartremote.webp',
     highlights: ['Approved Execution', 'Backout Plans', 'Evidence Capture', 'NBD / 4H Tiering'],
   },
   {
@@ -60,7 +61,7 @@ const towers = [
     description:
       'Identity, condition, lifecycle and control CMDB, EOL/EOS, warranty, spares readiness, refresh waves, secure disposal and chain-of-custody. Monthly service data becomes a risk-and-refresh conversation.',
     icon: Boxes,
-    bgImage: '/pillars/assetlifecycle.png',
+    bgImage: '/pillars/assetlifecycle.webp',
     highlights: ['CMDB & Asset Identity', 'EOL/EOS & Warranty', 'Refresh Planning', 'Secure Disposal'],
   },
   {
@@ -71,7 +72,7 @@ const towers = [
     description:
       'P1 command bridges, controlled dispatch, a defined spares path and OEM/partner escalation to restore service to its agreed state coordinated site action across power, compute and network.',
     icon: LifeBuoy,
-    bgImage: '/pillars/tech-cybersecurity.jpg',
+    bgImage: '/pillars/tech-cybersecurity.webp',
     highlights: ['P1 Command Bridge', 'Controlled Dispatch', 'Spares Path', 'OEM / Partner Escalation'],
   },
   {
@@ -82,7 +83,7 @@ const towers = [
     description:
       'Service desk, NOC, ticketing, MOP/EOP, CMDB, dashboards, SLA logic and review cadence with RCA/CAPA and a live risk register because breadth matters only when it is governed.',
     icon: ClipboardList,
-    bgImage: '/pillars/tech-analytics.jpg',
+    bgImage: '/pillars/tech-analytics.webp',
     highlights: ['SLA Scorecards', 'Dashboards', 'Review Cadence', 'Risk Register'],
   },
 ]
@@ -129,9 +130,9 @@ export default function DataCenterLifecycle() {
         title={"Data Center Lifecycle & Field Support"}
         subtitle={"Controlled uptime outcomes - not break-fix tasks."}
         description={"A single accountable service layer for enterprise, hyperscale, edge and telecom infrastructure SLA definitions, controlled dispatch, evidence and governance across mixed OEM estates."}
-        image="/pillars/cloud-infrastructure.jpg"
+        image="/pillars/data_center.webp"
         imageAlt="Data center lifecycle and field support"
-        stats={[{ value: 'Prevent' }, { value: 'Diagnose' }, { value: 'Restore' }, { value: 'Control' }]}
+        stats={allocationStats(serviceSplit, 'data-center-lifecycle')}
       />
 
       {/* Seven service towers */}

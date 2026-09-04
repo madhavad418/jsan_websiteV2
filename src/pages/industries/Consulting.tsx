@@ -13,6 +13,8 @@ import {
   Shield,
   Lightbulb
 } from 'lucide-react'
+import { allocationStats, industrySplit } from '../../config/countAllocations'
+import HeroBackdrop from '../../components/HeroBackdrop'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
@@ -68,9 +70,9 @@ const solutions = [
 ]
 
 const partnerBenefits = [
-  'Access to 600+ skilled GIS and IT professionals',
+  'Access to 1,500+ skilled GIS and IT professionals',
   'Flexible engagement models - project, staff aug, managed services',
-  'Global delivery capabilities across 20+ countries',
+  'Global delivery capabilities across 25+ countries',
   'Proven track record with Fortune 500 clients',
   'Competitive pricing with quality assurance',
   'Direct integration with your delivery processes',
@@ -82,18 +84,14 @@ export default function Consulting() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[600px] flex items-center overflow-hidden pt-28 lg:pt-32 pb-28 lg:pb-32" style={{ marginTop: '44px' }}>
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0050a9] via-[#0a1a3a] to-[#0050a9]">
-          <div className="absolute inset-0 opacity-20">
-            <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=1080&fit=crop"
-              alt=""
-              aria-hidden="true"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0050a9]/90 via-[#0050a9]/70 to-transparent" />
-        </div>
+      <section className="relative min-h-[480px] sm:min-h-[540px] lg:min-h-[600px] flex items-center overflow-hidden pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-32" style={{ marginTop: '44px' }}>
+        {/* top-[77px] clears the fixed header, which the section otherwise slides under.
+            The photograph used to sit at opacity-20 under a blue wash, so it read as flat
+            colour; it now carries the hero under the same navy scrim as the other heroes. */}
+        <HeroBackdrop
+          image="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=1080&fit=crop"
+          imageAlt="Consulting and professional services teams at work"
+        />
 
         <div className="absolute top-0 left-0 right-0 bg-black/20 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
@@ -109,7 +107,8 @@ export default function Consulting() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="max-w-3xl">
+          {/* Held to the scrimmed half so the copy never runs onto the bright side */}
+          <div className="max-w-3xl lg:w-[52%] lg:max-w-none lg:pr-8">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center">
                 <Briefcase className="w-8 h-8 text-white" />
@@ -118,10 +117,10 @@ export default function Consulting() {
                 Partnership Solutions
               </span>
             </div>
-            <h1 className="text-white text-[42px] lg:text-[56px] font-bold leading-[1.1] mb-6">
+            <h1 className="text-white text-[27px] sm:text-[34px] lg:text-[56px] font-bold leading-[1.14] sm:leading-[1.1] mb-5 sm:mb-6">
               Consulting & Professional Services
             </h1>
-            <p className="text-white/80 text-xl leading-relaxed mb-8">
+            <p className="text-white/80 text-[15px] sm:text-lg lg:text-xl leading-relaxed mb-7 sm:mb-8">
               Partnership solutions for consulting firms including resource augmentation, specialized expertise, delivery partnership, and knowledge transfer.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -133,6 +132,14 @@ export default function Consulting() {
                 Our Services
                 <Play className="w-4 h-4" />
               </Link>
+            </div>
+            <div className="mt-10 flex flex-wrap gap-x-10 gap-y-6 border-t border-white/20 pt-8">
+              {allocationStats(industrySplit, 'consulting').map((stat) => (
+                <div key={stat.label}>
+                  <div className="text-white text-3xl lg:text-4xl font-bold">{stat.value}</div>
+                  <div className="text-white/60 text-sm mt-1">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

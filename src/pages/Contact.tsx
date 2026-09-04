@@ -17,6 +17,7 @@ import {
   X,
   Navigation
 } from 'lucide-react'
+import { totals } from '../config/countAllocations'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
@@ -253,10 +254,17 @@ export default function Contact() {
             }}
           />
 
+          {/*
+            min-w-0 on both children is load-bearing, not tidying. A grid item defaults to
+            min-width:auto, so it refuses to shrink below its min-content; the single
+            mobile track was therefore sized to the widest item (355px) and clipped inside
+            a 272px container at 320px. min-w-0 lets the track follow the container, and
+            the rules below then let the content inside actually reflow into it.
+          */}
           <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
             {/* Left Side - Form (3 cols) */}
-            <div className="lg:col-span-3">
-              <div className="bg-white rounded-2xl shadow-xl shadow-[#0050a9]/5 border border-gray-100 p-8 lg:p-10">
+            <div className="min-w-0 lg:col-span-3">
+              <div className="bg-white rounded-2xl shadow-xl shadow-[#0050a9]/5 border border-gray-100 p-5 sm:p-8 lg:p-10">
                 <form action="https://formsubmit.co/info@jsanconsulting.com" method="POST" encType="multipart/form-data" className="space-y-5">
                   <input type="hidden" name="_subject" value="New Contact Enquiry from JSAN Website" />
                   <input type="hidden" name="_captcha" value="false" />
@@ -403,10 +411,10 @@ export default function Contact() {
             </div>
 
             {/* Right Side - Quick Contact Info (2 cols) */}
-            <div className="lg:col-span-2">
+            <div className="min-w-0 lg:col-span-2">
               <div className="sticky top-32 space-y-5">
                 {/* Contact Cards - each is its own block */}
-                <a href="https://maps.google.com/?q=Profile+West+950+Great+West+Road+Brentford+Middlesex+TW8+9ES" target="_blank" rel="noopener noreferrer" className="group block bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:border-[#0050a9]/20 transition-all">
+                <a href="https://maps.google.com/?q=Profile+West+950+Great+West+Road+Brentford+Middlesex+TW8+9ES" target="_blank" rel="noopener noreferrer" className="group block bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:border-[#0050a9]/20 transition-all">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-[#0050a9]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0050a9] transition-colors">
                       <Building2 className="w-5 h-5 text-[#0050a9] group-hover:text-white transition-colors" />
@@ -418,19 +426,19 @@ export default function Contact() {
                   </div>
                 </a>
 
-                <a href="mailto:info@jsanconsulting.com" className="group block bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:border-[#0050a9]/20 transition-all">
+                <a href="mailto:info@jsanconsulting.com" className="group block bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:border-[#0050a9]/20 transition-all">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-[#0050a9]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0050a9] transition-colors">
                       <Mail className="w-5 h-5 text-[#0050a9] group-hover:text-white transition-colors" />
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900 mb-1">Email Us</h4>
-                      <span className="text-[#0050a9] text-sm font-medium">info@jsanconsulting.com</span>
+                      <span className="block break-all text-[#0050a9] text-sm font-medium">info@jsanconsulting.com</span>
                     </div>
                   </div>
                 </a>
 
-                <a href="tel:+442038650798" className="group block bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:border-[#0050a9]/20 transition-all">
+                <a href="tel:+442038650798" className="group block bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-sm hover:shadow-lg hover:border-[#0050a9]/20 transition-all">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-xl bg-[#0050a9]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0050a9] transition-colors">
                       <Phone className="w-5 h-5 text-[#0050a9] group-hover:text-white transition-colors" />
@@ -444,24 +452,27 @@ export default function Contact() {
                 </a>
 
                 {/* Stats + Social  combined card */}
-                <div className="bg-gradient-to-br from-[#0050a9] to-[#0070d4] rounded-2xl p-6 text-white">
+                <div className="bg-gradient-to-br from-[#0050a9] to-[#0070d4] rounded-2xl p-5 sm:p-6 text-white">
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="text-center">
-                      <div className="text-3xl font-bold">20+</div>
+                      <div className="text-3xl font-bold">25+</div>
                       <div className="text-white/60 text-xs mt-1">Countries</div>
                     </div>
                     <div className="text-center border-x border-white/15">
-                      <div className="text-3xl font-bold">600+</div>
-                      <div className="text-white/60 text-xs mt-1">Experts</div>
+                      <div className="text-3xl font-bold">{totals.people}</div>
+                      <div className="text-white/60 text-xs mt-1">Specialists</div>
                     </div>
                     <div className="text-center">
                       <div className="text-3xl font-bold">24/7</div>
                       <div className="text-white/60 text-xs mt-1">Support</div>
                     </div>
                   </div>
-                  <div className="border-t border-white/15 pt-5 flex items-center justify-between">
+                  {/* This row set the whole column's min-content: the label plus five
+                      36px buttons could not fit on one line under ~355px. Wrapping is what
+                      lets the card reach a 320px screen. */}
+                  <div className="border-t border-white/15 pt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-4">
                     <span className="text-white/70 text-sm font-medium">Connect With Us</span>
-                    <div className="flex gap-2">
+                    <div className="flex flex-wrap gap-2">
                       {socialLinks.map((social) => (
                         <a
                           key={social.label}
@@ -492,7 +503,7 @@ export default function Contact() {
               Our Offices Around the World
             </h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              20+ locations across 4 continents. Hover or tap any point on the map to see the office and its address.
+              25+ locations across 4 continents. Hover or tap any point on the map to see the office and its address.
             </p>
           </div>
 
@@ -791,7 +802,7 @@ export default function Contact() {
             Ready to Modernise Your Operations?
           </h2>
           <p className="text-gray-600 text-xl mb-8 max-w-2xl mx-auto">
-            Our team of 600+ experts across 20+ countries is ready to help you achieve your goals.
+            Our team of 600+ experts across 25+ countries is ready to help you achieve your goals.
             Let's discuss how we can support your journey.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">

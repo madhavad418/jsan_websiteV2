@@ -9,11 +9,9 @@ import ScrollReveal from './components/ScrollReveal'
 
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
-const Products = lazy(() => import('./pages/Products'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Leadership = lazy(() => import('./pages/company/Leadership'))
 const Industries = lazy(() => import('./pages/Industries'))
-const News = lazy(() => import('./pages/News'))
 const NewsDetail = lazy(() => import('./pages/News').then((m) => ({ default: m.NewsDetail })))
 const Careers = lazy(() => import('./pages/Careers'))
 const CareerDetail = lazy(() => import('./pages/CareerDetail'))
@@ -54,17 +52,19 @@ const BasemapPOIAnnotation = lazy(() => import('./pages/services/BasemapPOIAnnot
 const BasemapSubService = lazy(() => import('./pages/services/BasemapSubService'))
 const UtilityNetworkIntelligence = lazy(() => import('./pages/services/UtilityNetworkIntelligence'))
 const UtilityNetworkSubService = lazy(() => import('./pages/services/UtilityNetworkSubService'))
+const PoleAssetIntelligence = lazy(() => import('./pages/services/PoleAssetIntelligence'))
 const GeoAIComputerVision = lazy(() => import('./pages/services/GeoAIComputerVision'))
 const GlobalStreetDataCollection = lazy(() => import('./pages/services/GlobalStreetDataCollection'))
 const GlobalFleetCollectionOperations = lazy(() => import('./pages/services/GlobalFleetCollectionOperations'))
 const DataCenterLifecycle = lazy(() => import('./pages/services/DataCenterLifecycle'))
 const DataCenterSubService = lazy(() => import('./pages/services/DataCenterSubService'))
-const Blogs = lazy(() => import('./pages/Blogs'))
+const Insights = lazy(() => import('./pages/Insights'))
 const BlogDetail = lazy(() => import('./pages/BlogDetail'))
 const CapabilityDetail = lazy(() => import('./pages/capabilities/CapabilityDetail'))
 const Capabilities = lazy(() => import('./pages/Capabilities'))
 const CapabilityPillar = lazy(() => import('./pages/capabilities/CapabilityPillar'))
 const Work = lazy(() => import('./pages/Work'))
+const InHouseProducts = lazy(() => import('./pages/InHouseProducts'))
 const WorkDetail = lazy(() => import('./pages/work/WorkDetail'))
 const AdminApp = lazy(() => import('./pages/admin/AdminApp'))
 const NotFound = lazy(() => import('./pages/NotFound'))
@@ -108,7 +108,8 @@ function App() {
           <Route path="/company/leadership" element={<Leadership />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/industries" element={<Industries />} />
-          <Route path="/news" element={<News />} />
+          {/* Insights and News merged into one page; both old paths land on it */}
+          <Route path="/news" element={<Navigate to="/insights" replace />} />
           <Route path="/news/:slug" element={<NewsDetail />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/careers/:jobId" element={<CareerDetail />} />
@@ -126,7 +127,7 @@ function App() {
           <Route path="/services/staffing-solutions/:slug" element={<StaffingSolutionsSubService />} />
           <Route path="/technologies" element={<Technologies />} />
           <Route path="/technologies/:slug" element={<TechnologyDetail />} />
-          <Route path="/products" element={<Products />} />
+          <Route path="/products" element={<InHouseProducts />} />
           <Route path="/products/jsan-vts" element={<JsanVTS />} />
           <Route path="/products/poi-express" element={<JsanPOIExpress />} />
           <Route path="/products/travel-desk" element={<JsanTravelDesk />} />
@@ -160,6 +161,12 @@ function App() {
           <Route path="/services/basemap-poi-annotation/:slug" element={<BasemapSubService />} />
           <Route path="/services/utility-network-intelligence" element={<UtilityNetworkIntelligence />} />
           <Route path="/services/utility-network-intelligence/:slug" element={<UtilityNetworkSubService />} />
+          <Route path="/services/pole-asset-intelligence" element={<PoleAssetIntelligence />} />
+          {/* Merged into the Utilities Mapping service page; see UtilityNetworkIntelligence.tsx */}
+          <Route
+            path="/capabilities/utilities-mapping"
+            element={<Navigate to="/services/utility-network-intelligence" replace />}
+          />
           <Route path="/services/geoai-computer-vision" element={<GeoAIComputerVision />} />
           <Route path="/services/global-street-data-collection" element={<GlobalStreetDataCollection />} />
           <Route path="/services/global-fleet-collection-operations" element={<GlobalFleetCollectionOperations />} />
@@ -177,9 +184,11 @@ function App() {
           <Route path="/capabilities/:slug" element={<CapabilityDetail />} />
 
           {/* Work */}
+          {/* Renamed from Projects, which collided with the case studies */}
+          <Route path="/projects" element={<Navigate to="/products" replace />} />
           <Route path="/work" element={<Work />} />
           <Route path="/work/:slug" element={<WorkDetail />} />
-          <Route path="/insights" element={<Blogs />} />
+          <Route path="/insights" element={<Insights />} />
           <Route path="/blogs" element={<Navigate to="/insights" replace />} />
           <Route path="/blogs/:slug" element={<BlogDetail />} />
           <Route path="/admin" element={<AdminApp />} />

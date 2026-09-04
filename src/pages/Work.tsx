@@ -23,15 +23,21 @@ export default function Work() {
         description={
           <>
             Programmes JSAN runs end to end  mobilisation through validated delivery. Shown{' '}
-            <strong className="font-semibold text-[#0a1a3a]">anonymised</strong> where client naming
+            <strong className="font-semibold text-white">anonymised</strong> where client naming
             permission is not yet in place.
           </>
         }
         primaryCta={{ label: 'Discuss a Program', href: '/contact' }}
         secondaryCta={{ label: 'Explore Capabilities', href: '/capabilities' }}
-        image="/pillars/multi_country.png"
-        imageAlt="JSAN collection programme running across multiple markets"
-        imageStyle="filled"
+        /* Wide banner artwork (2.33:1), so it runs as the hero background rather than
+           going into the 4:5 panel, which would have cropped it to the middle third.
+           Copy sits right, over the seated operator: that half is already dark and is
+           the least informative part of the frame, which leaves the field crew, the
+           fjord and the screen wall  the actual field-to-operations story  clear. */
+        image="/pillars/work_hero.webp"
+        imageAlt="JSAN field survey crew and the operations centre that validates their data"
+        imageStyle="backdrop"
+        copySide="right"
       />
 
       {/*
@@ -42,7 +48,7 @@ export default function Work() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/pillars/live_tracking.png"
+            src="/pillars/live_tracking.webp"
             alt=""
             aria-hidden="true"
             width={1536}

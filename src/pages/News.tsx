@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Calendar, ArrowRight, ArrowLeft, Linkedin, Globe, Users, Briefcase, MapPin, CalendarCheck, Handshake, CheckCircle2 } from 'lucide-react'
+import { totals } from '../config/countAllocations'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
@@ -19,10 +20,10 @@ const linkedInStats = [
 ]
 
 const companyStats = [
-  { number: '7+', label: 'Years in Operation', icon: CalendarCheck },
+  { number: '9+', label: 'Years in Operation', icon: CalendarCheck },
   { number: '50+', label: 'Global Clients', icon: Handshake },
   { number: '25+', label: 'Countries Served', icon: Globe },
-  { number: '500+', label: 'Completed Projects', icon: CheckCircle2 },
+  { number: totals.projects, label: 'Completed Projects', icon: CheckCircle2 },
 ]
 export type { NewsArticle }
 export { newsArticles }
@@ -421,11 +422,11 @@ export function NewsDetail() {
             The news article you are looking for may have moved or no longer exists.
           </p>
           <Link
-            to="/news"
+            to="/insights"
             className="inline-flex items-center gap-2 bg-[#0050a9] text-white px-6 py-3 rounded font-semibold hover:bg-[#153a62] transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to News
+            Back to Insights
           </Link>
         </section>
         <Footer />
@@ -445,9 +446,9 @@ export function NewsDetail() {
           backgroundSize: '40px 40px'
         }} />
         <div className="max-w-3xl mx-auto px-6 relative z-10">
-          <Link to="/news" className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium mb-6 transition-colors">
+          <Link to="/insights" className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium mb-6 transition-colors">
             <ArrowLeft className="w-4 h-4" />
-            Back to News
+            Back to Insights
           </Link>
           <div className="flex items-center gap-4 mb-5">
             <span className="bg-white/15 text-white px-3 py-1 text-sm font-medium rounded">
@@ -486,7 +487,7 @@ export function NewsDetail() {
           </div>
 
           <div className="mt-12 pt-8 border-t border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <Link to="/news" className="inline-flex items-center gap-2 text-[#0050a9] font-semibold hover:gap-3 transition-all">
+            <Link to="/insights" className="inline-flex items-center gap-2 text-[#0050a9] font-semibold hover:gap-3 transition-all">
               <ArrowLeft className="w-4 h-4" />
               Back to all news
             </Link>

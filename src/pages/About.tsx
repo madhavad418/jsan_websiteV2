@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { Cpu, Users, ClipboardList, Target, Lightbulb, Shield, BarChart3, ArrowRight, ChevronRight, ChevronLeft, Zap, MapPin, Truck, Briefcase, Network } from 'lucide-react'
+import { TOTAL_PEOPLE, TOTAL_PROJECTS } from '../config/countAllocations'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
@@ -54,9 +55,9 @@ function CountUpStat({ end, suffix, label, duration = 2000 }: { end: number; suf
 
 
 const stats = [
-  { end: 7, suffix: '+', label: 'Years Domain Expertise', duration: 1200 },
-  { end: 1500, suffix: '+', label: 'Employees Globally', duration: 2200 },
-  { end: 100, suffix: '+', label: 'Projects Delivered', duration: 1800 },
+  { end: 9, suffix: '+', label: 'Years Domain Expertise', duration: 1200 },
+  { end: TOTAL_PEOPLE, suffix: '+', label: 'Employees Globally', duration: 2200 },
+  { end: TOTAL_PROJECTS, suffix: '+', label: 'Projects Delivered', duration: 1800 },
   { end: 25, suffix: '+', label: 'Countries Worldwide', duration: 1500 },
 ]
 
@@ -67,7 +68,7 @@ const pillarCards = [
     description: 'End-to-end location intelligence  from data capture and enhancement to advanced analytics and custom platform development.',
     link: '/services/location-intelligence',
     color: '#0050a9',
-    image: '/pillars/location-intelligence.jpg',
+    image: '/pillars/location-intelligence.webp',
   },
   {
     icon: Network,
@@ -75,7 +76,7 @@ const pillarCards = [
     description: 'Spatial intelligence for modern telecom networks  RF propagation, 5G small-cell siting, tower and fiber asset mapping, and real-time network analytics.',
     link: '/services/telecom-network-intelligence',
     color: '#0891b2',
-    image: '/pillars/utility-network.jpg',
+    image: '/pillars/utility-network.webp',
   },
   {
     icon: Cpu,
@@ -83,7 +84,7 @@ const pillarCards = [
     description: 'Enterprise digital transformation, system integration, scalable architecture, and innovation-driven engineering.',
     link: '/services/technology-consultancy',
     color: '#e63946',
-    image: '/pillars/technology-consultancy.jpg',
+    image: '/pillars/technology-consultancy.webp',
   },
   {
     icon: Users,
@@ -91,7 +92,7 @@ const pillarCards = [
     description: 'Specialized global talent acquisition and deployment aligned to enterprise delivery goals.',
     link: '/services/staffing-solutions',
     color: '#e88c30',
-    image: '/pillars/staffing-workforce.jpg',
+    image: '/pillars/staffing-workforce.webp',
   },
   {
     icon: ClipboardList,
@@ -99,7 +100,7 @@ const pillarCards = [
     description: 'Governance-driven execution frameworks ensuring transparency, risk mitigation, and measurable outcomes.',
     link: '/services/program-management',
     color: '#7b2d8e',
-    image: '/pillars/program-management.jpg',
+    image: '/pillars/program-management.webp',
   },
 ]
 

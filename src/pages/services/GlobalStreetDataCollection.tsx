@@ -7,6 +7,7 @@ import RoadmapTimeline from '../../components/RoadmapTimeline'
 import ProcessFlow from '../../components/ProcessFlow'
 // import ServiceContactForm from '../../components/ServiceContactForm'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
+import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 /* What gets collected on the street */
@@ -58,7 +59,7 @@ const capabilities = [
     description:
       'Mobile mapping systems pairing LiDAR with imagery to produce dense, positioned point clouds of the road corridor, feeding HD map layers, clearance and width measurement, and 3D asset extraction.',
     icon: ScanLine,
-    bgImage: '/pillars/point_cloud.png',
+    bgImage: '/pillars/point_cloud.webp',
     highlights: ['Point Clouds', 'HD Map Input', 'Corridor Measurement', '3D Asset Extraction'],
   },
   {
@@ -115,9 +116,9 @@ const applications = [
 const equipment = ['360° Camera Rigs', 'Mobile LiDAR', 'RTK / PPK GNSS', 'Dashcam Fleets', 'Mobile Capture Apps', 'Trajectory Processing', 'ArcGIS & QGIS', 'PostGIS', 'Cloud Ingest Pipelines']
 
 const stats = [
-  { value: '1,000+', label: 'Field Experts' },
-  { value: '20+', label: 'GIS Managers' },
+  ...allocationStats(serviceSplit, 'global-street-data-collection'),
   { value: '360°', label: 'Imagery Capture' },
+  { value: '800+', label: 'Vehicles' },
 ]
 
 export default function GlobalStreetDataCollection() {
@@ -133,7 +134,7 @@ export default function GlobalStreetDataCollection() {
         title={"Global Street Data Collection"}
         subtitle={"Imagery, geometry, addresses and assets, captured systematically, country after country."}
         description={"JSAN plans and runs street-level capture programmes end to end: 360° imagery and LiDAR runs, road network and sign survey, address and POI ground truthing, privacy-compliant processing and scheduled refresh, all delivered as governed, map-ready data."}
-        image="/pillars/globalstreet.png"
+        image="/pillars/globalstreet.webp"
         imageAlt="Global street data collection"
         stats={stats}
       />
@@ -224,7 +225,7 @@ export default function GlobalStreetDataCollection() {
 
             <div className="lg:pt-2">
               <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <img src="/pillars/ground_truth.png" alt="Street-level data capture" className="w-full h-64 md:h-80 object-cover" />
+                <img src="/pillars/ground_truth.webp" alt="Street-level data capture" className="w-full h-64 md:h-80 object-cover" />
               </div>
 
               <div className="mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">

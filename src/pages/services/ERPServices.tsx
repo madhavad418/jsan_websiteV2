@@ -2,6 +2,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
+import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 const subServices = [
@@ -9,7 +10,7 @@ const subServices = [
     category: 'SAP IMPLEMENTATION',
     title: 'End-to-End SAP S/4HANA Deployment',
     description: 'End-to-end SAP S/4HANA implementation, migration from ECC, and module-specific deployments tailored to your industry and business processes.',
-    bgImage: '/pillars/tech-erp.jpg',
+    bgImage: '/pillars/tech-erp.webp',
     cardTitle: 'SAP Implementation',
     highlights: ['S/4HANA Migration', 'Module Deployment', 'Fiori UX', 'ABAP Development'],
   },
@@ -81,9 +82,9 @@ export default function ERPServices() {
         title={"ERP Services"}
         subtitle={"Streamline operations with SAP, Oracle, and Microsoft Dynamics ERP implementation, customisation, and managed services for enterprise-scale efficiency."}
         description={"ERP systems are the operational backbone of enterprises. We implement, customise, and manage ERP solutions that unify finance, HR, supply chain, and operations on a single platform."}
-        image="/pillars/tech-erp.jpg"
+        image="/pillars/tech-erp.webp"
         imageAlt="ERP Services"
-        stats={[{ value: '100+', label: 'ERP Implementations' }, { value: '50+', label: 'Enterprise Clients' }, { value: '30%', label: 'Process Efficiency' }, { value: '3', label: 'Major ERP Platforms' }]}
+        stats={[...allocationStats(serviceSplit, 'erp'), { value: '30%', label: 'Process Efficiency' }, { value: '3', label: 'Major ERP Platforms' }]}
       />
 
       {/* Subservice Cards */}

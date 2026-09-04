@@ -5,6 +5,7 @@ import MobileNav from '../../components/MobileNav'
 import ProcessFlow from '../../components/ProcessFlow'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
 // import ServiceContactForm from '../../components/ServiceContactForm'
+import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 const capabilities = [
@@ -16,7 +17,7 @@ const capabilities = [
       'End-to-end fiber network planning powered by AI route optimization, GIS mapping, and demand forecasting to design the most efficient and future-ready networks.',
     icon: Network,
     cardTitle: 'Network Planning & Design',
-    bgImage: '/public/pillars/route.png',
+    bgImage: '/pillars/route.webp',
     highlights: ['AI Route Optimization', 'GIS Mapping', 'Demand Forecasting', 'Capacity Modeling'],
   },
   {
@@ -71,7 +72,7 @@ const capabilities = [
       'Data-driven insights for capacity planning, scalable fiber expansion, and operational cost optimization  building resilient, high-performance networks.',
     icon: TrendingUp,
     cardTitle: 'Scalable Future Growth',
-    bgImage: '/pillars/cost_optimization.png',
+    bgImage: '/pillars/cost_optimization.webp',
     highlights: ['Capacity Planning', 'Network Expansion', 'Cost Optimization', 'Customer Experience'],
   },
 ]
@@ -101,8 +102,9 @@ export default function SmartFiberPlanning() {
         title={"Smart Fiber Planning"}
         subtitle={"AI-driven fiber network planning, intelligent deployment, and proactive maintenance for future-ready telecom infrastructure."}
         description={"We partner with telecom operators to design, deploy, and maintain resilient fiber networks  combining GIS, drone surveys, digital twins, and predictive analytics into a single, data-driven workflow."}
-        image="/pillars/fibre_optic.png"
+        image="/pillars/fibre_optic.webp"
         imageAlt="Smart fiber network planning"
+        stats={allocationStats(serviceSplit, 'smart-fiber-planning')}
       />
 
       {/* What We Deliver */}

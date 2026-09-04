@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import SectionLabel from './SectionLabel'
 import type { LucideIcon } from 'lucide-react'
 import { ArrowRight, CheckCircle } from 'lucide-react'
+import HeroBackdrop, { heroCopyColumn } from './HeroBackdrop'
 import Header from './Header'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
@@ -12,7 +13,8 @@ import MobileNav from './MobileNav'
  * Intelligence, Engineer  as it applies to that industry, then links the capabilities
  * that actually deliver it.
  *
- * Hero styling matches ServiceHero and the rest of the site: white, brand wash, no scrim.
+ * Hero styling matches ServiceHero and the rest of the site: the photograph runs full
+ * width behind the copy, under the shared HeroBackdrop scrim.
  */
 
 export type IndustryJourneyProps = {
@@ -25,6 +27,17 @@ export type IndustryJourneyProps = {
   stats?: { value: string; label: string }[]
   image: string
   imageAlt: string
+  /**
+   * Which half of the hero the copy sits on. The photograph is full-bleed and the scrim
+   * only darkens the copy's half, so this really answers "which half of this picture must
+   * stay readable". Set it from the image, not from taste.
+   */
+  copySide?: 'left' | 'right'
+  /**
+   * Vertical focal point for the hero photograph, e.g. '50% 70%'. These images are 3:2 and
+   * 4:3 while the hero is far wider, so cover trims top and bottom  this says what to keep.
+   */
+  imagePosition?: string
   /** What this industry is up against, in its own terms. */
   challenges: { title: string; description: string }[]
   /**
@@ -70,6 +83,8 @@ export default function IndustryJourney({
   stats,
   image,
   imageAlt,
+  copySide = 'left',
+  imagePosition = '50% 50%',
   challenges,
   journey,
   capabilities,
@@ -85,57 +100,40 @@ export default function IndustryJourney({
     <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero */}
+      {/* Hero  full-bleed photograph, matching the technology and work heroes.
+          top-[77px] is the fixed header's height: the section slides under the header, so
+          without it the top of every photograph is hidden behind an opaque white bar. */}
       <section
-        className="relative flex items-center overflow-hidden bg-white pt-24 lg:min-h-[640px] lg:pt-28 pb-16 lg:pb-20"
+        className="relative flex min-h-[500px] items-center overflow-hidden bg-[#03142d] pt-24 pb-12 sm:min-h-[560px] sm:pt-28 sm:pb-16 lg:min-h-[680px] lg:pt-32 lg:pb-20"
         style={{ marginTop: '44px' }}
       >
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-[44%]">
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'radial-gradient(50% 45% at 5% 10%, rgba(0,80,169,0.07) 0%, rgba(0,80,169,0) 100%), ' +
-                'radial-gradient(45% 55% at 30% 95%, rgba(0,212,255,0.11) 0%, rgba(0,212,255,0) 100%)',
-            }}
-          />
-        </div>
-
-        <div className="absolute inset-y-6 right-0 hidden w-[52%] lg:block">
-          <div
-            className="absolute inset-0 bg-gray-100 bg-cover bg-center"
-            style={{ backgroundImage: `url(${image})` }}
-            role="img"
-            aria-label={imageAlt}
-          />
-          <div className="absolute inset-y-0 left-0 w-28 rounded-br-[7rem] bg-white" />
-        </div>
+        <HeroBackdrop image={image} imageAlt={imageAlt} copySide={copySide} position={imagePosition} />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
-          <div className="lg:w-1/2 lg:pr-12">
-            <nav className="mb-4 flex items-center gap-2 text-sm text-gray-500">
-              <Link to="/industries" className="inline-flex min-h-[24px] items-center transition-colors hover:text-[#0050a9]">
+          <div className={heroCopyColumn(copySide)}>
+            <nav className="mb-3 flex items-center gap-2 text-[13px] text-white/60 sm:mb-4 sm:text-sm">
+              <Link to="/industries" className="inline-flex min-h-[24px] items-center transition-colors hover:text-white">
                 Industries
               </Link>
               <span>/</span>
-              <span className="font-medium text-[#0050a9]">{breadcrumb}</span>
+              <span className="font-medium text-white">{breadcrumb}</span>
             </nav>
 
-            <span className="mb-5 inline-flex items-center gap-2 t-label text-gray-500">
-              {EyebrowIcon && <EyebrowIcon className="h-4 w-4 text-[#0050a9]" aria-hidden="true" />}
+            <span className="mb-5 inline-flex items-center gap-2 t-label text-[#00d4ff]">
+              {EyebrowIcon && <EyebrowIcon className="h-4 w-4 text-[#00d4ff]" aria-hidden="true" />}
               {eyebrow}
             </span>
 
-            <h1 className="mb-3 text-[34px] font-bold leading-[1.08] text-[#0a1a3a] lg:text-[48px]">{title}</h1>
-            <p className="mb-6 text-[22px] font-semibold leading-tight text-[#0050a9] lg:text-[28px]">{subtitle}</p>
-            <p className="mb-8 max-w-lg text-lg leading-relaxed text-gray-600">{description}</p>
+            <h1 className="mb-3 text-[26px] font-bold leading-[1.12] text-white sm:text-[30px] sm:leading-[1.08] lg:text-[48px]">{title}</h1>
+            <p className="mb-5 text-[17px] font-semibold leading-snug text-[#7cc6ff] sm:mb-6 sm:text-[20px] lg:text-[28px]">{subtitle}</p>
+            <p className="mb-7 max-w-lg text-[15px] leading-relaxed text-white/75 sm:mb-8 sm:text-lg">{description}</p>
 
             {stats && stats.length > 0 && (
-              <div className="mb-8 flex flex-wrap gap-x-10 gap-y-5">
+              <div className="mb-7 flex flex-wrap gap-x-7 gap-y-4 sm:mb-8 sm:gap-x-10 sm:gap-y-5">
                 {stats.map((stat) => (
                   <div key={stat.label}>
-                    <div className="text-2xl font-bold text-[#0050a9] lg:text-3xl">{stat.value}</div>
-                    <div className="mt-0.5 text-xs text-[#0050a9]">{stat.label}</div>
+                    <div className="text-xl font-bold text-white sm:text-2xl lg:text-3xl">{stat.value}</div>
+                    <div className="mt-0.5 text-xs text-white/60">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -144,24 +142,19 @@ export default function IndustryJourney({
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2.5 rounded-lg px-7 py-3.5 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_34px_-14px_rgba(0,80,169,0.9)]"
-                style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}
+                className="group inline-flex items-center gap-2.5 rounded-lg bg-white px-5 py-3 text-[15px] font-semibold sm:px-7 sm:py-3.5 sm:text-base text-[#0050a9] shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100"
               >
                 Talk to JSAN
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/industries"
-                className="group inline-flex items-center gap-2 rounded-lg border-2 border-[#0050a9]/20 px-7 py-3.5 font-semibold text-[#0050a9] transition-all duration-300 hover:border-[#0050a9] hover:bg-[#0050a9] hover:text-white"
+                className="group inline-flex items-center gap-2 rounded-lg border-2 border-white/40 px-5 py-3 text-[15px] font-semibold sm:px-7 sm:py-3.5 sm:text-base text-white transition-all duration-300 hover:border-white hover:bg-white/10"
               >
                 All Industries
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
-          </div>
-
-          <div className="mt-12 overflow-hidden rounded-2xl bg-gray-100 shadow-xl lg:hidden">
-            <img src={image} alt={imageAlt} className="h-[280px] w-full object-cover sm:h-[340px]" loading="eager" />
           </div>
         </div>
       </section>

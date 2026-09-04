@@ -21,7 +21,7 @@ export const newsArticles: NewsArticle[] = [
     category: 'Product',
     description:
       'JSAN’s field platform reports how much of a contracted road network is finished, rather than how many kilometres a fleet happened to travel.',
-    image: '/pillars/jsan_atlasops.png',
+    image: '/pillars/jsan_atlasops.webp',
     body: [
       'JSAN ATLAS Ops is the platform JSAN builds and runs for its own field delivery programmes. Trips record themselves, work carried out with no mobile signal is reconciled when the vehicle returns to range, and progress is reported against the road network a client contracted for.',
       'The distinction matters commercially. Conventional fleet tracking reports kilometres travelled, which is a number with nothing to compare it against; it cannot say how much of the job remains, and it counts the same street again every time a crew passes down it. ATLAS Ops counts each road once, whichever crew reached it first.',

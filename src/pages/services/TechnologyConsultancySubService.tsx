@@ -27,7 +27,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Reimagine Business Through Technology',
     description:
       'We help organizations reimagine their business models, processes, and customer experiences through strategic adoption of digital technologies  from automation and cloud migration to data-driven decision-making and digital-first operations.',
-    bgImage: '/pillars/digital-transformation.jpg',
+    bgImage: '/pillars/digital-transformation.webp',
     advantages: [
       { icon: TrendingUp, text: 'End-to-end digital strategy aligned with business objectives' },
       { icon: RefreshCw, text: 'Process automation reducing manual effort by up to 70%' },
@@ -59,7 +59,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Aligning Technology with Business Vision',
     description:
       'Our enterprise architecture practice aligns IT strategy with business goals  designing scalable, secure, and future-proof technology landscapes that reduce complexity, eliminate redundancy, and enable agile decision-making across the organization.',
-    bgImage: '/pillars/enterprise-architecture.jpg',
+    bgImage: '/pillars/enterprise-architecture.webp',
     advantages: [
       { icon: Layers, text: 'Comprehensive technology landscape assessment and mapping' },
       { icon: Lock, text: 'Security-first architecture with zero-trust principles' },
@@ -91,7 +91,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Performance, Reliability, Cost Efficiency',
     description:
       'From cloud strategy and migration to hybrid infrastructure management and DevOps enablement  we design, deploy, and optimize cloud environments that deliver performance, reliability, and cost efficiency at enterprise scale.',
-    bgImage: '/pillars/cloud-infrastructure.jpg',
+    bgImage: '/pillars/cloud-infrastructure.webp',
     advantages: [
       { icon: Cloud, text: 'Multi-cloud strategy across AWS, Azure, and GCP' },
       { icon: RefreshCw, text: 'Zero-downtime migration with automated rollback' },
@@ -123,7 +123,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'From Raw Data to Competitive Advantage',
     description:
       'We help organizations harness the power of data through advanced analytics, machine learning, and AI solutions by building data pipelines, predictive models, and intelligent dashboards that turn raw data into competitive advantage.',
-    bgImage: '/pillars/data-analytics-ai.jpg',
+    bgImage: '/pillars/data-analytics-ai.webp',
     advantages: [
       { icon: Database, text: 'Modern data platform design and data lake architecture' },
       { icon: Brain, text: 'Custom ML models trained on your business data' },

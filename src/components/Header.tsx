@@ -41,11 +41,9 @@ const navigation: NavItem[] = [
         href: '/capabilities/geospatial-mapping',
         items: [
           { name: 'Street-Level Imagery', href: '/services/global-street-data-collection' },
-          { name: 'LiDAR & 3D Mapping', href: '/services/geospatial' },
           { name: 'Road Network & Geometry', href: '/capabilities/road-network-geometry' },
           { name: 'POI & Address Intelligence', href: '/services/basemap-poi-annotation' },
           { name: 'GIS Data Engineering', href: '/technologies/gis' },
-          { name: 'Field Verification', href: '/capabilities/field-verification' },
         ],
       },
       {
@@ -53,12 +51,12 @@ const navigation: NavItem[] = [
         href: '/capabilities/global-fleet-field-operations',
         items: [
           { name: 'Fleet Mobilisation', href: '/services/global-fleet-collection-operations' },
-          { name: 'Collection Operations', href: '/services/global-street-data-collection' },
+          // { name: 'Collection Operations', href: '/services/global-street-data-collection' },
           { name: 'Crew Operations', href: '/services/staffing-solutions' },
           { name: 'Planning & Dispatch', href: '/capabilities/planning-dispatch' },
-          { name: 'Tracking & Telematics', href: '/products/jsan-vts' },
-          { name: 'Maintenance & Logistics', href: '/services/data-center-lifecycle' },
+          // { name: 'Tracking & Telematics', href: '/products/jsan-vts' },
           { name: 'Safety & Compliance', href: '/capabilities/safety-compliance' },
+          { name: 'Field Verification', href: '/capabilities/field-verification' },
         ],
       },
       {
@@ -66,7 +64,7 @@ const navigation: NavItem[] = [
         href: '/capabilities/geoai-data-operations',
         items: [
           { name: 'Computer Vision', href: '/services/geoai-computer-vision' },
-          { name: 'LiDAR Feature Extraction', href: '/capabilities/lidar-feature-extraction' },
+          
   
           { name: 'OCR & Sign Intelligence', href: '/capabilities/ocr-sign-intelligence' },
           { name: 'Location Analytics', href: '/services/location-intelligence' },
@@ -79,12 +77,14 @@ const navigation: NavItem[] = [
         href: '/capabilities/telecom-infrastructure',
         items: [
           { name: 'Telecom GIS', href: '/services/telecom-network-intelligence' },
+          { name: 'LiDAR & 3D Mapping', href: '/services/geospatial' },
           { name: 'Fiber Engineering', href: '/services/smart-fiber-planning' },
-          { name: 'Pole & Asset Intelligence', href: '/services/utility-network-intelligence' },
-          { name: '5G & Small Cells', href: '/capabilities/5g-small-cells' },
+          { name: 'LiDAR Feature Extraction', href: '/capabilities/lidar-feature-extraction' },
+          { name: 'Pole & Asset Intelligence', href: '/services/pole-asset-intelligence' },
           { name: 'LiDAR Engineering', href: '/capabilities/lidar-engineering' },
+          { name: '5G & Small Cells', href: '/capabilities/5g-small-cells' },
           { name: 'As-Built Validation', href: '/capabilities/as-built-validation' },
-          { name: 'Utilities Mapping', href: '/capabilities/utilities-mapping' },
+          { name: 'Utilities Mapping', href: '/services/utility-network-intelligence' },
         ],
       },
       {
@@ -112,6 +112,24 @@ const navigation: NavItem[] = [
           { name: 'Managed Delivery', href: '/technologies/it-infrastructure' },
         ],
       },
+      {
+        name: 'Data Center & IT Infrastructure',
+        href: '/capabilities/data-center-it-infrastructure',
+        items: [
+          { name: 'Maintenance & Logistics', href: '/services/data-center-lifecycle' },
+                 
+        ],
+      },
+      /* Work used to be its own top-level item. It is JSAN's own output rather than a
+         separate section of the business, so it lives here: client engagements under
+         Case Studies, the systems we built ourselves under Projects. */
+      {
+        name: 'In-House',
+        items: [
+          { name: 'All Case Studies', href: '/work' },
+          { name: 'Products', href: '/products' },
+        ],
+      },
     ],
   },
   {
@@ -128,22 +146,6 @@ const navigation: NavItem[] = [
     ],
   },
   {
-    name: 'Work',
-    href: '/work',
-    dropdown: [
-      { name: 'All Case Studies', href: '/work' },
-      { name: 'Multi-Country Mapping', href: '/work/multi-country-mapping' },
-      { name: 'LiDAR & Infrastructure Intelligence', href: '/work/lidar-infrastructure-intelligence' },
-      { name: 'Telecom Network Engineering', href: '/work/telecom-network-engineering' },
-      { name: 'JSAN ATLAS Ops', href: '/products/fleet-intelligence' },
-      { name: 'JSAN VTS', href: '/products/jsan-vts' },
-      { name: 'JSAN POI Express', href: '/products/poi-express' },
-      { name: 'JSAN Travel Desk', href: '/products/travel-desk' },
-      { name: 'JSAN GeoDiscover', href: '/products/geodiscover' },
-      { name: 'All Platforms', href: '/in-house-apps' },
-    ],
-  },
-  {
     name: 'Company',
     href: '/company',
     dropdown: [
@@ -153,15 +155,9 @@ const navigation: NavItem[] = [
       { name: 'Contact', href: '/contact' },
     ],
   },
-  {
-    name: 'Insights',
-    href: '/insights',
-    dropdown: [
-      { name: 'Insights', href: '/insights' },
-      { name: 'News', href: '/news' },
-      { name: 'LinkedIn', href: 'https://www.linkedin.com/company/jsan-consulting-group/posts/?feedView=all' },
-    ],
-  },
+  /* One page, so no dropdown. News merged into Insights and the LinkedIn link moved
+     onto that page, where it sits with the feed rather than alone in a menu. */
+  { name: 'Insights', href: '/insights' },
   { name: 'Careers', href: '/careers' },
 ]
 
@@ -175,9 +171,9 @@ const SECTION_OWNERS: { prefix: string; item: string }[] = [
   { prefix: '/capabilities', item: 'Capabilities' },
   { prefix: '/technologies', item: 'Capabilities' },
   { prefix: '/industries', item: 'Industries' },
-  { prefix: '/work', item: 'Work' },
-  { prefix: '/products', item: 'Work' },
-  { prefix: '/in-house-apps', item: 'Work' },
+  { prefix: '/work', item: 'Capabilities' },
+  { prefix: '/products', item: 'Capabilities' },
+  { prefix: '/in-house-apps', item: 'Capabilities' },
   { prefix: '/company', item: 'Company' },
   { prefix: '/about', item: 'Company' },
   { prefix: '/contact', item: 'Company' },

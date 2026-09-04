@@ -21,7 +21,7 @@ import {
  * Replace them with approved/live metrics when available.
  */
 
-const operationalRegionsMap = '/pillars/route_optimization.png'
+const operationalRegionsMap = '/pillars/route_optimization.webp'
 
 type OperationalCard = {
   icon: LucideIcon

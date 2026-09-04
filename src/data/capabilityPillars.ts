@@ -38,7 +38,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     summary: 'Capture the world as structured, routable, field-verified geospatial data.',
     description:
       'Street-level imagery, LiDAR, road networks, addresses and POIs, built to your schema and reconciled against ground truth. This is the map layer navigation, logistics and mobility platforms route on  compiled from our own capture, authoritative sources and field crews, then validated before it reaches production.',
-    image: '/pillars/mapping.png',
+    image: '/pillars/mapping.webp',
     imageAlt: 'Street-level capture and structured road network data',
     stages: ['Collect', 'Process', 'Validate', 'Deliver'],
     services: [
@@ -91,7 +91,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     summary: 'Stand up vehicles, sensors and crews in market, and run them safely at scale.',
     description:
       'Managed collection fleets, country by country. Vehicles and sensor rigs, local driver and crew hiring, permits, drive planning and dispatch, live tracking, maintenance and safety  the operational machinery that turns a coverage target into kilometres actually driven.',
-    image: '/pillars/globalfleet.png',
+    image: '/pillars/globalfleet.webp',
     imageAlt: 'JSAN collection fleet and field crews mobilised in market',
     stages: ['Mobilise', 'Collect', 'Operate'],
     services: [
@@ -117,7 +117,7 @@ export const capabilityPillars: CapabilityPillar[] = [
       },
       {
         name: 'Tracking & Telematics',
-        href: '/products/jsan-vts',
+        href: '/products',
         description: 'Live vehicle tracking and in-run checks through JSAN VTS.',
       },
       {
@@ -144,7 +144,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     summary: 'Turn imagery and point clouds into validated, decision-ready information.',
     description:
       'Computer vision, LiDAR feature extraction, OCR and annotation, run as production operations rather than experiments. Automation does the volume; trained reviewers handle what automation cannot be trusted with, and accuracy rests on calibration and sampling rather than model confidence alone.',
-    image: '/pillars/computer_vision.png',
+    image: '/pillars/computer_vision.webp',
     imageAlt: 'Imagery with asset detection overlay and extracted features',
     stages: ['Process', 'Validate'],
     services: [
@@ -197,7 +197,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     summary: 'Field evidence, network GIS and engineering for build and asset programmes.',
     description:
       'Telecom GIS, fibre engineering, pole and asset intelligence, 5G siting and as-built validation. Survey crews mobilise against live build schedules, capture is reconciled to design, and exceptions are raised rather than absorbed quietly into the network record.',
-    image: '/pillars/telecommunications.png',
+    image: '/pillars/telecommunications.webp',
     imageAlt: 'Telecom network survey, pole assets and fibre engineering',
     stages: ['Collect', 'Process', 'Validate', 'Deliver'],
     services: [
@@ -213,7 +213,7 @@ export const capabilityPillars: CapabilityPillar[] = [
       },
       {
         name: 'Pole & Asset Intelligence',
-        href: '/services/utility-network-intelligence',
+        href: '/services/pole-asset-intelligence',
         description: 'Pole loading, attachment and asset condition intelligence.',
       },
       {
@@ -250,7 +250,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     summary: 'Build the systems that put validated data in front of the people using it.',
     description:
       'Web GIS, enterprise applications, mobile tools, APIs, cloud and operational dashboards. The stage where geospatial work stops being a delivery of files and becomes something planning, field and operations teams use every day.',
-    image: '/pillars/engineer.png',
+    image: '/pillars/engineer.webp',
     imageAlt: 'JSAN operational dashboard and web GIS application',
     stages: ['Deliver'],
     services: [
@@ -303,7 +303,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     summary: 'One accountable governance layer between you and every delivery function.',
     description:
       'Programme management, PMO, quality operations, data operations and workforce solutions. Scope, risk and performance controlled in one place, with structured reporting and defined escalation paths, so a multi-function programme has a single point of accountability.',
-    image: '/pillars/program_manage.png',
+    image: '/pillars/program_manage.webp',
     imageAlt: 'Programme governance, reporting and delivery oversight',
     stages: ['Mobilise', 'Operate', 'Validate', 'Deliver'],
     services: [

@@ -6,6 +6,7 @@ import QualityGates from '../../components/QualityGates'
 import RoadmapTimeline from '../../components/RoadmapTimeline'
 import ProcessFlow from '../../components/ProcessFlow'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
+import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 import CapabilityModules from '../../components/CapabilityModules'
 
@@ -18,7 +19,7 @@ const capabilities = [
     description:
       'Custom-trained deep learning models that detect, classify and extract features from aerial, satellite and street-level imagery, covering buildings, roads, poles, signage, vehicles and utility assets, without manual interpretation.',
     icon: ScanEye,
-    bgImage: '/pillars/object_detection.png',
+    bgImage: '/pillars/object_detection.webp',
     highlights: ['Feature Extraction', 'Object Classification', 'Vectorised Output', 'GIS-Ready Delivery'],
   },
   {
@@ -28,7 +29,7 @@ const capabilities = [
     description:
       'Semantic and instance segmentation for land use / land cover, building footprints, road surfaces, vegetation and water bodies, turning raw multispectral and RGB imagery into structured, attributed map layers.',
     icon: Layers,
-    bgImage: '/pillars/pixel.png',
+    bgImage: '/pillars/pixel.webp',
     highlights: ['LULC Mapping', 'Building Footprints', 'Road Surface Extraction', 'Multispectral Analysis'],
   },
   {
@@ -38,7 +39,7 @@ const capabilities = [
     description:
       'Time-series models that compare imagery epochs to flag new construction, encroachment, vegetation loss, network additions and asset movement, so field verification is targeted at real change instead of the whole footprint.',
     icon: Radar,
-    bgImage: '/pillars/change_detection.png',
+    bgImage: '/pillars/change_detection.webp',
     highlights: ['Multi-Epoch Comparison', 'Encroachment Alerts', 'Growth Monitoring', 'Change Attribution'],
   },
   {
@@ -48,7 +49,7 @@ const capabilities = [
     description:
       'Automated point-cloud classification and 3D feature extraction from drone, mobile and aerial LiDAR, covering ground, vegetation, structures, poles and wires, feeding terrain models, clearance analysis and digital twins.',
     icon: Boxes,
-    bgImage: '/pillars/point_cloud.png',
+    bgImage: '/pillars/point_cloud.webp',
     highlights: ['Point-Cloud Classification', 'Terrain Modelling', 'Vegetation Encroachment', 'Digital Twin Input'],
   },
   {
@@ -58,7 +59,7 @@ const capabilities = [
     description:
       'Managed annotation operations at production scale, covering bounding boxes, polygons, segmentation masks, 3D cuboids and controlled-ontology labelling of map and imagery data, delivered with reviewer sampling and agreement scoring.',
     icon: Tags,
-    bgImage: '/pillars/ontology.png',
+    bgImage: '/pillars/ontology.webp',
     highlights: ['Polygon & Mask Labelling', 'Controlled Ontology', 'Reviewer Sampling', 'Agreement Scoring'],
   },
   {
@@ -68,7 +69,7 @@ const capabilities = [
     description:
       'Computer-vision and rules-based validation applied to basemap, POI and network data, surfacing geometry plausibility issues, attribute conflicts, duplicates and imagery-versus-map mismatches for human review.',
     icon: ShieldCheck,
-    bgImage: '/pillars/dedub.png',
+    bgImage: '/pillars/dedub.webp',
     highlights: ['Anomaly Detection', 'Duplicate Detection', 'Attribute Conflicts', 'Human-in-the-Loop'],
   },
 ]
@@ -115,9 +116,8 @@ const applications = [
 const stack = ['PyTorch', 'TensorFlow', 'YOLO / Detectron2', 'U-Net & Mask R-CNN', 'OpenCV', 'GDAL / Rasterio', 'ArcGIS & QGIS', 'PostGIS', 'AWS / Azure GPU']
 
 const stats = [
+  ...allocationStats(serviceSplit, 'geoai-computer-vision'),
   { value: '95%+', label: 'Trained Class Accuracy' },
-  { value: '100x', label: 'Faster Than Manual' },
-  { value: '100+', label: 'CAD / GIS Engineers' },
 ]
 
 export default function GeoAIComputerVision() {
@@ -133,7 +133,7 @@ export default function GeoAIComputerVision() {
         title={"Transform real-world imagery into spatial intelligence."}
         subtitle={"GeoAI & Computer Vision"}
         description={"JSAN applies computer vision, spatial analytics and human validation to extract decision-ready information from imagery, LiDAR and mapping datasets."}
-        image="/pillars/computer_vision.png"
+        image="/pillars/computer_vision.webp"
         imageAlt="GeoAI and computer vision"
         stats={stats}
       />
@@ -243,7 +243,7 @@ export default function GeoAIComputerVision() {
 
             <div className="lg:pt-2">
               <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <img src="/pillars/AI.png" alt="GeoAI model development" className="w-full h-64 md:h-80 object-cover" />
+                <img src="/pillars/AI.webp" alt="GeoAI model development" className="w-full h-64 md:h-80 object-cover" />
               </div>
 
               <div className="mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">

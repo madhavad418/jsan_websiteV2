@@ -28,7 +28,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Accurate, Current Foundational Map Layers',
     description:
       'We compile and maintain the core map layers  road and transport networks, buildings, land use, hydrography and administrative boundaries  from imagery, LiDAR, field and authoritative sources, conflated into one consistent basemap and kept continuously up to date.',
-    bgImage: '/pillars/geospatial-solutions.jpg',
+    bgImage: '/pillars/geospatial-solutions.webp',
     advantages: [
       { icon: Layers, text: 'Road, transport, building, land-use and boundary layers' },
       { icon: Map, text: 'Compiled from imagery, LiDAR, field and authoritative sources' },
@@ -60,7 +60,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Evidence, Freshness & Duplicate Control at Scale',
     description:
       'A defensible POI lifecycle  sourced, normalized, matched, field-validated and delivered with evidence  so your places data stays fresh, deduplicated and trustworthy. Not just sourcing volume, but a governed program from discovery through change management.',
-    bgImage: '/pillars/data-capture.jpg',
+    bgImage: '/pillars/data-capture.webp',
     advantages: [
       { icon: Search, text: 'Multi-source discovery  official sites, directories, field leads' },
       { icon: Layers, text: 'Normalization of name, address, coordinates, category and language variants' },
@@ -92,7 +92,7 @@ const subServiceData: SubServiceData[] = [
     subtitle: 'Structured Training & Map-Update Data',
     description:
       'Controlled-ontology annotation of imagery and map features  bounding boxes, classes, OCR and semantic segmentation  with reviewer calibration and QC-on-QC, producing traceable AI training data and map-update signals.',
-    bgImage: '/pillars/data-analytics-ai.jpg',
+    bgImage: '/pillars/data-analytics-ai.webp',
     advantages: [
       { icon: Layers, text: 'Map features  signs, signals, lanes, road furniture and attributes' },
       { icon: Cpu, text: 'AI training data  bounding boxes, classes, OCR and gold sets' },

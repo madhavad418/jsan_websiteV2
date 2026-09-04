@@ -478,7 +478,7 @@ export default function WorldMap() {
       >
         {mapFailed ? (
           <div className="w-full rounded-2xl h-[300px] md:h-[420px] lg:h-[480px] flex flex-col items-center justify-center text-center px-6 bg-gradient-to-br from-[#0a1a3a] to-[#0050a9] border border-white/10">
-            <p className="text-white text-xl lg:text-2xl font-bold">20+ Offices Across 4 Continents</p>
+            <p className="text-white text-xl lg:text-2xl font-bold">25+ Offices Across 4 Continents</p>
             <p className="text-white/70 text-sm mt-2 max-w-md">Serving clients worldwide from our global network of offices.</p>
           </div>
         ) : (

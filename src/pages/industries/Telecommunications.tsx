@@ -1,4 +1,5 @@
 import { Network, Truck, Layers, Scan, Antenna, Code } from 'lucide-react'
+import { allocationStats, industrySplit } from '../../config/countAllocations'
 import IndustryJourney from '../../components/IndustryJourney'
 
 export default function Telecommunications() {
@@ -11,11 +12,12 @@ export default function Telecommunications() {
       subtitle="Every layer mapped, tower to subscriber."
       description="For operators, tower companies and fibre builders that need accurate as-built records, survey-grade asset data and engineering support across planning, deployment and ongoing operations."
       stats={[
-        { value: '20+', label: 'Countries Operated' },
+        ...allocationStats(industrySplit, 'telecommunications'),
         { value: '24/7', label: 'Managed Operations' },
-        { value: '500+', label: 'GIS Specialists' },
       ]}
-      image="/pillars/telecom.png"
+      image="/pillars/telecom.webp"
+      copySide="left"
+      imagePosition="50% 60%"
       imageAlt="Telecom network infrastructure and asset intelligence"
       challenges={[
         {
@@ -41,7 +43,7 @@ export default function Telecommunications() {
           description:
             'Survey crews mobilised against live build schedules, capturing what is physically installed rather than what the design says should be there.',
           icon: Truck,
-          image: '/pillars/feildops.png',
+          image: '/pillars/feildops.webp',
           imageAlt: 'Telecom survey crew capturing network assets in the field',
           points: [
             'Crews mobilised against build schedules',
@@ -56,7 +58,7 @@ export default function Telecommunications() {
           description:
             'Mobile and terrestrial LiDAR where clearance, sag and attachment height decide whether a design is buildable  measured, not estimated from a photograph.',
           icon: Scan,
-          image: '/pillars/lidar_engineering.png',
+          image: '/pillars/lidar_engineering.webp',
           imageAlt: 'LiDAR point cloud of a pole line with clearance measurement',
           points: [
             'Clearance and sag measurement',
@@ -71,7 +73,7 @@ export default function Telecommunications() {
           description:
             'Pole loading and attachment analysis, duct and route capture, fibre asset inventory  the physical record engineering and planning teams build against.',
           icon: Antenna,
-          image: '/pillars/pole_utility.png',
+          image: '/pillars/pole_utility.webp',
           imageAlt: 'Pole and attachment inventory with asset attribution',
           points: [
             'Pole loading and make-ready inputs',
@@ -86,7 +88,7 @@ export default function Telecommunications() {
           description:
             'Survey, design and existing records conflated into a single network view, with exceptions raised rather than quietly absorbed into the data.',
           icon: Layers,
-          image: '/pillars/telecom.png',
+          image: '/pillars/telecom.webp',
           imageAlt: 'Telecom network GIS with reconciled asset records',
           points: [
             'As-built reconciled against design',
@@ -101,7 +103,7 @@ export default function Telecommunications() {
           description:
             'Fibre planning workflows, web GIS and operational dashboards, so planners and field teams work from the reconciled network rather than a stale extract.',
           icon: Code,
-          image: '/pillars/telecom_network_engineering.png',
+          image: '/pillars/telecom_network_engineering.webp',
           imageAlt: 'Fibre planning and operational dashboards for network teams',
           points: [
             'FTTx planning and route design support',
@@ -133,12 +135,12 @@ export default function Telecommunications() {
             'The validated network delivered into web GIS and dashboards, so planning, field and operations look at the same picture on the same day.',
         },
       ]}
-      useCasesImage="/pillars/fibre_optic.png"
+      useCasesImage="/pillars/fibre_optic.webp"
       useCasesImageAlt="Fibre network build with surveyed and validated assets"
       capabilities={[
         { name: 'Telecom Network Intelligence', href: '/services/telecom-network-intelligence' },
         { name: 'Smart Fiber Planning', href: '/services/smart-fiber-planning' },
-        { name: 'Utility & Asset Intelligence', href: '/services/utility-network-intelligence' },
+        { name: 'Pole & Asset Intelligence', href: '/services/pole-asset-intelligence' },
         { name: 'GIS Data Engineering', href: '/technologies/gis' },
         { name: 'Operational Dashboards', href: '/technologies/analytics' },
         { name: 'Managed Delivery', href: '/technologies/it-infrastructure' },
