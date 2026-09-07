@@ -40,7 +40,7 @@ export const serviceSplit: Split = {
   'global-street-data-collection': { projects: 70, people: 1000 },
   'global-fleet-collection-operations': { projects: 55, people: 1000 },
   geospatial: { projects: 15, people: 45 },
-  'basemap-poi-annotation': { projects: 42, people: 140 },
+  'basemap-poi-annotation': { projects: 42, people: 60 },
   'location-intelligence': { projects: 15, people: 35 },
   'utility-network-intelligence': { projects: 15, people: 50 },
   'pole-asset-intelligence': { projects: 5, people: 25 },
@@ -60,10 +60,10 @@ export const serviceSplit: Split = {
 export const industrySplit: Split = {
   'mapping-location-platforms': { projects: 130, people: 1000 },
   telecommunications: { projects: 5, people: 10 },
-  'transportation-infrastructure': { projects: 80, people: 240 },
+  'transportation-infrastructure': { projects: 80, people: 40 },
   utilities: { projects: 10, people: 50 },
   'government-smart-cities': { projects: 5, people: 10 },
-  'autonomous-mobility': { projects: 15, people: 35 },
+  'autonomous-mobility': { projects: 15, people: 25 },
   consulting: { projects: 20, people: 25 },
 }
 
