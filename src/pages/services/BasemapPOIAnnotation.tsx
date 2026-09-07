@@ -101,7 +101,10 @@ export default function BasemapPOIAnnotation() {
         description={"For map and navigation providers, mobility platforms, address providers and location-data businesses that need local freshness at scale."}
         image="/gis-mapping.jpeg"
         imageAlt="Basemap, POI and annotation services"
-        stats={allocationStats(serviceSplit, 'basemap-poi-annotation')}
+        /* Projects only on this page; the headcount figure is not shown here. */
+        stats={allocationStats(serviceSplit, 'basemap-poi-annotation').filter(
+          (stat) => stat.label !== 'Specialists'
+        )}
       />
 
       {/* What We Deliver */}

@@ -4,7 +4,6 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import ProcessFlow from '../../components/ProcessFlow'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 import CapabilityModules from '../../components/CapabilityModules'
 
@@ -61,7 +60,6 @@ export default function TelecomNetworkIntelligence() {
         description={"JSAN combines field data, LiDAR, GIS and engineering workflows to help telecom organisations plan, validate and manage physical network infrastructure."}
         image="/pillars/utility-network.webp"
         imageAlt="Telecom network intelligence"
-        stats={allocationStats(serviceSplit, 'telecom-network-intelligence')}
       />
 
       <CapabilityModules

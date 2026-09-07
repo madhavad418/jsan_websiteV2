@@ -52,16 +52,16 @@ const capabilities = [
     bgImage: '/services/street/signage-furniture-inventory.jpg',
     highlights: ['Traffic Signs', 'Speed Limits', 'Lane Markings', 'Street Furniture'],
   },
-  {
-    category: 'MOBILE MAPPING & LIDAR',
-    cardTitle: 'Mobile Mapping & LiDAR Runs',
-    title: 'Survey-grade 3D along the corridor',
-    description:
-      'Mobile mapping systems pairing LiDAR with imagery to produce dense, positioned point clouds of the road corridor, feeding HD map layers, clearance and width measurement, and 3D asset extraction.',
-    icon: ScanLine,
-    bgImage: '/pillars/point_cloud.webp',
-    highlights: ['Point Clouds', 'HD Map Input', 'Corridor Measurement', '3D Asset Extraction'],
-  },
+  // {
+  //   category: 'MOBILE MAPPING & LIDAR',
+  //   cardTitle: 'Mobile Mapping & LiDAR Runs',
+  //   title: 'Survey-grade 3D along the corridor',
+  //   description:
+  //     'Mobile mapping systems pairing LiDAR with imagery to produce dense, positioned point clouds of the road corridor, feeding HD map layers, clearance and width measurement, and 3D asset extraction.',
+  //   icon: ScanLine,
+  //   bgImage: '/pillars/point_cloud.webp',
+  //   highlights: ['Point Clouds', 'HD Map Input', 'Corridor Measurement', '3D Asset Extraction'],
+  // },
   {
     category: 'PRIVACY & COMPLIANCE',
     cardTitle: 'Privacy-Compliant Data Handling',

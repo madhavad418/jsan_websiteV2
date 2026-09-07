@@ -40,7 +40,7 @@ const navigation: NavItem[] = [
         name: 'Geospatial & Mapping',
         href: '/capabilities/geospatial-mapping',
         items: [
-          { name: 'Street-Level Imagery', href: '/services/global-street-data-collection' },
+          
           { name: 'Road Network & Geometry', href: '/capabilities/road-network-geometry' },
           { name: 'POI & Address Intelligence', href: '/services/basemap-poi-annotation' },
           { name: 'GIS Data Engineering', href: '/technologies/gis' },
@@ -51,6 +51,7 @@ const navigation: NavItem[] = [
         href: '/capabilities/global-fleet-field-operations',
         items: [
           { name: 'Fleet Mobilisation', href: '/services/global-fleet-collection-operations' },
+          { name: 'Street-Level Imagery', href: '/services/global-street-data-collection' },
           // { name: 'Collection Operations', href: '/services/global-street-data-collection' },
           { name: 'Crew Operations', href: '/services/staffing-solutions' },
           { name: 'Planning & Dispatch', href: '/capabilities/planning-dispatch' },

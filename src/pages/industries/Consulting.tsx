@@ -13,7 +13,6 @@ import {
   Shield,
   Lightbulb
 } from 'lucide-react'
-import { allocationStats, industrySplit } from '../../config/countAllocations'
 import HeroBackdrop from '../../components/HeroBackdrop'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -132,14 +131,6 @@ export default function Consulting() {
                 Our Services
                 <Play className="w-4 h-4" />
               </Link>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-x-10 gap-y-6 border-t border-white/20 pt-8">
-              {allocationStats(industrySplit, 'consulting').map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-white text-3xl lg:text-4xl font-bold">{stat.value}</div>
-                  <div className="text-white/60 text-sm mt-1">{stat.label}</div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
