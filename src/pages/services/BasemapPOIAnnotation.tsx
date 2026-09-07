@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { ArrowRight, Map, Layers, MapPin, Cpu, ShieldCheck, Database, Building2, FileCheck, Boxes } from 'lucide-react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -43,6 +44,34 @@ const deliver = [
   // },
 ]
 
+/* Basemap production lifecycle (Source → Publish). Mirrors the POI lifecycle below,
+   because the two are the same shape of problem answered with different controls. */
+const basemapLifecycle = [
+  { n: '01', title: 'Source', desc: 'Imagery, LiDAR, authoritative and open datasets and field capture, with licence and currency recorded per source.' },
+  { n: '02', title: 'Compile', desc: 'Feature extraction into your schema: road centrelines, buildings, land use, hydrography and boundaries.' },
+  { n: '03', title: 'Conflate', desc: 'New capture reconciled against the existing basemap  geometry matched, attributes merged, conflicts flagged.' },
+  { n: '04', title: 'Validate', desc: 'Topology, connectivity and attribute checks: no dangles, closed polygons, a graph that actually routes.' },
+  { n: '05', title: 'Publish', desc: 'Versioned release to the customer schema with change deltas and a currency date per layer.' },
+]
+
+const basemapTable = [
+  {
+    risk: 'Stale geometry after ground change',
+    control: 'Change detection against fresh imagery, prioritised re-capture where the network moved, and a currency date held per tile.',
+    benefit: 'Routing and planning run on what is on the ground now, not on the last full refresh.',
+  },
+  {
+    risk: 'Broken network topology',
+    control: 'Connectivity and dangle checks, turn-restriction validation, and routing tests across the delivered graph before release.',
+    benefit: 'The network routes correctly instead of failing at the junctions nobody tested.',
+  },
+  {
+    risk: 'Conflicting sources on merge',
+    control: 'Per-source precedence rules, conflation review of contested geometry, and conflicts escalated rather than silently overwritten.',
+    benefit: 'Authoritative data keeps its authority, and every override is traceable.',
+  },
+]
+
 /* POI operations lifecycle (Source → Deliver) */
 const poiLifecycle = [
   { n: '01', title: 'Source', desc: 'Official sites, social, directories, booking platforms, field leads and customer lists.' },
@@ -86,6 +115,11 @@ const indoorCards = [
 ]
 
 export default function BasemapPOIAnnotation() {
+  /* The showcase tabs drive the detail section below as well as their own panel, so a
+     visitor reading about basemap production is not then shown the POI lifecycle. */
+  const [activeCapability, setActiveCapability] = useState(0)
+  const showingBasemap = deliver[activeCapability]?.slug === 'basemap-production'
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -115,31 +149,42 @@ export default function BasemapPOIAnnotation() {
             </p>
           </div>
 
-                    <CapabilityShowcase items={deliver} basePath="/services/basemap-poi-annotation" />
+                    <CapabilityShowcase
+            items={deliver}
+            basePath="/services/basemap-poi-annotation"
+            activeIndex={activeCapability}
+            onActiveChange={setActiveCapability}
+          />
         </div>
       </section>
 
-      {/* POI Operations lifecycle + risk/control/benefit */}
+      {/* Detail for whichever capability is selected above */}
       <section className="bg-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="mb-12 md:mb-14 max-w-4xl">
-            <span className="inline-block text-[#00d4ff] font-bold text-xs md:text-sm uppercase tracking-widest mb-3">POI Operations</span>
+            <span className="inline-block text-[#00d4ff] font-bold text-xs md:text-sm uppercase tracking-widest mb-3">
+              {showingBasemap ? 'Basemap Production' : 'POI Operations'}
+            </span>
             <h2 className="text-[26px] md:text-[34px] lg:text-[40px] font-bold mb-4 text-gradient leading-tight">
-              POI operations require evidence, freshness and duplicate control  not just sourcing volume
+              {showingBasemap
+                ? 'Basemap production is a conflation problem, not a drawing exercise'
+                : 'POI operations require evidence, freshness and duplicate control  not just sourcing volume'}
             </h2>
             <p className="text-gray-600 text-base md:text-lg">
-              An industry POI program needs a defensible lifecycle from discovery to review, field validation, scoring and change management.
+              {showingBasemap
+                ? 'Most of the work is deciding which source wins where they disagree, and proving the result still routes, closes and reconciles before it ships.'
+                : 'An industry POI program needs a defensible lifecycle from discovery to review, field validation, scoring and change management.'}
             </p>
           </div>
 
           {/* Lifecycle steps */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-14">
-            {poiLifecycle.map((step, i) => (
+            {(showingBasemap ? basemapLifecycle : poiLifecycle).map((step, i) => (
               <div key={i} className="relative bg-gray-50 border border-gray-100 rounded-2xl p-5 h-full">
                 <div className="w-9 h-9 rounded-full bg-[#0050a9] text-white text-xs font-bold flex items-center justify-center mb-3">{step.n}</div>
                 <h3 className="text-[#0050a9] font-bold mb-1.5">{step.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
-                {i < poiLifecycle.length - 1 && (
+                {i < (showingBasemap ? basemapLifecycle : poiLifecycle).length - 1 && (
                   <ArrowRight className="hidden lg:block absolute top-1/2 -right-3 -translate-y-1/2 w-5 h-5 text-[#0050a9]/40 z-10" />
                 )}
               </div>
@@ -157,7 +202,7 @@ export default function BasemapPOIAnnotation() {
                 </tr>
               </thead>
               <tbody>
-                {poiTable.map((row, i) => (
+                {(showingBasemap ? basemapTable : poiTable).map((row, i) => (
                   <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                     <td className="p-4 align-top font-semibold text-gray-900 text-sm">{row.risk}</td>
                     <td className="p-4 align-top text-gray-600 text-sm leading-relaxed">{row.control}</td>

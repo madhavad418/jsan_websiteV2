@@ -24,6 +24,14 @@ type Props = {
   basePath?: string
   /** Anchor used when an item has no page of its own */
   fallbackHref?: string
+  /**
+   * Optional controlled mode. Pass both when the page needs to render something else
+   * against the same selection - the Basemap page swaps a whole detail section below the
+   * showcase, and two sets of tabs disagreeing with each other would be worse than one.
+   * Omit both and the component keeps its own state, which is what every other page does.
+   */
+  activeIndex?: number
+  onActiveChange?: (index: number) => void
 }
 
 /**
@@ -31,8 +39,20 @@ type Props = {
  * one large panel at a time, driven by a tab strip, so a page with two
  * capabilities and a page with ten both read well.
  */
-export default function CapabilityShowcase({ items, basePath, fallbackHref = '#contact' }: Props) {
-  const [active, setActive] = useState(0)
+export default function CapabilityShowcase({
+  items,
+  basePath,
+  fallbackHref = '#contact',
+  activeIndex,
+  onActiveChange,
+}: Props) {
+  const [internal, setInternal] = useState(0)
+  const controlled = activeIndex !== undefined
+  const active = controlled ? activeIndex : internal
+  const setActive = (index: number) => {
+    if (!controlled) setInternal(index)
+    onActiveChange?.(index)
+  }
 
   if (items.length === 0) return null
 
