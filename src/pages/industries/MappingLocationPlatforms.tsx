@@ -1,5 +1,5 @@
 import { Map, Truck, Layers, Route, MapPin, ClipboardCheck, ShieldCheck } from 'lucide-react'
-import { allocationStats, industrySplit } from '../../config/countAllocations'
+import { specialistStat, industrySplit } from '../../config/countAllocations'
 import IndustryJourney from '../../components/IndustryJourney'
 
 export default function MappingLocationPlatforms() {
@@ -12,7 +12,7 @@ export default function MappingLocationPlatforms() {
       subtitle="Ground truth at platform scale."
       description="For map and navigation providers, address authorities and location-data businesses that need local freshness, verifiable coverage and a partner who can mobilise in a new market without a standing start."
       stats={[
-        ...allocationStats(industrySplit, 'mapping-location-platforms'),
+        ...specialistStat(industrySplit, 'mapping-location-platforms'),
         { value: '360°', label: 'Imagery Capture' },
       ]}
       image="/pillars/mapping_intel.webp"

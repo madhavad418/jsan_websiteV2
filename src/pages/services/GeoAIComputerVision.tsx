@@ -6,7 +6,7 @@ import QualityGates from '../../components/QualityGates'
 import RoadmapTimeline from '../../components/RoadmapTimeline'
 import ProcessFlow from '../../components/ProcessFlow'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 import CapabilityModules from '../../components/CapabilityModules'
 
@@ -116,7 +116,7 @@ const applications = [
 const stack = ['PyTorch', 'TensorFlow', 'YOLO / Detectron2', 'U-Net & Mask R-CNN', 'OpenCV', 'GDAL / Rasterio', 'ArcGIS & QGIS', 'PostGIS', 'AWS / Azure GPU']
 
 const stats = [
-  ...allocationStats(serviceSplit, 'geoai-computer-vision'),
+  ...specialistStat(serviceSplit, 'geoai-computer-vision'),
   { value: '95%+', label: 'Trained Class Accuracy' },
 ]
 

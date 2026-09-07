@@ -5,7 +5,7 @@ import MobileNav from '../../components/MobileNav'
 import ProcessFlow from '../../components/ProcessFlow'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
 // import ServiceContactForm from '../../components/ServiceContactForm'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 const capabilities = [
@@ -104,7 +104,7 @@ export default function SmartFiberPlanning() {
         description={"We partner with telecom operators to design, deploy, and maintain resilient fiber networks  combining GIS, drone surveys, digital twins, and predictive analytics into a single, data-driven workflow."}
         image="/pillars/fibre_optic.webp"
         imageAlt="Smart fiber network planning"
-        stats={allocationStats(serviceSplit, 'smart-fiber-planning')}
+        stats={specialistStat(serviceSplit, 'smart-fiber-planning')}
       />
 
       {/* What We Deliver */}

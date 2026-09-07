@@ -1,5 +1,5 @@
 import { Navigation, Truck, Layers, Route, Users, ShieldCheck } from 'lucide-react'
-import { allocationStats, industrySplit } from '../../config/countAllocations'
+import { specialistStat, industrySplit } from '../../config/countAllocations'
 import IndustryJourney from '../../components/IndustryJourney'
 
 export default function AutonomousMobility() {
@@ -12,7 +12,7 @@ export default function AutonomousMobility() {
       subtitle="Autonomous Mobility"
       description="JSAN supports autonomous mobility programs with field operations, mapping, fleet readiness, route evidence, geospatial QA and scalable operational support."
       stats={[
-        ...allocationStats(industrySplit, 'autonomous-mobility'),
+        ...specialistStat(industrySplit, 'autonomous-mobility'),
         { value: '24/7', label: 'Collection Operations' },
       ]}
       image="/pillars/autonomous_support.webp"

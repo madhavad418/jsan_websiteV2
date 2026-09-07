@@ -7,7 +7,7 @@ import RoadmapTimeline from '../../components/RoadmapTimeline'
 import ProcessFlow from '../../components/ProcessFlow'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
 import CapabilityModules from '../../components/CapabilityModules'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 /**
@@ -152,7 +152,7 @@ const outcomes = [
   'A foundation for outage, planning and digital-twin systems',
 ]
 
-const stats = allocationStats(serviceSplit, 'utility-network-intelligence')
+const stats = specialistStat(serviceSplit, 'utility-network-intelligence')
 
 export default function UtilityNetworkIntelligence() {
   return (

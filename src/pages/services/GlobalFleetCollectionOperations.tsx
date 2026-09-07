@@ -7,7 +7,7 @@ import RoadmapTimeline from '../../components/RoadmapTimeline'
 import ProcessFlow from '../../components/ProcessFlow'
 // import ServiceContactForm from '../../components/ServiceContactForm'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHeroV2 from '../../components/ServiceHeroV2'
 
 /* What the operation covers */
@@ -118,13 +118,13 @@ const opsStack = ['JSAN VTS', 'GPS Telematics', 'Mobile Capture Apps', 'Shift & 
 
 /* Hero (v2 layout, under evaluation on this page only) */
 const heroMetrics = [
-  ...allocationStats(serviceSplit, 'global-fleet-collection-operations'),
+  ...specialistStat(serviceSplit, 'global-fleet-collection-operations'),
   { value: 'GPS', label: 'Live Tracking' },
 ]
 /* Stats from the previous hero, kept for reference while the v2 hero is on trial.
    The v2 hero shows at most three, see heroMetrics above.
 const stats = [
-  ...allocationStats(serviceSplit, 'global-fleet-collection-operations'),
+  ...specialistStat(serviceSplit, 'global-fleet-collection-operations'),
   { value: '25+', label: 'Countries' },
   { value: 'GPS', label: 'Live Fleet Tracking' },
 ]

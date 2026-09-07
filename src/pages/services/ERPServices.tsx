@@ -2,7 +2,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 const subServices = [
@@ -84,7 +84,7 @@ export default function ERPServices() {
         description={"ERP systems are the operational backbone of enterprises. We implement, customise, and manage ERP solutions that unify finance, HR, supply chain, and operations on a single platform."}
         image="/pillars/tech-erp.webp"
         imageAlt="ERP Services"
-        stats={[...allocationStats(serviceSplit, 'erp'), { value: '30%', label: 'Process Efficiency' }, { value: '3', label: 'Major ERP Platforms' }]}
+        stats={[...specialistStat(serviceSplit, 'erp'), { value: '30%', label: 'Process Efficiency' }, { value: '3', label: 'Major ERP Platforms' }]}
       />
 
       {/* Subservice Cards */}

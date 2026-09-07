@@ -1,26 +1,26 @@
 /**
- * Project and headcount allocations.
+ * Company project and headcount figures.
  *
- * The company totals shown on the About page are the only figures quoted whole:
+ * ONLY the totals are published. They appear on the pages that speak for the whole
+ * company - Home, About, Contact, Careers, Insights and the Technologies landing - and
+ * nowhere else:
  *
  *   500+   Projects Delivered
  *   1,500+ Employees Globally
  *
- * Every page that shows a slice of those totals takes its figure from here, so the
- * slices always add back up to the totals instead of drifting into unrelated numbers.
+ * Individual service, capability, industry and technology pages used to print their own
+ * slice of those totals. They no longer do: a visitor moving between pages was met with a
+ * different number on each one, and the per-page figures were the weakest part of the
+ * claim. If a page needs to say something about scale, give it something it can stand
+ * behind on its own rather than a share of a company total.
  *
- * There are three independent breakdowns of the SAME company. A single project belongs
- * to one service line, one industry and one technology at once, so each split is a
- * complete view of all 500 projects and all 1,500 people from a different angle:
+ * THE SPLITS BELOW ARE NOT RENDERED ANYWHERE.
  *
- *   serviceSplit    - by delivery line   (the /services/* pages)
- *   industrySplit   - by market served   (the /industries/* pages)
- *   technologySplit - by technology used (the /technologies/* pages)
- *
- * Each split sums to exactly 500 projects and 1,500 people. `assertSplits()` below
- * enforces that in development - if you change one entry you must rebalance its split.
- *
- * Do NOT quote 500+ or 1,500+ on a page that represents a slice; use its entry here.
+ * They are kept because the numbers were set by hand and are not recoverable from
+ * anywhere else, not because anything reads them. `assertSplits()` is likewise no longer
+ * called on import: it enforced that each split summed to the totals, which only mattered
+ * while the slices were on the page. Call it yourself if you bring them back, and expect
+ * it to fail until the splits are rebalanced.
  */
 
 export const TOTAL_PROJECTS = 500
@@ -69,7 +69,7 @@ export const industrySplit: Split = {
 
 /** By technology used. Keyed by the /technologies/* route slug. */
 export const technologySplit: Split = {
-  gis: { projects: 165, people: 620 },
+  gis: { projects: 165, people: 100 },
   analytics: { projects: 40, people: 35 },
   web: { projects: 15, people: 10 },
   cloud: { projects: 5, people: 10 },
@@ -84,8 +84,8 @@ export const technologySplit: Split = {
 const format = (n: number) => (n >= 1000 ? n.toLocaleString('en-GB') : String(n))
 
 /**
- * The two hero figures for one page, ready to spread into a `stats` array:
- *   stats={[...allocationStats(serviceSplit, 'geospatial'), { value: '25+', label: 'Countries' }]}
+ * Both figures for one page. Kept for completeness, but note that the project count is no
+ * longer published per page - see specialistStat, which is what the pages actually use.
  */
 export function allocationStats(split: Split, key: string): { value: string; label: string }[] {
   const entry = split[key]
@@ -94,6 +94,19 @@ export function allocationStats(split: Split, key: string): { value: string; lab
     { value: `${format(entry.projects)}+`, label: 'Projects Delivered' },
     { value: `${format(entry.people)}+`, label: 'Specialists' },
   ]
+}
+
+/**
+ * The headcount figure for one page, ready to spread into a `stats` array:
+ *   stats={[...specialistStat(serviceSplit, 'geospatial'), { value: '25+', label: 'Countries' }]}
+ *
+ * Only the people figure. Project counts are quoted once, company-wide, as 500+; a page
+ * printing its own share of that read as a different, smaller claim on every page.
+ */
+export function specialistStat(split: Split, key: string): { value: string; label: string }[] {
+  const entry = split[key]
+  if (!entry) return []
+  return [{ value: `${format(entry.people)}+`, label: 'Specialists' }]
 }
 
 const sum = (split: Split, field: keyof Allocation) =>
@@ -118,4 +131,4 @@ export function assertSplits(): void {
   }
 }
 
-if (import.meta.env?.DEV) assertSplits()
+/* Not called on import any more - see the note at the top of this file. */

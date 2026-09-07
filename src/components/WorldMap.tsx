@@ -188,6 +188,11 @@ export default function WorldMap() {
   const visibleCount =
     activeRegion === 'All' ? offices.length : offices.filter((o) => o.region === activeRegion).length
 
+  /* The all-offices view quotes 25+, matching the rest of the site, rather than printing
+     the exact row count of the offices list. A region view is a narrower claim, so it
+     stays exact. */
+  const visibleLabel = activeRegion === 'All' ? '25+' : String(visibleCount)
+
   const selectRegion = useCallback((id: string) => {
     setActiveRegion(id)
     const m = map.current
@@ -543,7 +548,7 @@ export default function WorldMap() {
                 </div>
                 <div className="mt-1 flex items-baseline gap-1.5">
                   <span className="text-2xl font-bold leading-none text-white tabular-nums">
-                    {visibleCount}
+                    {visibleLabel}
                   </span>
                   <span className="text-xs text-white/70">
                     {visibleCount === 1 ? 'office' : 'offices'}

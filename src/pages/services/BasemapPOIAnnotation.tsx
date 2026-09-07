@@ -4,7 +4,6 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
 // import ServiceContactForm from '../../components/ServiceContactForm'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 /* Overview  the three pillars of the service */
@@ -101,10 +100,6 @@ export default function BasemapPOIAnnotation() {
         description={"For map and navigation providers, mobility platforms, address providers and location-data businesses that need local freshness at scale."}
         image="/gis-mapping.jpeg"
         imageAlt="Basemap, POI and annotation services"
-        /* Projects only on this page; the headcount figure is not shown here. */
-        stats={allocationStats(serviceSplit, 'basemap-poi-annotation').filter(
-          (stat) => stat.label !== 'Specialists'
-        )}
       />
 
       {/* What We Deliver */}

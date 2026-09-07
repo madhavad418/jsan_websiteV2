@@ -8,7 +8,6 @@ import ServiceHero from '../../components/ServiceHero'
 const advisory = serviceSplit['business-advisory']
 
 const metrics = [
-  { value: `${advisory.projects}+`, label: 'Projects Delivered', description: 'Successfully completed' },
   { value: `${advisory.people}+`, label: 'Specialists', description: 'Advisory practice' },
   { value: '30%', label: 'Cost Reduction', description: 'Average client savings' },
   { value: '95%', label: 'Client Satisfaction', description: 'Recommendation rate' },
@@ -54,13 +53,11 @@ const outcomes = [
   { value: '80%', label: 'Goal Achievement', description: 'Strategic objectives met' },
 ]
 
-/* Splits this practice's own project count (serviceSplit['business-advisory']) by sector,
-   so the four tiles add back up to the figure in the hero rather than exceeding it. */
 const industries = [
-  { icon: Building2, name: 'Manufacturing', projects: '4' },
-  { icon: Handshake, name: 'Professional Services', projects: '3' },
-  { icon: LineChart, name: 'Financial Services', projects: '2' },
-  { icon: DollarSign, name: 'Retail & Consumer', projects: '2' },
+  { icon: Building2, name: 'Manufacturing' },
+  { icon: Handshake, name: 'Professional Services' },
+  { icon: LineChart, name: 'Financial Services' },
+  { icon: DollarSign, name: 'Retail & Consumer' },
 ]
 
 const approach = [
@@ -93,7 +90,7 @@ export default function BusinessAdvisory() {
       {/* Metrics */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {metrics.map((metric, index) => (
               <div key={index} className="bg-[#e8f4fc] p-6 rounded-xl text-center">
                 <div className="text-[48px] font-bold text-[#1b497b] leading-none mb-2">{metric.value}</div>
@@ -163,8 +160,7 @@ export default function BusinessAdvisory() {
                 <div className="w-14 h-14 mx-auto mb-4 bg-[#1b497b] rounded-xl flex items-center justify-center">
                   <industry.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-[#0050a9] font-bold mb-1">{industry.name}</h3>
-                <p className="text-[#1b497b] text-sm font-medium">{industry.projects} engagements</p>
+                <h3 className="text-[#0050a9] font-bold">{industry.name}</h3>
               </div>
             ))}
           </div>

@@ -13,7 +13,7 @@ import {
   Users,
   Target
 } from 'lucide-react'
-import { allocationStats, industrySplit } from '../../config/countAllocations'
+import { specialistStat, industrySplit } from '../../config/countAllocations'
 import HeroBackdrop from '../../components/HeroBackdrop'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -125,7 +125,7 @@ export default function TransportMobility() {
               </Link>
             </div>
             <div className="mt-10 flex flex-wrap gap-x-10 gap-y-6 border-t border-white/20 pt-8">
-              {allocationStats(industrySplit, 'transportation-infrastructure').map((stat) => (
+              {specialistStat(industrySplit, 'transportation-infrastructure').map((stat) => (
                 <div key={stat.label}>
                   <div className="text-white text-3xl lg:text-4xl font-bold">{stat.value}</div>
                   <div className="text-white/60 text-sm mt-1">{stat.label}</div>

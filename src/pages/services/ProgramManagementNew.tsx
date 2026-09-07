@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 import GovernanceModel from '../../components/GovernanceModel'
 
@@ -55,7 +55,7 @@ export default function ProgramManagementNew() {
         description={"JSAN provides structured program management across field, data, engineering and technology operations with transparent governance, risk management and performance control."}
         image="/pillars/program_manage.webp"
         imageAlt="Program management excellence"
-        stats={[...allocationStats(serviceSplit, 'program-management'), { value: '98%', label: 'On-Time Delivery' }, { value: '25+', label: 'Countries' }]}
+        stats={[...specialistStat(serviceSplit, 'program-management'), { value: '98%', label: 'On-Time Delivery' }, { value: '25+', label: 'Countries' }]}
       />
 
       <GovernanceModel />

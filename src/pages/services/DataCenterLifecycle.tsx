@@ -4,7 +4,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import ProcessFlow from '../../components/ProcessFlow'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 /* Seven service towers */
@@ -132,7 +132,7 @@ export default function DataCenterLifecycle() {
         description={"A single accountable service layer for enterprise, hyperscale, edge and telecom infrastructure SLA definitions, controlled dispatch, evidence and governance across mixed OEM estates."}
         image="/pillars/data_center.webp"
         imageAlt="Data center lifecycle and field support"
-        stats={allocationStats(serviceSplit, 'data-center-lifecycle')}
+        stats={specialistStat(serviceSplit, 'data-center-lifecycle')}
       />
 
       {/* Seven service towers */}

@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 const subServices = [
@@ -64,7 +64,7 @@ export default function StaffingSolutionsNew() {
         description={"Our end-to-end approach ensures you access the right skills at the right time while minimizing administrative burden and optimizing cost efficiency."}
         image="/pillars/staffing.webp"
         imageAlt="Staffing solutions global recruitment"
-        stats={[...allocationStats(serviceSplit, 'staffing-solutions'), { value: '48hrs', label: 'Avg. Response Time' }, { value: '25+', label: 'Countries' }]}
+        stats={[...specialistStat(serviceSplit, 'staffing-solutions'), { value: '48hrs', label: 'Avg. Response Time' }, { value: '25+', label: 'Countries' }]}
       />
 
       {/* Subservice Cards */}

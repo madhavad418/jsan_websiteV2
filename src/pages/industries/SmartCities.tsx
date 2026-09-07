@@ -1,6 +1,6 @@
 import { Building2, Camera, Brain, Construction, ShieldCheck } from 'lucide-react'
+import { specialistStat, industrySplit } from '../../config/countAllocations'
 import IndustryJourney from '../../components/IndustryJourney'
-import { allocationStats, industrySplit } from '../../config/countAllocations'
 
 /**
  * /industries/government-smart-cities
@@ -14,7 +14,7 @@ import { allocationStats, industrySplit } from '../../config/countAllocations'
  * company totals, taken from src/config/countAllocations.ts.
  */
 const stats = [
-  ...allocationStats(industrySplit, 'government-smart-cities'),
+  ...specialistStat(industrySplit, 'government-smart-cities'),
   { value: '25+', label: 'Countries Supported' },
 ]
 

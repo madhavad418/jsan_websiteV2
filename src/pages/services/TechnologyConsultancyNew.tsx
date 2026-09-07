@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 const subServices = [
@@ -64,7 +64,7 @@ export default function TechnologyConsultancyNew() {
         description={"From digital transformation strategy and enterprise architecture to cloud infrastructure and AI-driven analytics  we deliver end-to-end technology consulting that accelerates innovation, reduces risk, and drives measurable business outcomes."}
         image="/pillars/technology-consultancy.webp"
         imageAlt="Technology consultancy solutions"
-        stats={[...allocationStats(serviceSplit, 'technology-consultancy'), { value: '50+', label: 'Enterprise Clients' }]}
+        stats={[...specialistStat(serviceSplit, 'technology-consultancy'), { value: '50+', label: 'Enterprise Clients' }]}
       />
 
       {/* Subservice Cards */}

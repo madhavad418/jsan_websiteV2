@@ -1,6 +1,6 @@
 import { Zap, ClipboardList, Layers, Network, Boxes } from 'lucide-react'
+import { specialistStat, industrySplit } from '../../config/countAllocations'
 import IndustryJourney from '../../components/IndustryJourney'
-import { allocationStats, industrySplit } from '../../config/countAllocations'
 
 /**
  * /industries/utilities
@@ -15,7 +15,7 @@ import { allocationStats, industrySplit } from '../../config/countAllocations'
  * company totals, taken from src/config/countAllocations.ts.
  */
 const stats = [
-  ...allocationStats(industrySplit, 'utilities'),
+  ...specialistStat(industrySplit, 'utilities'),
   { value: '25+', label: 'Countries Supported' },
 ]
 

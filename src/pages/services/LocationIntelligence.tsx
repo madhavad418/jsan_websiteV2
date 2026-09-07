@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 const subServices = [
@@ -74,7 +74,7 @@ export default function LocationIntelligence() {
         description={"Through the power of Location Intelligence, JSAN empowers businesses with actionable insights for site selection, risk assessment, supply chain optimization, and strategic planning."}
         image="/pillars/location_intel.webp"
         imageAlt="Location intelligence global data visualization"
-        stats={[...allocationStats(serviceSplit, 'location-intelligence'), { value: '100M+', label: 'Data Points Processed' }, { value: '25+', label: 'Countries' }]}
+        stats={[...specialistStat(serviceSplit, 'location-intelligence'), { value: '100M+', label: 'Data Points Processed' }, { value: '25+', label: 'Countries' }]}
       />
 
       {/* Subservice Cards */}

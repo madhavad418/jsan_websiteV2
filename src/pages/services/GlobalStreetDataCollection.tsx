@@ -7,7 +7,7 @@ import RoadmapTimeline from '../../components/RoadmapTimeline'
 import ProcessFlow from '../../components/ProcessFlow'
 // import ServiceContactForm from '../../components/ServiceContactForm'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 
 /* What gets collected on the street */
@@ -116,7 +116,7 @@ const applications = [
 const equipment = ['360° Camera Rigs', 'Mobile LiDAR', 'RTK / PPK GNSS', 'Dashcam Fleets', 'Mobile Capture Apps', 'Trajectory Processing', 'ArcGIS & QGIS', 'PostGIS', 'Cloud Ingest Pipelines']
 
 const stats = [
-  ...allocationStats(serviceSplit, 'global-street-data-collection'),
+  ...specialistStat(serviceSplit, 'global-street-data-collection'),
   { value: '360°', label: 'Imagery Capture' },
   { value: '800+', label: 'Vehicles' },
 ]

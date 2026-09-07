@@ -62,13 +62,13 @@ const operationalCards: OperationalCard[] = [
   {
     icon: Truck,
     label: 'Vehicles Active',
-    value: '128',
+    value: '800',
     detail: 'across 6 active programmes',
   },
   {
     icon: Route,
     label: 'Routes Planned',
-    value: '1,940',
+    value: '194K',
     detail: 'scheduled this week',
   },
   {

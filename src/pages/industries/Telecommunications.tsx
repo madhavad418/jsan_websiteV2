@@ -1,5 +1,5 @@
 import { Network, Truck, Layers, Scan, Antenna, Code } from 'lucide-react'
-import { allocationStats, industrySplit } from '../../config/countAllocations'
+import { specialistStat, industrySplit } from '../../config/countAllocations'
 import IndustryJourney from '../../components/IndustryJourney'
 
 export default function Telecommunications() {
@@ -12,7 +12,7 @@ export default function Telecommunications() {
       subtitle="Every layer mapped, tower to subscriber."
       description="For operators, tower companies and fibre builders that need accurate as-built records, survey-grade asset data and engineering support across planning, deployment and ongoing operations."
       stats={[
-        ...allocationStats(industrySplit, 'telecommunications'),
+        ...specialistStat(industrySplit, 'telecommunications'),
         { value: '24/7', label: 'Managed Operations' },
       ]}
       image="/pillars/telecom.webp"

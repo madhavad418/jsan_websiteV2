@@ -1,11 +1,11 @@
 import { useParams, Link } from 'react-router-dom'
 import NotFound from '../NotFound'
 import { Play, CheckCircle, Globe, Zap, Shield, Target, DollarSign, Cpu, BarChart3, Network, Lock, Cloud, Database, Settings, Code, Server, Bot, Layers, Monitor, GitBranch, Container, Workflow, Map , ArrowRight } from 'lucide-react'
+import { specialistStat, technologySplit } from '../../config/countAllocations'
 import HeroBackdrop, { heroCopyColumn } from '../../components/HeroBackdrop'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
-import { allocationStats, technologySplit } from '../../config/countAllocations'
 import HeroStat from '../../components/HeroStat'
 
 interface TechData {
@@ -390,7 +390,7 @@ export default function TechnologyDetail() {
             </p>
 
             <div className="mb-7 flex flex-wrap gap-x-7 gap-y-4 sm:mb-9 sm:gap-x-10 sm:gap-y-5">
-              {[...allocationStats(technologySplit, tech.slug), ...tech.stats].map((stat, i) => (
+              {[...specialistStat(technologySplit, tech.slug), ...tech.stats].map((stat, i) => (
                 <div key={i}>
                   <div className="text-xl font-bold tabular-nums text-white sm:text-2xl lg:text-3xl">
                     <HeroStat value={stat.value} />

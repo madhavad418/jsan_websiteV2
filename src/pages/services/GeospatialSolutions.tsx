@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 import CapabilityModules from '../../components/CapabilityModules'
 
@@ -125,7 +125,7 @@ export default function GeospatialSolutions() {
         description={"From street-level imagery and LiDAR to roads, addresses, POIs and infrastructure assets, JSAN delivers geospatial data engineered for operational use."}
         image="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1600"
         imageAlt="Geospatial satellite earth view"
-        stats={[...allocationStats(serviceSplit, 'geospatial'), { value: '50M+', label: 'Features Mapped' }, { value: '25+', label: 'Countries' }]}
+        stats={[...specialistStat(serviceSplit, 'geospatial'), { value: '50M+', label: 'Features Mapped' }, { value: '25+', label: 'Countries' }]}
       />
 
 

@@ -2,11 +2,11 @@ import { Antenna, Ruler, Scale, Wrench, ClipboardList, Handshake, MapPin, Camera
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
+import { specialistStat, serviceSplit } from '../../config/countAllocations'
 import ServiceHero from '../../components/ServiceHero'
 import CapabilityModules from '../../components/CapabilityModules'
 import ProcessFlow from '../../components/ProcessFlow'
 import QualityGates from '../../components/QualityGates'
-import { allocationStats, serviceSplit } from '../../config/countAllocations'
 
 /**
  * /services/pole-asset-intelligence
@@ -97,7 +97,7 @@ const outcomes = [
   'Joint-use billing matched to what is actually on the pole',
 ]
 
-const stats = allocationStats(serviceSplit, 'pole-asset-intelligence')
+const stats = specialistStat(serviceSplit, 'pole-asset-intelligence')
 
 export default function PoleAssetIntelligence() {
   return (

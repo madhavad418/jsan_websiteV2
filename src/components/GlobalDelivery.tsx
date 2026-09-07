@@ -55,7 +55,11 @@ export default function GlobalDelivery() {
             Global reach. Local execution. Central governance.
           </h2>
           <p className="t-body measure text-gray-600">
-            {offices.length} registered locations across {regionKeys.length} delivery regions. Programmes are
+            {/* 25+ rather than offices.length: the whole site quotes 25+, and a page that
+                prints the exact row count of the offices list reads as a contradiction. The
+                per-region counts below stay exact, because those are answering a narrower
+                question. */}
+            25+ registered locations across {regionKeys.length} delivery regions. Programmes are
             executed locally and governed centrally.
           </p>
         </div>
