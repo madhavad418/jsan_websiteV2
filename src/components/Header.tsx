@@ -109,7 +109,7 @@ const navigation: NavItem[] = [
           { name: 'PMO', href: '/capabilities/pmo' },
           { name: 'Quality Operations', href: '/capabilities/quality-operations' },
           { name: 'Data Operations', href: '/capabilities/data-operations' },
-          { name: 'Workforce Solutions', href: '/services/staffing-solutions' },
+          // { name: 'Workforce Solutions', href: '/services/staffing-solutions' },
           { name: 'Managed Delivery', href: '/technologies/it-infrastructure' },
         ],
       },
