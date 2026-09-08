@@ -74,7 +74,7 @@ const operationalCards: OperationalCard[] = [
   {
     icon: MapPinned,
     label: 'Coverage Completed',
-    value: '87%',
+    value: '95%',
     detail: 'of the current cycle',
   },
   {
