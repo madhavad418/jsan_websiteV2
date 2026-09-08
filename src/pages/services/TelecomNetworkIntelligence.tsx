@@ -16,7 +16,7 @@ const capabilities = [
       '5G densification depends on accurate small-cell placement. We combine RF propagation, terrain elevation, and 3D urban layers to simulate coverage and identify optimal sites before deployment.',
     icon: Radio,
     cardTitle: '5G & Small-Cell Planning',
-    bgImage: '/services/telecom/5g-small-cell-planning.jpg',
+    bgImage: '/services/telecom/5g-small-cell-planning.webp',
     highlights: ['RF Propagation', 'Terrain Modelling', '3D Urban Layers', 'Coverage Simulation'],
   },
   {

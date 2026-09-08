@@ -19,7 +19,7 @@ const capabilities = [
     description:
       'Vehicle-mounted 360° camera runs across planned coverage grids, producing geo-referenced, timestamped panoramic imagery with consistent overlap, exposure and GNSS trace, ready for extraction, verification and map production.',
     icon: Camera,
-    bgImage: '/services/street/street-imagery-capture.jpg',
+    bgImage: '/services/street/street-imagery-capture.webp',
     highlights: ['360° Panoramas', 'GNSS Trace', 'Coverage Grids', 'Repeat Runs'],
   },
   {
@@ -29,7 +29,7 @@ const capabilities = [
     description:
       'Field-verified road centrelines, new and missing links, connectivity, turn restrictions, one-ways, road class and access rules, forming the routable backbone behind navigation, logistics and delivery networks.',
     icon: Route,
-    bgImage: '/services/street/road-network-geometry.jpg',
+    bgImage: '/services/street/road-network-geometry.webp',
     highlights: ['Centrelines', 'Turn Restrictions', 'One-Ways & Access', 'Road Classification'],
   },
   {
@@ -39,7 +39,7 @@ const capabilities = [
     description:
       'On-street verification of addresses, entrances, house numbers, business names, opening hours and closures, with photo evidence per record, so places data reflects the street as it is today, not as it was sourced.',
     icon: MapPinned,
-    bgImage: '/services/street/address-poi-verification.jpg',
+    bgImage: '/services/street/address-poi-verification.webp',
     highlights: ['Door-Level Addresses', 'Entrance Points', 'Business Verification', 'Photo Evidence'],
   },
   {
@@ -49,7 +49,7 @@ const capabilities = [
     description:
       'Traffic signs, speed limits, lane counts and markings, barriers, poles, crossings and street furniture, extracted from capture runs and positioned as attributed assets for navigation, safety and asset management use.',
     icon: SignpostBig,
-    bgImage: '/services/street/signage-furniture-inventory.jpg',
+    bgImage: '/services/street/signage-furniture-inventory.webp',
     highlights: ['Traffic Signs', 'Speed Limits', 'Lane Markings', 'Street Furniture'],
   },
   // {
@@ -69,7 +69,7 @@ const capabilities = [
     description:
       'Automated face and licence-plate blurring, permission and permit management, controlled retention and region-specific privacy handling, all applied before imagery leaves the processing pipeline.',
     icon: EyeOff,
-    bgImage: '/services/street/privacy-compliant-handling.jpg',
+    bgImage: '/services/street/privacy-compliant-handling.webp',
     highlights: ['Face & Plate Blurring', 'Permits & Permissions', 'Controlled Retention', 'Regional Compliance'],
   },
 ]

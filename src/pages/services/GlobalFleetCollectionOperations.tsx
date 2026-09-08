@@ -8,7 +8,7 @@ import ProcessFlow from '../../components/ProcessFlow'
 // import ServiceContactForm from '../../components/ServiceContactForm'
 import CapabilityShowcase from '../../components/CapabilityShowcase'
 import { specialistStat, serviceSplit } from '../../config/countAllocations'
-import ServiceHeroV2 from '../../components/ServiceHeroV2'
+import ServiceHero from '../../components/ServiceHero'
 
 /* What the operation covers */
 const capabilities = [
@@ -19,7 +19,7 @@ const capabilities = [
     description:
       'Sourcing, leasing, fitting and commissioning of capture vehicles, from camera and LiDAR rig installation to power, storage and connectivity, so every unit leaves the depot to a known configuration.',
     icon: Car,
-    bgImage: '/services/fleet/fleet-mobilisation.jpg',
+    bgImage: '/services/fleet/fleet_readiness.webp',
     highlights: ['Vehicle Sourcing', 'Rig Installation', 'Configuration Baseline', 'Depot Setup'],
   },
   {
@@ -29,7 +29,7 @@ const capabilities = [
     description:
       'End-to-end crew management in each country, covering recruitment, licensing checks, capture and safety training, supervision, payroll support and retention, backed by JSAN recruitment teams already operating across regions.',
     icon: Users,
-    bgImage: '/services/fleet/field-crew-operations.jpg',
+    bgImage: '/services/fleet/crew_status.webp',
     highlights: ['Local Recruitment', 'Certification Checks', 'Capture Training', 'Field Supervision'],
   },
   {
@@ -39,7 +39,7 @@ const capabilities = [
     description:
       'Daily drive plans built from coverage targets, traffic and light conditions, access restrictions and weather, with shift rosters, dispatch and re-drive scheduling that keep productive kilometres high.',
     icon: CalendarClock,
-    bgImage: '/services/fleet/route-shift-scheduling.jpg',
+    bgImage: '/services/fleet/fleet_route.webp',
     highlights: ['Drive Planning', 'Shift Rosters', 'Dispatch', 'Re-Drive Queues'],
   },
   {
@@ -49,7 +49,7 @@ const capabilities = [
     description:
       'Real-time vehicle tracking, route adherence, speed and idle monitoring, session playback and productivity reporting, run on JSAN VTS, our own vehicle tracking and driver management platform.',
     icon: Navigation,
-    bgImage: '/services/fleet/live-tracking-telematics.jpg',
+    bgImage: '/services/fleet/live_tracking.webp',
     highlights: ['Live Vehicle Map', 'Route Adherence', 'Session Playback', 'Productivity Reporting'],
     customHref: '/products/jsan-vts',
   },
@@ -60,7 +60,7 @@ const capabilities = [
     description:
       'Preventive servicing schedules, sensor calibration cycles, spares pooling, fault triage and rapid swap-out, so a failed camera or GNSS unit costs hours of capture time rather than days.',
     icon: Wrench,
-    bgImage: '/services/fleet/vehicle-sensor-maintenance.jpg',
+    bgImage: '/services/fleet/sensor.webp',
     highlights: ['Preventive Servicing', 'Sensor Calibration', 'Spares Pool', 'Rapid Swap-Out'],
   },
   {
@@ -70,7 +70,7 @@ const capabilities = [
     description:
       'Permits and road authority permissions, insurance, driver safety briefings, incident reporting and escalation, plus local regulatory and data-handling compliance in every country of operation.',
     icon: ShieldCheck,
-    bgImage: '/services/fleet/safety-permits-compliance.jpg',
+    bgImage: '/services/fleet/legal.webp',
     highlights: ['Permits & Permissions', 'Insurance & Legal', 'Safety Briefings', 'Incident Reporting'],
   },
 ]
@@ -116,19 +116,11 @@ const applications = [
 
 const opsStack = ['JSAN VTS', 'GPS Telematics', 'Mobile Capture Apps', 'Shift & Roster Planning', 'Maintenance Tracking', 'Incident Reporting', 'Cost per Km Analytics', 'Depot & Spares Management']
 
-/* Hero (v2 layout, under evaluation on this page only) */
-const heroMetrics = [
-  ...specialistStat(serviceSplit, 'global-fleet-collection-operations'),
-  { value: 'GPS', label: 'Live Tracking' },
-]
-/* Stats from the previous hero, kept for reference while the v2 hero is on trial.
-   The v2 hero shows at most three, see heroMetrics above.
 const stats = [
   ...specialistStat(serviceSplit, 'global-fleet-collection-operations'),
   { value: '25+', label: 'Countries' },
   { value: 'GPS', label: 'Live Fleet Tracking' },
 ]
-*/
 
 export default function GlobalFleetCollectionOperations() {
   return (
@@ -136,22 +128,28 @@ export default function GlobalFleetCollectionOperations() {
       <Header />
 
       {/* Hero */}
-      <ServiceHeroV2
-        breadcrumb="Global Fleet & Collection Operations"
-        eyebrow="Core Service"
+      {/* Same hero as Global Street Data Collection and the rest of the service pages.
+          This page was the only one still on the v2 layout, which was described in the
+          code as on trial. Its primary image (/images/services/global-fleet-hero.webp)
+          has never existed in the tree, so the page was running on the fallback anyway -
+          that is now the image outright.
+
+          copySide is right because the capture vehicles and their sensor rigs run down
+          the left of the frame and are the subject here; the crew on the right is what
+          the scrim can afford to cover. */}
+      <ServiceHero
+        breadcrumb={"Global Fleet & Collection Operations"}
+        eyebrow={"Core Service"}
         eyebrowIcon={Truck}
-        title="Global Fleet & Collection Operations"
-        tagline="The field operation behind every kilometre of reliable data."
-        description="Deploy and manage vehicles, crews, sensors and collection programs across markets with centralized operational visibility."
-        primaryCta={{ label: 'Talk to Our Team', href: '/contact' }}
+        title={"Global Fleet & Collection Operations"}
+        subtitle={"The field operation behind every kilometre of reliable data."}
+        description={"Deploy and manage vehicles, crews, sensors and collection programs across markets with centralized operational visibility."}
+        image="/pillars/fleet_mobilise.webp"
+        imageAlt="JSAN collection vehicles and field crew preparing sensor rigs before a drive"
+        stats={stats}
+        copySide="right"
+        imagePosition="50% 60%"
         secondaryCta={{ label: 'Explore capabilities', href: '#capabilities' }}
-        metrics={heroMetrics}
-        heroImage="/images/services/global-fleet-hero.webp"
-        fallbackImage="/pillars/fleet.webp"
-        heroImageAlt="JSAN collection vehicles and field crew preparing sensor rigs before a drive"
-        heroPositionDesktop="65% center"
-        heroPositionTablet="60% center"
-        heroPositionMobile="center center"
       />
 
       {/* Capabilities */}

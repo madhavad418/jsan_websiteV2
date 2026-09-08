@@ -47,7 +47,7 @@ const domains = [
     description:
       'GPS-enabled capture of valves, hydrants, meters and consumer connections delivered as distribution-network GIS and zonal / DMA map outputs that improve maintenance planning and leak response.',
     icon: Droplets,
-    bgImage: '/services/utility/water-distribution.jpg',
+    bgImage: '/services/utility/water-distribution.webp',
     highlights: ['Valves / Hydrants / Meters', 'Consumer Connections', 'Zonal / DMA Maps', 'Leak & Maintenance'],
   },
   {
@@ -58,7 +58,7 @@ const domains = [
     description:
       'Traceable, safety-focused inventory of pipelines, valves, regulators, pressure stations and service connections with field evidence and pressure-zone / service-area map outputs for compliance and emergency response.',
     icon: Flame,
-    bgImage: '/services/utility/gas-networks.jpg',
+    bgImage: '/services/utility/gas-networks.webp',
     highlights: ['Pipelines / Valves / Regulators', 'Pressure Stations', 'Service Connections', 'Pressure-Zone Maps'],
   },
 ]

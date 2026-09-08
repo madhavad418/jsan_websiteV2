@@ -525,7 +525,7 @@ export const capabilities: Capability[] = [
     subtitle: 'Schema, Topology and Truth  Checked Before It Reaches Production',
     description:
       'Validation is what stands between a delivery and a production incident. We build and run validation regimes for geospatial and enterprise datasets  schema and domain conformance, topology and geometry rules, completeness, cross-source comparison and statistical outlier detection  and issue an acceptance report that says plainly what passed, what failed and what was fixed.',
-    bgImage: '/pillars/data_validation.png',
+    bgImage: '/pillars/data_validation.webp',
     highlights: [
       { icon: FileSearch, text: 'Schema, domain and attribute-completeness conformance' },
       { icon: Network, text: 'Topology, geometry and connectivity rule checks' },

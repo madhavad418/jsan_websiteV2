@@ -11,7 +11,7 @@ const services = [
     slug: '/services/global-street-data-collection',
     icon: Map,
     description: 'Street-level capture programmes run end to end: 360° imagery and LiDAR runs, road network and signage survey, address and POI ground truthing.',
-    image: '/services/street/street-imagery-capture.jpg',
+    image: '/services/street/street-imagery-capture.webp',
     features: ['360° Imagery', 'Road Network Survey', 'Address & POI Ground Truth', 'Mobile LiDAR'],
   },
   {
@@ -19,7 +19,7 @@ const services = [
     slug: '/services/global-fleet-collection-operations',
     icon: Truck,
     description: 'Managed collection fleets country by country: vehicles and sensor rigs, local crew hiring, drive planning and dispatch, live tracking and maintenance.',
-    image: '/services/fleet/fleet-mobilisation.jpg',
+    image: '/services/fleet/fleet-mobilisation.webp',
     features: ['Fleet Mobilisation', 'Crew Operations', 'Dispatch & Tracking', 'Safety & Permits'],
   },
   {
@@ -27,7 +27,7 @@ const services = [
     slug: '/services/basemap-poi-annotation',
     icon: MapPinned,
     description: 'Foundational basemaps, evidence-driven POI operations, and controlled-ontology map and imagery annotation behind navigation and AI.',
-    image: '/services/basemap/poi-data-operations.jpg',
+    image: '/services/basemap/poi-data-operations.webp',
     features: ['Basemap Production', 'POI Operations', 'Map Annotation', 'AI Training Data'],
   },
   {
@@ -45,7 +45,7 @@ const services = [
     slug: '/services/utility-network-intelligence',
     icon: Zap,
     description: 'GIS delivery for electrical, water and gas networks: field survey, asset digitization, consumer indexing and enterprise GIS migration.',
-    image: '/services/utility/water-distribution.jpg',
+    image: '/services/utility/water-distribution.webp',
     features: ['Electrical', 'Water', 'Gas', 'Enterprise GIS Migration'],
   },
   {
