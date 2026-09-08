@@ -62,7 +62,7 @@ const operationalCards: OperationalCard[] = [
   {
     icon: Truck,
     label: 'Vehicles Active',
-    value: '800',
+    value: '800+',
     detail: 'across 6 active programmes',
   },
   {
@@ -915,9 +915,9 @@ export default function GlobalFleetFeature() {
 
                     <div className="mt-3 t-label text-gray-500">{card.label}</div>
 
-                    <div className="mt-2 text-sm leading-relaxed text-gray-500">
+                    {/* <div className="mt-2 text-sm leading-relaxed text-gray-500">
                       {card.detail}
-                    </div>
+                    </div> */}
                   </div>
                 )
               })}

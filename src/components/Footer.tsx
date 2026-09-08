@@ -7,7 +7,7 @@ const capabilityLinks = [
   { name: 'Geospatial & Mapping', href: '/capabilities/geospatial-mapping', isRoute: true },
   { name: 'Fleet & Field Operations', href: '/capabilities/global-fleet-field-operations', isRoute: true },
   { name: 'GeoAI & Data Operations', href: '/capabilities/geoai-data-operations', isRoute: true },
-  { name: 'Telecom & Infrastructure', href: '/capabilities/telecom-infrastructure', isRoute: true },
+  { name: 'LiDAR,Telecom & Infrastructure', href: '/capabilities/telecom-infrastructure', isRoute: true },
   { name: 'Digital Engineering', href: '/capabilities/digital-engineering', isRoute: true },
   { name: 'Program & Managed Services', href: '/capabilities/program-managed-services', isRoute: true },
 ]

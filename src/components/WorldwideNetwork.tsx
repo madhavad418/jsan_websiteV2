@@ -5,7 +5,7 @@ import { useCountUp, useInView } from '../lib/useCountUp'
 /* value/suffix are kept separate so the number can be counted up on scroll */
 const stats = [
   { icon: CalendarCheck, value: 7, suffix: '+', label: 'Years of Domain Expertise' },
-  { icon: Users, value: 1500, suffix: '+', label: 'Onshore + Offshore Employees' },
+  { icon: Users, value: 2000, suffix: '+', label: 'Onshore + Offshore Employees' },
   { icon: Globe, value: 100, suffix: '+', label: 'Projects Delivered' },
   { icon: MapPin, value: 25, suffix: '+', label: 'Offices Worldwide' },
   { icon: Flag, value: 40, suffix: '+', label: 'Countries with Field Operations' },

@@ -24,12 +24,12 @@
  */
 
 export const TOTAL_PROJECTS = 500
-export const TOTAL_PEOPLE = 1500
+export const TOTAL_PEOPLE = 2500
 
 /** Company-wide totals, formatted for display. Only for pages that speak for the whole company. */
 export const totals = {
   projects: '500+',
-  people: '1,500+',
+  people: '2,500+',
 }
 
 export type Allocation = { projects: number; people: number }
@@ -37,8 +37,8 @@ export type Split = Record<string, Allocation>
 
 /** By delivery line. Keyed by the /services/* route slug. */
 export const serviceSplit: Split = {
-  'global-street-data-collection': { projects: 70, people: 1000 },
-  'global-fleet-collection-operations': { projects: 55, people: 1000 },
+  'global-street-data-collection': { projects: 70, people: 1500 },
+  'global-fleet-collection-operations': { projects: 55, people: 1500 },
   geospatial: { projects: 15, people: 45 },
   'basemap-poi-annotation': { projects: 42, people: 60 },
   'location-intelligence': { projects: 15, people: 35 },
@@ -49,7 +49,7 @@ export const serviceSplit: Split = {
   'geoai-computer-vision': { projects: 10, people: 15 },
   'digital-engineering': { projects: 10, people: 15 },
   'technology-consultancy': { projects: 25, people: 40 },
-  'program-management': { projects: 20, people: 35 },
+  'program-management': { projects: 20, people: 50 },
   erp: { projects: 15, people: 30 },
   'data-center-lifecycle': { projects: 10, people: 25 },
   'staffing-solutions': { projects: 10, people: 40 },
@@ -58,7 +58,7 @@ export const serviceSplit: Split = {
 
 /** By market served. Keyed by the /industries/* route slug. */
 export const industrySplit: Split = {
-  'mapping-location-platforms': { projects: 130, people: 1000 },
+  'mapping-location-platforms': { projects: 130, people: 1500 },
   telecommunications: { projects: 5, people: 10 },
   'transportation-infrastructure': { projects: 80, people: 40 },
   utilities: { projects: 10, people: 50 },

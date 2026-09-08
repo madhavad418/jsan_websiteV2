@@ -657,7 +657,7 @@ export default function Contact() {
               Complete Office Directory
             </h2>
             <p className="text-lg text-gray-500">
-              {allOffices.length} offices across {officeRegions.length} regions.
+              {allOffices.length -1 }+ offices across {officeRegions.length} regions.
             </p>
           </div>
 

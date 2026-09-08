@@ -74,7 +74,7 @@ const navigation: NavItem[] = [
         ],
       },
       {
-        name: 'Telecom & Infrastructure',
+        name: 'LiDAR,Telecom & Infrastructure',
         href: '/capabilities/telecom-infrastructure',
         items: [
           { name: 'Telecom GIS', href: '/services/telecom-network-intelligence' },
