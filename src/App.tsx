@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { capabilityPillars } from './data/capabilityPillars'
+import { deepDivePages } from './data/capabilityDeepDives'
 import ScrollToTop from './components/ScrollToTop'
 import Seo from './components/Seo'
 import ProtectLogos from './components/ProtectLogos'
@@ -61,6 +62,7 @@ const DataCenterSubService = lazy(() => import('./pages/services/DataCenterSubSe
 const Insights = lazy(() => import('./pages/Insights'))
 const BlogDetail = lazy(() => import('./pages/BlogDetail'))
 const CapabilityDetail = lazy(() => import('./pages/capabilities/CapabilityDetail'))
+const CapabilityDeepDive = lazy(() => import('./pages/capabilities/CapabilityDeepDive'))
 const Capabilities = lazy(() => import('./pages/Capabilities'))
 const CapabilityPillar = lazy(() => import('./pages/capabilities/CapabilityPillar'))
 const Work = lazy(() => import('./pages/Work'))
@@ -179,6 +181,21 @@ function App() {
               key={pillar.slug}
               path={`/capabilities/${pillar.slug}`}
               element={<CapabilityPillar />}
+            />
+          ))}
+          {/* Technology Support has a purpose-built layout, so these four outrank the
+              generic capability template below. Their entries stay in data/capabilities.ts
+              so the group listing and the build-time route manifest still know about them. */}
+          {/* Merged into Application Support, which is now the GIS applications page */}
+          <Route
+            path="/capabilities/gis-tools-support"
+            element={<Navigate to="/capabilities/application-support" replace />}
+          />
+          {deepDivePages.map((page) => (
+            <Route
+              key={page.slug}
+              path={`/capabilities/${page.slug}`}
+              element={<CapabilityDeepDive slug={page.slug} />}
             />
           ))}
           <Route path="/capabilities/:slug" element={<CapabilityDetail />} />

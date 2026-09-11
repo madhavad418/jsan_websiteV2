@@ -117,8 +117,37 @@ const navigation: NavItem[] = [
         name: 'Data Center & IT Infrastructure',
         href: '/capabilities/data-center-it-infrastructure',
         items: [
+          { name: 'Build & Setup', href: '/capabilities/data-center-build-setup' },
           { name: 'Maintenance & Logistics', href: '/services/data-center-lifecycle' },
                  
+        ],
+      },
+      /* Keeping what is already running, as opposed to Digital Engineering, which builds
+         it. Support, not delivery  a distinct thing to buy and a distinct thing to sell. */
+      {
+        name: 'Technology Support',
+        items: [
+          { name: 'Application Support', href: '/capabilities/application-support' },
+          { name: 'Integration Services', href: '/capabilities/integration-services' },
+        ],
+      },
+      /* Everything Esri in one group. Platform Support used to sit under Technology
+         Support, which meant Esri work appeared in two places in the same menu. */
+      {
+        name: 'Esri Capabilities',
+        items: [
+          { name: 'Esri Platform Support', href: '/capabilities/esri-platform-support' },
+          { name: 'ArcGIS Solution Development', href: '/capabilities/arcgis-solution-development' },
+          { name: 'Geodatabase & Data Modelling', href: '/capabilities/geodatabase-data-modelling' },
+          { name: 'ArcGIS Field Operations', href: '/capabilities/arcgis-field-operations' },
+        ],
+      },
+      {
+        name: 'BIM Capabilities',
+        items: [
+          { name: 'Scan to BIM', href: '/capabilities/scan-to-bim' },
+          { name: 'BIM & GIS Integration', href: '/capabilities/bim-gis-integration' },
+          { name: 'Digital Twin & Asset Information', href: '/capabilities/digital-twin-asset-information' },
         ],
       },
       /* Work used to be its own top-level item. It is JSAN's own output rather than a

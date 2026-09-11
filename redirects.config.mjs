@@ -32,6 +32,14 @@ export const redirects = [
   // studies. It is Products now, on the /products index it already owned the children of.
   { from: '/projects', to: '/products', status: 301 },
 
+  // GIS Tools Support was folded into Application Support, which covers the whole GIS
+  // application estate rather than splitting it across two pages.
+  {
+    from: '/capabilities/gis-tools-support',
+    to: '/capabilities/application-support',
+    status: 301,
+  },
+
   // The newsroom was merged into Insights, which now carries both streams. Individual
   // stories keep their /news/<slug> URLs and are still served.
   { from: '/news', to: '/insights', status: 301 },

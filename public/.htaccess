@@ -22,6 +22,7 @@ DirectorySlash Off
 RedirectMatch 301 ^/about/?$ /company
 RedirectMatch 301 ^/blogs/?$ /insights
 RedirectMatch 301 ^/projects/?$ /products
+RedirectMatch 301 ^/capabilities/gis-tools-support/?$ /capabilities/application-support
 RedirectMatch 301 ^/news/?$ /insights
 RedirectMatch 301 ^/industries/energy/?$ /industries/utilities
 RedirectMatch 301 ^/industries/transport/?$ /industries/transportation-infrastructure

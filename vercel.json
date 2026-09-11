@@ -22,6 +22,11 @@
       "permanent": true
     },
     {
+      "source": "/capabilities/gis-tools-support",
+      "destination": "/capabilities/application-support",
+      "permanent": true
+    },
+    {
       "source": "/news",
       "destination": "/insights",
       "permanent": true

@@ -10,6 +10,7 @@ import {
   CheckCircle,
   ClipboardCheck,
   ClipboardList,
+  Code,
   Compass,
   Cpu,
   Database,
@@ -21,14 +22,17 @@ import {
   Globe,
   HardHat,
   Layers,
+  LifeBuoy,
   LineChart,
   Map,
   MapPin,
   Network,
+  Plug,
   Radio,
   RefreshCw,
   Route,
   Scan,
+  Server,
   ShieldCheck,
   Signal,
   Target,
@@ -953,6 +957,311 @@ export const capabilities: Capability[] = [
       'Transparent cost per unit of output',
       'Internal teams freed for higher-value work',
     ],
+  },
+
+  /* ---------------- Technology Support ---------------- */
+  {
+    slug: 'application-support',
+    group: 'Technology Support',
+    category: 'APPLICATION SUPPORT',
+    icon: LifeBuoy,
+    title: 'Application Support',
+    subtitle: 'Keeping the Systems Your Operation Already Depends On Running',
+    description:
+      'Once an application is live the work changes shape: incidents, upgrades, small enhancements, and the questions users ask on a Tuesday afternoon. We run application support against an agreed service level  triage, fix, release, document  for the GIS, data and enterprise applications JSAN built and for those we did not, with the same transition discipline either way.',
+    bgImage: '/pillars/webtech.webp',
+    highlights: [
+      { icon: LifeBuoy, text: 'Tiered triage against agreed response and resolution targets' },
+      { icon: AlertTriangle, text: 'Incident management, root-cause analysis and preventive fixes' },
+      { icon: RefreshCw, text: 'Patching, version upgrades and dependency maintenance' },
+      { icon: Users, text: 'Named support contacts and end-user assistance' },
+      { icon: FileCheck, text: 'Runbooks, release notes and change records kept current' },
+    ],
+    approach: [
+      {
+        title: 'Transition in',
+        detail:
+          'We take the application on before we support it: environment access, an architecture walkthrough, the known issues and the runbook gaps that always exist. Support that starts without this is guesswork by the second week.',
+      },
+      {
+        title: 'Define the service',
+        detail:
+          'Priority levels, response and resolution targets, escalation paths, and the boundary between support, enhancement and new development  agreed in writing before the first ticket rather than argued about during the first incident.',
+      },
+      {
+        title: 'Run',
+        detail:
+          'Triage, fix, test and release on a predictable cadence, with emergency changes handled on a separate track so routine work is not held hostage to whatever broke this morning.',
+      },
+      {
+        title: 'Reduce the load',
+        detail:
+          'Recurring incidents are treated as defects in the system rather than as workload. Root causes are fixed, runbooks updated, and the ticket volume they were generating tracked down.',
+      },
+    ],
+    deliverables: [
+      'Service level agreement and escalation matrix',
+      'Incident, problem and change records',
+      'Patch and version upgrade schedule',
+      'Runbooks and support documentation',
+      'Release notes per deployment',
+      'Periodic service review reporting',
+    ],
+    idealFor: [
+      'Teams running GIS or data applications without in-house support',
+      'Organisations inheriting an application from a departed vendor',
+      'Programmes moving from build into steady-state operation',
+      'IT functions that need specialist geospatial cover',
+      'Businesses consolidating scattered support arrangements',
+    ],
+    outcomes: [
+      'A named team accountable for uptime rather than best effort',
+      'Incidents resolved against a target, not when someone is free',
+      'Fewer repeat failures as root causes actually get fixed',
+      'Knowledge held in runbooks rather than in one person',
+      'A predictable cost for keeping the estate running',
+    ],
+  },
+  {
+    slug: 'integration-services',
+    group: 'Technology Support',
+    category: 'INTEGRATION',
+    icon: Plug,
+    title: 'Integration Services',
+    subtitle: 'Making the Systems Talk to Each Other, and Proving They Still Do',
+    description:
+      'Integration is where geospatial programmes usually stall: the field app, the GIS, the asset register and the finance system each hold part of the truth and none of them agree. We design and build the interfaces between them  APIs, ETL, message queues, scheduled exchanges  and then monitor them, because an integration nobody watches is an outage waiting to be reported by a user.',
+    bgImage: '/pillars/API_Integration.webp',
+    highlights: [
+      { icon: Plug, text: 'REST, GraphQL, SOAP and file-based interfaces' },
+      { icon: GitMerge, text: 'ETL and ELT pipelines between GIS, ERP and asset systems' },
+      { icon: ShieldCheck, text: 'Authentication, authorisation and transport security' },
+      { icon: Activity, text: 'Monitoring, alerting and reconciliation on every interface' },
+      { icon: FileSearch, text: 'Field-level mapping documented and version controlled' },
+    ],
+    approach: [
+      {
+        title: 'Map the flow',
+        detail:
+          'Which system is authoritative for which field, how often it changes, and what happens when two of them disagree. Most integration failures are unresolved ownership rather than broken code.',
+      },
+      {
+        title: 'Agree the contract',
+        detail:
+          'Interface specification, field mapping, error handling and retry behaviour settled before build, so the interface has a definition that outlives its current implementation.',
+      },
+      {
+        title: 'Build and test',
+        detail:
+          'Implementation against that contract, with the negative cases exercised deliberately: malformed payloads, partial failures, and the volume spikes that only ever happen in production.',
+      },
+      {
+        title: 'Operate',
+        detail:
+          'Monitoring, alerting and periodic reconciliation, so a stalled interface is caught by us rather than discovered by the business a week of bad data later.',
+      },
+    ],
+    deliverables: [
+      'Interface specification and field mapping',
+      'Built and tested integrations',
+      'Error handling and retry design',
+      'Monitoring and alerting configuration',
+      'Reconciliation reporting',
+      'Runbook for interface failure',
+    ],
+    idealFor: [
+      'GIS estates that must exchange data with ERP or asset systems',
+      'Field applications feeding an enterprise platform',
+      'Organisations consolidating data across acquired systems',
+      'Programmes replacing manual file exchange',
+      'Teams that have inherited undocumented interfaces',
+    ],
+    outcomes: [
+      'One agreed source of truth per field',
+      'Interfaces that fail loudly instead of silently',
+      'Manual re-keying and file shuffling removed',
+      'Integration behaviour documented rather than tribal',
+      'The next system onboarded faster than the last',
+    ],
+  },
+  {
+    slug: 'esri-platform-support',
+    group: 'Technology Support',
+    category: 'ESRI PLATFORM SUPPORT',
+    icon: Server,
+    title: 'Esri Platform Support',
+    subtitle: 'ArcGIS Enterprise and ArcGIS Online, Administered Properly',
+    description:
+      'The Esri platform rewards administration and punishes neglect. We run ArcGIS Enterprise and ArcGIS Online estates  portal and server administration, service publishing, security and sharing models, licensing, and the version upgrades most teams postpone until they cannot  so the platform stays supported, performant and correctly licensed.',
+    bgImage: '/pillars/web_gis.webp',
+    highlights: [
+      { icon: Globe, text: 'ArcGIS Enterprise and ArcGIS Online administration' },
+      { icon: Server, text: 'Portal, hosting server and federated server management' },
+      { icon: ShieldCheck, text: 'Security, sharing models and named-user governance' },
+      { icon: RefreshCw, text: 'Version upgrades, patching and deprecation planning' },
+      { icon: Gauge, text: 'Service publishing, caching and performance tuning' },
+    ],
+    approach: [
+      {
+        title: 'Platform review',
+        detail:
+          'Current versions, federation and licence position, checked against what Esri still supports. This is usually the stage at which an unsupported version comes to light.',
+      },
+      {
+        title: 'Governance',
+        detail:
+          'Groups, sharing rules, named-user roles and content ownership defined, so the portal does not turn into a shared drive with a map on it.',
+      },
+      {
+        title: 'Operate',
+        detail:
+          'Publishing, service tuning, cache management, backups and routine administration on a defined cadence rather than when something goes wrong.',
+      },
+      {
+        title: 'Upgrade',
+        detail:
+          'Planned version upgrades rehearsed in a staging environment first, so the platform stays inside its support window rather than drifting quietly out of it.',
+      },
+    ],
+    deliverables: [
+      'Platform inventory, version and licence register',
+      'Sharing, security and role model',
+      'Service publishing and caching standards',
+      'Backup and recovery procedure',
+      'Upgrade plan and rehearsal results',
+      'Administration and platform health reporting',
+    ],
+    idealFor: [
+      'ArcGIS Enterprise estates with no full-time administrator',
+      'ArcGIS Online organisations that grew without governance',
+      'Teams running an ArcGIS version past its support window',
+      'Utilities, government and infrastructure Esri users',
+      'Organisations planning a platform upgrade',
+    ],
+    outcomes: [
+      'A platform inside Esri support rather than past it',
+      'Content and permissions a new user can make sense of',
+      'Services that hold up under concurrent load',
+      'Named-user licences matched to real use',
+      'Upgrades that are rehearsed rather than improvised',
+    ],
+  },
+
+  /* ---------------- BIM & Esri Capabilities ---------------- */
+  /* These render from src/data/capabilityDeepDives.ts, not from this file. They are
+     listed here because the build-time route manifest is generated from this array,
+     and server.js 404s any /capabilities/<slug> the manifest does not know about. */
+  {
+    slug: 'scan-to-bim',
+    group: 'BIM Capabilities',
+    category: 'SCAN TO BIM',
+    icon: Scan,
+    title: 'Scan to BIM',
+    subtitle: 'Point Cloud Survey Converted Into Models You Can Build From',
+    description:
+      'Laser scan and photogrammetric survey converted into federated, tolerance-stated BIM models of existing buildings and infrastructure, modelled to the level of development the downstream discipline actually needs.',
+    bgImage: '/pillars/point_cloud.webp',
+    highlights: [],
+    approach: [],
+    deliverables: [],
+    idealFor: [],
+    outcomes: [],
+  },
+  {
+    slug: 'bim-gis-integration',
+    group: 'BIM Capabilities',
+    category: 'BIM & GIS INTEGRATION',
+    icon: GitMerge,
+    title: 'BIM & GIS Integration',
+    subtitle: 'The Building Model and the Network Around It, in One Coordinate System',
+    description:
+      'IFC and Revit models reconciled with GIS through shared coordinate systems, mapped classifications and a linkage that survives both sides being reissued.',
+    bgImage: '/pillars/GeoBIM-Indoor Intelligence.webp',
+    highlights: [],
+    approach: [],
+    deliverables: [],
+    idealFor: [],
+    outcomes: [],
+  },
+  {
+    slug: 'digital-twin-asset-information',
+    group: 'BIM Capabilities',
+    category: 'DIGITAL TWIN & ASSET INFORMATION',
+    icon: Boxes,
+    title: 'Digital Twin & Asset Information',
+    subtitle: 'Asset Information Models That Are Still True in Year Three',
+    description:
+      'Asset information models built to an agreed information requirement, populated from survey, BIM and operational systems, and kept current by a defined update route.',
+    bgImage: '/pillars/twinning.webp',
+    highlights: [],
+    approach: [],
+    deliverables: [],
+    idealFor: [],
+    outcomes: [],
+  },
+  {
+    slug: 'arcgis-solution-development',
+    group: 'Esri Capabilities',
+    category: 'ARCGIS SOLUTION DEVELOPMENT',
+    icon: Code,
+    title: 'ArcGIS Solution Development',
+    subtitle: 'Configured Where It Can Be, Built Where It Has To Be',
+    description:
+      'Web apps, dashboards, field workflows and custom extensions on the ArcGIS platform, configured where the platform allows and developed against the SDKs where it does not.',
+    bgImage: '/pillars/webtech.webp',
+    highlights: [],
+    approach: [],
+    deliverables: [],
+    idealFor: [],
+    outcomes: [],
+  },
+  {
+    slug: 'geodatabase-data-modelling',
+    group: 'Esri Capabilities',
+    category: 'GEODATABASE & DATA MODELLING',
+    icon: Database,
+    title: 'Geodatabase & Data Modelling',
+    subtitle: 'The Schema That Decides What the System Can Ever Do',
+    description:
+      'Enterprise geodatabase design, versioning strategy, attribute rules and network models: the schema work that determines whether editing scales and tracing returns the right answer.',
+    bgImage: '/pillars/data_engineering.webp',
+    highlights: [],
+    approach: [],
+    deliverables: [],
+    idealFor: [],
+    outcomes: [],
+  },
+  {
+    slug: 'arcgis-field-operations',
+    group: 'Esri Capabilities',
+    category: 'ARCGIS FIELD OPERATIONS',
+    icon: MapPin,
+    title: 'ArcGIS Field Operations',
+    subtitle: 'Field Maps, Survey123 and QuickCapture, Configured for the Crew',
+    description:
+      'The Esri field suite configured against your data model, with the offline areas, smart forms and sync behaviour that decide whether a day of fieldwork survives a dead zone.',
+    bgImage: '/pillars/poi_ex.webp',
+    highlights: [],
+    approach: [],
+    deliverables: [],
+    idealFor: [],
+    outcomes: [],
+  },
+  {
+    slug: 'data-center-build-setup',
+    group: 'Data Center & IT Infrastructure',
+    category: 'DATA CENTER BUILD & SETUP',
+    icon: Server,
+    title: 'Data Center Build & Setup',
+    subtitle: 'From an Empty Shell to a Room Operations Will Accept',
+    description:
+      'Design support, structured cabling, rack and stack, power and cooling install, and the integrated systems testing that proves a room behaves under load and under failure.',
+    bgImage: '/pillars/data_center.webp',
+    highlights: [],
+    approach: [],
+    deliverables: [],
+    idealFor: [],
+    outcomes: [],
   },
 ]
 

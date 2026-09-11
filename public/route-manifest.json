@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-08T08:22:45.090Z",
+  "generated": "2026-09-11T04:25:48.309Z",
   "careers": [
     "aem-content-author-email-developer",
     "arcgis-technical-trainer",
@@ -35,15 +35,24 @@
   ],
   "capabilities": [
     "5g-small-cells",
+    "application-support",
+    "arcgis-field-operations",
+    "arcgis-solution-development",
     "as-built-validation",
+    "bim-gis-integration",
+    "data-center-build-setup",
     "data-operations",
     "data-validation",
     "digital-engineering",
+    "digital-twin-asset-information",
+    "esri-platform-support",
     "field-verification",
     "geoai-data-operations",
+    "geodatabase-data-modelling",
     "geospatial-mapping",
     "global-fleet-field-operations",
     "human-in-the-loop-qa",
+    "integration-services",
     "lidar-engineering",
     "lidar-feature-extraction",
     "ocr-sign-intelligence",
@@ -53,6 +62,7 @@
     "quality-operations",
     "road-network-geometry",
     "safety-compliance",
+    "scan-to-bim",
     "telecom-infrastructure"
   ],
   "technologies": [
@@ -79,6 +89,7 @@
     "^/capabilities/digital-engineering/?$",
     "^/capabilities/geoai-data-operations/?$",
     "^/capabilities/geospatial-mapping/?$",
+    "^/capabilities/gis-tools-support/?$",
     "^/capabilities/global-fleet-field-operations/?$",
     "^/capabilities/program-managed-services/?$",
     "^/capabilities/telecom-infrastructure/?$",
