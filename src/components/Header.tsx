@@ -42,7 +42,7 @@ const navigation: NavItem[] = [
         items: [
           
           { name: 'Road Network & Geometry', href: '/capabilities/road-network-geometry' },
-          { name: 'POI & Address Intelligence', href: '/services/basemap-poi-annotation' },
+          { name: 'Basemap, POI & Address Intelligence', href: '/services/basemap-poi-annotation' },
           { name: 'GIS Data Engineering', href: '/technologies/gis' },
         ],
       },

@@ -126,14 +126,14 @@ export default function BasemapPOIAnnotation() {
 
       {/* Hero */}
       <ServiceHero
-        breadcrumb={"Basemap, POI & Annotation"}
+        breadcrumb={"Basemap, POI & Address Intelligence"}
         eyebrow={"Core Service"}
         eyebrowIcon={Map}
-        title={"Basemap, POI & Annotation Services"}
+        title={"Basemap, POI & Address Intelligence"}
         subtitle={"The foundational map data that powers navigation, location intelligence, and AI."}
         description={"For map and navigation providers, mobility platforms, address providers and location-data businesses that need local freshness at scale."}
         image="/gis-mapping.jpeg"
-        imageAlt="Basemap, POI and annotation services"
+        imageAlt="Basemap, POI and Address Intelligence"
       />
 
       {/* What We Deliver */}

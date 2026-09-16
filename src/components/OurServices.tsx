@@ -23,7 +23,7 @@ const services = [
     features: ['Fleet Mobilisation', 'Crew Operations', 'Dispatch & Tracking', 'Safety & Permits'],
   },
   {
-    title: 'Basemap, POI & Annotation',
+    title: 'Basemap, POI & Address Intelligence',
     slug: '/services/basemap-poi-annotation',
     icon: MapPinned,
     description: 'Foundational basemaps, evidence-driven POI operations, and controlled-ontology map and imagery annotation behind navigation and AI.',
