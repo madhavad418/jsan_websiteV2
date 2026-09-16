@@ -157,7 +157,7 @@ export default function Services() {
           'Geospatial & Mapping',
           'Field Operations',
           'GeoAI & Data Ops',
-          'Telecom & Infrastructure',
+          'LiDAR & 3D Intelligence',
           'Digital Engineering',
           'Managed Services',
         ]}

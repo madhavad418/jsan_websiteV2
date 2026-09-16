@@ -1,5 +1,6 @@
+import { spatialApplicationPages } from './capabilityDeepDives'
 import type { LucideIcon } from 'lucide-react'
-import { Map, Truck, Brain, Antenna, Code, ClipboardList } from 'lucide-react'
+import { Map, Truck, Brain, Scan, Code, ClipboardList } from 'lucide-react'
 
 /**
  * The six capability pillars, each a real page at /capabilities/<slug>.
@@ -31,41 +32,75 @@ export type CapabilityPillar = {
 
 export const capabilityPillars: CapabilityPillar[] = [
   {
+    slug: 'spatial-applications-engineering',
+    group: 'Spatial Applications & Engineering',
+    name: 'Spatial Applications & Engineering',
+    icon: Code,
+    summary: 'Develop GIS applications, engineer digital twins and connect spatial systems.',
+    description: 'Esri and GIS application development, BIM and digital twin engineering, and spatial APIs and systems integration. We bring application, model and integration expertise together so spatial information supports everyday engineering and operations.',
+    image: '/pillars/esri.webp',
+    imageAlt: 'Spatial applications and GIS engineering',
+    stages: ['Process', 'Validate', 'Deliver', 'Operate'],
+    services: spatialApplicationPages.map((page) => ({
+      name: page.title, href: `/capabilities/${page.slug}`, description: page.description,
+    })),
+    outcomes: [
+      'GIS applications configured around operational workflows',
+      'Coordinated building models and asset information connected to GIS',
+      'Spatial data available through maintained APIs and system interfaces',
+    ],
+    industries: [
+      { name: 'Government & Smart Cities', href: '/industries/government-smart-cities' },
+      { name: 'Transportation & Infrastructure', href: '/industries/transportation-infrastructure' },
+      { name: 'Utilities', href: '/industries/utilities' },
+    ],
+  },
+  {
     slug: 'geospatial-mapping',
     group: 'Geospatial & Mapping',
     name: 'Geospatial & Mapping',
     icon: Map,
-    summary: 'Capture the world as structured, routable, field-verified geospatial data.',
+    summary: 'Build, manage, analyse and visualise geospatial data that operations can rely on.',
     description:
-      'Street-level imagery, LiDAR, road networks, addresses and POIs, built to your schema and reconciled against ground truth. This is the map layer navigation, logistics and mobility platforms route on  compiled from our own capture, authoritative sources and field crews, then validated before it reaches production.',
+      'Road networks, basemaps, addresses and POIs, navigation data, remote sensing and enterprise GIS, built to your schema and reconciled against ground truth. We cover the full geospatial lifecycle, from capture and data engineering to spatial analysis and visualisation, so mapping, logistics, mobility and public-sector teams work from one trusted spatial record.',
     image: '/pillars/mapping.webp',
-    imageAlt: 'Street-level capture and structured road network data',
+    imageAlt: 'Structured road network, basemap and geospatial data layers',
     stages: ['Collect', 'Process', 'Validate', 'Deliver'],
     services: [
-      {
-        name: 'Street-Level Imagery',
-        href: '/services/global-street-data-collection',
-        description: '360° imagery and mobile LiDAR runs, planned, driven and processed to specification.',
-      },
-      {
-        name: 'LiDAR & 3D Mapping',
-        href: '/services/geospatial',
-        description: 'Point cloud capture, classification and 3D products for mapping and engineering.',
-      },
       {
         name: 'Road Network & Geometry',
         href: '/capabilities/road-network-geometry',
         description: 'Routable centrelines, connectivity, turn restrictions and navigation attribution.',
       },
       {
-        name: 'POI & Address Intelligence',
+        name: 'Basemap, POI & Address Intelligence',
         href: '/services/basemap-poi-annotation',
-        description: 'Evidence-backed POI and address operations against a controlled ontology.',
+        description: 'Evidence-backed basemap, POI and address operations against a controlled ontology.',
+      },
+      {
+        name: 'Navigation Data',
+        href: '/capabilities/navigation-data',
+        description: 'Map attribution, restrictions and change detection for routing and navigation products.',
+      },
+      {
+        name: 'Spatial Analysis',
+        href: '/capabilities/spatial-analysis',
+        description: 'Geostatistics, suitability and demand modelling that turn location into decisions.',
       },
       {
         name: 'GIS Data Engineering',
         href: '/technologies/gis',
         description: 'Schema design, conflation, topology and the pipelines that keep data current.',
+      },
+      {
+        name: 'Enterprise GIS & Data Management',
+        href: '/capabilities/enterprise-gis-data-management',
+        description: 'Spatial databases, governance and GIS platforms that scale across the organisation.',
+      },
+      {
+        name: 'Remote Sensing & Earth Observation',
+        href: '/capabilities/remote-sensing-earth-observation',
+        description: 'Satellite and aerial imagery classified into land cover, change and feature layers.',
       },
       {
         name: 'Field Verification',
@@ -76,11 +111,13 @@ export const capabilityPillars: CapabilityPillar[] = [
     outcomes: [
       'One map layer built to your schema, not a set of incompatible deliveries',
       'Positional and attribute quality checked before data enters production',
+      'Spatial analysis and visualisation built on data that has already been validated',
       'Change captured on a refresh cycle rather than as one-off collection',
     ],
     industries: [
       { name: 'Mapping & Location Platforms', href: '/industries/mapping-location-platforms' },
       { name: 'Autonomous Mobility', href: '/industries/autonomous-mobility' },
+      { name: 'Government & Smart Cities', href: '/industries/government-smart-cities' },
     ],
   },
   {
@@ -137,13 +174,13 @@ export const capabilityPillars: CapabilityPillar[] = [
     ],
   },
   {
-    slug: 'geoai-data-operations',
-    group: 'GeoAI & Data Operations',
-    name: 'GeoAI & Data Operations',
+    slug: 'visual-ai-assisted-data-annotation',
+    group: 'Visual & AI-Assisted Data Annotation',
+    name: 'Visual & AI-Assisted Data Annotation',
     icon: Brain,
     summary: 'Turn imagery and point clouds into validated, decision-ready information.',
     description:
-      'Computer vision, LiDAR feature extraction, OCR and annotation, run as production operations rather than experiments. Automation does the volume; trained reviewers handle what automation cannot be trusted with, and accuracy rests on calibration and sampling rather than model confidence alone.',
+      'Computer vision, OCR and annotation, run as production operations rather than experiments. Automation does the volume; trained reviewers handle what automation cannot be trusted with, and accuracy rests on calibration and sampling rather than model confidence alone.',
     image: '/pillars/computer_vision.webp',
     imageAlt: 'Imagery with asset detection overlay and extracted features',
     stages: ['Process', 'Validate'],
@@ -154,9 +191,9 @@ export const capabilityPillars: CapabilityPillar[] = [
         description: 'Detection, segmentation and change detection at production scale.',
       },
       {
-        name: 'LiDAR Feature Extraction',
-        href: '/capabilities/lidar-feature-extraction',
-        description: 'Raw point cloud to classified, usable geospatial features.',
+        name: '2D & 3D Annotation & Segmentation',
+        href: '/capabilities/2d-3d-annotation-segmentation',
+        description: 'Boxes, polygons and masks on imagery; cuboids and point-level classes on LiDAR.',
       },
       {
         name: 'OCR & Sign Intelligence',
@@ -190,56 +227,57 @@ export const capabilityPillars: CapabilityPillar[] = [
     ],
   },
   {
-    slug: 'telecom-infrastructure',
-    group: 'Telecom & Infrastructure',
-    name: 'Telecom & Infrastructure',
-    icon: Antenna,
-    summary: 'Field evidence, network GIS and engineering for build and asset programmes.',
+    slug: 'lidar-3d-intelligence',
+    group: 'LiDAR & 3D Intelligence',
+    name: 'LiDAR & 3D Intelligence',
+    icon: Scan,
+    summary: 'Turn aerial, mobile and terrestrial scans into measured, engineering-grade 3D intelligence.',
     description:
-      'Telecom GIS, fibre engineering, pole and asset intelligence, 5G siting and as-built validation. Survey crews mobilise against live build schedules, capture is reconciled to design, and exceptions are raised rather than absorbed quietly into the network record.',
-    image: '/pillars/telecommunications.webp',
-    imageAlt: 'Telecom network survey, pole assets and fibre engineering',
+      'Drone, aerial and mobile LiDAR capture, point cloud classification, feature extraction, 3D modelling and engineering analysis. Scan data is processed into classified features, corridor models and digital twins, then validated against design and ground truth so it can be measured from, built from and trusted in the asset record.',
+    image: '/pillars/lidar_engineering.webp',
+    imageAlt: 'Classified LiDAR point cloud and 3D corridor model',
     stages: ['Collect', 'Process', 'Validate', 'Deliver'],
     services: [
       {
-        name: 'Telecom GIS',
-        href: '/services/telecom-network-intelligence',
-        description: 'Network GIS, asset records and operational spatial data for operators.',
+        name: 'Aerial & Drone LiDAR Mapping',
+        href: '/capabilities/aerial-drone-lidar-mapping',
+        description: 'Drone and aerial LiDAR capture, orthomosaics and terrain models to specification.',
       },
       {
-        name: 'Fiber Engineering',
-        href: '/services/smart-fiber-planning',
-        description: 'FTTx planning, route design and build support workflows.',
-      },
-      {
-        name: 'Pole & Asset Intelligence',
-        href: '/services/pole-asset-intelligence',
-        description: 'Pole loading, attachment and asset condition intelligence.',
-      },
-      {
-        name: '5G & Small Cells',
-        href: '/capabilities/5g-small-cells',
-        description: 'Siting, candidate assessment and deployment support.',
+        name: 'LiDAR Feature Extraction',
+        href: '/capabilities/lidar-feature-extraction',
+        description: 'Raw point cloud to classified, usable geospatial features.',
       },
       {
         name: 'LiDAR Engineering',
         href: '/capabilities/lidar-engineering',
-        description: 'Clearance, sag and engineering measurement from point clouds.',
+        description: 'Clearance, sag, loading and encroachment measured from point clouds.',
+      },
+      {
+        name: '3D Modelling & Digital Twins',
+        href: '/capabilities/3d-modelling-digital-twins',
+        description: '3D city, corridor and asset models built for simulation, monitoring and planning.',
+      },
+      {
+        name: 'Pole & Asset Intelligence',
+        href: '/services/pole-asset-intelligence',
+        description: 'Pole, attachment and asset condition captured and measured at programme scale.',
       },
       {
         name: 'As-Built Validation',
         href: '/capabilities/as-built-validation',
-        description: 'Built network reconciled against design before it enters the record.',
+        description: 'Built infrastructure reconciled against design before it enters the record.',
       },
     ],
     outcomes: [
-      'A network record that matches what is physically installed',
-      'Engineering-grade measurement where clearance and sag matter',
-      'Exceptions surfaced during the build, not discovered afterwards',
+      'Point clouds turned into classified features and models, not left as raw scans',
+      'Engineering-grade measurement where clearance, sag and loading matter',
+      'Records that match what is physically built, with exceptions surfaced early',
     ],
     industries: [
       { name: 'Telecommunications', href: '/industries/telecommunications' },
       { name: 'Utilities', href: '/industries/utilities' },
+      { name: 'Transportation & Infrastructure', href: '/industries/transportation-infrastructure' },
     ],
   },
   {

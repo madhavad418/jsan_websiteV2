@@ -7,6 +7,96 @@
   ],
   "redirects": [
     {
+      "source": "/capabilities/application-support",
+      "destination": "/capabilities/esri-gis-application-development",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/esri-platform-support",
+      "destination": "/capabilities/esri-gis-application-development",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/arcgis-solution-development",
+      "destination": "/capabilities/esri-gis-application-development",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/geodatabase-data-modelling",
+      "destination": "/capabilities/esri-gis-application-development",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/arcgis-field-operations",
+      "destination": "/capabilities/esri-gis-application-development",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/scan-to-bim",
+      "destination": "/capabilities/bim-digital-twin-engineering",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/bim-gis-integration",
+      "destination": "/capabilities/bim-digital-twin-engineering",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/digital-twin-asset-information",
+      "destination": "/capabilities/bim-digital-twin-engineering",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/integration-services",
+      "destination": "/capabilities/spatial-apis-systems-integration",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/telecom-infrastructure",
+      "destination": "/capabilities/lidar-3d-intelligence",
+      "permanent": true
+    },
+    {
+      "source": "/capabilities/geoai-data-operations",
+      "destination": "/capabilities/visual-ai-assisted-data-annotation",
+      "permanent": true
+    },
+    {
+      "source": "/services/geospatial/aerial-surveys",
+      "destination": "/capabilities/aerial-drone-lidar-mapping",
+      "permanent": true
+    },
+    {
+      "source": "/services/geospatial/digital-twins",
+      "destination": "/capabilities/3d-modelling-digital-twins",
+      "permanent": true
+    },
+    {
+      "source": "/services/location-intelligence/navigation-data",
+      "destination": "/capabilities/navigation-data",
+      "permanent": true
+    },
+    {
+      "source": "/services/geospatial/spatial-analytics",
+      "destination": "/capabilities/spatial-analysis",
+      "permanent": true
+    },
+    {
+      "source": "/services/geospatial/enterprise-gis",
+      "destination": "/capabilities/enterprise-gis-data-management",
+      "permanent": true
+    },
+    {
+      "source": "/services/geospatial/remote-sensing",
+      "destination": "/capabilities/remote-sensing-earth-observation",
+      "permanent": true
+    },
+    {
+      "source": "/services/location-intelligence/data-capture",
+      "destination": "/capabilities/geospatial-data-capture",
+      "permanent": true
+    },
+    {
       "source": "/about",
       "destination": "/company",
       "permanent": true
@@ -23,7 +113,7 @@
     },
     {
       "source": "/capabilities/gis-tools-support",
-      "destination": "/capabilities/application-support",
+      "destination": "/capabilities/esri-gis-application-development",
       "permanent": true
     },
     {

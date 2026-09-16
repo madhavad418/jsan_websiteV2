@@ -9,7 +9,7 @@ import { inHouseProducts } from '../data/inHouseProducts'
 /**
  * /products  the systems JSAN built and runs itself.
  *
- * Sits under Capabilities > In-House alongside /work, which carries the client case
+ * Sits under Capabilities > Platforms & Accelerators alongside /work, which carries the client case
  * studies. The two used to hang off a separate top-level "Work" item, and this page was
  * briefly at /projects  a label that collided with the case studies, which are projects
  * too. /projects now redirects here.
@@ -47,7 +47,7 @@ export default function InHouseProducts() {
 
             <span className="mb-5 inline-flex items-center gap-2 t-label text-[#00d4ff]">
               <Boxes className="h-4 w-4 text-[#00d4ff]" aria-hidden="true" />
-              In-House
+              Platforms & Accelerators
             </span>
 
             <h1 className="mb-4 text-[26px] font-bold leading-[1.12] text-white sm:text-[30px] sm:leading-[1.08] lg:text-[48px]">

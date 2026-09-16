@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Home, Layers, Briefcase, Building2, Mail } from 'lucide-react'
 
 /* Mirrors the desktop header: capabilities, products, industries, contact. Work is no
-   longer a section of its own  it sits under Capabilities > In-House. */
+   longer a section of its own  it sits under Capabilities > Platforms & Accelerators. */
 const navItems = [
   { name: 'Home', href: '/', icon: Home },
   { name: 'Capabilities', href: '/capabilities', icon: Layers },

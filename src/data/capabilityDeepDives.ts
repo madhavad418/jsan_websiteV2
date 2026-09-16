@@ -2,35 +2,70 @@ import {
   Activity,
   AlertTriangle,
   ArrowUpCircle,
+  BarChart3,
+  Bot,
+  Box,
   Boxes,
+  BoxSelect,
+  Building2,
+  Camera,
+  Car,
   ClipboardCheck,
+  Cloud,
   Code,
+  Combine,
+  Compass,
+  Construction,
+  Crosshair,
   Database,
+  Eye,
   FileCheck,
   FileCode,
   FileSearch,
   Gauge,
+  GitCompare,
   GitMerge,
   Globe,
   Key,
   Layers,
+  LayoutDashboard,
+  Leaf,
   LifeBuoy,
   Link2,
+  Lock,
   Map,
+  MapPin,
   MonitorSmartphone,
+  Mountain,
+  Navigation,
   Network,
+  Orbit,
+  Plane,
   Plug,
   RefreshCw,
+  Rotate3d,
+  Route,
   Ruler,
+  Satellite,
   Scan,
+  ScanLine,
   Server,
+  Shapes,
+  Share2,
   ShieldCheck,
+  Signpost,
   Smartphone,
+  Sparkles,
   Target,
   Terminal,
   Timer,
+  Trees,
+  TrendingUp,
+  Truck,
   Users,
+  Workflow,
   Wrench,
+  Zap,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import type { TechGroup } from '../components/TechMatrix'
@@ -59,17 +94,25 @@ export type EngagementModel = {
 }
 
 export type DeepDiveGroup =
+  | 'Spatial Applications & Engineering'
   | 'Technology Support'
   | 'BIM Capabilities'
   | 'Esri Capabilities'
   | 'Data Center & IT Infrastructure'
+  | 'Visual & AI-Assisted Data Annotation'
+  | 'Geospatial & Mapping'
+  | 'LiDAR & 3D Intelligence'
 
 /** Menu group, used for the eyebrow and the sibling strip at the foot of each page. */
 export const groupLabel: Record<DeepDiveGroup, string> = {
+  'Spatial Applications & Engineering': 'Spatial Applications & Engineering',
   'Technology Support': 'Technology Support',
   'BIM Capabilities': 'BIM Capabilities',
   'Esri Capabilities': 'Esri Capabilities',
   'Data Center & IT Infrastructure': 'Data Center & IT Infrastructure',
+  'Visual & AI-Assisted Data Annotation': 'Visual & AI-Assisted Data Annotation',
+  'Geospatial & Mapping': 'Geospatial & Mapping',
+  'LiDAR & 3D Intelligence': 'LiDAR & 3D Intelligence',
 }
 
 export type DeepDivePage = {
@@ -83,11 +126,13 @@ export type DeepDivePage = {
   image: string
   imageAlt: string
   copySide?: 'left' | 'right'
+  /** 'cards' renders What we deliver as compact icon cards with no photographs. Default: photo panels. */
+  techLayout?: 'panels' | 'cards'
   imagePosition?: string
   /** Three claims under the hero. Positioning, not statistics. */
   positioning: { icon: LucideIcon; title: string; detail: string }[]
   tech: { eyebrow: string; heading: string; intro: string; groups: TechGroup[] }
-  scenarios: { eyebrow: string; heading: string; intro: string; items: Scenario[] }
+  scenarios: { eyebrow: string; heading: string; intro: string; items: Scenario[]; collections?: { name: string; items: Scenario[] }[] }
   workflow: { heading: string; intro: string; steps: ProcessStep[] }
   engagement: { heading: string; intro: string; models: EngagementModel[] }
 }
@@ -2075,21 +2120,2949 @@ const dataCenterBuild: DeepDivePage = {
   },
 }
 
-export const deepDivePages: DeepDivePage[] = [
-  // Technology Support
-  applicationSupport,
-  integrationServices,
-  // BIM Capabilities
-  scanToBim,
-  bimGisIntegration,
-  digitalTwinAssetInformation,
-  // Esri Capabilities
-  esriPlatformSupport,
-  arcgisSolutionDevelopment,
-  geodatabaseDataModelling,
-  arcgisFieldOperations,
-  // Data Center & IT Infrastructure
-  dataCenterBuild,
+/* ------------------------------------------------------------------ lidar & 3d applications */
+
+/**
+ * LiDAR & 3D Application Development.
+ *
+ * The LiDAR & 3D Intelligence pillar covers capture, extraction and engineering. This page
+ * is the software on top: where the point clouds live, how people look at them, and the
+ * road and pavement intelligence products built from them - including JSAN LiDAR Viewer
+ * 360. It is written for the buyer who already has scans and needs them to be usable.
+ */
+const lidarApplicationDevelopment: DeepDivePage = {
+  slug: 'lidar-3d-application-development',
+  group: 'Spatial Applications & Engineering',
+  navLabel: 'LiDAR & 3D Application Development',
+  eyebrowIcon: Rotate3d,
+  title: 'LiDAR & 3D Application Development',
+  subtitle: 'Point clouds your teams can open, measure and act on.',
+  description:
+    'We build the applications that turn mobile, aerial and terrestrial LiDAR into working intelligence: cloud hosting and streaming viewers, road asset extraction, pavement condition scoring to PCI and PASER, and JSAN LiDAR Viewer 360, our own platform for exploring scans and panoramic imagery side by side in the browser.',
+  image: '/pillars/lidar_3d.webp',
+  imageAlt: 'Mobile LiDAR point cloud of a road corridor beside the captured street scene',
+  copySide: 'left',
+  positioning: [
+    {
+      icon: Cloud,
+      title: 'From terabytes to a browser tab',
+      detail:
+        'Scans are tiled, indexed and streamed, so engineers, asset owners and executives open the same corridor without installing desktop software or waiting on file transfers.',
+    },
+    {
+      icon: Crosshair,
+      title: 'Measured, not just rendered',
+      detail:
+        'Every asset, defect and rating traces back to points and imagery with position and evidence attached, so the output stands up in design reviews and budget decisions.',
+    },
+    {
+      icon: Share2,
+      title: 'Built into your systems',
+      detail:
+        'Extracted features and condition scores land in your GIS, asset register or pavement management system on an agreed schema, not in a one-off export folder.',
+    },
+  ],
+  tech: {
+    eyebrow: 'What we build',
+    heading: 'Four ways LiDAR becomes something you can use',
+    intro:
+      'From hosting the raw scan to scoring every section of pavement, each application is designed around the decision it has to support.',
+    groups: [
+      {
+        name: 'LiDAR Hosting & Viewing',
+        icon: Cloud,
+        blurb:
+          'Secure cloud hosting and web-based viewing for massive point cloud collections, streamed on demand so any authorised user can explore, measure and share them.',
+        image: '/pillars/lidarapp_1.webp',
+        items: [
+          'Cloud hosting for LAS, LAZ & E57',
+          'Tiling & streaming (COPC, 3D Tiles, Potree)',
+          'Web viewers with measurement tools',
+          'Imagery & point cloud synchronisation',
+          'Role-based access & secure sharing',
+          'GIS & CAD overlays',
+          'Cross-sections & profile views',
+          'Project, campaign & version management',
+        ],
+        details: [
+          {
+            name: 'Ingest & optimisation',
+            blurb: 'Raw capture is normalised and prepared once, so every viewer and application reads the same trusted copy.',
+            items: [
+              'Format conversion, reprojection and datum alignment',
+              'Classification-aware tiling and level-of-detail generation',
+              'Trajectory, imagery and metadata linking',
+              'Automated quality checks on density, coverage and gaps',
+            ],
+          },
+          {
+            name: 'Viewing & collaboration',
+            blurb: 'A viewer that behaves like a working tool rather than a demo.',
+            items: [
+              'Distance, height, area, volume and clearance measurement',
+              'Colour by elevation, intensity, classification or RGB',
+              'Annotations, saved views and shareable links',
+              'Embedding into web GIS, portals and dashboards',
+            ],
+          },
+          {
+            name: 'Platform & security',
+            blurb: 'Hosting designed around where the data is allowed to live and who is allowed to see it.',
+            items: [
+              'AWS, Azure or private cloud deployment',
+              'Single sign-on and project-level permissions',
+              'Storage tiering for active and archived campaigns',
+              'APIs for downstream applications and automation',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'LiDAR Road Asset Intelligence',
+        icon: Signpost,
+        blurb:
+          'Automated and reviewer-verified feature extraction that turns corridor scans into a georeferenced, attributed inventory of every roadside asset.',
+        image: '/pillars/lidarapp_2.webp',
+        items: [
+          'Signs, signals & gantries',
+          'Poles, streetlights & utility structures',
+          'Lane markings & road edges',
+          'Guardrails, barriers & kerbs',
+          'Bridges, overpasses & vertical clearance',
+          'Drainage, manholes & roadside furniture',
+          'Trees & vegetation encroachment',
+          'Attribute capture: height, offset, condition',
+        ],
+        details: [
+          {
+            name: 'Extraction pipeline',
+            blurb: 'Machine learning handles the volume; trained reviewers confirm what automation cannot be trusted with.',
+            items: [
+              'Point cloud classification and segmentation',
+              'Object detection fused with synchronised imagery',
+              'OCR for sign text and regulatory codes',
+              'Human-in-the-loop verification against sampling targets',
+            ],
+          },
+          {
+            name: 'Asset data products',
+            blurb: 'Delivered in the structure your asset and GIS teams already maintain.',
+            items: [
+              'Point, line and polygon features with full attribution',
+              'Evidence snapshots linked to each asset',
+              'Change detection between survey campaigns',
+              'Delivery to ArcGIS, PostGIS, CAD or asset management systems',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'LiDAR Pavement Intelligence',
+        icon: Construction,
+        blurb:
+          'Objective pavement condition assessment from LiDAR and imagery, with distresses detected, measured and scored to PCI and PASER for maintenance planning you can defend.',
+        image: '/pillars/lidarapp_3.webp',
+        items: [
+          'Pavement Condition Index (PCI)',
+          'PASER ratings',
+          'Cracking detection & classification',
+          'Rutting & surface deformation',
+          'Potholes, patching & ravelling',
+          'Roughness & ride quality indicators',
+          'Section-level condition scoring',
+          'Maintenance & rehabilitation prioritisation',
+        ],
+        details: [
+          {
+            name: 'Distress detection & measurement',
+            blurb: 'Distresses are located, typed and quantified from the surface model rather than estimated from a windshield survey.',
+            items: [
+              'Longitudinal, transverse and alligator cracking',
+              'Rut depth and deformation from the 3D surface',
+              'Severity and extent per distress type',
+              'Imagery evidence attached to each detection',
+            ],
+          },
+          {
+            name: 'Condition scoring',
+            blurb: 'Ratings calculated consistently across the whole network and every survey cycle.',
+            items: [
+              'PCI calculation aligned to ASTM D6433 methodology',
+              'PASER 1 to 10 visual rating support',
+              'Network segmentation to your road section model',
+              'Year-on-year deterioration tracking',
+            ],
+          },
+          {
+            name: 'Decision support',
+            blurb: 'Condition turned into a programme of work, not just a colour-coded map.',
+            items: [
+              'Treatment recommendations by condition band',
+              'Budget and prioritisation scenarios',
+              'Dashboards for engineers and elected officials',
+              'Integration with pavement management systems',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'JSAN LiDAR Viewer 360',
+        icon: Orbit,
+        blurb:
+          'Our in-house platform for exploring LiDAR, 360° panoramic imagery and extracted assets together in one browser experience, built for the teams who need to see the corridor without driving it again.',
+        image: '/pillars/lidarapp_4.webp',
+        items: [
+          '360° panoramas synchronised with point clouds',
+          'Map, panorama & 3D views in one workspace',
+          'Measure directly in imagery and scans',
+          'Asset & defect layers from extraction',
+          'Search by location, route or asset',
+          'Campaign comparison over time',
+          'Browser-based, no installation',
+          'White-label & API options',
+        ],
+        details: [
+          {
+            name: 'Explore',
+            blurb: 'A virtual drive of the corridor with every data source aligned to the same position.',
+            items: [
+              'Step-through panoramic navigation along the trajectory',
+              'Linked 2D map, 360° view and 3D point cloud',
+              'Toggle classification, intensity and asset layers',
+              'Jump to any asset, chainage or coordinate',
+            ],
+          },
+          {
+            name: 'Measure & verify',
+            blurb: 'Answer site questions from the desk with evidence attached.',
+            items: [
+              'Heights, widths, offsets and clearances',
+              'Verify extracted assets and edit attributes',
+              'Flag defects and raise review tasks',
+              'Export evidence snapshots and reports',
+            ],
+          },
+          {
+            name: 'Deploy & integrate',
+            blurb: 'Delivered as a hosted service or configured into your own environment.',
+            items: [
+              'Hosted SaaS or private deployment',
+              'Single sign-on and user roles',
+              'Embeds in web GIS and asset portals',
+              'APIs for data loading and third-party applications',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  scenarios: {
+    eyebrow: 'Your requirements',
+    heading: 'From scan data to working decisions',
+    intro: 'Choose an application area and a situation to see how we approach it and what changes.',
+    items: [],
+    collections: [
+      {
+        name: 'Hosting & Viewing',
+        items: [
+          {
+            title: 'Terabytes of scans nobody can open',
+            icon: Database,
+            situation:
+              'Survey campaigns are sitting on hard drives and file shares. Only a handful of specialists with desktop software can view them, so the data is paid for but rarely used.',
+            actions: [
+              'Audit formats, coordinate systems and coverage across campaigns',
+              'Convert, tile and index the collection for streaming',
+              'Deploy a secure web viewer with measurement tools',
+              'Link imagery, trajectories and GIS layers to the scans',
+              'Set up roles, sharing and project-level access',
+            ],
+            outcome:
+              'Engineers, planners and contractors open the corridor in a browser, and the survey investment is used across the organisation instead of one team.',
+          },
+          {
+            title: 'Sharing scan data with contractors securely',
+            icon: Lock,
+            situation:
+              'Design partners and contractors need the point cloud, but emailing drives and granting network access creates version confusion and security risk.',
+            actions: [
+              'Host the data in a controlled cloud environment',
+              'Define project, area and user-level permissions',
+              'Publish shareable views with expiry and audit trails',
+              'Expose APIs for approved downstream tools',
+            ],
+            outcome:
+              'Everyone works from the same current copy, access is controlled and auditable, and nothing leaves on a hard drive.',
+          },
+        ],
+      },
+      {
+        name: 'Road Asset Intelligence',
+        items: [
+          {
+            title: 'No reliable inventory of roadside assets',
+            icon: Signpost,
+            situation:
+              'The asset register is incomplete and out of date. Signs, poles, barriers and markings were last recorded manually, and nobody trusts the positions or attributes.',
+            actions: [
+              'Agree the asset schema, attributes and accuracy targets',
+              'Classify the corridor point cloud and fuse it with imagery',
+              'Extract and attribute assets with ML and reviewer verification',
+              'Attach evidence snapshots to every feature',
+              'Deliver into the GIS or asset management system of record',
+            ],
+            outcome:
+              'A complete, georeferenced inventory the maintenance and planning teams can rely on, with the evidence to back every record.',
+          },
+          {
+            title: 'Keeping the inventory current between surveys',
+            icon: RefreshCw,
+            situation:
+              'A baseline inventory exists, but each new capture campaign is processed from scratch, and changes on the network are missed.',
+            actions: [
+              'Align new campaigns to the existing baseline',
+              'Detect added, removed and changed assets automatically',
+              'Route changes to reviewers for confirmation',
+              'Update records with a full change history',
+            ],
+            outcome:
+              'Each survey updates the inventory rather than replacing it, and changes on the network are caught on the next pass.',
+          },
+        ],
+      },
+      {
+        name: 'Pavement Intelligence',
+        items: [
+          {
+            title: 'Maintenance budgets set on subjective ratings',
+            icon: Gauge,
+            situation:
+              'Pavement condition comes from windshield surveys that vary by inspector and year, so maintenance priorities are hard to defend to councils and funding bodies.',
+            actions: [
+              'Segment the network to the agreed road section model',
+              'Detect and measure cracking, rutting and surface distress from LiDAR',
+              'Calculate PCI and PASER ratings consistently per section',
+              'Attach imagery evidence to each distress and score',
+              'Publish condition maps and dashboards for decision makers',
+            ],
+            outcome:
+              'Objective, repeatable condition scores across the whole network, and a maintenance programme that can be explained and defended.',
+          },
+          {
+            title: 'Turning condition data into a programme of work',
+            icon: Route,
+            situation:
+              'Condition data exists, but it has not been translated into treatments, costs and a prioritised schedule the engineering team can deliver.',
+            actions: [
+              'Map condition bands to treatment strategies',
+              'Model budget and prioritisation scenarios',
+              'Track deterioration across survey cycles',
+              'Integrate results with the pavement management system',
+            ],
+            outcome:
+              'A ranked, costed programme of work tied directly to measured condition, updated every time the network is resurveyed.',
+          },
+        ],
+      },
+      {
+        name: 'JSAN LiDAR Viewer 360',
+        items: [
+          {
+            title: 'Site visits just to check one detail',
+            icon: Eye,
+            situation:
+              'Engineers drive out to confirm a sign height, a clearance or an asset condition, costing time and putting people on live roads.',
+            actions: [
+              'Load corridor scans and 360° imagery into LiDAR Viewer 360',
+              'Synchronise panoramas, point cloud and map to one position',
+              'Enable measurement directly in imagery and 3D',
+              'Overlay extracted assets and defect layers',
+            ],
+            outcome:
+              'Most site questions are answered from the desk with measured evidence, and field visits are reserved for work that genuinely needs them.',
+          },
+          {
+            title: 'Different teams, different versions of the corridor',
+            icon: Compass,
+            situation:
+              'Asset, pavement, design and operations teams each hold their own extracts and screenshots, and nobody is looking at the same picture.',
+            actions: [
+              'Deploy LiDAR Viewer 360 as a shared workspace',
+              'Configure roles and views for each team',
+              'Connect asset and condition layers from the system of record',
+              'Embed the viewer in existing GIS and asset portals',
+            ],
+            outcome:
+              'One visual reference for the whole network, used by every team that works on it.',
+          },
+        ],
+      },
+    ],
+  },
+  workflow: {
+    heading: 'From capture to application',
+    intro: 'A single delivery path, whether the requirement is a viewer, an asset inventory, pavement scores or all of them.',
+    steps: [
+      { icon: FileSearch, title: 'Assess', desc: 'Review existing scans, imagery, accuracy targets and the decisions the data must support.' },
+      { icon: Layers, title: 'Prepare', desc: 'Register, classify, tile and link point clouds with imagery and trajectories.' },
+      { icon: ScanLine, title: 'Extract', desc: 'Detect assets and pavement distress with ML and reviewer verification.' },
+      { icon: Code, title: 'Build', desc: 'Configure hosting, viewers, dashboards and integrations around your users.' },
+      { icon: ShieldCheck, title: 'Validate & operate', desc: 'Check accuracy against targets, hand over, and support the platform in use.' },
+    ],
+  },
+  engagement: {
+    heading: 'Choose the right delivery model',
+    intro: 'A defined application project, a hosted platform subscription or ongoing data and support services.',
+    models: [
+      { name: 'Application project', icon: Wrench, detail: 'Custom LiDAR hosting, viewer, extraction or pavement applications delivered to an agreed scope and acceptance criteria.' },
+      { name: 'Platform subscription', icon: Cloud, detail: 'JSAN LiDAR Viewer 360 and hosting provided as a managed service, with onboarding, configuration and updates included.' },
+      { name: 'Data & support services', icon: LifeBuoy, detail: 'Recurring extraction, condition scoring and platform support aligned to your survey cycles and changing workloads.' },
+    ],
+  },
+}
+
+/* ------------------------------------------------------------------ 2d & 3d annotation */
+
+/**
+ * 2D & 3D Annotation & Segmentation.
+ *
+ * Sits under Visual & AI-Assisted Data Annotation. It is read by ML and data leads who
+ * need training data, so it names the annotation types, geometries and formats outright,
+ * for camera imagery and for LiDAR point clouds, and says how quality is controlled.
+ * Like the rest of this file it avoids accuracy percentages and throughput figures: those
+ * are agreed per project, against a gold set, not promised on a marketing page.
+ */
+const annotationSegmentation: DeepDivePage = {
+  slug: '2d-3d-annotation-segmentation',
+  group: 'Visual & AI-Assisted Data Annotation',
+  navLabel: '2D & 3D Annotation & Segmentation',
+  eyebrowIcon: ScanLine,
+  title: '2D & 3D Annotation & Segmentation',
+  subtitle: 'Training data for vision models, from camera frames to LiDAR point clouds.',
+  description:
+    'We label imagery, video and LiDAR at production scale: bounding boxes, polygons and keypoints, semantic and instance segmentation, 3D cuboids and point-level classification, and fused camera-LiDAR sequences tracked across frames. AI pre-labelling handles the volume, trained annotators refine every edge, and multi-stage QA against your ontology decides what ships.',
+  image: '/pillars/object_detection.webp',
+  imageAlt: 'Street, aerial and utility imagery annotated with boxes, polygons and segmentation masks',
+  copySide: 'left',
+  positioning: [
+    {
+      icon: Layers,
+      title: 'Every modality, one ontology',
+      detail:
+        'Camera images, video, aerial imagery and LiDAR are labelled against a single class definition, so 2D and 3D datasets agree on what a pole, a lane or a pedestrian is.',
+    },
+    {
+      icon: Bot,
+      title: 'AI-assisted, human-verified',
+      detail:
+        'Model pre-labels, interpolation and auto-segmentation remove the repetitive work. Trained annotators correct boundaries, resolve ambiguity and handle the edge cases models get wrong.',
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Quality you can measure',
+      detail:
+        'Gold-set benchmarking, reviewer consensus and sampling against agreed acceptance criteria, reported per class and per batch rather than asserted.',
+    },
+  ],
+  tech: {
+    eyebrow: 'What we annotate',
+    heading: 'From pixels to points',
+    intro:
+      'Four annotation practices covering 2D imagery and 3D point clouds. Each runs on the same ontology management, tooling and quality framework.',
+    groups: [
+      {
+        name: '2D Image & Video Annotation',
+        icon: BoxSelect,
+        blurb:
+          'Object-level labels for street-level, dashcam, drone and satellite imagery, with attributes captured alongside the geometry and objects tracked consistently through video.',
+        image: '/pillars/AIML Object Detection.webp',
+        items: [
+          'Bounding boxes & rotated boxes',
+          'Polygons & polylines',
+          'Keypoints & skeletons',
+          'Lane & road marking lines',
+          'Image classification & tagging',
+          'Attributes: occlusion, truncation, state',
+          'Video object tracking with persistent IDs',
+          'OCR & sign text transcription',
+        ],
+        details: [
+          {
+            name: 'Geometry types',
+            blurb: 'The shape is chosen by what the model has to learn, not by what is quickest to draw.',
+            items: [
+              'Axis-aligned and rotated bounding boxes for detection',
+              'Polygons for irregular objects and footprints',
+              'Polylines and splines for lanes, kerbs and linear assets',
+              'Keypoints for poses, corners and structural landmarks',
+            ],
+          },
+          {
+            name: 'Imagery sources',
+            blurb: 'Annotation guidelines are adapted to the viewpoint and resolution of each source.',
+            items: [
+              'Street-level and 360° panoramic imagery',
+              'Dashcam and ADAS camera frames',
+              'Drone, aerial and satellite imagery',
+              'Video sequences with frame interpolation',
+            ],
+          },
+        ],
+      },
+      {
+        name: '2D Image Segmentation',
+        icon: Shapes,
+        blurb:
+          'Pixel-accurate masks for scene understanding, land cover and asset extraction, drawn to boundaries tight enough for models that learn edges rather than approximate shapes.',
+        image: '/pillars/pixel.webp',
+        items: [
+          'Semantic segmentation',
+          'Instance segmentation',
+          'Panoptic segmentation',
+          'Land cover & land use classification',
+          'Road surface & drivable area masks',
+          'Building footprint & roof segmentation',
+          'Vegetation & water body extraction',
+          'AI-assisted mask refinement',
+        ],
+        details: [
+          {
+            name: 'Segmentation types',
+            blurb: 'Matched to whether the model needs to know what a pixel is, which object it belongs to, or both.',
+            items: [
+              'Semantic: every pixel assigned a class',
+              'Instance: each object separated with its own mask',
+              'Panoptic: stuff and things labelled together',
+              'Hierarchical classes with parent and child labels',
+            ],
+          },
+          {
+            name: 'Precision controls',
+            blurb: 'Boundary quality is checked, not assumed.',
+            items: [
+              'Model-generated masks corrected by annotators',
+              'Boundary and edge-accuracy review',
+              'IoU-based comparison against gold-standard masks',
+              'Consistent handling of occlusion and ambiguous regions',
+            ],
+          },
+        ],
+      },
+      {
+        name: '3D LiDAR & Point Cloud Annotation',
+        icon: Box,
+        blurb:
+          'Cuboids, point-level classes and 3D polylines on mobile, aerial and terrestrial LiDAR, annotated in true 3D space with the orientation, dimensions and classes perception and mapping models depend on.',
+        image: '/pillars/ontology.webp',
+        items: [
+          '3D cuboids with heading & dimensions',
+          'Point-level semantic segmentation',
+          '3D instance segmentation',
+          'Ground, vegetation & structure classification',
+          '3D polylines for lanes, kerbs & wires',
+          'Poles, signs & roadside asset labelling',
+          'Building & terrain feature classes',
+          'ASPRS LAS class compliance',
+        ],
+        details: [
+          {
+            name: '3D object annotation',
+            blurb: 'Boxes fitted to the points, not to a guess of where the object should be.',
+            items: [
+              'Tight-fit cuboids with yaw, pitch and roll where required',
+              'Consistent box sizing for the same object across frames',
+              'Attributes such as moving, parked, occluded or partial',
+              'Sparse and distant-object handling rules',
+            ],
+          },
+          {
+            name: 'Point cloud segmentation',
+            blurb: 'Every point assigned a class for mapping, engineering and perception datasets.',
+            items: [
+              'Semantic classes for ground, road, building, vegetation and assets',
+              'Instance separation of individual poles, trees and vehicles',
+              'Wire, conductor and thin-structure labelling',
+              'Output to LAS/LAZ classification codes or custom schemas',
+            ],
+          },
+          {
+            name: 'Sources',
+            blurb: 'Annotation tuned to the density and geometry of each capture type.',
+            items: [
+              'Vehicle-mounted mobile LiDAR',
+              'Airborne and drone LiDAR',
+              'Terrestrial laser scans',
+              'Automotive spinning and solid-state sensors',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Sensor Fusion & 4D Sequence Annotation',
+        icon: Combine,
+        blurb:
+          'Camera and LiDAR labelled together in calibrated, time-synchronised sequences, so each object carries one identity in 2D and 3D and one track through time.',
+        image: '/pillars/computer_vision.webp',
+        items: [
+          'Camera-LiDAR fused annotation',
+          '3D cuboid projection into camera views',
+          'Multi-camera, 360° scene labelling',
+          'Object tracking across sequences (4D)',
+          'Persistent IDs across sensors & frames',
+          'Keyframe labelling with interpolation',
+          'Ego-motion & calibration-aware tooling',
+          'Scenario & event tagging',
+        ],
+        details: [
+          {
+            name: 'Fusion workflow',
+            blurb: 'The same object labelled once, verified in every view.',
+            items: [
+              'Calibration and timestamp alignment checks before labelling',
+              'Cuboids drawn in 3D and validated in projected 2D',
+              '2D boxes and masks linked to their 3D counterparts',
+              'Cross-sensor consistency review',
+            ],
+          },
+          {
+            name: 'Sequence & tracking',
+            blurb: 'Track continuity matters as much as per-frame accuracy.',
+            items: [
+              'Keyframe annotation with reviewed interpolation',
+              'Track ID continuity through occlusion',
+              'Dynamic attributes such as velocity state and actions',
+              'Scene-level tags for weather, lighting and events',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  scenarios: {
+    eyebrow: 'Your requirements',
+    heading: 'From raw sensor data to model-ready datasets',
+    intro: 'Choose 2D or 3D and a situation to see how we run the work and what you receive.',
+    items: [],
+    collections: [
+      {
+        name: '2D Imagery',
+        items: [
+          {
+            title: 'A detection model stuck on edge cases',
+            icon: Target,
+            situation:
+              'The model performs well on common objects but fails on small, occluded or unusual ones, and the existing labels are inconsistent exactly where it matters.',
+            actions: [
+              'Audit existing labels and failure cases against the model errors',
+              'Tighten the ontology and edge-case rules with worked examples',
+              'Re-label targeted subsets with boxes, polygons and attributes',
+              'Add hard negatives and rare-class examples',
+              'Benchmark against a gold set before release',
+            ],
+            outcome:
+              'A cleaner, more consistent dataset focused on the cases the model actually gets wrong.',
+          },
+          {
+            title: 'Segmentation masks for aerial and street imagery',
+            icon: Shapes,
+            situation:
+              'A land cover, road surface or building extraction model needs pixel-accurate masks across large, varied imagery, and hand-drawn masks are too slow and too uneven.',
+            actions: [
+              'Define classes, boundary rules and minimum mapping units',
+              'Generate AI pre-segmentation for every tile or frame',
+              'Refine masks and boundaries with trained annotators',
+              'Review edge accuracy against gold-standard masks',
+              'Deliver in COCO, mask PNG or GeoTIFF formats',
+            ],
+            outcome:
+              'Semantic, instance or panoptic masks with consistent boundaries, delivered in the format your training pipeline expects.',
+          },
+        ],
+      },
+      {
+        name: '3D Point Cloud',
+        items: [
+          {
+            title: 'LiDAR perception data for autonomous systems',
+            icon: Box,
+            situation:
+              'A perception team needs 3D cuboids and tracks across long driving sequences, with sizes, headings and IDs consistent from frame to frame.',
+            actions: [
+              'Agree class definitions, box-fitting and occlusion rules',
+              'Pre-label cuboids with models and interpolate between keyframes',
+              'Correct boxes in 3D and verify in projected camera views',
+              'Check track ID continuity and size consistency per object',
+              'Export to KITTI, nuScenes-style or custom JSON schemas',
+            ],
+            outcome:
+              'Sequence-consistent 3D labels that a perception model can train on without per-frame noise.',
+          },
+          {
+            title: 'Classifying mapping and utility point clouds',
+            icon: Layers,
+            situation:
+              'Corridor and city-scale LiDAR needs point-level classes for ground, buildings, vegetation, poles and wires, and automated classifiers leave too many errors.',
+            actions: [
+              'Map required classes to ASPRS or a custom scheme',
+              'Run automated classification as the starting point',
+              'Correct misclassified points and separate asset instances',
+              'Label thin structures such as wires and conductors',
+              'QA by sampled sections and class-level review',
+            ],
+            outcome:
+              'Classified point clouds ready for feature extraction, engineering analysis or model training.',
+          },
+        ],
+      },
+      {
+        name: 'Fusion & Quality',
+        items: [
+          {
+            title: 'Camera and LiDAR labels that do not agree',
+            icon: Combine,
+            situation:
+              'Separate teams labelled images and point clouds, so the same object carries different classes, IDs and extents in 2D and 3D.',
+            actions: [
+              'Verify calibration and time synchronisation first',
+              'Annotate in a fused view with projected cuboids',
+              'Link 2D and 3D labels to a single object ID',
+              'Run cross-sensor consistency checks per sequence',
+            ],
+            outcome:
+              'One consistent labelled scene across sensors, ready for fusion models.',
+          },
+          {
+            title: 'Scaling annotation without losing quality',
+            icon: Users,
+            situation:
+              'Volumes are rising, deadlines are fixed, and every previous attempt to scale added annotators and lost consistency.',
+            actions: [
+              'Train and certify annotators on your ontology and gold set',
+              'Set layered review with consensus on ambiguous classes',
+              'Track quality per class, per annotator and per batch',
+              'Feed recurring errors back into guidelines and training',
+            ],
+            outcome:
+              'Throughput that grows with demand while quality stays inside agreed acceptance criteria.',
+          },
+        ],
+      },
+    ],
+  },
+  workflow: {
+    heading: 'How an annotation programme runs',
+    intro: 'The same five stages for 2D and 3D. The pilot is where the guidelines are proven before scale.',
+    steps: [
+      { icon: FileSearch, title: 'Define', desc: 'Agree the ontology, edge-case rules, formats and acceptance criteria.' },
+      { icon: Target, title: 'Pilot', desc: 'Label a calibration batch, build the gold set and refine guidelines.' },
+      { icon: Bot, title: 'Pre-label', desc: 'Apply model-assisted labels, auto-segmentation and interpolation.' },
+      { icon: Users, title: 'Annotate & review', desc: 'Trained annotators refine labels with layered review and consensus.' },
+      { icon: ShieldCheck, title: 'QA & deliver', desc: 'Sample against the gold set, report quality and deliver in your format.' },
+    ],
+  },
+  engagement: {
+    heading: 'Choose the right delivery model',
+    intro: 'A defined dataset, a managed annotation pipeline or a dedicated team working inside your tools.',
+    models: [
+      { name: 'Dataset project', icon: Boxes, detail: 'A scoped dataset labelled to an agreed ontology, volume, format and acceptance criteria.' },
+      { name: 'Managed annotation', icon: RefreshCw, detail: 'A continuous pipeline aligned to your data collection and model training cycles, with quality reported per batch.' },
+      { name: 'Dedicated team', icon: Users, detail: 'Trained annotators and reviewers working in your platform, to your guidelines and your review process.' },
+    ],
+  },
+}
+
+/* ------------------------------------------------------------------ geospatial & mapping */
+
+/**
+ * The Geospatial & Mapping deep dives.
+ *
+ * These five replaced the older /services/geospatial/* and /services/location-intelligence/*
+ * sub-service pages, which carried unverifiable percentages ("reduced delivery times by up
+ * to 25%") and a different layout from the rest of the capability pages. The old URLs 301
+ * here. As elsewhere in this file, nothing below is a number JSAN would have to defend.
+ */
+
+/** How geospatial work is bought. Shared by the five Geospatial & Mapping pages. */
+const GEOSPATIAL_ENGAGEMENT: EngagementModel[] = [
+  {
+    name: 'Project delivery',
+    icon: Wrench,
+    detail: 'A defined area, dataset or platform delivered to an agreed specification, accuracy target and acceptance criteria.',
+  },
+  {
+    name: 'Managed data programme',
+    icon: RefreshCw,
+    detail: 'Continuous production and maintenance on a refresh cycle, with quality reported per release rather than at the end.',
+  },
+  {
+    name: 'Specialist capacity',
+    icon: Users,
+    detail: 'GIS analysts, data engineers and editors working inside your team, to your tools, schema and review process.',
+  },
 ]
+
+const navigationData: DeepDivePage = {
+  slug: 'navigation-data',
+  group: 'Geospatial & Mapping',
+  navLabel: 'Navigation Data',
+  eyebrowIcon: Navigation,
+  title: 'Navigation Data',
+  subtitle: 'The map layer routing engines, fleets and drivers actually depend on.',
+  description:
+    'We build and maintain navigation-grade map data: routable road networks with connectivity and turn restrictions, addresses that geocode to the right door, speed and access attribution, and the change detection that keeps it all current. Built to your schema, validated against ground truth, and delivered on a release cycle your routing stack can consume.',
+  image: '/pillars/navigation.webp',
+  imageAlt: 'Layered navigation data model built from street imagery, LiDAR and authoritative sources',
+  copySide: 'left',
+  techLayout: 'cards',
+  positioning: [
+    {
+      icon: Route,
+      title: 'Routable, not just drawn',
+      detail:
+        'Geometry is only the start. Connectivity, restrictions, directionality and access are what decide whether a route is legal, drivable and the one a driver would take.',
+    },
+    {
+      icon: MapPin,
+      title: 'Addresses that land at the door',
+      detail:
+        'Address points, entrances and access points are captured and validated so geocoding, dispatch and last-mile delivery stop failing at the final few metres.',
+    },
+    {
+      icon: RefreshCw,
+      title: 'Current by design',
+      detail:
+        'Road changes are detected from imagery, probe signals and field evidence and released on an agreed cycle, so the map does not quietly age between projects.',
+    },
+  ],
+  tech: {
+    eyebrow: 'What we deliver',
+    heading: 'Every layer a route depends on',
+    intro:
+      'Four practices that together produce a navigation dataset: the network, the addresses, the rules of movement and the process that keeps them current.',
+    groups: [
+      {
+        name: 'Road Network & Topology',
+        icon: GitMerge,
+        blurb:
+          'Centrelines and lane-level geometry built with the connectivity and topology a routing graph needs, checked for the errors that break routes.',
+        image: '/pillars/roads_tracing.webp',
+        items: [
+          'Routable road centrelines',
+          'Junction & node modelling',
+          'Lane-level geometry',
+          'Grade separation: bridges & tunnels',
+          'Functional road classification',
+          'Topology & connectivity checks',
+        ],
+        details: [
+          {
+            name: 'Network build',
+            blurb: 'Geometry and connectivity captured together, not reconciled afterwards.',
+            items: [
+              'Digitising from street-level imagery, LiDAR and aerial sources',
+              'Z-level and grade-separation handling at overpasses',
+              'Complex junction and roundabout modelling',
+              'Network conflation with authoritative and legacy datasets',
+            ],
+          },
+          {
+            name: 'Topology validation',
+            blurb: 'Automated rules that catch what visual review misses.',
+            items: [
+              'Dangles, undershoots and disconnected segments',
+              'Duplicate and overlapping links',
+              'One-way consistency and dead-end logic',
+              'Route-testing between sampled origin and destination pairs',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Address & Geocoding Data',
+        icon: MapPin,
+        blurb:
+          'Address points, building entrances and postal structures maintained so a search returns the right location, not the middle of the street segment.',
+        image: '/pillars/adress.webp',
+        items: [
+          'Address point creation & maintenance',
+          'House number ranges & interpolation',
+          'Building entrances & access points',
+          'Postal code & locality boundaries',
+          'Multilingual & transliterated names',
+          'Geocoding accuracy testing',
+        ],
+        details: [
+          {
+            name: 'Address capture',
+            blurb: 'From authoritative records, imagery and field evidence, reconciled into one register.',
+            items: [
+              'Parsing and standardising address formats per market',
+              'Rooftop and entrance-level positioning',
+              'Alternate names, vanity and legacy addresses',
+              'Duplicate detection and merge rules',
+            ],
+          },
+          {
+            name: 'Geocoding quality',
+            blurb: 'Measured the way your users experience it.',
+            items: [
+              'Test sets of real-world queries per region',
+              'Match rate and positional error review',
+              'Failure analysis by address type and locality',
+              'Feedback loop into the address register',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Routing Attribution & Restrictions',
+        icon: Signpost,
+        blurb:
+          'The rules of movement: turn restrictions, speeds, access, vehicle limits and signage, captured from evidence and attached to the network in your data model.',
+        image: '/pillars/route.webp',
+        items: [
+          'Turn restrictions & manoeuvres',
+          'One-way & directional flow',
+          'Speed limits & speed categories',
+          'Truck & vehicle restrictions',
+          'Time-based & conditional access',
+          'Toll roads, ferries & road names',
+        ],
+        details: [
+          {
+            name: 'Attribute capture',
+            blurb: 'Every rule traceable to the sign, image or source that justifies it.',
+            items: [
+              'Sign reading from street-level imagery with OCR support',
+              'Restriction modelling at junction and lane level',
+              'Conditional restrictions by time, vehicle type or purpose',
+              'Evidence links stored against each attribute',
+            ],
+          },
+          {
+            name: 'Commercial and fleet routing',
+            blurb: 'Attribution for vehicles that cannot take the car route.',
+            items: [
+              'Truck-legal routing attributes',
+              'Hazardous goods and low-emission zone rules',
+              'Delivery access and loading zones',
+              'Speed profiles for journey-time estimation',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Change Detection & Map Maintenance',
+        icon: RefreshCw,
+        blurb:
+          'New roads, closures, changed restrictions and new addresses detected from multiple signals, verified and released on a schedule, so the map keeps pace with the ground.',
+        image: '/pillars/ground_truth.webp',
+        items: [
+          'Imagery-based change detection',
+          'Probe & GPS trace analysis',
+          'Authoritative source monitoring',
+          'Field verification of changes',
+          'Versioned releases & change logs',
+          'Coverage & freshness reporting',
+        ],
+        details: [
+          {
+            name: 'Detect and verify',
+            blurb: 'Signals raise candidates; evidence decides what changes.',
+            items: [
+              'Comparison of new capture against the current map',
+              'Trace deviation analysis for unmapped or closed roads',
+              'Triage of reported issues by impact and confidence',
+              'Field crews dispatched where desk evidence is insufficient',
+            ],
+          },
+          {
+            name: 'Release management',
+            blurb: 'Change delivered in a form downstream systems can absorb.',
+            items: [
+              'Incremental and full release packages',
+              'Schema-validated exports per release',
+              'Change logs linked to evidence',
+              'Regression checks before publication',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  scenarios: {
+    eyebrow: 'Your requirements',
+    heading: 'From map gaps to reliable routes',
+    intro: 'Choose an area and a situation to see how we approach it and what changes.',
+    items: [],
+    collections: [
+      {
+        name: 'Network & Routing',
+        items: [
+          {
+            title: 'Routes that are legal on the map but wrong on the road',
+            icon: Route,
+            situation:
+              'Drivers are sent through banned turns, closed streets and the wrong side of divided roads. The geometry looks fine; the attribution behind it does not.',
+            actions: [
+              'Audit restriction and connectivity errors against sampled routes',
+              'Capture turn restrictions and one-ways from street-level imagery',
+              'Remodel complex junctions and grade separations',
+              'Run topology and route tests before release',
+              'Deliver corrections as an incremental update',
+            ],
+            outcome:
+              'Routes that match what drivers can legally and physically do, with each rule traceable to evidence.',
+          },
+          {
+            title: 'Fleet routing for vehicles that are not cars',
+            icon: Truck,
+            situation:
+              'Trucks and delivery vans are routed under low bridges, into weight-restricted streets and through areas they cannot legally enter.',
+            actions: [
+              'Define the vehicle profiles that matter to the fleet',
+              'Capture height, weight, width and access restrictions',
+              'Model time-based and conditional access rules',
+              'Validate truck routes on high-risk corridors',
+            ],
+            outcome:
+              'Commercial routing that respects the vehicle, reducing diversions, fines and unsafe manoeuvres.',
+          },
+        ],
+      },
+      {
+        name: 'Addresses & Freshness',
+        items: [
+          {
+            title: 'Deliveries failing at the last few metres',
+            icon: MapPin,
+            situation:
+              'Addresses geocode to the street centreline or the wrong building, and drivers lose time finding entrances, units and access points.',
+            actions: [
+              'Test geocoding against real delivery addresses',
+              'Capture rooftop positions, entrances and access points',
+              'Standardise unit, block and complex addressing',
+              'Feed confirmed corrections back into the register',
+            ],
+            outcome:
+              'Addresses that resolve to the right door, and fewer failed or delayed deliveries.',
+          },
+          {
+            title: 'A map that is out of date the day it ships',
+            icon: RefreshCw,
+            situation:
+              'New developments, closures and restriction changes appear faster than one-off update projects can capture them.',
+            actions: [
+              'Set up change detection from imagery, probes and sources',
+              'Triage candidates by impact and confidence',
+              'Verify high-impact changes in the field',
+              'Publish on a fixed release cadence with change logs',
+            ],
+            outcome:
+              'A navigation dataset maintained as a programme, with freshness reported rather than assumed.',
+          },
+        ],
+      },
+    ],
+  },
+  workflow: {
+    heading: 'How navigation data is built and kept current',
+    intro: 'The same cycle for a new market or a maintained one. Only the source mix changes.',
+    steps: [
+      { icon: FileSearch, title: 'Specify', desc: 'Agree schema, attribution depth, accuracy targets and release format.' },
+      { icon: Camera, title: 'Source', desc: 'Combine street-level capture, LiDAR, aerial imagery and authoritative data.' },
+      { icon: Layers, title: 'Build', desc: 'Digitise the network, addresses and restrictions with evidence attached.' },
+      { icon: ShieldCheck, title: 'Validate', desc: 'Topology rules, route tests and sampled field checks before release.' },
+      { icon: RefreshCw, title: 'Release & maintain', desc: 'Versioned delivery, then change detection on an agreed cycle.' },
+    ],
+  },
+  engagement: {
+    heading: 'Choose the right delivery model',
+    intro: 'A market build, a continuous maintenance programme or specialist editors in your team.',
+    models: GEOSPATIAL_ENGAGEMENT,
+  },
+}
+
+const spatialAnalysis: DeepDivePage = {
+  slug: 'spatial-analysis',
+  group: 'Geospatial & Mapping',
+  navLabel: 'Spatial Analysis',
+  eyebrowIcon: BarChart3,
+  title: 'Spatial Analysis',
+  subtitle: 'Location turned into a decision, not another layer on a map.',
+  description:
+    'We apply geostatistics, network analysis, suitability modelling and spatial data science to real operational questions: where to build, what to serve, where risk sits and how demand moves. Every analysis starts from validated data, states its assumptions, and ends in outputs planners and executives can act on.',
+  image: '/pillars/spatial.webp',
+  imageAlt: 'City-scale spatial analytics dashboard with density and network layers',
+  copySide: 'left',
+  techLayout: 'cards',
+  positioning: [
+    {
+      icon: Target,
+      title: 'Start from the question',
+      detail:
+        'Every engagement begins with the decision to be made, so methods and data are chosen to answer it rather than to demonstrate a technique.',
+    },
+    {
+      icon: Database,
+      title: 'Built on validated data',
+      detail:
+        'Analysis is only as good as its inputs. We check coverage, accuracy and bias in the data before any model runs, and say where the gaps are.',
+    },
+    {
+      icon: Eye,
+      title: 'Transparent, repeatable methods',
+      detail:
+        'Assumptions, parameters and workflows are documented and scripted, so results can be reviewed, challenged and re-run when conditions change.',
+    },
+  ],
+  tech: {
+    eyebrow: 'What we analyse',
+    heading: 'Methods matched to the decision',
+    intro:
+      'Four analytical practices, from choosing a site to forecasting demand, delivered as reproducible workflows and decision-ready outputs.',
+    groups: [
+      {
+        name: 'Suitability & Site Selection',
+        icon: Crosshair,
+        blurb:
+          'Multi-criteria models that weigh constraints, costs and opportunities across a landscape to rank where something should, or should not, go.',
+        image: '/pillars/decisions.webp',
+        items: [
+          'Multi-criteria decision analysis',
+          'Weighted overlay & constraint mapping',
+          'Site ranking & shortlisting',
+          'Corridor & route selection',
+          'Environmental & planning constraints',
+          'Scenario comparison',
+        ],
+        details: [
+          {
+            name: 'Model design',
+            blurb: 'Criteria and weights agreed with the people who own the decision.',
+            items: [
+              'Stakeholder workshops to define criteria and exclusions',
+              'Normalisation of criteria onto comparable scales',
+              'Hard constraints separated from weighted preferences',
+              'Documented rationale for every weight',
+            ],
+          },
+          {
+            name: 'Outputs',
+            blurb: 'Results a committee can read and a planner can use.',
+            items: [
+              'Suitability surfaces and ranked site lists',
+              'Site profiles with the evidence behind each score',
+              'Scenario maps for alternative weightings',
+              'GIS-ready layers for further planning',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Network & Accessibility Analysis',
+        icon: Network,
+        blurb:
+          'Travel-time, catchment and service-area analysis on real road and transit networks, showing who can reach what, how quickly, and where coverage fails.',
+        image: '/pillars/location_intel.webp',
+        items: [
+          'Drive-time & walk-time catchments',
+          'Service area & coverage analysis',
+          'Location-allocation modelling',
+          'Accessibility & equity indices',
+          'Isochrone mapping',
+          'Emergency response coverage',
+        ],
+        details: [
+          {
+            name: 'Network modelling',
+            blurb: 'Travel represented the way people and vehicles actually move.',
+            items: [
+              'Road, transit and pedestrian network preparation',
+              'Impedance by time of day where data allows',
+              'Barriers, restrictions and one-way handling',
+              'Multi-modal journey modelling',
+            ],
+          },
+          {
+            name: 'Coverage decisions',
+            blurb: 'From analysis to where facilities and resources should sit.',
+            items: [
+              'Gap analysis against service standards',
+              'Optimal placement of new facilities',
+              'Rebalancing of existing service areas',
+              'Population and demand weighting',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Geostatistics & Predictive Modelling',
+        icon: TrendingUp,
+        blurb:
+          'Spatial statistics and machine learning that detect patterns, estimate values between observations and forecast how demand, risk or change will be distributed.',
+        image: '/pillars/advance-analytics.webp',
+        items: [
+          'Hot spot & cluster analysis',
+          'Interpolation & kriging',
+          'Geographically weighted regression',
+          'Demand & risk forecasting',
+          'Trade area & catchment modelling',
+          'Model validation & uncertainty',
+        ],
+        details: [
+          {
+            name: 'Pattern and estimation',
+            blurb: 'Separating real spatial structure from noise.',
+            items: [
+              'Getis-Ord and local Moran statistics',
+              'Kernel density and point pattern analysis',
+              'Kriging and inverse distance interpolation',
+              'Uncertainty surfaces alongside estimates',
+            ],
+          },
+          {
+            name: 'Prediction',
+            blurb: 'Models that respect location rather than ignore it.',
+            items: [
+              'Spatially aware feature engineering',
+              'Regression and ML with spatial cross-validation',
+              'Scenario-based demand projection',
+              'Documented model performance and limits',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Visualisation & Decision Dashboards',
+        icon: LayoutDashboard,
+        blurb:
+          'Maps, dashboards and story-led outputs that make analytical results legible to the people who have to act on them, and keep them current as data updates.',
+        image: '/pillars/tech-analytics.webp',
+        items: [
+          'Interactive web maps',
+          'Operational & executive dashboards',
+          'Thematic & choropleth mapping',
+          '3D and time-series visualisation',
+          'Story maps & briefing packs',
+          'Embedding in BI tools',
+        ],
+        details: [
+          {
+            name: 'Platforms',
+            blurb: 'Delivered in the tools your organisation already uses.',
+            items: [
+              'ArcGIS Dashboards, Experience Builder and StoryMaps',
+              'QGIS and open-source web mapping',
+              'Power BI and Tableau with spatial layers',
+              'Custom web visualisation where required',
+            ],
+          },
+          {
+            name: 'Design principles',
+            blurb: 'Clarity before decoration.',
+            items: [
+              'Classification and colour chosen for the question',
+              'Uncertainty and data gaps shown, not hidden',
+              'Accessible colour palettes and labelling',
+              'One page per decision, not one per dataset',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  scenarios: {
+    eyebrow: 'Your requirements',
+    heading: 'From location questions to confident decisions',
+    intro: 'Choose an area and a situation to see how we approach it and what you receive.',
+    items: [],
+    collections: [
+      {
+        name: 'Planning & Siting',
+        items: [
+          {
+            title: 'Choosing sites with competing priorities',
+            icon: Crosshair,
+            situation:
+              'A network expansion has dozens of candidate locations, and cost, access, demand and planning constraints all point in different directions.',
+            actions: [
+              'Agree criteria, exclusions and weights with decision owners',
+              'Assemble and validate the input layers',
+              'Build a transparent multi-criteria model',
+              'Test sensitivity to alternative weightings',
+              'Deliver ranked sites with evidence profiles',
+            ],
+            outcome:
+              'A defensible shortlist, and a model that can be re-run when priorities or data change.',
+          },
+          {
+            title: 'Proving where services are out of reach',
+            icon: Network,
+            situation:
+              'A public or commercial service believes coverage is uneven, but cannot show who is underserved or where a new facility would help most.',
+            actions: [
+              'Model travel times on the real network',
+              'Map catchments against population and demand',
+              'Identify gaps against the service standard',
+              'Test candidate locations with location-allocation',
+            ],
+            outcome:
+              'Clear evidence of coverage gaps and the placements that close them most effectively.',
+          },
+        ],
+      },
+      {
+        name: 'Insight & Forecasting',
+        items: [
+          {
+            title: 'Patterns everyone suspects but nobody can prove',
+            icon: TrendingUp,
+            situation:
+              'Incidents, faults or sales appear to cluster, but the evidence is anecdotal and resources are still spread evenly.',
+            actions: [
+              'Clean and geocode the event data',
+              'Run hot spot and cluster statistics',
+              'Test relationships with explanatory variables',
+              'Map significance, not just density',
+            ],
+            outcome:
+              'Statistically grounded hot spots that justify where to target resources.',
+          },
+          {
+            title: 'Analysis that dies in a slide deck',
+            icon: LayoutDashboard,
+            situation:
+              'Useful analysis was done once, presented, and never refreshed, so decisions drift back to intuition.',
+            actions: [
+              'Script the workflow so it can be re-run',
+              'Connect it to the source data',
+              'Publish results in a dashboard on a schedule',
+              'Train the team to maintain it',
+            ],
+            outcome:
+              'A living analytical product that stays current and keeps informing decisions.',
+          },
+        ],
+      },
+    ],
+  },
+  workflow: {
+    heading: 'How an analysis runs',
+    intro: 'Five stages. The first and the last matter most, and are the ones most often skipped.',
+    steps: [
+      { icon: Target, title: 'Frame', desc: 'Define the decision, the audience and what a useful answer looks like.' },
+      { icon: Database, title: 'Prepare', desc: 'Source, clean and validate data, and document its limits.' },
+      { icon: BarChart3, title: 'Analyse', desc: 'Apply and test the methods, with sensitivity and uncertainty checks.' },
+      { icon: Eye, title: 'Communicate', desc: 'Maps, dashboards and briefings designed for the decision makers.' },
+      { icon: RefreshCw, title: 'Operationalise', desc: 'Script, schedule and hand over so the analysis stays current.' },
+    ],
+  },
+  engagement: {
+    heading: 'Choose the right delivery model',
+    intro: 'A focused study, an ongoing analytics service or analysts embedded in your team.',
+    models: GEOSPATIAL_ENGAGEMENT,
+  },
+}
+
+const enterpriseGisDataManagement: DeepDivePage = {
+  slug: 'enterprise-gis-data-management',
+  group: 'Geospatial & Mapping',
+  navLabel: 'Enterprise GIS & Data Management',
+  eyebrowIcon: Database,
+  title: 'Enterprise GIS & Data Management',
+  subtitle: 'One governed spatial record, shared across the whole organisation.',
+  description:
+    'We design, build and run the platforms and data practices behind organisation-wide GIS: enterprise architecture, spatial databases, data governance and the pipelines that connect GIS to the systems around it. The goal is a single trusted spatial record that scales across departments, users and years, rather than a collection of project files.',
+  image: '/pillars/enterprise.webp',
+  imageAlt: 'GIS team working with enterprise web maps and operational dashboards',
+  copySide: 'left',
+  techLayout: 'cards',
+  positioning: [
+    {
+      icon: Layers,
+      title: 'Architecture before applications',
+      detail:
+        'Platform, database and security decisions are made deliberately up front, because they determine what every map, app and integration can do later.',
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Governed, not just stored',
+      detail:
+        'Ownership, standards, metadata and quality rules are defined for each dataset, so people know what to trust, who maintains it and how current it is.',
+    },
+    {
+      icon: Plug,
+      title: 'Connected to the business',
+      detail:
+        'GIS is integrated with asset, work, customer and planning systems, so location data is used where decisions are made rather than kept in a specialist silo.',
+    },
+  ],
+  tech: {
+    eyebrow: 'What we deliver',
+    heading: 'The spatial backbone, layer by layer',
+    intro:
+      'Four practices that together produce an enterprise GIS: the platform, the data inside it, the rules that govern it and the pipelines that keep it connected.',
+    groups: [
+      {
+        name: 'Enterprise GIS Architecture',
+        icon: Server,
+        blurb:
+          'Platform design for GIS that serves the whole organisation: deployment model, security, performance and growth planned before anything is installed.',
+        image: '/pillars/enterprise-architecture.webp',
+        items: [
+          'ArcGIS Enterprise & Online design',
+          'Open-source GIS stacks (GeoServer, PostGIS)',
+          'Cloud, on-premise & hybrid deployment',
+          'High availability & disaster recovery',
+          'Identity, SSO & role-based access',
+          'Platform migration & modernisation',
+        ],
+        details: [
+          {
+            name: 'Design',
+            blurb: 'An architecture sized to the organisation, not to a vendor reference diagram.',
+            items: [
+              'Current-state assessment of platforms, data and users',
+              'Target architecture and deployment topology',
+              'Security model aligned to corporate identity',
+              'Roadmap with phased migration steps',
+            ],
+          },
+          {
+            name: 'Build and modernise',
+            blurb: 'Implemented and proven before users depend on it.',
+            items: [
+              'Environment build across development, test and production',
+              'Migration from legacy desktop and server estates',
+              'Load and failover testing',
+              'Runbooks and administration handover',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Spatial Databases & Data Management',
+        icon: Database,
+        blurb:
+          'Enterprise geodatabases and spatial data stores designed for concurrent editing, reliable analysis and controlled growth over many years of data.',
+        image: '/pillars/tech-datawarehouse.webp',
+        items: [
+          'Enterprise geodatabase design',
+          'PostGIS, SQL Server & Oracle Spatial',
+          'Data models & schema design',
+          'Versioning & editing workflows',
+          'Topology & network models',
+          'Archiving & historical records',
+        ],
+        details: [
+          {
+            name: 'Data modelling',
+            blurb: 'The schema that decides what the system can ever do.',
+            items: [
+              'Conceptual, logical and physical spatial models',
+              'Industry models for utilities, transport and local government',
+              'Relationship classes and linear referencing',
+              'Schema change management',
+            ],
+          },
+          {
+            name: 'Operations',
+            blurb: 'Keeping spatial databases fast, consistent and recoverable.',
+            items: [
+              'Index, statistics and compression maintenance',
+              'Replication and distributed editing',
+              'Backup, restore and point-in-time recovery',
+              'Monitoring for growth and performance',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Data Governance & Quality',
+        icon: ClipboardCheck,
+        blurb:
+          'The standards, ownership and quality controls that turn a data store into a trusted spatial record, with metadata that tells users what they are looking at.',
+        image: '/pillars/governance.webp',
+        items: [
+          'Data ownership & stewardship models',
+          'Spatial data standards',
+          'Metadata & data catalogues',
+          'Automated quality rules',
+          'Data quality dashboards',
+          'Audit trails & lineage',
+        ],
+        details: [
+          {
+            name: 'Governance framework',
+            blurb: 'Clear accountability for every dataset that matters.',
+            items: [
+              'Dataset inventory and criticality ranking',
+              'Owner, steward and custodian roles',
+              'Standards for naming, projections and attribution',
+              'Change control for authoritative datasets',
+            ],
+          },
+          {
+            name: 'Quality control',
+            blurb: 'Quality measured continuously, not checked once at go-live.',
+            items: [
+              'Completeness, accuracy and consistency rules',
+              'Attribute rules and validation on edit',
+              'Scheduled quality reports per dataset',
+              'Issue tracking and remediation workflows',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Spatial ETL & Integration',
+        icon: Workflow,
+        blurb:
+          'Automated pipelines that move, transform and synchronise spatial data between GIS and the enterprise systems that depend on it.',
+        image: '/pillars/geo_2.webp',
+        items: [
+          'FME & Python ETL pipelines',
+          'ERP, EAM & CRM integration',
+          'Work management & field systems',
+          'IoT & sensor data ingestion',
+          'Scheduled & event-driven sync',
+          'APIs & feature services',
+        ],
+        details: [
+          {
+            name: 'Integration patterns',
+            blurb: 'The right pattern for each connection, not one tool for everything.',
+            items: [
+              'Batch ETL for bulk and historical loads',
+              'Near real-time sync for operational systems',
+              'Service and API-based access for applications',
+              'Master data alignment of asset identifiers',
+            ],
+          },
+          {
+            name: 'Reliability',
+            blurb: 'Pipelines that tell you when they fail.',
+            items: [
+              'Validation gates before data is published',
+              'Retry, rollback and error queues',
+              'Run logs and alerting',
+              'Documentation and support handover',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  scenarios: {
+    eyebrow: 'Your requirements',
+    heading: 'From scattered GIS to a trusted spatial record',
+    intro: 'Choose an area and a situation to see how we approach it and what changes.',
+    items: [],
+    collections: [
+      {
+        name: 'Platform',
+        items: [
+          {
+            title: 'GIS spread across departments and file shares',
+            icon: Layers,
+            situation:
+              'Every department runs its own GIS, copies of the same datasets disagree, and nobody can say which version is authoritative.',
+            actions: [
+              'Inventory platforms, datasets, users and dependencies',
+              'Design a target enterprise architecture',
+              'Consolidate authoritative datasets into governed stores',
+              'Migrate users and applications in phases',
+              'Set ownership and change control per dataset',
+            ],
+            outcome:
+              'One platform and one authoritative version of each dataset, shared across the organisation.',
+          },
+          {
+            title: 'A legacy platform nobody wants to upgrade',
+            icon: ArrowUpCircle,
+            situation:
+              'The GIS estate is several versions behind, custom tools depend on it, and every upgrade attempt has been postponed for fear of breaking something.',
+            actions: [
+              'Assess dependencies, customisations and data risks',
+              'Build and test the target environment in parallel',
+              'Rehearse migration with production data',
+              'Cut over with a tested rollback plan',
+            ],
+            outcome:
+              'A supported, modern platform reached without losing data or breaking critical workflows.',
+          },
+        ],
+      },
+      {
+        name: 'Data & Integration',
+        items: [
+          {
+            title: 'Spatial data nobody fully trusts',
+            icon: ClipboardCheck,
+            situation:
+              'Users find errors, duplicates and missing attributes, so they keep private copies and the central data is used less every year.',
+            actions: [
+              'Profile datasets for completeness and consistency',
+              'Define quality rules and attribute validation',
+              'Clean and reconcile priority datasets',
+              'Publish quality dashboards and metadata',
+            ],
+            outcome:
+              'Measurable data quality, visible to users, and a reason to stop keeping private copies.',
+          },
+          {
+            title: 'GIS disconnected from asset and work systems',
+            icon: Workflow,
+            situation:
+              'Asset records live in the EAM, work orders in another system and locations in GIS, with manual exports holding them together.',
+            actions: [
+              'Map identifiers and ownership across systems',
+              'Design integration patterns per data flow',
+              'Build monitored ETL and service integrations',
+              'Retire manual exports once flows are proven',
+            ],
+            outcome:
+              'Location, asset and work data synchronised automatically, with failures visible rather than silent.',
+          },
+        ],
+      },
+    ],
+  },
+  workflow: {
+    heading: 'From assessment to operation',
+    intro: 'A phased path that keeps existing users working while the enterprise platform is built.',
+    steps: [
+      { icon: FileSearch, title: 'Assess', desc: 'Review platforms, data, users, integrations and pain points.' },
+      { icon: Layers, title: 'Design', desc: 'Target architecture, data models and governance framework.' },
+      { icon: Wrench, title: 'Build', desc: 'Environments, databases, pipelines and applications implemented.' },
+      { icon: GitMerge, title: 'Migrate', desc: 'Data and users moved in tested, reversible phases.' },
+      { icon: LifeBuoy, title: 'Operate', desc: 'Administration, quality monitoring and ongoing support.' },
+    ],
+  },
+  engagement: {
+    heading: 'Choose the right delivery model',
+    intro: 'A defined platform programme, a managed GIS service or specialists inside your team.',
+    models: GEOSPATIAL_ENGAGEMENT,
+  },
+}
+
+const geospatialDataCapture: DeepDivePage = {
+  slug: 'geospatial-data-capture',
+  group: 'Geospatial & Mapping',
+  navLabel: 'Geospatial Data Capture',
+  eyebrowIcon: Camera,
+  title: 'Geospatial Data Capture',
+  subtitle: 'Accurate spatial data, collected once and structured to be used.',
+  description:
+    'We capture geospatial data from the street, the field, the air and existing records, then clean, enrich and structure it to your schema. Mobile mapping, GNSS field surveys, digitisation of legacy maps and multi-source data enrichment are run as one workflow, so what arrives is analysis-ready rather than another raw collection to process.',
+  image: '/pillars/geospatial.webp',
+  imageAlt: 'Mobile mapping vehicles capturing street-level data with a field surveyor verifying on a tablet',
+  copySide: 'left',
+  techLayout: 'cards',
+  positioning: [
+    {
+      icon: Compass,
+      title: 'The right capture method',
+      detail:
+        'Mobile mapping, field survey, aerial capture or desktop digitisation are chosen by the accuracy and coverage the data has to meet, not by the equipment available.',
+    },
+    {
+      icon: Database,
+      title: 'Structured at source',
+      detail:
+        'Schemas, attribute rules and coding lists are agreed before capture starts, so data is collected in the shape it will be used in.',
+    },
+    {
+      icon: FileCheck,
+      title: 'Evidence with every feature',
+      detail:
+        'Photographs, coordinates, timestamps and source references travel with the data, so any record can be checked back to what was observed.',
+    },
+  ],
+  tech: {
+    eyebrow: 'How we capture',
+    heading: 'From the street, the field and the archive',
+    intro:
+      'Four capture practices that feed one structured dataset, with quality control applied the same way whatever the source.',
+    groups: [
+      {
+        name: 'Mobile Mapping & Street-Level Capture',
+        icon: Car,
+        blurb:
+          'Vehicle-mounted cameras, 360° imagery and LiDAR driven to a coverage plan, capturing road corridors and streetscapes quickly and consistently.',
+        image: '/pillars/collect.webp',
+        items: [
+          '360° panoramic imagery',
+          'Mobile LiDAR capture',
+          'GNSS/INS positioning',
+          'Coverage planning & drive routing',
+          'Road corridor & streetscape surveys',
+          'Sign, asset & POI imagery',
+        ],
+        details: [
+          {
+            name: 'Capture operations',
+            blurb: 'Planned and tracked so coverage is measured, not estimated.',
+            items: [
+              'Drive plans built from coverage targets',
+              'Sensor calibration and daily system checks',
+              'Live progress tracking against plan',
+              'Re-drive management for gaps and quality failures',
+            ],
+          },
+          {
+            name: 'Processing',
+            blurb: 'Raw sensor data turned into positioned, usable imagery and point clouds.',
+            items: [
+              'Trajectory and positional accuracy processing',
+              'Image and point cloud registration',
+              'Face and licence plate anonymisation',
+              'Tiling and delivery in agreed formats',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Field Survey & Ground Truthing',
+        icon: MapPin,
+        blurb:
+          'Survey crews with GNSS receivers and mobile apps capturing what vehicles and imagery cannot: attributes, access, condition and on-the-ground verification.',
+        image: '/pillars/feild_verify.webp',
+        items: [
+          'High-accuracy GNSS & RTK survey',
+          'Mobile data collection apps',
+          'Asset condition inspection',
+          'POI & address verification',
+          'Utility & infrastructure surveys',
+          'Photographic evidence capture',
+        ],
+        details: [
+          {
+            name: 'Survey methods',
+            blurb: 'Accuracy matched to what the data will be used for.',
+            items: [
+              'RTK and network RTK for survey-grade positions',
+              'Handheld GNSS for asset and POI capture',
+              'Ground control for aerial and mobile mapping',
+              'Measured offsets where signal is obstructed',
+            ],
+          },
+          {
+            name: 'Field workflow',
+            blurb: 'Forms and rules that make good data the easy path.',
+            items: [
+              'Configured forms with mandatory fields and domains',
+              'Photo and location required per feature',
+              'Daily sync and supervisor review',
+              'Return-visit tasks for incomplete records',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Digitisation & Legacy Data Conversion',
+        icon: FileCode,
+        blurb:
+          'Paper maps, CAD drawings, scanned plans and old databases converted into georeferenced, attributed GIS data that fits the current schema.',
+        image: '/pillars/poi.webp',
+        items: [
+          'Heads-up digitising from imagery',
+          'Scanned map georeferencing',
+          'CAD to GIS conversion',
+          'As-built & record drawing capture',
+          'Attribute extraction from documents',
+          'Legacy database migration',
+        ],
+        details: [
+          {
+            name: 'Conversion',
+            blurb: 'Historical records brought forward without losing their meaning.',
+            items: [
+              'Georeferencing with documented control and residuals',
+              'Layer and symbology mapping from CAD standards',
+              'Attribute population from drawings and registers',
+              'Crosswalks from legacy codes to current domains',
+            ],
+          },
+          {
+            name: 'Assurance',
+            blurb: 'Converted data checked against its source.',
+            items: [
+              'Sampled overlay comparison with source documents',
+              'Topology and connectivity validation',
+              'Completeness counts against record totals',
+              'Exception lists for unresolved ambiguities',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Data Enrichment & Quality Control',
+        icon: Sparkles,
+        blurb:
+          'Multi-source data cleaned, deduplicated, geocoded and enriched, then passed through quality gates before it is delivered as a structured dataset.',
+        image: '/pillars/geo_4.webp',
+        items: [
+          'Geocoding & address standardisation',
+          'Deduplication & entity matching',
+          'Attribute enrichment from third-party sources',
+          'Positional accuracy checks',
+          'Completeness & consistency rules',
+          'QA sampling & reporting',
+        ],
+        details: [
+          {
+            name: 'Enrichment',
+            blurb: 'Adding the context raw capture lacks.',
+            items: [
+              'Matching records across sources to one entity',
+              'Joining demographic, cadastral or business attributes',
+              'Standardising names, categories and codes',
+              'Recording source and confidence per attribute',
+            ],
+          },
+          {
+            name: 'Quality gates',
+            blurb: 'Nothing is delivered that has not passed the agreed checks.',
+            items: [
+              'Automated schema and domain validation',
+              'Positional checks against control data',
+              'Statistical sampling with reviewer inspection',
+              'Quality report issued with every delivery',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  scenarios: {
+    eyebrow: 'Your requirements',
+    heading: 'From missing data to a usable dataset',
+    intro: 'Choose an area and a situation to see how we approach it and what you receive.',
+    items: [],
+    collections: [
+      {
+        name: 'Field & Street Capture',
+        items: [
+          {
+            title: 'No reliable data for a large area',
+            icon: Car,
+            situation:
+              'A programme needs current street-level imagery and asset data across a region, and existing records are incomplete or years out of date.',
+            actions: [
+              'Define coverage, accuracy and the asset schema',
+              'Plan and execute mobile mapping drives',
+              'Process imagery, LiDAR and trajectories',
+              'Extract and attribute features with QA',
+              'Deliver structured layers with evidence links',
+            ],
+            outcome:
+              'Complete, current coverage delivered as structured data rather than raw imagery.',
+          },
+          {
+            title: 'Attributes only people on site can confirm',
+            icon: MapPin,
+            situation:
+              'Imagery shows where assets are, but condition, access, ownership and markings can only be confirmed in person.',
+            actions: [
+              'Configure mobile forms to the data model',
+              'Plan field routes by priority and geography',
+              'Capture positions, attributes and photographs',
+              'Review submissions daily and task return visits',
+            ],
+            outcome:
+              'Field-verified attributes with photographic evidence, integrated directly into GIS.',
+          },
+        ],
+      },
+      {
+        name: 'Records & Enrichment',
+        items: [
+          {
+            title: 'Critical records locked in paper and CAD',
+            icon: FileCode,
+            situation:
+              'Decades of network and property records exist only as drawings and scans, invisible to GIS users and impossible to analyse.',
+            actions: [
+              'Prioritise records by business value',
+              'Georeference scans and convert CAD layers',
+              'Populate attributes from drawings and registers',
+              'Validate against source and flag ambiguities',
+            ],
+            outcome:
+              'Historical records available as searchable, analysable GIS data.',
+          },
+          {
+            title: 'Duplicate and inconsistent location data',
+            icon: Sparkles,
+            situation:
+              'Several sources describe the same places differently, with duplicates, misspellings and inconsistent coordinates undermining every report.',
+            actions: [
+              'Standardise names, addresses and categories',
+              'Match and merge records across sources',
+              'Geocode and validate positions',
+              'Deliver with source and confidence recorded',
+            ],
+            outcome:
+              'One clean, deduplicated dataset with a clear record of where each value came from.',
+          },
+        ],
+      },
+    ],
+  },
+  workflow: {
+    heading: 'How capture runs',
+    intro: 'Quality is designed in at the start, not inspected in at the end.',
+    steps: [
+      { icon: FileSearch, title: 'Specify', desc: 'Schema, accuracy, coverage and evidence requirements agreed.' },
+      { icon: Compass, title: 'Plan', desc: 'Capture methods, routes, crews and control selected per area.' },
+      { icon: Camera, title: 'Capture', desc: 'Mobile, field, aerial or desktop collection with live tracking.' },
+      { icon: Sparkles, title: 'Process & enrich', desc: 'Clean, structure, deduplicate and enrich to the schema.' },
+      { icon: ShieldCheck, title: 'Validate & deliver', desc: 'Quality gates, sampling and delivery with a quality report.' },
+    ],
+  },
+  engagement: {
+    heading: 'Choose the right delivery model',
+    intro: 'A defined capture project, a recurring collection programme or crews and editors in your team.',
+    models: GEOSPATIAL_ENGAGEMENT,
+  },
+}
+
+const remoteSensingEarthObservation: DeepDivePage = {
+  slug: 'remote-sensing-earth-observation',
+  group: 'Geospatial & Mapping',
+  navLabel: 'Remote Sensing & Earth Observation',
+  eyebrowIcon: Satellite,
+  title: 'Remote Sensing & Earth Observation',
+  subtitle: 'Satellite and aerial imagery turned into maps of what is changing.',
+  description:
+    'We process optical, multispectral, radar and aerial imagery into land cover maps, change detection, vegetation and environmental indicators, and elevation products. Machine learning classifies at scale, analysts validate against reference data, and results are delivered as GIS layers and monitoring dashboards that track change over time.',
+  image: '/pillars/remotesensing.webp',
+  imageAlt: 'Global earth observation coverage visualised over a dark map',
+  copySide: 'left',
+  techLayout: 'cards',
+  positioning: [
+    {
+      icon: Globe,
+      title: 'Coverage without field teams',
+      detail:
+        'Large and remote areas are monitored from orbit and the air, with ground effort reserved for validation and the places that genuinely need it.',
+    },
+    {
+      icon: Layers,
+      title: 'Sensor chosen for the question',
+      detail:
+        'Optical, multispectral, SAR and aerial sources each see different things. We select and combine them by what needs detecting, how often and in what weather.',
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Validated classifications',
+      detail:
+        'Every classification is checked against reference data, with accuracy assessed per class, so results can be relied on for reporting and decisions.',
+    },
+  ],
+  tech: {
+    eyebrow: 'What we produce',
+    heading: 'From pixels to monitored change',
+    intro:
+      'Four practices covering imagery processing, classification, change monitoring and terrain, delivered as GIS-ready layers and time series.',
+    groups: [
+      {
+        name: 'Land Cover & Land Use Classification',
+        icon: Shapes,
+        blurb:
+          'Machine learning and object-based classification that map what covers the land and how it is used, from regional overviews to parcel-level detail.',
+        image: '/pillars/pixel.webp',
+        items: [
+          'Land use / land cover mapping',
+          'Deep learning segmentation',
+          'Built-up area & impervious surfaces',
+          'Water body & wetland mapping',
+          'Agricultural field & crop mapping',
+          'Forest & tree canopy extent',
+        ],
+        details: [
+          {
+            name: 'Classification methods',
+            blurb: 'Chosen by resolution, class scheme and available training data.',
+            items: [
+              'Random forest and gradient boosting on spectral features',
+              'CNN-based semantic segmentation',
+              'Object-based segmentation for high-resolution imagery',
+              'Custom and standard class schemes',
+            ],
+          },
+          {
+            name: 'Validation',
+            blurb: 'Accuracy measured, reported and improved.',
+            items: [
+              'Stratified reference sampling',
+              'Confusion matrices and per-class accuracy',
+              'Analyst review of low-confidence areas',
+              'Iterative retraining on error hot spots',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Change Detection & Monitoring',
+        icon: GitCompare,
+        blurb:
+          'Multi-date analysis that finds new construction, clearing, encroachment and damage, and time-series monitoring that tracks trends across seasons and years.',
+        image: '/pillars/change_detection.webp',
+        items: [
+          'Time-series trend analysis',
+          'Urban expansion monitoring',
+          'Deforestation & clearing alerts',
+          'Encroachment on corridors & assets',
+          'Flood & disaster impact mapping',
+          'Monitoring dashboards & alerts',
+        ],
+        details: [
+          {
+            name: 'Detection',
+            blurb: 'Real change separated from seasonal, lighting and sensor differences.',
+            items: [
+              'Radiometric normalisation between dates',
+              'Change vector and post-classification comparison',
+              'Seasonal baseline modelling',
+              'False-positive review by analysts',
+            ],
+          },
+          {
+            name: 'Monitoring service',
+            blurb: 'Change delivered on a schedule, where the team will see it.',
+            items: [
+              'Recurring acquisition and processing cycles',
+              'Prioritised change alerts with imagery clips',
+              'Dashboards showing trends by area',
+              'Integration with inspection and work systems',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Multispectral, SAR & Environmental Analysis',
+        icon: Leaf,
+        blurb:
+          'Spectral indices, radar analysis and environmental indicators that reveal vegetation health, moisture, subsidence and conditions invisible in ordinary imagery.',
+        image: '/pillars/smartremote.webp',
+        items: [
+          'Vegetation indices (NDVI, EVI, NDWI)',
+          'Crop & vegetation health monitoring',
+          'SAR all-weather analysis',
+          'InSAR ground movement & subsidence',
+          'Soil moisture & drought indicators',
+          'Thermal & heat island analysis',
+        ],
+        details: [
+          {
+            name: 'Optical and spectral',
+            blurb: 'Using the bands the eye cannot see.',
+            items: [
+              'Atmospheric correction and cloud masking',
+              'Index calculation and seasonal compositing',
+              'Anomaly detection against historical baselines',
+              'Hyperspectral analysis where material discrimination is needed',
+            ],
+          },
+          {
+            name: 'Radar',
+            blurb: 'Observation through cloud, at night and at millimetre sensitivity.',
+            items: [
+              'SAR backscatter analysis for flood and surface change',
+              'InSAR deformation time series',
+              'Coherence analysis for disturbance detection',
+              'Fusion of radar with optical results',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Aerial Imagery & Elevation Products',
+        icon: Mountain,
+        blurb:
+          'Orthorectified aerial and satellite mosaics, digital elevation models and derived terrain products that form the base layers other analysis depends on.',
+        image: '/pillars/drone-lidar.webp',
+        items: [
+          'Orthorectification & mosaicking',
+          'Digital elevation & surface models',
+          'Photogrammetric 3D surfaces',
+          'Contours, slope & aspect',
+          'Watershed & flood modelling inputs',
+          'Volumetric measurement',
+        ],
+        details: [
+          {
+            name: 'Imagery products',
+            blurb: 'Seamless, accurate base imagery ready for mapping.',
+            items: [
+              'Sensor model and ground control orthorectification',
+              'Seamline editing and radiometric balancing',
+              'Positional accuracy checks against control',
+              'Tiled and cloud-optimised outputs',
+            ],
+          },
+          {
+            name: 'Terrain products',
+            blurb: 'Elevation models fit for engineering and hydrology.',
+            items: [
+              'DSM and DTM generation from stereo, LiDAR or SAR',
+              'Breakline and hydro-enforcement',
+              'Derived terrain analysis layers',
+              'Vertical accuracy reporting',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  scenarios: {
+    eyebrow: 'Your requirements',
+    heading: 'From imagery archives to monitored outcomes',
+    intro: 'Choose an area and a situation to see how we approach it and what changes.',
+    items: [],
+    collections: [
+      {
+        name: 'Mapping & Classification',
+        items: [
+          {
+            title: 'An out-of-date picture of a large region',
+            icon: Globe,
+            situation:
+              'Planning and reporting depend on land cover data that is years old and too coarse for the decisions being made.',
+            actions: [
+              'Agree the class scheme and minimum mapping unit',
+              'Select and pre-process suitable imagery',
+              'Classify with machine learning and analyst review',
+              'Assess accuracy against reference samples',
+              'Deliver GIS layers with an accuracy report',
+            ],
+            outcome:
+              'Current, validated land cover mapping at a resolution that fits the decision.',
+          },
+          {
+            title: 'Base mapping for an area with no survey data',
+            icon: Mountain,
+            situation:
+              'A project needs accurate imagery and elevation for a remote or fast-changing area where ground survey is slow or impractical.',
+            actions: [
+              'Source satellite or aerial stereo imagery',
+              'Establish ground control where available',
+              'Produce orthomosaics and elevation models',
+              'Report positional and vertical accuracy',
+            ],
+            outcome:
+              'Survey-grade base layers delivered without mobilising ground crews across the whole area.',
+          },
+        ],
+      },
+      {
+        name: 'Monitoring & Environment',
+        items: [
+          {
+            title: 'Encroachment found only after the damage',
+            icon: GitCompare,
+            situation:
+              'Construction, clearing or vegetation growth near pipelines, power lines or protected land is discovered during infrequent inspections.',
+            actions: [
+              'Define corridors, buffers and change types',
+              'Set up recurring multi-date change detection',
+              'Review candidate changes to remove false alarms',
+              'Send prioritised alerts with imagery evidence',
+            ],
+            outcome:
+              'Encroachment detected between inspections, with field effort directed at confirmed changes.',
+          },
+          {
+            title: 'Environmental reporting based on estimates',
+            icon: Leaf,
+            situation:
+              'Vegetation, water or ground-movement indicators are reported from limited samples, and regulators are asking for broader evidence.',
+            actions: [
+              'Select spectral, radar or InSAR methods',
+              'Build historical baselines from archive imagery',
+              'Produce indicators and trends by reporting area',
+              'Document methods for audit and review',
+            ],
+            outcome:
+              'Area-wide, repeatable environmental indicators that stand up to regulatory scrutiny.',
+          },
+        ],
+      },
+    ],
+  },
+  workflow: {
+    heading: 'How an earth observation project runs',
+    intro: 'The same five stages for a one-off map or a recurring monitoring service.',
+    steps: [
+      { icon: Target, title: 'Define', desc: 'Questions, classes, area, frequency and accuracy targets agreed.' },
+      { icon: Satellite, title: 'Acquire', desc: 'Imagery sourced by sensor, resolution, date and cloud cover.' },
+      { icon: Layers, title: 'Process', desc: 'Correction, orthorectification, compositing and analysis-ready data.' },
+      { icon: Shapes, title: 'Analyse', desc: 'Classification, change detection and indicators with analyst review.' },
+      { icon: ShieldCheck, title: 'Validate & deliver', desc: 'Accuracy assessment, GIS layers, dashboards and alerts.' },
+    ],
+  },
+  engagement: {
+    heading: 'Choose the right delivery model',
+    intro: 'A defined mapping project, a recurring monitoring service or analysts inside your team.',
+    models: GEOSPATIAL_ENGAGEMENT,
+  },
+}
+
+/** Deep-dive pages under Geospatial & Mapping. Order matches the header menu. */
+export const geospatialPages: DeepDivePage[] = [
+  navigationData,
+  spatialAnalysis,
+  enterpriseGisDataManagement,
+  remoteSensingEarthObservation,
+  geospatialDataCapture,
+]
+
+/* ------------------------------------------------------------------ lidar & 3d intelligence */
+
+/**
+ * The LiDAR & 3D Intelligence deep dives.
+ *
+ * These replaced /services/geospatial/aerial-surveys and /services/geospatial/digital-twins,
+ * which used the older sub-service layout and claimed figures ("up to 80% faster", "downtime
+ * reduced by 35%") nobody could source. The old URLs 301 here.
+ *
+ * The digital twin page is about reality-based 3D: cities, corridors, terrain and sites. The
+ * building-level BIM work stays on BIM & Digital Twin Engineering, and the two cross-refer.
+ */
+const aerialDroneLidarMapping: DeepDivePage = {
+  slug: 'aerial-drone-lidar-mapping',
+  group: 'LiDAR & 3D Intelligence',
+  navLabel: 'Aerial & Drone LiDAR Mapping',
+  eyebrowIcon: Plane,
+  title: 'Aerial & Drone LiDAR Mapping',
+  subtitle: 'Survey-grade 3D data captured from above, where ground crews are slow or unsafe.',
+  description:
+    'We plan and fly drone and airborne LiDAR and photogrammetry missions, then process the capture into classified point clouds, orthomosaics, terrain models and engineering-ready measurements. LiDAR sees through vegetation to the ground beneath, so corridors, mines, forests and construction sites are mapped accurately without putting people in hazardous terrain.',
+  image: '/pillars/ariel_lidar.webp',
+  imageAlt: 'Survey drone with LiDAR payload ready for take-off at a remote site',
+  copySide: 'left',
+  techLayout: 'cards',
+  positioning: [
+    {
+      icon: Crosshair,
+      title: 'Accuracy planned before take-off',
+      detail:
+        'Flight altitude, overlap, point density and ground control are designed from the accuracy the deliverable needs, and checked against independent control afterwards.',
+    },
+    {
+      icon: Trees,
+      title: 'Ground truth beneath the canopy',
+      detail:
+        'LiDAR pulses reach the ground through gaps in vegetation, producing bare-earth terrain models where photogrammetry alone only sees the treetops.',
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Safe, compliant operations',
+      detail:
+        'Licensed pilots, airspace permissions, risk assessments and site inductions come as standard, so capture happens without putting crews on steep, live or unstable ground.',
+    },
+  ],
+  tech: {
+    eyebrow: 'What we deliver',
+    heading: 'From flight plan to engineering deliverable',
+    intro:
+      'Four practices that take a site from mission planning through processing to the terrain, imagery and inspection outputs engineers and planners use.',
+    groups: [
+      {
+        name: 'Drone & Airborne Capture',
+        icon: Plane,
+        blurb:
+          'Multi-rotor, fixed-wing and manned airborne platforms carrying LiDAR, RGB and multispectral sensors, flown to a mission plan built around the site and the specification.',
+        image: '/pillars/basemap.webp',
+        items: [
+          'Drone LiDAR survey',
+          'Fixed-wing & VTOL corridor mapping',
+          'Manned airborne LiDAR for large areas',
+          'RGB, oblique & multispectral imagery',
+          'RTK/PPK GNSS positioning',
+          'Airspace permissions & risk assessment',
+        ],
+        details: [
+          {
+            name: 'Mission planning',
+            blurb: 'The platform and flight pattern chosen by site size, terrain and accuracy target.',
+            items: [
+              'Point density and ground sample distance targets',
+              'Altitude, speed, overlap and scan angle design',
+              'Terrain-following flights for steep or variable ground',
+              'Weather, airspace and access constraints',
+            ],
+          },
+          {
+            name: 'Field operations',
+            blurb: 'Capture that is right first time, verified before crews leave site.',
+            items: [
+              'Pre-flight sensor and boresight calibration checks',
+              'Survey-grade ground control and independent check points',
+              'On-site coverage and data integrity review',
+              'Licensed pilots working to documented safety procedures',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Point Cloud Processing & Classification',
+        icon: Layers,
+        blurb:
+          'Raw trajectories and scans processed into georeferenced, classified point clouds, strip-adjusted and checked for accuracy before any product is derived.',
+        image: '/pillars/feature_extraction.webp',
+        items: [
+          'Trajectory & GNSS/IMU processing',
+          'Strip alignment & boresight calibration',
+          'Ground & non-ground classification',
+          'ASPRS LAS class codes',
+          'Vegetation, building & wire classes',
+          'Accuracy reports against control',
+        ],
+        details: [
+          {
+            name: 'Processing',
+            blurb: 'Geometric quality established before classification begins.',
+            items: [
+              'Trajectory processing against base stations or CORS',
+              'Flight line matching and systematic error correction',
+              'Datum and projection transformation to project grids',
+              'Tiling and indexing for large projects',
+            ],
+          },
+          {
+            name: 'Classification',
+            blurb: 'Automated routines refined by analysts where it matters.',
+            items: [
+              'Automated ground and vegetation classification',
+              'Manual editing around structures and break lines',
+              'Power line, tower and pole classification',
+              'Delivery in LAS/LAZ, E57 or project formats',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Terrain, Topographic & Volumetric Products',
+        icon: Mountain,
+        blurb:
+          'Digital terrain and surface models, contours, orthomosaics and volume calculations derived from the classified point cloud, ready for design and quantity reporting.',
+        image: '/pillars/point_cloud.webp',
+        items: [
+          'Digital terrain models (DTM)',
+          'Digital surface models (DSM)',
+          'Contours & breaklines',
+          'True orthomosaics',
+          'Stockpile & earthworks volumes',
+          'CAD & GIS topographic plans',
+        ],
+        details: [
+          {
+            name: 'Terrain modelling',
+            blurb: 'Bare-earth surfaces fit for engineering design.',
+            items: [
+              'Gridded and TIN terrain models',
+              'Breakline extraction for kerbs, banks and edges',
+              'Hydro-flattening and hydro-enforcement',
+              'Vertical accuracy assessment by land cover type',
+            ],
+          },
+          {
+            name: 'Measurement and plans',
+            blurb: 'Quantities and drawings, not just surfaces.',
+            items: [
+              'Repeat-survey volume comparison',
+              'Earthworks progress and cut-fill reporting',
+              'Topographic plans to client CAD standards',
+              'Orthomosaics aligned to terrain and control',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Corridor & Infrastructure Inspection',
+        icon: Zap,
+        blurb:
+          'Power lines, pipelines, rail, roads and structures surveyed from the air, with clearances, encroachment and condition measured directly from the scan.',
+        image: '/pillars/lidar_engineering.webp',
+        items: [
+          'Power line & transmission corridors',
+          'Conductor clearance & sag',
+          'Vegetation encroachment',
+          'Bridge, tower & structure inspection',
+          'Mine & quarry surveys',
+          'Construction progress monitoring',
+        ],
+        details: [
+          {
+            name: 'Corridor analysis',
+            blurb: 'Risk located and quantified along the whole corridor.',
+            items: [
+              'Clearance to ground, vegetation and structures',
+              'Encroachment zones against agreed standards',
+              'Tower, pole and asset positioning',
+              'Prioritised findings with imagery evidence',
+            ],
+          },
+          {
+            name: 'Site monitoring',
+            blurb: 'Repeat flights that show what changed.',
+            items: [
+              'Scheduled capture on construction and mining sites',
+              'Progress against design surfaces',
+              'Slope stability and ground movement indicators',
+              'Canopy height, density and tree inventory',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  scenarios: {
+    eyebrow: 'Your requirements',
+    heading: 'From difficult sites to accurate data',
+    intro: 'Choose an area and a situation to see how we approach it and what you receive.',
+    items: [],
+    collections: [
+      {
+        name: 'Survey & Terrain',
+        items: [
+          {
+            title: 'A topographic survey through dense vegetation',
+            icon: Trees,
+            situation:
+              'Design needs an accurate ground surface across a wooded or overgrown site, and ground survey would take weeks while photogrammetry only captures the canopy.',
+            actions: [
+              'Plan a drone LiDAR mission for ground penetration density',
+              'Establish ground control and independent check points',
+              'Classify ground returns and add breaklines',
+              'Generate the DTM, contours and topographic plan',
+              'Report vertical accuracy against check points',
+            ],
+            outcome:
+              'A bare-earth terrain model under the canopy, delivered faster and without cutting survey lines.',
+          },
+          {
+            title: 'Volumes that need to stand up to audit',
+            icon: Mountain,
+            situation:
+              'Stockpile and earthworks quantities are disputed because they come from infrequent, sampled ground measurements.',
+            actions: [
+              'Fly repeat surveys on an agreed schedule',
+              'Model surfaces against a fixed base or design',
+              'Calculate volumes and cut-fill by area',
+              'Issue reports with method and accuracy stated',
+            ],
+            outcome:
+              'Repeatable, fully measured volumes that contractors and clients can agree on.',
+          },
+        ],
+      },
+      {
+        name: 'Corridors & Assets',
+        items: [
+          {
+            title: 'Vegetation risk along a long power corridor',
+            icon: Zap,
+            situation:
+              'Hundreds of kilometres of line are inspected on foot or by patrol, and clearance problems are found late and inconsistently.',
+            actions: [
+              'Capture the corridor with airborne or drone LiDAR',
+              'Classify conductors, structures and vegetation',
+              'Measure clearance against the applicable standard',
+              'Rank encroachments by severity and location',
+            ],
+            outcome:
+              'A measured, prioritised vegetation programme covering the whole corridor.',
+          },
+          {
+            title: 'Inspecting structures without working at height',
+            icon: ShieldCheck,
+            situation:
+              'Towers, bridges and slopes need condition and geometry data, but access requires closures, rope teams or scaffolding.',
+            actions: [
+              'Plan close-range drone LiDAR and imagery capture',
+              'Model the structure in 3D',
+              'Measure geometry, deformation and defects',
+              'Deliver findings with imagery and model views',
+            ],
+            outcome:
+              'Inspection evidence gathered safely and quickly, with a 3D record for comparison next time.',
+          },
+        ],
+      },
+    ],
+  },
+  workflow: {
+    heading: 'How an aerial survey runs',
+    intro: 'Accuracy is designed at the planning stage and proven at the end.',
+    steps: [
+      { icon: FileSearch, title: 'Scope', desc: 'Site, deliverables, accuracy targets and coordinate system agreed.' },
+      { icon: Compass, title: 'Plan', desc: 'Platform, flight design, control, permissions and risk assessment.' },
+      { icon: Plane, title: 'Capture', desc: 'Missions flown with on-site coverage and data integrity checks.' },
+      { icon: Layers, title: 'Process', desc: 'Trajectories, alignment, classification and derived products.' },
+      { icon: ShieldCheck, title: 'Validate & deliver', desc: 'Accuracy reported against check points, delivered in your formats.' },
+    ],
+  },
+  engagement: {
+    heading: 'Choose the right delivery model',
+    intro: 'A single site survey, a recurring monitoring programme or processing support for your own capture.',
+    models: [
+      { name: 'Survey project', icon: Wrench, detail: 'A defined site or corridor captured, processed and delivered to an agreed specification and accuracy.' },
+      { name: 'Monitoring programme', icon: RefreshCw, detail: 'Repeat capture on a schedule for construction, mining, vegetation or asset change, with comparison built in.' },
+      { name: 'Processing services', icon: Layers, detail: 'Your raw drone or airborne data processed, classified and turned into deliverables by our analysts.' },
+    ],
+  },
+}
+
+const modellingDigitalTwins: DeepDivePage = {
+  slug: '3d-modelling-digital-twins',
+  group: 'LiDAR & 3D Intelligence',
+  navLabel: '3D Modelling & Digital Twins',
+  eyebrowIcon: Box,
+  title: '3D Modelling & Digital Twins',
+  subtitle: 'Cities, corridors and sites modelled from reality, and kept connected to it.',
+  description:
+    'We turn LiDAR, photogrammetry and existing data into accurate 3D models of cities, infrastructure corridors and sites, then connect them to live operational data to form digital twins. From reality meshes and semantic city models to streaming 3D platforms and simulation, the result is a spatial model teams can plan, monitor and make decisions in.',
+  image: '/pillars/digitaltwin_lidar.webp',
+  imageAlt: 'City-scale 3D model with buildings and infrastructure in their geographic context',
+  copySide: 'left',
+  techLayout: 'cards',
+  positioning: [
+    {
+      icon: Scan,
+      title: 'Built from measured reality',
+      detail:
+        'Models start from LiDAR and photogrammetry with stated accuracy, not from assumptions, so what you see in 3D matches what exists on the ground.',
+    },
+    {
+      icon: Boxes,
+      title: 'Semantic, not just visual',
+      detail:
+        'Buildings, roads, terrain and assets are modelled as identifiable objects with attributes, so the model can be queried and analysed rather than only looked at.',
+    },
+    {
+      icon: Activity,
+      title: 'Connected to operations',
+      detail:
+        'Sensor feeds, asset records and work systems are linked to the model, turning a static 3D scene into a twin that reflects current conditions.',
+    },
+  ],
+  tech: {
+    eyebrow: 'What we build',
+    heading: 'From reality capture to a living model',
+    intro:
+      'Four practices that build and operate a digital twin, from the 3D geometry to the platform, the live data and the analysis on top. Building-level BIM is covered on BIM & Digital Twin Engineering.',
+    groups: [
+      {
+        name: 'Reality Capture & 3D Reconstruction',
+        icon: Scan,
+        blurb:
+          'Photorealistic meshes and accurate 3D reconstructions generated from aerial, drone, mobile and terrestrial capture, registered to real-world coordinates.',
+        image: '/pillars/bim-scan-hero.webp',
+        items: [
+          'Photogrammetric reality meshes',
+          'LiDAR-derived 3D models',
+          'Terrestrial & mobile scan registration',
+          'Textured mesh generation',
+          'Georeferencing to survey control',
+          'Level-of-detail generation',
+        ],
+        details: [
+          {
+            name: 'Reconstruction',
+            blurb: 'Geometry and texture built from the best available capture.',
+            items: [
+              'Aerial triangulation and dense matching',
+              'Fusion of LiDAR geometry with imagery texture',
+              'Registration of multiple scan campaigns',
+              'Accuracy checks against independent control',
+            ],
+          },
+          {
+            name: 'Optimisation',
+            blurb: 'Models that stay usable at city scale.',
+            items: [
+              'Mesh decimation and hole filling',
+              'Tiling and hierarchical levels of detail',
+              'Texture atlasing and compression',
+              'Streaming-ready outputs for web and mobile',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'City, Corridor & Site 3D Models',
+        icon: Building2,
+        blurb:
+          'Semantic 3D models of buildings, roads, terrain, vegetation and infrastructure, structured to open standards so they can be analysed, exchanged and maintained.',
+        image: '/pillars/digital-twin-new.webp',
+        items: [
+          'CityGML & CityJSON models',
+          'Building models LOD1 to LOD3',
+          '3D road & rail corridors',
+          'Terrain & vegetation models',
+          'Underground utilities in 3D',
+          'IFC & BIM model integration',
+        ],
+        details: [
+          {
+            name: 'Semantic modelling',
+            blurb: 'Every object identifiable, classified and attributed.',
+            items: [
+              'Building extrusion and roof reconstruction from LiDAR',
+              'Level of detail agreed per use case',
+              'Attributes for height, use, age and ownership',
+              'Consistent identifiers linked to GIS and asset systems',
+            ],
+          },
+          {
+            name: 'Integration',
+            blurb: 'One coordinate space for above and below ground, outdoors and in.',
+            items: [
+              'BIM models placed in geographic context',
+              'Subsurface utilities from records and survey',
+              'Conversion between CityGML, IFC, FBX and 3D Tiles',
+              'Update workflows as new capture arrives',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Digital Twin Platforms & Live Data',
+        icon: MonitorSmartphone,
+        blurb:
+          'Web platforms that stream the 3D model and combine it with sensor, asset and operational data, giving teams one current view of the place they manage.',
+        image: '/pillars/twinning.webp',
+        items: [
+          'Cesium, ArcGIS & Unreal-based platforms',
+          '3D Tiles & I3S streaming',
+          'IoT & sensor data integration',
+          'Asset & work management links',
+          'Real-time status dashboards',
+          'Web, mobile & immersive viewing',
+        ],
+        details: [
+          {
+            name: 'Platform',
+            blurb: 'Chosen by scale, users and the systems it must connect to.',
+            items: [
+              'Browser-based 3D streaming for large models',
+              'Desktop and immersive clients where needed',
+              'Single sign-on and project permissions',
+              'Hosted, cloud or on-premise deployment',
+            ],
+          },
+          {
+            name: 'Live data',
+            blurb: 'Operational information placed where it happens.',
+            items: [
+              'Sensor and telemetry feeds via APIs and message queues',
+              'Asset, maintenance and work order records',
+              'Time-series playback of conditions and events',
+              'Threshold alerts shown in spatial context',
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Simulation & Scenario Analysis',
+        icon: Sparkles,
+        blurb:
+          'Analysis run inside the 3D model to test decisions before they are made: visibility, shadow, flood, capacity and development scenarios compared side by side.',
+        image: '/pillars/decisions.webp',
+        items: [
+          'Viewshed & line-of-sight analysis',
+          'Shadow & solar exposure studies',
+          'Flood & inundation scenarios',
+          'Urban development massing',
+          'Clearance & conflict detection',
+          'Before & after comparison',
+        ],
+        details: [
+          {
+            name: 'Analysis',
+            blurb: 'Spatial questions answered in three dimensions.',
+            items: [
+              'Visibility for planning, security and telecom siting',
+              'Solar potential and overshadowing assessment',
+              'Flood extent against terrain and building models',
+              'Clash detection between proposed and existing assets',
+            ],
+          },
+          {
+            name: 'Communication',
+            blurb: 'Scenarios decision makers and the public can understand.',
+            items: [
+              'Side-by-side option comparison',
+              'Fly-throughs and shareable scenes',
+              'Consultation-ready visual packages',
+              'Documented assumptions for each scenario',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  scenarios: {
+    eyebrow: 'Your requirements',
+    heading: 'From 3D ambition to working twins',
+    intro: 'Choose an area and a situation to see how we approach it and what changes.',
+    items: [],
+    collections: [
+      {
+        name: '3D Models',
+        items: [
+          {
+            title: 'A city model that is only a pretty picture',
+            icon: Building2,
+            situation:
+              'A photorealistic mesh exists, but planners cannot select a building, query its height or run analysis because nothing in it is an object.',
+            actions: [
+              'Agree the object classes and level of detail needed',
+              'Extract buildings, roofs and terrain from LiDAR',
+              'Attribute objects and link identifiers to GIS',
+              'Publish semantic and mesh layers together',
+              'Set up an update route for new capture',
+            ],
+            outcome:
+              'A 3D city model that looks right and can be queried, analysed and maintained.',
+          },
+          {
+            title: 'Planning decisions made on 2D drawings',
+            icon: Sparkles,
+            situation:
+              'Development and infrastructure proposals are assessed on plans and elevations, and visual, shadow and flood impacts are argued rather than shown.',
+            actions: [
+              'Build the surrounding context in 3D',
+              'Insert proposal massing or BIM models',
+              'Run viewshed, shadow and flood scenarios',
+              'Package comparisons for review and consultation',
+            ],
+            outcome:
+              'Impacts shown clearly in 3D, and decisions reached with less dispute.',
+          },
+        ],
+      },
+      {
+        name: 'Digital Twins',
+        items: [
+          {
+            title: 'Operational data scattered across systems',
+            icon: Activity,
+            situation:
+              'Sensors, asset records and work orders each live in separate tools, and nobody can see what is happening across a site or network in one place.',
+            actions: [
+              'Build or reuse a 3D model of the site or network',
+              'Map sensors and assets to model objects',
+              'Integrate live feeds and records via APIs',
+              'Configure dashboards, alerts and playback',
+            ],
+            outcome:
+              'One spatial view of current conditions, with issues seen in context as they happen.',
+          },
+          {
+            title: 'A digital twin pilot that never scaled',
+            icon: RefreshCw,
+            situation:
+              'A proof of concept impressed, but it was built by hand, cannot be updated, and stalled when asked to cover more assets or areas.',
+            actions: [
+              'Assess the model, data links and platform choices',
+              'Automate model generation from capture',
+              'Move to streaming formats and scalable hosting',
+              'Define update cycles and data ownership',
+            ],
+            outcome:
+              'A twin that grows across sites and stays current without rebuilding it each time.',
+          },
+        ],
+      },
+    ],
+  },
+  workflow: {
+    heading: 'How a digital twin is built',
+    intro: 'Start from the decisions the twin must support, then build only as much model as they need.',
+    steps: [
+      { icon: Target, title: 'Define', desc: 'Use cases, users, level of detail and the data the twin must hold.' },
+      { icon: Scan, title: 'Capture', desc: 'LiDAR, photogrammetry and existing records gathered and registered.' },
+      { icon: Box, title: 'Model', desc: 'Meshes and semantic 3D objects built, attributed and optimised.' },
+      { icon: Plug, title: 'Connect', desc: 'Platform deployed and live sensor, asset and work data integrated.' },
+      { icon: RefreshCw, title: 'Operate', desc: 'Update cycles, analysis and support as the place changes.' },
+    ],
+  },
+  engagement: {
+    heading: 'Choose the right delivery model',
+    intro: 'A defined 3D model, a managed digital twin service or specialists working with your team.',
+    models: [
+      { name: '3D modelling project', icon: Box, detail: 'A city, corridor or site model delivered to an agreed level of detail, accuracy and format.' },
+      { name: 'Managed digital twin', icon: MonitorSmartphone, detail: 'Platform hosting, live data integration and model updates run as an ongoing service.' },
+      { name: 'Specialist capacity', icon: Users, detail: '3D modellers, GIS developers and data engineers working inside your programme.' },
+    ],
+  },
+}
+
+/** Deep-dive pages under LiDAR & 3D Intelligence. */
+export const lidarPages: DeepDivePage[] = [aerialDroneLidarMapping, modellingDigitalTwins]
+
+/** Short editorial introductions; the original scope and workflows remain available. */
+const serviceOverviews: Record<string, { description: string; items: string[] }> = {
+  'arcgis-solution-development': {
+    description: 'Configured ArcGIS apps and custom extensions built around your users, data and operational workflows.',
+    items: ['Experience Builder & Dashboards', 'Web and mobile applications', 'Custom widgets & Maps SDK', 'ArcPy & geoprocessing', 'Workflow automation', 'Legacy application migration'],
+  },
+  'esri-platform-support': {
+    description: 'Administration, upgrades and performance support for secure, dependable ArcGIS Enterprise and Online environments.',
+    items: ['Enterprise & Online administration', 'Service publishing & access control', 'Version upgrades & migration', 'Performance tuning', 'Backup & recovery', 'Licensing & platform health'],
+  },
+  'geodatabase-data-modelling': {
+    description: 'Spatial schemas and network models designed for consistent editing, reliable analysis and controlled data growth.',
+    items: ['Enterprise geodatabase design', 'Versioning & editing workflows', 'Domains & attribute rules', 'Topology & data validation', 'Utility & network models', 'Spatial database performance'],
+  },
+  'arcgis-field-operations': {
+    description: 'Field capture connected to your office data, with forms, offline maps and synchronisation tested for real conditions.',
+    items: ['Field Maps', 'Survey123 & smart forms', 'QuickCapture', 'Offline areas & sync', 'Location tracking & tasking', 'Field-to-office quality checks'],
+  },
+  'application-support': {
+    description: 'One support service for desktop GIS, spatial databases, web viewers and the scripts that connect them.',
+    items: ['ArcGIS & QGIS applications', 'GeoServer & web viewers', 'PostGIS & spatial databases', 'FME & Python pipelines', 'Incident diagnosis & fixes', 'Runbooks & ongoing maintenance'],
+  },
+  'scan-to-bim': {
+    description: 'Survey and point clouds converted into coordinated architectural, structural and MEP models, with agreed detail and measured accuracy.',
+    items: ['Capture & scan registration', 'Point cloud processing', 'Revit & Bentley modelling', 'Agreed LOD & tolerances', 'Model federation & clash review', 'IFC, COBie & as-built deliverables'],
+  },
+  'bim-gis-integration': {
+    description: 'Building models placed in their wider spatial context, with coordinates, formats and asset identifiers aligned across BIM and GIS.',
+    items: ['Coordinate & datum alignment', 'IFC and GIS transformation', 'ArcGIS GeoBIM & 3D scenes', 'Indoor & infrastructure context', 'Asset ID reconciliation', 'Model updates & governance'],
+  },
+  'digital-twin-asset-information': {
+    description: 'Models connected to structured asset records, documents and live information to support maintenance and operational decisions.',
+    items: ['Asset information requirements', 'Registers & classification', 'Model-to-asset connections', 'Telemetry & operational data', 'Twin platforms & visualisation', 'Handover validation & updates'],
+  },
+}
+
+/** Keep the original layout and full source coverage, with a concise first read. */
+function consolidate(
+  slug: string,
+  title: string,
+  subtitle: string,
+  description: string,
+  sources: DeepDivePage[],
+): DeepDivePage {
+  const primary = sources[0]
+  return {
+    ...primary,
+    slug,
+    group: 'Spatial Applications & Engineering',
+    navLabel: title,
+    title,
+    subtitle,
+    description,
+    positioning: slug === 'esri-gis-application-development' ? [
+      { icon: Code, title: 'Build around the workflow', detail: 'Configure where the platform fits; develop supported extensions where the task needs more.' },
+      { icon: Database, title: 'Connect office and field', detail: 'Align data models, applications and capture workflows across the GIS estate.' },
+      { icon: LifeBuoy, title: 'Support through operation', detail: 'Keep platforms secure, applications maintained and users supported after launch.' },
+    ] : slug === 'bim-digital-twin-engineering' ? [
+      { icon: Scan, title: 'Start with measured reality', detail: 'Agree capture accuracy, model detail and acceptance criteria before modelling begins.' },
+      { icon: Layers, title: 'Coordinate BIM and GIS', detail: 'Bring models, coordinates and asset identifiers into one consistent spatial context.' },
+      { icon: RefreshCw, title: 'Plan for the asset lifecycle', detail: 'Structure information for handover, maintenance and continuing updates.' },
+    ] : [
+      { icon: Plug, title: 'Connect the operating systems', detail: 'Link spatial data to the enterprise applications and teams that need it.' },
+      { icon: ShieldCheck, title: 'Define the data contract', detail: 'Make schemas, authentication, ownership and failure handling explicit.' },
+      { icon: Activity, title: 'Keep the interfaces running', detail: 'Monitor data flow and provide tested retry, recovery and support procedures.' },
+    ],
+    tech: sources.length === 1 ? {
+      ...primary.tech,
+      intro: 'APIs, data pipelines, enterprise interfaces and the controls that keep them reliable.',
+      groups: primary.tech.groups.map((group) => ({
+        ...group,
+        items: group.items.slice(0, 6),
+        details: [{ name: group.name, blurb: group.blurb, items: group.items }],
+      })),
+    } : {
+      eyebrow: 'Technical capabilities',
+      heading: 'What we deliver',
+      intro: 'Explore each service area, with full platform and delivery details available when you need them.',
+      groups: sources.map((source) => ({
+        name: source.title,
+        icon: source.eyebrowIcon,
+        blurb: serviceOverviews[source.slug].description,
+        image: source.image,
+        items: serviceOverviews[source.slug].items,
+        details: [
+          ...source.tech.groups.map(({ name, blurb, items }) => ({ name, blurb, items })),
+          { name: source.workflow.heading, blurb: source.workflow.intro, items: source.workflow.steps.map((step) => `${step.title}: ${step.desc}`) },
+        ],
+      })),
+    },
+    scenarios: {
+      eyebrow: 'Your requirements',
+      heading: 'From technical challenges to working systems',
+      intro: 'Choose a service area and situation to see our approach and the expected outcome.',
+      items: sources.flatMap((source) => source.scenarios.items),
+      collections: sources.map((source) => ({ name: source.title, items: source.scenarios.items })),
+    },
+    workflow: sources.length === 1 ? primary.workflow : {
+      heading: 'From requirements to operation',
+      intro: 'A shared delivery process across applications, information models and connected systems.',
+      steps: [
+        { icon: FileSearch, title: 'Discover', desc: 'Review requirements, existing systems, source data and acceptance criteria.' },
+        { icon: Layers, title: 'Design', desc: 'Agree the architecture, information models, interfaces and delivery scope.' },
+        { icon: Wrench, title: 'Implement', desc: 'Build, configure and connect the solution against the agreed design.' },
+        { icon: ShieldCheck, title: 'Validate', desc: 'Check data quality, system behaviour and user workflows against acceptance criteria.' },
+        { icon: RefreshCw, title: 'Operate', desc: 'Hand over documentation and training, with ongoing support where agreed.' },
+      ],
+    },
+    engagement: {
+      heading: 'Choose the right delivery model',
+      intro: 'A defined project, ongoing support or specialist capacity within your team.',
+      models: [
+        { name: 'Project delivery', icon: Wrench, detail: 'An agreed scope, clear deliverables and acceptance criteria, from design through handover.' },
+        { name: 'Managed support', icon: LifeBuoy, detail: 'Ongoing maintenance and improvement with agreed priorities, response targets and escalation paths.' },
+        { name: 'Specialist capacity', icon: Users, detail: 'Embedded engineers or blocks of hours for specific technical needs and changing workloads.' },
+      ],
+    },
+  }
+}
+
+export const spatialApplicationPages: DeepDivePage[] = [
+  consolidate(
+    'esri-gis-application-development',
+    'Esri & GIS Application Development',
+    'GIS Applications, ArcGIS Platforms and Field Workflows',
+    'We develop and support GIS applications across web, desktop and mobile environments. ArcGIS solution development, platform support, geodatabase modelling and field operations come together in one service, from initial design through day-to-day operation.',
+    [arcgisSolutionDevelopment, esriPlatformSupport, geodatabaseDataModelling, arcgisFieldOperations, applicationSupport],
+  ),
+  consolidate(
+    'bim-digital-twin-engineering',
+    'BIM & Digital Twin Engineering',
+    'From Surveyed Reality to Connected Asset Information',
+    'We turn surveyed assets into coordinated BIM models, connect them to GIS and build the information foundation for digital twins. Scan-to-BIM, spatial coordination and asset information are delivered as one engineering workflow.',
+    [scanToBim, bimGisIntegration, digitalTwinAssetInformation],
+  ),
+  consolidate(
+    'spatial-apis-systems-integration',
+    'Spatial APIs & Systems Integration',
+    'Connect Spatial Data to the Systems Your Teams Use',
+    'We connect GIS, enterprise applications and operational platforms through spatial APIs, data pipelines and managed interfaces. From authentication and schema mapping to monitoring and recovery, integrations are designed to work reliably in production.',
+    [integrationServices],
+  ),
+  lidarApplicationDevelopment,
+]
+
+export const consolidatedCapabilityRedirects = [
+  ...[applicationSupport, esriPlatformSupport, arcgisSolutionDevelopment, geodatabaseDataModelling, arcgisFieldOperations]
+    .map((page) => ({ from: page.slug, to: spatialApplicationPages[0].slug })),
+  ...[scanToBim, bimGisIntegration, digitalTwinAssetInformation]
+    .map((page) => ({ from: page.slug, to: spatialApplicationPages[1].slug })),
+  { from: integrationServices.slug, to: spatialApplicationPages[2].slug },
+]
+
+/** Deep-dive pages under Visual & AI-Assisted Data Annotation. */
+export const annotationPages: DeepDivePage[] = [annotationSegmentation]
+
+export const deepDivePages: DeepDivePage[] = [...spatialApplicationPages, ...annotationPages, ...geospatialPages, ...lidarPages, dataCenterBuild]
 
 export const deepDiveBySlug = (slug?: string) => deepDivePages.find((page) => page.slug === slug)

@@ -1,3 +1,4 @@
+import { annotationPages, consolidatedCapabilityRedirects, geospatialPages, lidarPages, spatialApplicationPages } from './capabilityDeepDives'
 import type { ElementType } from 'react'
 import type { LucideIcon } from 'lucide-react'
 import {
@@ -80,7 +81,7 @@ export interface Capability {
   outcomes: string[]
 }
 
-export const capabilities: Capability[] = [
+const originalCapabilities: Capability[] = [
   /* ---------------- Geospatial & Mapping ---------------- */
   {
     slug: 'road-network-geometry',
@@ -333,10 +334,10 @@ export const capabilities: Capability[] = [
     ],
   },
 
-  /* ---------------- GeoAI & Data Operations ---------------- */
+  /* ---------------- Visual & AI-Assisted Data Annotation ---------------- */
   {
     slug: 'lidar-feature-extraction',
-    group: 'GeoAI & Data Operations',
+    group: 'LiDAR & 3D Intelligence',
     category: 'LIDAR FEATURE EXTRACTION',
     icon: Scan,
     title: 'LiDAR Feature Extraction',
@@ -398,7 +399,7 @@ export const capabilities: Capability[] = [
   },
   {
     slug: 'ocr-sign-intelligence',
-    group: 'GeoAI & Data Operations',
+    group: 'Visual & AI-Assisted Data Annotation',
     category: 'OCR & SIGN INTELLIGENCE',
     icon: Type,
     title: 'OCR & Sign Intelligence',
@@ -460,7 +461,7 @@ export const capabilities: Capability[] = [
   },
   {
     slug: 'human-in-the-loop-qa',
-    group: 'GeoAI & Data Operations',
+    group: 'Visual & AI-Assisted Data Annotation',
     category: 'HUMAN-IN-THE-LOOP QA',
     icon: Users,
     title: 'Human-in-the-Loop QA',
@@ -522,7 +523,7 @@ export const capabilities: Capability[] = [
   },
   {
     slug: 'data-validation',
-    group: 'GeoAI & Data Operations',
+    group: 'Visual & AI-Assisted Data Annotation',
     category: 'DATA VALIDATION',
     icon: FileSearch,
     title: 'Data Validation',
@@ -583,10 +584,10 @@ export const capabilities: Capability[] = [
     ],
   },
 
-  /* ---------------- Telecom & Infrastructure ---------------- */
+  /* ---------------- Telecommunications (reached through Industries) ---------------- */
   {
     slug: '5g-small-cells',
-    group: 'Telecom & Infrastructure',
+    group: 'Telecommunications',
     category: '5G & SMALL CELLS',
     icon: Antenna,
     title: '5G & Small Cells',
@@ -648,7 +649,7 @@ export const capabilities: Capability[] = [
   },
   {
     slug: 'lidar-engineering',
-    group: 'Telecom & Infrastructure',
+    group: 'LiDAR & 3D Intelligence',
     category: 'LIDAR ENGINEERING',
     icon: Activity,
     title: 'LiDAR Engineering',
@@ -710,7 +711,7 @@ export const capabilities: Capability[] = [
   },
   {
     slug: 'as-built-validation',
-    group: 'Telecom & Infrastructure',
+    group: 'LiDAR & 3D Intelligence',
     category: 'AS-BUILT VALIDATION',
     icon: ClipboardCheck,
     title: 'As-Built Validation',
@@ -1263,6 +1264,22 @@ export const capabilities: Capability[] = [
     idealFor: [],
     outcomes: [],
   },
+]
+
+// Retired detail pages are represented by their consolidated destination only.
+export const capabilities: Capability[] = [
+  ...originalCapabilities.filter((page) => !consolidatedCapabilityRedirects.some((redirect) => redirect.from === page.slug)),
+  ...[...spatialApplicationPages, ...annotationPages, ...geospatialPages, ...lidarPages].map((page): Capability => ({
+    slug: page.slug,
+    group: page.group,
+    category: page.title.toUpperCase(),
+    icon: page.eyebrowIcon,
+    title: page.title,
+    subtitle: page.subtitle,
+    description: page.description,
+    bgImage: page.image,
+    highlights: [], approach: [], deliverables: [], idealFor: [], outcomes: [],
+  })),
 ]
 
 export const capabilityBySlug = (slug?: string) => capabilities.find((item) => item.slug === slug)

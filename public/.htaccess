@@ -19,10 +19,28 @@ DirectorySlash Off
 # ----------------------------------------------------------------------
 # ===== GENERATED REDIRECTS (scripts/sync-redirects.mjs) - do not edit by hand =====
 
+RedirectMatch 301 ^/capabilities/application-support/?$ /capabilities/esri-gis-application-development
+RedirectMatch 301 ^/capabilities/esri-platform-support/?$ /capabilities/esri-gis-application-development
+RedirectMatch 301 ^/capabilities/arcgis-solution-development/?$ /capabilities/esri-gis-application-development
+RedirectMatch 301 ^/capabilities/geodatabase-data-modelling/?$ /capabilities/esri-gis-application-development
+RedirectMatch 301 ^/capabilities/arcgis-field-operations/?$ /capabilities/esri-gis-application-development
+RedirectMatch 301 ^/capabilities/scan-to-bim/?$ /capabilities/bim-digital-twin-engineering
+RedirectMatch 301 ^/capabilities/bim-gis-integration/?$ /capabilities/bim-digital-twin-engineering
+RedirectMatch 301 ^/capabilities/digital-twin-asset-information/?$ /capabilities/bim-digital-twin-engineering
+RedirectMatch 301 ^/capabilities/integration-services/?$ /capabilities/spatial-apis-systems-integration
+RedirectMatch 301 ^/capabilities/telecom-infrastructure/?$ /capabilities/lidar-3d-intelligence
+RedirectMatch 301 ^/capabilities/geoai-data-operations/?$ /capabilities/visual-ai-assisted-data-annotation
+RedirectMatch 301 ^/services/geospatial/aerial-surveys/?$ /capabilities/aerial-drone-lidar-mapping
+RedirectMatch 301 ^/services/geospatial/digital-twins/?$ /capabilities/3d-modelling-digital-twins
+RedirectMatch 301 ^/services/location-intelligence/navigation-data/?$ /capabilities/navigation-data
+RedirectMatch 301 ^/services/geospatial/spatial-analytics/?$ /capabilities/spatial-analysis
+RedirectMatch 301 ^/services/geospatial/enterprise-gis/?$ /capabilities/enterprise-gis-data-management
+RedirectMatch 301 ^/services/geospatial/remote-sensing/?$ /capabilities/remote-sensing-earth-observation
+RedirectMatch 301 ^/services/location-intelligence/data-capture/?$ /capabilities/geospatial-data-capture
 RedirectMatch 301 ^/about/?$ /company
 RedirectMatch 301 ^/blogs/?$ /insights
 RedirectMatch 301 ^/projects/?$ /products
-RedirectMatch 301 ^/capabilities/gis-tools-support/?$ /capabilities/application-support
+RedirectMatch 301 ^/capabilities/gis-tools-support/?$ /capabilities/esri-gis-application-development
 RedirectMatch 301 ^/news/?$ /insights
 RedirectMatch 301 ^/industries/energy/?$ /industries/utilities
 RedirectMatch 301 ^/industries/transport/?$ /industries/transportation-infrastructure

@@ -141,9 +141,11 @@ export default function Telecommunications() {
         { name: 'Telecom Network Intelligence', href: '/services/telecom-network-intelligence' },
         { name: 'Smart Fiber Planning', href: '/services/smart-fiber-planning' },
         { name: 'Pole & Asset Intelligence', href: '/services/pole-asset-intelligence' },
-        { name: 'GIS Data Engineering', href: '/technologies/gis' },
+        { name: '5G & Small Cells', href: '/capabilities/5g-small-cells' },
+        { name: 'Utilities Mapping', href: '/services/utility-network-intelligence' },
+        { name: 'As-Built Validation', href: '/capabilities/as-built-validation' },
+        { name: 'LiDAR Engineering', href: '/capabilities/lidar-engineering' },
         { name: 'Operational Dashboards', href: '/technologies/analytics' },
-        { name: 'Managed Delivery', href: '/technologies/it-infrastructure' },
       ]}
       outcomes={[
         'An as-built record reconciled against design, with exceptions raised rather than absorbed',

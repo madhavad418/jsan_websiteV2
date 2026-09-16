@@ -127,11 +127,9 @@
   </url>
 
   <!-- Location Intelligence sub-services -->
-  <url><loc>https://www.jsanconsulting.com/services/location-intelligence/navigation-data</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.jsanconsulting.com/services/location-intelligence/strategy-advisory</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.jsanconsulting.com/services/location-intelligence/custom-platforms</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.jsanconsulting.com/services/location-intelligence/advanced-analytics</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.jsanconsulting.com/services/location-intelligence/data-capture</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- Technology Consultancy sub-services -->
   <url><loc>https://www.jsanconsulting.com/services/technology-consultancy/data-analytics-ai</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -159,11 +157,6 @@
   <url><loc>https://www.jsanconsulting.com/services/smart-fiber-planning/scalable-future-growth</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
   <!-- Geospatial sub-services -->
-  <url><loc>https://www.jsanconsulting.com/services/geospatial/enterprise-gis</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.jsanconsulting.com/services/geospatial/spatial-analytics</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.jsanconsulting.com/services/geospatial/remote-sensing</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.jsanconsulting.com/services/geospatial/aerial-surveys</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.jsanconsulting.com/services/geospatial/digital-twins</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.jsanconsulting.com/services/geospatial/network-mapping</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.jsanconsulting.com/services/geospatial/asset-management</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.jsanconsulting.com/services/geospatial/ai-ml-detection</loc><lastmod>2026-07-06</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -351,13 +344,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.jsanconsulting.com/capabilities/geoai-data-operations</loc>
+    <loc>https://www.jsanconsulting.com/capabilities/visual-ai-assisted-data-annotation</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.jsanconsulting.com/capabilities/telecom-infrastructure</loc>
+    <loc>https://www.jsanconsulting.com/capabilities/lidar-3d-intelligence</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -401,4 +394,82 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/spatial-applications-engineering</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/esri-gis-application-development</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/bim-digital-twin-engineering</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/spatial-apis-systems-integration</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/lidar-3d-application-development</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/2d-3d-annotation-segmentation</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/navigation-data</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/spatial-analysis</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/enterprise-gis-data-management</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/remote-sensing-earth-observation</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/geospatial-data-capture</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/aerial-drone-lidar-mapping</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.jsanconsulting.com/capabilities/3d-modelling-digital-twins</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

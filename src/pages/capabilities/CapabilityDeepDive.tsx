@@ -6,6 +6,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import ServiceHero from '../../components/ServiceHero'
 import TechMatrix from '../../components/TechMatrix'
+import DeliverableCards from '../../components/DeliverableCards'
 import ScenarioExplorer from '../../components/ScenarioExplorer'
 import ProcessFlow from '../../components/ProcessFlow'
 import { deepDiveBySlug, deepDivePages, groupLabel } from '../../data/capabilityDeepDives'
@@ -30,6 +31,10 @@ export default function CapabilityDeepDive({ slug }: { slug: string }) {
   if (!page) return <NotFound />
 
   const siblings = deepDivePages.filter((p) => p.group === page.group && p.slug !== page.slug)
+  const isSpatial = page.group === 'Spatial Applications & Engineering'
+  const isAnnotation = page.group === 'Visual & AI-Assisted Data Annotation'
+  const isGeospatial = page.group === 'Geospatial & Mapping'
+  const isLidar = page.group === 'LiDAR & 3D Intelligence'
 
   return (
     <div className="min-h-screen bg-white">
@@ -68,18 +73,29 @@ export default function CapabilityDeepDive({ slug }: { slug: string }) {
         </div>
       </section>
 
-      <TechMatrix
-        eyebrow={page.tech.eyebrow}
-        heading={page.tech.heading}
-        intro={page.tech.intro}
-        groups={page.tech.groups}
-      />
+      {page.techLayout === 'cards' ? (
+        <DeliverableCards
+          eyebrow={page.tech.eyebrow}
+          heading={page.tech.heading}
+          intro={page.tech.intro}
+          groups={page.tech.groups}
+        />
+      ) : (
+        <TechMatrix
+          eyebrow={page.tech.eyebrow}
+          heading={page.tech.heading}
+          intro={page.tech.intro}
+          groups={page.tech.groups}
+        />
+      )}
 
       <ScenarioExplorer
+        key={page.slug}
         eyebrow={page.scenarios.eyebrow}
         heading={page.scenarios.heading}
         intro={page.scenarios.intro}
         scenarios={page.scenarios.items}
+        collections={page.scenarios.collections}
       />
 
       {/* How the work runs */}
@@ -162,11 +178,18 @@ export default function CapabilityDeepDive({ slug }: { slug: string }) {
       <section className="py-16 md:py-20" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
         <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 text-center">
           <h2 className="text-[26px] font-bold leading-tight text-white md:text-[36px]">
-            Tell us what you are running, and what it is doing
+            {isLidar ? 'Tell us about the site, corridor or place you need in 3D' : isGeospatial ? 'Tell us what your spatial data needs to do' : isAnnotation ? 'Tell us what your model needs to learn' : isSpatial ? 'Tell us what you need to build, connect or improve' : 'Tell us what you are running, and what it is doing'}
           </h2>
           <p className="text-[15px] leading-relaxed text-white/75 md:text-lg">
-            We will tell you whether it is something we support, what taking it on would
-            involve, and where the risk actually sits. No obligation to buy anything.
+            {isLidar
+              ? 'Share the area, the accuracy you need and how the model will be used. We will recommend the capture method, deliverables and delivery model.'
+              : isGeospatial
+              ? 'Share the area, the decision and the data you have today. We will recommend the approach, accuracy targets and delivery model.'
+              : isAnnotation
+              ? 'Share your sensors, classes, volumes and formats. We will propose an ontology, a pilot batch and the quality criteria to hold it to.'
+              : isSpatial
+              ? 'Share your current systems, data and goals. We will help define the scope, approach and delivery model.'
+              : 'We will tell you whether it is something we support, what taking it on would involve, and where the risk actually sits. No obligation to buy anything.'}
           </p>
           <Link
             to="/contact"

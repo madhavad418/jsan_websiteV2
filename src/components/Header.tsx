@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ChevronDown, ChevronRight } from 'lucide-react'
 import NewsTicker from './NewsTicker'
+import { spatialApplicationPages } from '../data/capabilityDeepDives'
 
 // Items without an href have no page yet  they render as plain, non-clickable text
 type GroupItem = { name: string; href?: string }
@@ -14,14 +15,6 @@ type NavItem =
   | { name: string; href?: string; dropdown: { name: string; href: string }[]; groups?: never }
   | { name: string; href?: string; groups: NavGroup[]; dropdown?: never }
 
-/*
- * Navigation follows the JSAN operating model: OPERATE -> MAP -> INTELLIGENCE -> ENGINEER.
- * Six top-level items plus the CTA, deliberately  the previous header carried eight and
- * split the same work across Services, Technologies and In-House Apps.
- *
- * Capability items without an href have no page of their own yet. They still belong in the
- * story, so they render as plain text (see GroupItem) rather than being dropped.
- */
 /*
  * Navigation follows the JSAN operating model: OPERATE -> MAP -> INTELLIGENCE -> ENGINEER,
  * expressed as six capability groups. Six top-level items plus the CTA, deliberately  the
@@ -40,10 +33,14 @@ const navigation: NavItem[] = [
         name: 'Geospatial & Mapping',
         href: '/capabilities/geospatial-mapping',
         items: [
-          
           { name: 'Road Network & Geometry', href: '/capabilities/road-network-geometry' },
           { name: 'Basemap, POI & Address Intelligence', href: '/services/basemap-poi-annotation' },
+          { name: 'Navigation Data', href: '/capabilities/navigation-data' },
+          { name: 'Spatial Analysis', href: '/capabilities/spatial-analysis' },
           { name: 'GIS Data Engineering', href: '/technologies/gis' },
+          { name: 'Enterprise GIS & Data Management', href: '/capabilities/enterprise-gis-data-management' },
+          { name: 'Remote Sensing & Earth Observation', href: '/capabilities/remote-sensing-earth-observation' },
+          { name: 'Geospatial Data Capture', href: '/capabilities/geospatial-data-capture' },
         ],
       },
       {
@@ -61,10 +58,11 @@ const navigation: NavItem[] = [
         ],
       },
       {
-        name: 'GeoAI & Data Operations',
-        href: '/capabilities/geoai-data-operations',
+        name: 'Visual & AI-Assisted Data Annotation',
+        href: '/capabilities/visual-ai-assisted-data-annotation',
         items: [
-          { name: 'Visual & AI-Assisted Data Annotation', href: '/services/geoai-computer-vision' },
+          { name: 'GeoAI & Computer Vision', href: '/services/geoai-computer-vision' },
+          { name: '2D & 3D Annotation & Segmentation', href: '/capabilities/2d-3d-annotation-segmentation' },
           
   
           { name: 'OCR & Sign Intelligence', href: '/capabilities/ocr-sign-intelligence' },
@@ -74,18 +72,17 @@ const navigation: NavItem[] = [
         ],
       },
       {
-        name: 'LiDAR,Telecom & Infrastructure',
-        href: '/capabilities/telecom-infrastructure',
+        /* Telecom GIS, fibre, 5G and utilities mapping are sector work, so they are reached
+           through Industries > Telecommunications and Utilities rather than listed here. */
+        name: 'LiDAR & 3D Intelligence',
+        href: '/capabilities/lidar-3d-intelligence',
         items: [
-          { name: 'Telecom GIS', href: '/services/telecom-network-intelligence' },
-          { name: 'LiDAR & 3D Mapping', href: '/services/geospatial' },
-          { name: 'Fiber Engineering', href: '/services/smart-fiber-planning' },
+          { name: 'Aerial & Drone LiDAR Mapping', href: '/capabilities/aerial-drone-lidar-mapping' },
           { name: 'LiDAR Feature Extraction', href: '/capabilities/lidar-feature-extraction' },
-          { name: 'Pole & Asset Intelligence', href: '/services/pole-asset-intelligence' },
           { name: 'LiDAR Engineering', href: '/capabilities/lidar-engineering' },
-          { name: '5G & Small Cells', href: '/capabilities/5g-small-cells' },
+          { name: '3D Modelling & Digital Twins', href: '/capabilities/3d-modelling-digital-twins' },
+          { name: 'Pole & Asset Intelligence', href: '/services/pole-asset-intelligence' },
           { name: 'As-Built Validation', href: '/capabilities/as-built-validation' },
-          { name: 'Utilities Mapping', href: '/services/utility-network-intelligence' },
         ],
       },
       {
@@ -122,39 +119,19 @@ const navigation: NavItem[] = [
                  
         ],
       },
-      /* Keeping what is already running, as opposed to Digital Engineering, which builds
-         it. Support, not delivery  a distinct thing to buy and a distinct thing to sell. */
       {
-        name: 'Applications & Integration',
-        items: [
-          { name: 'Application Support', href: '/capabilities/application-support' },
-          { name: 'Integration Services', href: '/capabilities/integration-services' },
-        ],
-      },
-      /* Everything Esri in one group. Platform Support used to sit under Technology
-         Support, which meant Esri work appeared in two places in the same menu. */
-      {
-        name: 'Esri Capabilities',
-        items: [
-          { name: 'Esri Platform Support', href: '/capabilities/esri-platform-support' },
-          { name: 'ArcGIS Solution Development', href: '/capabilities/arcgis-solution-development' },
-          { name: 'Geodatabase & Data Modelling', href: '/capabilities/geodatabase-data-modelling' },
-          { name: 'ArcGIS Field Operations', href: '/capabilities/arcgis-field-operations' },
-        ],
-      },
-      {
-        name: 'BIM Capabilities',
-        items: [
-          { name: 'Scan to BIM', href: '/capabilities/scan-to-bim' },
-          { name: 'BIM & GIS Integration', href: '/capabilities/bim-gis-integration' },
-          { name: 'Digital Twin & Asset Information', href: '/capabilities/digital-twin-asset-information' },
-        ],
+        name: 'Spatial Applications & Engineering',
+        href: '/capabilities/spatial-applications-engineering',
+        items: spatialApplicationPages.map((page) => ({
+          name: page.title,
+          href: `/capabilities/${page.slug}`,
+        })),
       },
       /* Work used to be its own top-level item. It is JSAN's own output rather than a
          separate section of the business, so it lives here: client engagements under
-         Case Studies, the systems we built ourselves under Projects. */
+         Case Studies, the platforms we built ourselves under Products. */
       {
-        name: 'In-House',
+        name: 'Platforms & Accelerators',
         items: [
           { name: 'All Case Studies', href: '/work' },
           { name: 'Products', href: '/products' },

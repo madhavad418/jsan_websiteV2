@@ -2,7 +2,7 @@
  * The systems JSAN built and runs itself, shown on /products.
  *
  * These are products, not client engagements  the client work lives in src/data/work.ts
- * and renders at /work. Both sit under Capabilities > In-House in the navigation.
+ * and renders at /work. Both sit under Capabilities > Platforms & Accelerators in the navigation.
  *
  * Each product still has its own detail page under /products/<slug>, and those routes are
  * still live, but nothing in the UI links to them: this index is the single surface, and the

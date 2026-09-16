@@ -78,8 +78,8 @@ export const caseStudies: CaseStudy[] = [
       'Engineering-grade asset intelligence delivered into GIS with classification, positional quality and evidence attached to each feature.',
     stages: ['Process', 'Validate', 'Deliver'],
     capabilities: [
-      { name: 'GeoAI & Data Operations', href: '/capabilities/geoai-data-operations' },
-      { name: 'Telecom & Infrastructure', href: '/capabilities/telecom-infrastructure' },
+      { name: 'Visual & AI-Assisted Data Annotation', href: '/capabilities/visual-ai-assisted-data-annotation' },
+      { name: 'LiDAR & 3D Intelligence', href: '/capabilities/lidar-3d-intelligence' },
     ],
     industry: { name: 'Transportation & Infrastructure', href: '/industries/transportation-infrastructure' },
   },
@@ -104,7 +104,7 @@ export const caseStudies: CaseStudy[] = [
       'A network record reconciled against design, with attribute and coordinate quality checked before entering the system of record.',
     stages: ['Mobilise', 'Collect', 'Operate', 'Validate', 'Deliver'],
     capabilities: [
-      { name: 'Telecom & Infrastructure', href: '/capabilities/telecom-infrastructure' },
+      { name: 'LiDAR & 3D Intelligence', href: '/capabilities/lidar-3d-intelligence' },
       { name: 'Digital Engineering', href: '/capabilities/digital-engineering' },
     ],
     industry: { name: 'Telecommunications', href: '/industries/telecommunications' },

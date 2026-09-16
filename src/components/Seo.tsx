@@ -17,6 +17,10 @@ const SITE = 'https://www.jsanconsulting.com'
 const SEGMENT_LABELS: Record<string, string> = {
   services: 'Capabilities',
   capabilities: 'Capabilities',
+  'spatial-applications-engineering': 'Spatial Applications & Engineering',
+  'esri-gis-application-development': 'Esri & GIS Application Development',
+  'bim-digital-twin-engineering': 'BIM & Digital Twin Engineering',
+  'spatial-apis-systems-integration': 'Spatial APIs & Systems Integration',
   industries: 'Industries',
   technologies: 'Technologies',
   work: 'Work',

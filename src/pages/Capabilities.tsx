@@ -35,8 +35,8 @@ export default function Capabilities() {
         }
         description={
           <>
-            Six capability pillars, run as{' '}
-            <strong className="font-semibold text-white">one operating model</strong> rather than six
+            Connected capability pillars, run as{' '}
+            <strong className="font-semibold text-white">one operating model</strong> rather than
             separate suppliers  from mobilising crews in the field to the systems your teams work in
             every day.
           </>
@@ -50,7 +50,7 @@ export default function Capabilities() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-12 max-w-3xl lg:mb-16">
             <SectionLabel>Capability Pillars</SectionLabel>
-            <h2 className="t-section text-[#0a1a3a]">Six pillars, one accountable programme</h2>
+            <h2 className="t-section text-[#0a1a3a]">Connected capabilities, one accountable programme</h2>
           </div>
 
           {/*

@@ -19,7 +19,7 @@ const regionDetail = {
     label: 'Europe, Middle East & Africa',
     presence: 'Delivery and engineering teams across Western, Northern and Central Europe, supporting programmes in-region and cross-border.',
     fieldCapability: 'Collection crews, survey teams and vehicle operations mobilised per programme, with local permitting and access handled in country.',
-    services: ['Street-Level Collection', 'Telecom & Utility GIS', 'GeoAI & Data Operations', 'Digital Engineering'],
+    services: ['Street-Level Collection', 'Telecom & Utility GIS', 'GeoAI & Computer Vision', 'Digital Engineering'],
   },
   Americas: {
     label: 'Americas',

@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { capabilityPillars } from './data/capabilityPillars'
-import { deepDivePages } from './data/capabilityDeepDives'
+import { deepDivePages, consolidatedCapabilityRedirects } from './data/capabilityDeepDives'
 import ScrollToTop from './components/ScrollToTop'
 import Seo from './components/Seo'
 import ProtectLogos from './components/ProtectLogos'
@@ -116,6 +116,14 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/careers/:jobId" element={<CareerDetail />} />
           <Route path="/services" element={<Services />} />
+          {/* Legacy Geospatial & Mapping sub-services, rebuilt as capability pages */}
+          <Route path="/services/geospatial/aerial-surveys" element={<Navigate to="/capabilities/aerial-drone-lidar-mapping" replace />} />
+          <Route path="/services/geospatial/digital-twins" element={<Navigate to="/capabilities/3d-modelling-digital-twins" replace />} />
+          <Route path="/services/location-intelligence/navigation-data" element={<Navigate to="/capabilities/navigation-data" replace />} />
+          <Route path="/services/geospatial/spatial-analytics" element={<Navigate to="/capabilities/spatial-analysis" replace />} />
+          <Route path="/services/geospatial/enterprise-gis" element={<Navigate to="/capabilities/enterprise-gis-data-management" replace />} />
+          <Route path="/services/geospatial/remote-sensing" element={<Navigate to="/capabilities/remote-sensing-earth-observation" replace />} />
+          <Route path="/services/location-intelligence/data-capture" element={<Navigate to="/capabilities/geospatial-data-capture" replace />} />
           <Route path="/services/geospatial" element={<GeospatialSolutions />} />
           <Route path="/services/geospatial/:slug" element={<GeospatialSubService />} />
           <Route path="/services/location-intelligence" element={<LocationIntelligence />} />
@@ -189,8 +197,21 @@ function App() {
           {/* Merged into Application Support, which is now the GIS applications page */}
           <Route
             path="/capabilities/gis-tools-support"
-            element={<Navigate to="/capabilities/application-support" replace />}
+            element={<Navigate to="/capabilities/esri-gis-application-development" replace />}
           />
+          {/* GeoAI & Data Operations pillar renamed; see redirects.config.mjs */}
+          <Route
+            path="/capabilities/geoai-data-operations"
+            element={<Navigate to="/capabilities/visual-ai-assisted-data-annotation" replace />}
+          />
+          {/* LiDAR, Telecom & Infrastructure pillar renamed; see redirects.config.mjs */}
+          <Route
+            path="/capabilities/telecom-infrastructure"
+            element={<Navigate to="/capabilities/lidar-3d-intelligence" replace />}
+          />
+          {consolidatedCapabilityRedirects.map(({ from, to }) => (
+            <Route key={from} path={`/capabilities/${from}`} element={<Navigate to={`/capabilities/${to}`} replace />} />
+          ))}
           {deepDivePages.map((page) => (
             <Route
               key={page.slug}

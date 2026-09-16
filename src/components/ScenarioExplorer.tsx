@@ -29,13 +29,16 @@ type Props = {
   heading: string
   intro: string
   scenarios: Scenario[]
+  collections?: { name: string; items: Scenario[] }[]
 }
 
-export default function ScenarioExplorer({ eyebrow, heading, intro, scenarios }: Props) {
+export default function ScenarioExplorer({ eyebrow, heading, intro, scenarios, collections }: Props) {
   const [active, setActive] = useState(0)
-  if (scenarios.length === 0) return null
+  const [collection, setCollection] = useState(0)
+  const visibleScenarios = collections?.[collection]?.items ?? scenarios
+  if (visibleScenarios.length === 0) return null
 
-  const current = scenarios[Math.min(active, scenarios.length - 1)]
+  const current = visibleScenarios[Math.min(active, visibleScenarios.length - 1)]
 
   return (
     <section className="py-16 md:py-24" style={{ background: 'linear-gradient(120deg, #012f62, #0055b4)' }}>
@@ -48,9 +51,17 @@ export default function ScenarioExplorer({ eyebrow, heading, intro, scenarios }:
           <p className="text-[15px] leading-relaxed text-white/70 md:text-lg">{intro}</p>
         </div>
 
+        {collections && collections.length > 1 && (
+          <label className="mb-7 flex max-w-md flex-col gap-2 text-sm font-medium text-white/80">
+            Explore a service area
+            <select value={collection} onChange={(event) => { setCollection(Number(event.target.value)); setActive(0) }} className="w-full rounded-lg border border-white/25 bg-white px-4 py-3 text-sm font-semibold text-[#0a1a3a]">
+              {collections.map((item, index) => <option key={item.name} value={index}>{item.name}</option>)}
+            </select>
+          </label>
+        )}
         <div className="grid gap-6 lg:grid-cols-[minmax(0,340px)_minmax(0,1fr)] lg:gap-10">
           <div role="tablist" aria-label="Situations" className="flex flex-col gap-1.5">
-            {scenarios.map((scenario, i) => {
+            {visibleScenarios.map((scenario, i) => {
               const isActive = i === active
               const Icon = scenario.icon
               return (

@@ -22,6 +22,36 @@
 
 /** Live 301s. Every one of these is a page that actually moved in the 2026 rebuild. */
 export const redirects = [
+  // Consolidated Spatial Applications & Engineering capabilities.
+  { from: '/capabilities/application-support', to: '/capabilities/esri-gis-application-development', status: 301 },
+  { from: '/capabilities/esri-platform-support', to: '/capabilities/esri-gis-application-development', status: 301 },
+  { from: '/capabilities/arcgis-solution-development', to: '/capabilities/esri-gis-application-development', status: 301 },
+  { from: '/capabilities/geodatabase-data-modelling', to: '/capabilities/esri-gis-application-development', status: 301 },
+  { from: '/capabilities/arcgis-field-operations', to: '/capabilities/esri-gis-application-development', status: 301 },
+  { from: '/capabilities/scan-to-bim', to: '/capabilities/bim-digital-twin-engineering', status: 301 },
+  { from: '/capabilities/bim-gis-integration', to: '/capabilities/bim-digital-twin-engineering', status: 301 },
+  { from: '/capabilities/digital-twin-asset-information', to: '/capabilities/bim-digital-twin-engineering', status: 301 },
+  { from: '/capabilities/integration-services', to: '/capabilities/spatial-apis-systems-integration', status: 301 },
+
+  // The LiDAR, Telecom & Infrastructure pillar became LiDAR & 3D Intelligence. Telecom work
+  // is now presented under Industries > Telecommunications; the LiDAR pillar is the closer
+  // match for what the old page described (capture, measurement and validation).
+  { from: '/capabilities/telecom-infrastructure', to: '/capabilities/lidar-3d-intelligence', status: 301 },
+
+  // The GeoAI & Data Operations pillar was renamed Visual & AI-Assisted Data Annotation.
+  { from: '/capabilities/geoai-data-operations', to: '/capabilities/visual-ai-assisted-data-annotation', status: 301 },
+
+  // Legacy aerial survey and digital twin sub-services rebuilt as LiDAR & 3D Intelligence pages.
+  { from: '/services/geospatial/aerial-surveys', to: '/capabilities/aerial-drone-lidar-mapping', status: 301 },
+  { from: '/services/geospatial/digital-twins', to: '/capabilities/3d-modelling-digital-twins', status: 301 },
+
+  // Legacy Geospatial & Mapping sub-service pages rebuilt as capability pages.
+  { from: '/services/location-intelligence/navigation-data', to: '/capabilities/navigation-data', status: 301 },
+  { from: '/services/geospatial/spatial-analytics', to: '/capabilities/spatial-analysis', status: 301 },
+  { from: '/services/geospatial/enterprise-gis', to: '/capabilities/enterprise-gis-data-management', status: 301 },
+  { from: '/services/geospatial/remote-sensing', to: '/capabilities/remote-sensing-earth-observation', status: 301 },
+  { from: '/services/location-intelligence/data-capture', to: '/capabilities/geospatial-data-capture', status: 301 },
+
   // Company section renamed
   { from: '/about', to: '/company', status: 301 },
 
@@ -36,7 +66,7 @@ export const redirects = [
   // application estate rather than splitting it across two pages.
   {
     from: '/capabilities/gis-tools-support',
-    to: '/capabilities/application-support',
+    to: '/capabilities/esri-gis-application-development',
     status: 301,
   },
 
@@ -79,15 +109,10 @@ export const redirects = [
 export const plannedRedirects = [
   // Geospatial & mapping
   { from: '/services/geospatial', to: '/capabilities/geospatial-mapping', status: 301 },
-  { from: '/services/geospatial/ai-ml-detection', to: '/capabilities/geoai-data-operations', status: 301 },
-  { from: '/services/geospatial/spatial-analytics', to: '/capabilities/geoai-data-operations', status: 301 },
-  { from: '/services/geospatial/remote-sensing', to: '/capabilities/geospatial-mapping', status: 301 },
-  { from: '/services/geospatial/aerial-surveys', to: '/capabilities/geospatial-mapping', status: 301 },
-  { from: '/services/geospatial/enterprise-gis', to: '/capabilities/digital-engineering', status: 301 },
-  { from: '/services/geospatial/digital-twins', to: '/capabilities/digital-engineering', status: 301 },
+  { from: '/services/geospatial/ai-ml-detection', to: '/capabilities/visual-ai-assisted-data-annotation', status: 301 },
   { from: '/services/geospatial/geobim-indoor', to: '/capabilities/digital-engineering', status: 301 },
-  { from: '/services/geospatial/network-mapping', to: '/capabilities/telecom-infrastructure', status: 301 },
-  { from: '/services/geospatial/asset-management', to: '/capabilities/telecom-infrastructure', status: 301 },
+  { from: '/services/geospatial/network-mapping', to: '/industries/telecommunications', status: 301 },
+  { from: '/services/geospatial/asset-management', to: '/capabilities/lidar-3d-intelligence', status: 301 },
   { from: '/services/geospatial/smart-city', to: '/industries/government-smart-cities', status: 301 },
   { from: '/services/global-street-data-collection', to: '/capabilities/geospatial-mapping', status: 301 },
   { from: '/services/basemap-poi-annotation/*', to: '/capabilities/geospatial-mapping', status: 301 },
@@ -96,18 +121,16 @@ export const plannedRedirects = [
   { from: '/services/global-fleet-collection-operations', to: '/capabilities/global-fleet-field-operations', status: 301 },
 
   // GeoAI & data operations
-  { from: '/services/geoai-computer-vision', to: '/capabilities/geoai-data-operations', status: 301 },
-  { from: '/services/location-intelligence', to: '/capabilities/geoai-data-operations', status: 301 },
-  { from: '/services/location-intelligence/advance-analytics', to: '/capabilities/geoai-data-operations', status: 301 },
-  { from: '/services/location-intelligence/data-capture', to: '/capabilities/geospatial-mapping', status: 301 },
-  { from: '/services/location-intelligence/navigation-data', to: '/capabilities/geospatial-mapping', status: 301 },
+  { from: '/services/geoai-computer-vision', to: '/capabilities/visual-ai-assisted-data-annotation', status: 301 },
+  { from: '/services/location-intelligence', to: '/capabilities/visual-ai-assisted-data-annotation', status: 301 },
+  { from: '/services/location-intelligence/advance-analytics', to: '/capabilities/visual-ai-assisted-data-annotation', status: 301 },
   { from: '/services/location-intelligence/custom-platforms', to: '/capabilities/digital-engineering', status: 301 },
   { from: '/services/location-intelligence/strategy-advisory', to: '/capabilities/program-managed-services', status: 301 },
 
-  // Telecom & infrastructure
-  { from: '/services/telecom-network-intelligence', to: '/capabilities/telecom-infrastructure', status: 301 },
-  { from: '/services/smart-fiber-planning/*', to: '/capabilities/telecom-infrastructure', status: 301 },
-  { from: '/services/utility-network-intelligence/*', to: '/capabilities/telecom-infrastructure', status: 301 },
+  // Telecom & utilities (sector work, presented under Industries)
+  { from: '/services/telecom-network-intelligence', to: '/industries/telecommunications', status: 301 },
+  { from: '/services/smart-fiber-planning/*', to: '/industries/telecommunications', status: 301 },
+  { from: '/services/utility-network-intelligence/*', to: '/industries/utilities', status: 301 },
 
   // Digital engineering
   { from: '/services/digital-engineering', to: '/capabilities/digital-engineering', status: 301 },

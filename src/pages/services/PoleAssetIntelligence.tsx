@@ -11,7 +11,7 @@ import QualityGates from '../../components/QualityGates'
 /**
  * /services/pole-asset-intelligence
  *
- * The "Pole & Asset Intelligence" nav item under Telecom & Infrastructure used to point at
+ * The "Pole & Asset Intelligence" nav item under LiDAR & 3D Intelligence used to point at
  * /services/utility-network-intelligence, whose content is network mapping rather than pole
  * work  the same subject as the Utilities Mapping item sitting two rows below it. This page
  * gives the label its own subject: the pole as a piece of infrastructure that has to carry
