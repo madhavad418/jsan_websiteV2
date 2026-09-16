@@ -140,7 +140,7 @@ const applicationSupport: DeepDivePage = {
   subtitle: 'Your GIS estate is not one product. Your support should not be either.',
   description:
     'ArcGIS, QGIS, GeoServer, PostGIS, FME and the web viewers built on top of them. We support GIS applications across desktop, server, database and browser - the ones we built and the ones we inherited - so a user with a problem has one place to take it instead of three vendors and a guess.',
-  image: '/pillars/tech-gis.webp',
+  image: '/pillars/app_support.webp',
   imageAlt: 'GIS specialists supporting desktop, server and web applications',
   copySide: 'right',
   positioning: [
@@ -174,7 +174,7 @@ const applicationSupport: DeepDivePage = {
         icon: Globe,
         blurb:
           'The commercial core of most estates, from desktop authoring to the field apps on top. Administering the deployment itself is its own discipline - that is Esri Platform Support.',
-        image: '/pillars/web_gis.webp',
+        image: '/pillars/app_1.webp',
         items: [
           'ArcGIS Pro', 'ArcMap migration', 'ArcGIS Enterprise', 'ArcGIS Online',
           'ArcGIS Server', 'Portal for ArcGIS', 'Experience Builder', 'Web AppBuilder',
@@ -187,7 +187,7 @@ const applicationSupport: DeepDivePage = {
         icon: Map,
         blurb:
           'Desktop and server tooling carrying real production load, which needs the same administration discipline as anything licensed.',
-        image: '/pillars/tech-gis.webp',
+        image: '/pillars/app_2.webp',
         items: [
           'QGIS', 'QGIS Server', 'QField', 'GeoServer', 'MapServer', 'GRASS GIS',
           'GeoNetwork', 'pycsw', 'PROJ', 'GEOS', 'Plugin development', 'Print layouts & atlases',
@@ -198,7 +198,7 @@ const applicationSupport: DeepDivePage = {
         icon: Database,
         blurb:
           'Where the data actually lives, and where most performance problems are eventually traced to.',
-        image: '/pillars/data_engineering.webp',
+        image: '/pillars/app_3.webp',
         items: [
           'PostgreSQL / PostGIS', 'Oracle Spatial', 'SQL Server Spatial', 'SpatiaLite',
           'Spatial indexing', 'Geometry validation', 'Projection & SRID handling',
@@ -210,7 +210,7 @@ const applicationSupport: DeepDivePage = {
         icon: Code,
         blurb:
           'The browser tier, where tiling strategy and payload size decide whether a map feels usable at all.',
-        image: '/pillars/webtech.webp',
+        image: '/pillars/app_4.webp',
         items: [
           'Leaflet', 'OpenLayers', 'MapLibre GL', 'Mapbox GL JS', 'Cesium', 'Deck.gl',
           'ArcGIS Maps SDK for JavaScript', 'Vector tiles', 'Tile caching',
@@ -222,7 +222,7 @@ const applicationSupport: DeepDivePage = {
         icon: Terminal,
         blurb:
           'The pipelines and scheduled jobs that move data between products, including the ones inherited without documentation.',
-        image: '/pillars/data_validation.webp',
+        image: '/pillars/app_5.webp',
         items: [
           'FME Form & Flow', 'GDAL / OGR', 'Python', 'GeoPandas', 'Shapely', 'Rasterio',
           'Fiona', 'ArcPy', 'ArcGIS API for Python', 'Apache Airflow',
@@ -234,7 +234,7 @@ const applicationSupport: DeepDivePage = {
         icon: FileCode,
         blurb:
           'Interchange between products, which is where estates quietly leak accuracy if nobody is watching.',
-        image: '/pillars/basemap.webp',
+        image: '/pillars/app_6.webp',
         items: [
           'GeoPackage', 'Shapefile', 'File GDB', 'GeoJSON', 'GeoParquet',
           'WMS', 'WFS', 'WMTS', 'OGC API', 'Cloud Optimised GeoTIFF',
@@ -377,7 +377,7 @@ const integrationServices: DeepDivePage = {
   subtitle: 'Four systems, four versions of the truth, and no agreement on which one wins.',
   description:
     'The field app, the GIS, the asset register and the finance system each hold part of the picture. We design and build the interfaces between them - APIs, ETL, message queues, scheduled exchanges - and then monitor them, because an integration nobody watches is an outage waiting to be reported by a user.',
-  image: '/pillars/API_Integration.webp',
+  image: '/pillars/integration.webp',
   imageAlt: 'Systems integration between geospatial and enterprise platforms',
   copySide: 'left',
   positioning: [
@@ -411,7 +411,7 @@ const integrationServices: DeepDivePage = {
         icon: Plug,
         blurb:
           'How systems are asked to talk, including the older mechanisms that are still holding production together.',
-        image: '/pillars/API_Integration.webp',
+        image: '/pillars/Integration_1.webp',
         items: [
           'REST', 'GraphQL', 'SOAP / WSDL', 'gRPC', 'WebSockets', 'Webhooks',
           'OpenAPI / Swagger', 'OData', 'SFTP & file exchange', 'JDBC / ODBC',
@@ -422,7 +422,7 @@ const integrationServices: DeepDivePage = {
         icon: Network,
         blurb:
           'Where an organisation has standardised on a platform, we build inside it rather than beside it.',
-        image: '/pillars/enterprise_architecture.webp',
+        image: '/pillars/integration_2.webp',
         items: [
           'Azure Logic Apps', 'Azure Data Factory', 'AWS Glue', 'AWS Step Functions',
           'MuleSoft', 'Boomi', 'Apache NiFi', 'Talend', 'SSIS', 'Power Automate',
@@ -433,7 +433,7 @@ const integrationServices: DeepDivePage = {
         icon: Activity,
         blurb:
           'For volume, decoupling and telemetry, where a request-response call would not survive the load.',
-        image: '/pillars/live_tracking.webp',
+        image: '/pillars/integration_3.webp',
         items: [
           'Apache Kafka', 'RabbitMQ', 'Azure Service Bus', 'AWS SQS / SNS',
           'MQTT', 'Event Grid', 'Change data capture', 'Dead letter handling',
@@ -444,7 +444,7 @@ const integrationServices: DeepDivePage = {
         icon: Map,
         blurb:
           'Moving geospatial data specifically, where projection, geometry and schema drift all have to survive the trip.',
-        image: '/pillars/dataanalytics.webp',
+        image: '/pillars/integration_4.webp',
         items: [
           'FME Form & Flow', 'GDAL / OGR', 'Python', 'GeoPandas', 'Apache Airflow',
           'dbt', 'Coordinate transformation', 'Schema mapping', 'Delta detection',
@@ -455,7 +455,7 @@ const integrationServices: DeepDivePage = {
         icon: Boxes,
         blurb:
           'The applications at the far end of most interfaces, each with its own idea of what an asset is.',
-        image: '/pillars/tech-erp.webp',
+        image: '/pillars/integration_5.webp',
         items: [
           'SAP', 'Oracle E-Business Suite', 'Microsoft Dynamics 365', 'Salesforce',
           'IBM Maximo', 'ServiceNow', 'SharePoint', 'Workday', 'Sage',
@@ -467,7 +467,7 @@ const integrationServices: DeepDivePage = {
         icon: ShieldCheck,
         blurb:
           'Interfaces cross trust boundaries, so authentication and auditability are part of the design rather than added afterwards.',
-        image: '/pillars/tech-cybersecurity.webp',
+        image: '/pillars/integration_6.webp',
         items: [
           'OAuth 2.0', 'OpenID Connect', 'SAML', 'JWT', 'mTLS',
           'API gateways', 'Rate limiting', 'Secrets management',
@@ -609,7 +609,7 @@ const esriPlatformSupport: DeepDivePage = {
   subtitle: 'ArcGIS rewards administration and punishes neglect.',
   description:
     'We run ArcGIS Enterprise and ArcGIS Online estates - portal and server administration, service publishing, security and sharing models, licensing, and the version upgrades most teams postpone until they cannot - so the platform stays supported, performant and correctly licensed.',
-  image: '/pillars/web_gis.webp',
+  image: '/pillars/esri.webp',
   imageAlt: 'ArcGIS Enterprise administration and operational dashboards',
   copySide: 'left',
   positioning: [
@@ -643,7 +643,7 @@ const esriPlatformSupport: DeepDivePage = {
         icon: Server,
         blurb:
           'The deployment itself: portal, servers, data stores and the components that federate them.',
-        image: '/pillars/web_gis.webp',
+        image: '/pillars/esri_1.webp',
         items: [
           'ArcGIS Enterprise', 'ArcGIS Online', 'Portal for ArcGIS', 'ArcGIS Server',
           'ArcGIS Data Store', 'Web Adaptor', 'Enterprise Builder',
@@ -655,7 +655,7 @@ const esriPlatformSupport: DeepDivePage = {
         icon: Layers,
         blurb:
           'The specialised capabilities that get licensed and then left unconfigured more often than any other part of the estate.',
-        image: '/pillars/tech-infrastructure.webp',
+        image: '/pillars/esri_2.webp',
         items: [
           'GIS Server', 'Image Server', 'GeoAnalytics Server', 'GeoEvent Server',
           'Notebook Server', 'Knowledge Server', 'Workflow Manager', 'Mission Server',
@@ -666,7 +666,7 @@ const esriPlatformSupport: DeepDivePage = {
         icon: Map,
         blurb:
           'Where content is made, including the migration path off products Esri has already retired.',
-        image: '/pillars/tech-gis.webp',
+        image: '/pillars/esri_3.webp',
         items: [
           'ArcGIS Pro', 'ArcMap migration', 'Experience Builder', 'Web AppBuilder migration',
           'Dashboards', 'StoryMaps', 'Instant Apps', 'Map Viewer', 'Symbology & cartography',
@@ -677,7 +677,7 @@ const esriPlatformSupport: DeepDivePage = {
         icon: Smartphone,
         blurb:
           'The Esri field suite, configured against your data model rather than a demo one.',
-        image: '/pillars/poi_ex.webp',
+        image: '/pillars/esri_4.webp',
         items: [
           'ArcGIS Field Maps', 'Survey123', 'QuickCapture', 'Workforce',
           'Navigator', 'Offline areas & sync', 'Smart forms', 'Attachment handling',
@@ -688,7 +688,7 @@ const esriPlatformSupport: DeepDivePage = {
         icon: Terminal,
         blurb:
           'Automation and custom development, which is how administration stops being manual at any scale.',
-        image: '/pillars/tech-web.webp',
+        image: '/pillars/esri_5.webp',
         items: [
           'ArcGIS Maps SDK for JavaScript', 'ArcGIS API for Python', 'ArcPy',
           'ArcGIS REST API', 'Arcade', 'Webhooks', 'Automation scripting',
@@ -700,7 +700,7 @@ const esriPlatformSupport: DeepDivePage = {
         icon: Database,
         blurb:
           'The geodatabase and the operational discipline around it, where an unmanaged estate eventually shows the strain.',
-        image: '/pillars/data_engineering.webp',
+        image: '/pillars/esri_6.webp',
         items: [
           'Enterprise geodatabase', 'Branch versioning', 'Traditional versioning',
           'Replication', 'Attribute rules', 'Utility Network', 'Backup & recovery',
@@ -841,7 +841,7 @@ const scanToBim: DeepDivePage = {
   subtitle: 'A point cloud is a measurement. A model is something you can build from.',
   description:
     'Laser scan and photogrammetric survey converted into federated, tolerance-stated BIM models - existing buildings, plant rooms, bridges and tunnels - modelled to the level of development the downstream discipline actually needs rather than the highest one available.',
-  image: '/pillars/point_cloud.webp',
+  image: '/pillars/bim-scan-hero.webp',
   imageAlt: 'Point cloud survey converted into a building information model',
   copySide: 'left',
   positioning: [
@@ -875,7 +875,7 @@ const scanToBim: DeepDivePage = {
         icon: Scan,
         blurb:
           'Getting the measurement right first, because every tolerance claimed later depends on how the scans were controlled and registered.',
-        image: '/pillars/drone-lidar.webp',
+        image: '/pillars/bim-scan-capture.webp',
         items: [
           'Terrestrial laser scanning', 'Mobile mapping', 'UAV photogrammetry',
           'SLAM handheld scanning', 'Control survey', 'Target registration',
@@ -887,7 +887,7 @@ const scanToBim: DeepDivePage = {
         icon: Boxes,
         blurb:
           'We model in whatever the receiving team works in, rather than modelling in ours and exporting at the end.',
-        image: '/pillars/asbuilt.webp',
+        image: '/pillars/bim-scan-modelling.webp',
         items: [
           'Autodesk Revit', 'AutoCAD', 'Civil 3D', 'Navisworks',
           'Bentley MicroStation', 'OpenBuildings Designer', 'Rhino', 'Dynamo',
@@ -898,7 +898,7 @@ const scanToBim: DeepDivePage = {
         icon: Terminal,
         blurb:
           'Cleaning, classifying and segmenting the cloud so modellers work from something structured rather than from 200 million raw points.',
-        image: '/pillars/lidar_engineering.webp',
+        image: '/pillars/bim-scan-point-cloud.webp',
         items: [
           'Autodesk ReCap', 'Leica Cyclone', 'Trimble RealWorks', 'FARO SCENE',
           'CloudCompare', 'PDAL', 'Classification & segmentation', 'Deviation analysis',
@@ -909,7 +909,7 @@ const scanToBim: DeepDivePage = {
         icon: FileCheck,
         blurb:
           'What gets handed over, and the standard it is checked against before it leaves us.',
-        image: '/pillars/checklist.webp',
+        image: '/pillars/bim-scan-deliverables.webp',
         items: [
           'IFC 2x3 & IFC 4', 'COBie', 'LOD 100-500', 'BS EN ISO 19650',
           'Model federation', 'Clash-ready models', 'As-built drawings', 'Model audit reports',
@@ -1015,7 +1015,7 @@ const bimGisIntegration: DeepDivePage = {
   subtitle: 'The building model and the network around it, in one coordinate system.',
   description:
     'IFC and Revit models reconciled with GIS - shared coordinate systems, mapped classifications and a linkage that survives both sides being reissued - so an asset can be found on a map and opened in its model without anyone re-keying an identifier.',
-  image: '/pillars/GeoBIM-Indoor Intelligence.webp',
+  image: '/pillars/bim-gis-hero.webp',
   imageAlt: 'Building models aligned with the geospatial network around them',
   copySide: 'right',
   positioning: [
@@ -1049,7 +1049,7 @@ const bimGisIntegration: DeepDivePage = {
         icon: FileCode,
         blurb:
           'What arrives from the design side, and the open formats that let it be read by something other than the tool that made it.',
-        image: '/pillars/asbuilt.webp',
+        image: '/pillars/bim-gis-formats.webp',
         items: [
           'IFC 2x3 & IFC 4', 'Revit RVT', 'COBie', 'CityGML', 'LandXML',
           'glTF & 3D Tiles', 'Uniclass 2015', 'IfcClassification', 'Property sets',
@@ -1060,7 +1060,7 @@ const bimGisIntegration: DeepDivePage = {
         icon: Globe,
         blurb:
           'Where the model has to land, alongside the network, terrain and asset data already held there.',
-        image: '/pillars/web_gis.webp',
+        image: '/pillars/bim-gis-platforms.webp',
         items: [
           'ArcGIS GeoBIM', 'ArcGIS Pro', 'ArcGIS Enterprise', 'ArcGIS Indoors',
           'FME', 'QGIS', 'PostGIS', 'Cesium', '3D Tiles services',
@@ -1071,7 +1071,7 @@ const bimGisIntegration: DeepDivePage = {
         icon: Map,
         blurb:
           'The reconciliation that has to happen before anything else is worth attempting.',
-        image: '/pillars/point_cloud.webp',
+        image: '/pillars/bim-gis-coordinates.webp',
         items: [
           'Shared coordinate systems', 'Project base point', 'Survey point',
           'Grid-to-ground scaling', 'Projection & datum transformation',
@@ -1083,7 +1083,7 @@ const bimGisIntegration: DeepDivePage = {
         icon: Link2,
         blurb:
           'What keeps the two sides connected once the project team has moved on and both are still being updated.',
-        image: '/pillars/governance.webp',
+        image: '/pillars/bim-gis-governance.webp',
         items: [
           'Asset identifier strategy', 'GUID persistence', 'Attribute mapping',
           'Change detection', 'Federated model registry', 'Reissue workflows',
@@ -1190,7 +1190,7 @@ const digitalTwinAssetInformation: DeepDivePage = {
   subtitle: 'A twin nobody updates is an expensive render.',
   description:
     'Asset information models built to an agreed information requirement, populated from survey, BIM and operational systems, and kept current by a defined update route - so the twin still reflects the asset in year three rather than the day it was handed over.',
-  image: '/pillars/twinning.webp',
+  image: '/pillars/bim-twin-hero.webp',
   imageAlt: 'Digital twin of built infrastructure with live operational data',
   copySide: 'left',
   positioning: [
@@ -1224,7 +1224,7 @@ const digitalTwinAssetInformation: DeepDivePage = {
         icon: FileCheck,
         blurb:
           'The standards and requirement documents that decide what the twin has to contain and how it is validated.',
-        image: '/pillars/checklist.webp',
+        image: '/pillars/bim-twin-information.webp',
         items: [
           'BS EN ISO 19650', 'EIR / AIR / OIR', 'Information delivery plans',
           'COBie', 'Asset data dictionaries', 'Handover validation', 'Master data standards',
@@ -1235,7 +1235,7 @@ const digitalTwinAssetInformation: DeepDivePage = {
         icon: Globe,
         blurb:
           'Where the twin is assembled and presented, chosen against what the organisation already runs rather than what demos best.',
-        image: '/pillars/digital-twin-new.webp',
+        image: '/pillars/bim-twin-platforms.webp',
         items: [
           'ArcGIS Indoors', 'ArcGIS Enterprise', 'Autodesk Tandem', 'Bentley iTwin',
           'Cesium', '3D Tiles', 'Power BI', 'Web viewers',
@@ -1246,7 +1246,7 @@ const digitalTwinAssetInformation: DeepDivePage = {
         icon: Activity,
         blurb:
           'What makes a twin current rather than historical, and the ingestion that has to keep up with it.',
-        image: '/pillars/live_tracking.webp',
+        image: '/pillars/bim-twin-telemetry.webp',
         items: [
           'IoT & sensor feeds', 'SCADA integration', 'MQTT', 'Condition monitoring',
           'Threshold alerting', 'Historian integration', 'Edge ingestion',
@@ -1257,7 +1257,7 @@ const digitalTwinAssetInformation: DeepDivePage = {
         icon: Wrench,
         blurb:
           'The systems the twin has to read from and write to, or it stays a parallel universe nobody maintains.',
-        image: '/pillars/asset-management.webp',
+        image: '/pillars/bim-twin-operations.webp',
         items: [
           'IBM Maximo', 'SAP Plant Maintenance', 'ServiceNow', 'Work order linkage',
           'Asset register reconciliation', 'Maintenance history', 'Condition scoring',
@@ -1365,7 +1365,7 @@ const arcgisSolutionDevelopment: DeepDivePage = {
   subtitle: 'Configured where it can be. Built where it has to be.',
   description:
     'Web apps, dashboards, field workflows and custom extensions on the ArcGIS platform - configured with Experience Builder and Dashboards where that is genuinely enough, and developed against the SDKs where it is not.',
-  image: '/pillars/webtech.webp',
+  image: '/pillars/arcgis.webp',
   imageAlt: 'ArcGIS web applications and dashboards in development',
   copySide: 'left',
   positioning: [
@@ -1399,7 +1399,7 @@ const arcgisSolutionDevelopment: DeepDivePage = {
         icon: Layers,
         blurb:
           'Where the platform already does it, and the work is design and configuration rather than development.',
-        image: '/pillars/web_gis.webp',
+        image: '/pillars/arcgis_1.webp',
         items: [
           'Experience Builder', 'Instant Apps', 'ArcGIS Dashboards', 'StoryMaps',
           'ArcGIS Hub', 'Survey123 forms', 'Web AppBuilder migration', 'Map Viewer',
@@ -1410,7 +1410,7 @@ const arcgisSolutionDevelopment: DeepDivePage = {
         icon: Code,
         blurb:
           'Where it does not, built against the supported SDKs rather than against internals that will move.',
-        image: '/pillars/tech-web.webp',
+        image: '/pillars/arcgis_2.webp',
         items: [
           'ArcGIS Maps SDK for JavaScript', 'Experience Builder widgets',
           'ArcGIS API for Python', 'ArcGIS REST API', 'Arcade expressions',
@@ -1422,7 +1422,7 @@ const arcgisSolutionDevelopment: DeepDivePage = {
         icon: Terminal,
         blurb:
           'Turning a repeated manual process into something that runs on a schedule or on demand.',
-        image: '/pillars/advance-analytics.webp',
+        image: '/pillars/arcgis_3.webp',
         items: [
           'ModelBuilder', 'ArcPy script tools', 'Geoprocessing services',
           'Network Analyst', 'Spatial Analyst', 'GeoAnalytics', 'ArcGIS Notebooks',
@@ -1433,7 +1433,7 @@ const arcgisSolutionDevelopment: DeepDivePage = {
         icon: RefreshCw,
         blurb:
           'Keeping the app fed, because most application complaints are actually data-freshness complaints.',
-        image: '/pillars/data_engineering.webp',
+        image: '/pillars/arcgis_4.webp',
         items: [
           'Data Interoperability', 'FME', 'Power Automate', 'Scheduled tasks',
           'Feature service automation', 'Attachment workflows', 'Webhook triggers',
@@ -1539,7 +1539,7 @@ const geodatabaseDataModelling: DeepDivePage = {
   subtitle: 'The data model decides what the system can ever do.',
   description:
     'Enterprise geodatabase design, versioning strategy, attribute rules and network models - the schema work that determines whether editing scales, tracing returns the right answer and reporting reconciles with the rest of the business.',
-  image: '/pillars/data_engineering.webp',
+  image: '/pillars/geo_data.webp',
   imageAlt: 'Enterprise geodatabase and data model design',
   copySide: 'right',
   positioning: [
@@ -1573,7 +1573,7 @@ const geodatabaseDataModelling: DeepDivePage = {
         icon: Database,
         blurb:
           'The schema itself, and the constraints that keep data valid without relying on anybody remembering a rule.',
-        image: '/pillars/data_engineering.webp',
+        image: '/pillars/geo_1.webp',
         items: [
           'Enterprise geodatabase', 'Feature datasets', 'Subtypes & domains',
           'Relationship classes', 'Attribute rules', 'Contingent values',
@@ -1585,7 +1585,7 @@ const geodatabaseDataModelling: DeepDivePage = {
         icon: Users,
         blurb:
           'How concurrent editing actually behaves, which is where multi-user GIS deployments most often come unstuck.',
-        image: '/pillars/quality_check.webp',
+        image: '/pillars/geo_2.webp',
         items: [
           'Branch versioning', 'Traditional versioning', 'Replication',
           'Conflict resolution', 'Editor tracking', 'Archiving',
@@ -1597,7 +1597,7 @@ const geodatabaseDataModelling: DeepDivePage = {
         icon: Network,
         blurb:
           'Utility and transport networks, where the model determines whether tracing tells you the truth.',
-        image: '/pillars/utility_network.webp',
+        image: '/pillars/geo_3.webp',
         items: [
           'Utility Network', 'Network Datasets', 'Connectivity & subnetworks',
           'Tracing configuration', 'Asset packages', 'Terminal configurations',
@@ -1609,7 +1609,7 @@ const geodatabaseDataModelling: DeepDivePage = {
         icon: FileCheck,
         blurb:
           'Getting existing data into the new model without carrying its accumulated problems across with it.',
-        image: '/pillars/data_validation.webp',
+        image: '/pillars/geo_4.webp',
         items: [
           'Schema migration', 'Data loading', 'FME & Data Interoperability',
           'Attribute reconciliation', 'QA/QC automation', 'Validation reporting',
@@ -1716,7 +1716,7 @@ const arcgisFieldOperations: DeepDivePage = {
   subtitle: 'The field app is where your data is actually created.',
   description:
     'Field Maps, Survey123 and QuickCapture configured against your data model, with the offline areas, smart forms and sync behaviour that decide whether a day of fieldwork survives a dead zone.',
-  image: '/pillars/poi_ex.webp',
+  image: '/pillars/arcf.webp',
   imageAlt: 'Field crews capturing data on ArcGIS mobile applications',
   copySide: 'right',
   positioning: [
@@ -1750,7 +1750,7 @@ const arcgisFieldOperations: DeepDivePage = {
         icon: Smartphone,
         blurb:
           'Choosing the right app for the task, which is usually the difference between adoption and quiet abandonment.',
-        image: '/pillars/poi_ex.webp',
+        image: '/pillars/arcf_1.webp',
         items: [
           'ArcGIS Field Maps', 'Survey123', 'QuickCapture', 'Workforce',
           'Navigator', 'Quick Reports', 'AppStudio',
@@ -1761,7 +1761,7 @@ const arcgisFieldOperations: DeepDivePage = {
         icon: ClipboardCheck,
         blurb:
           'Where quality is won or lost, long before anyone reviews the data in the office.',
-        image: '/pillars/checklist.webp',
+        image: '/pillars/arcf_2.webp',
         items: [
           'Smart forms', 'Conditional logic', 'Domains & pick lists',
           'Attribute rules in the field', 'Map templates', 'Field symbology',
@@ -1773,7 +1773,7 @@ const arcgisFieldOperations: DeepDivePage = {
         icon: RefreshCw,
         blurb:
           'The part that decides whether a day in a dead zone is recoverable, and the part most deployments get wrong.',
-        image: '/pillars/collect.webp',
+        image: '/pillars/arcf_3.webp',
         items: [
           'Offline map areas', 'Sync-enabled services', 'Conflict resolution',
           'Attachment sync strategy', 'Large area planning', 'Basemap packaging',
@@ -1785,7 +1785,7 @@ const arcgisFieldOperations: DeepDivePage = {
         icon: Users,
         blurb:
           'Running it across crews and seasons, rather than configuring it once and hoping.',
-        image: '/pillars/crew.webp',
+        image: '/pillars/arcf_4.webp',
         items: [
           'Named-user provisioning', 'Crew groups & roles', 'Location sharing',
           'Assignment workflows', 'Office QA review', 'Dashboard monitoring',
@@ -1903,7 +1903,7 @@ const dataCenterBuild: DeepDivePage = {
   subtitle: 'From an empty shell to a room your operations team will accept.',
   description:
     'Design support, structured cabling, rack and stack, power and cooling install, and the integrated systems testing that proves it behaves under load and under failure - delivered to a live date, with the as-built record captured as the work happens rather than reconstructed afterwards.',
-  image: '/pillars/data_center.webp',
+  image: '/pillars/data_cover.webp',
   imageAlt: 'Data centre build and commissioning',
   copySide: 'left',
   positioning: [
@@ -1937,7 +1937,7 @@ const dataCenterBuild: DeepDivePage = {
         icon: Layers,
         blurb:
           'The decisions that are expensive to reverse: how much power per rack, where the heat goes, and how much room is left for what comes next.',
-        image: '/pillars/cloud-infrastructure.webp',
+        image: '/pillars/data_1.webp',
         items: [
           'Rack & row layout', 'Power density planning', 'Cooling strategy',
           'Hot & cold aisle containment', 'Capacity & growth modelling',
@@ -1950,7 +1950,7 @@ const dataCenterBuild: DeepDivePage = {
         icon: Activity,
         blurb:
           'Distribution from the incoming supply to the rack, and the environmental control that keeps it inside its operating envelope.',
-        image: '/pillars/tech-infrastructure.webp',
+        image: '/pillars/data_2.webp',
         items: [
           'UPS systems', 'PDU & busway distribution', 'Generator & ATS interface',
           'Dual-path A/B distribution', 'CRAC & CRAH units', 'In-row cooling',
@@ -1962,7 +1962,7 @@ const dataCenterBuild: DeepDivePage = {
         icon: Network,
         blurb:
           'The layer that decides whether the room is maintainable in five years or a knot nobody will touch.',
-        image: '/pillars/fibre_optic.webp',
+        image: '/pillars/data_3.webp',
         items: [
           'Fibre & copper backbone', 'MPO & LC trunking', 'Patch panel design',
           'Top-of-rack & end-of-row topology', 'Containment & cable management',
@@ -1974,7 +1974,7 @@ const dataCenterBuild: DeepDivePage = {
         icon: Wrench,
         blurb:
           'The physical work and the proof it was done right, including the tests most programmes discover they needed only afterwards.',
-        image: '/pillars/engineer.webp',
+        image: '/pillars/data_4.webp',
         items: [
           'Rack & stack', 'Equipment installation', 'Asset tagging & DCIM load',
           'Factory & site acceptance testing', 'Integrated systems testing',

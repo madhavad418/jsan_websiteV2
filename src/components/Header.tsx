@@ -125,7 +125,7 @@ const navigation: NavItem[] = [
       /* Keeping what is already running, as opposed to Digital Engineering, which builds
          it. Support, not delivery  a distinct thing to buy and a distinct thing to sell. */
       {
-        name: 'Technology Support',
+        name: 'Applications & Integration',
         items: [
           { name: 'Application Support', href: '/capabilities/application-support' },
           { name: 'Integration Services', href: '/capabilities/integration-services' },
