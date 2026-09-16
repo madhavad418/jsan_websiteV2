@@ -64,7 +64,7 @@ const navigation: NavItem[] = [
         name: 'GeoAI & Data Operations',
         href: '/capabilities/geoai-data-operations',
         items: [
-          { name: 'Computer Vision', href: '/services/geoai-computer-vision' },
+          { name: 'Visual & AI-Assisted Data Annotation', href: '/services/geoai-computer-vision' },
           
   
           { name: 'OCR & Sign Intelligence', href: '/capabilities/ocr-sign-intelligence' },
