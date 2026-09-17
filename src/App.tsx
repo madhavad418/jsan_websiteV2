@@ -11,7 +11,6 @@ import ScrollReveal from './components/ScrollReveal'
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
-const Leadership = lazy(() => import('./pages/company/Leadership'))
 const Industries = lazy(() => import('./pages/Industries'))
 const NewsDetail = lazy(() => import('./pages/News').then((m) => ({ default: m.NewsDetail })))
 const Careers = lazy(() => import('./pages/Careers'))
@@ -71,8 +70,6 @@ const WorkDetail = lazy(() => import('./pages/work/WorkDetail'))
 const AdminApp = lazy(() => import('./pages/admin/AdminApp'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
-const FleetPreviewModal = lazy(() => import('./components/products/FleetPreviewModal'))
-
 function PageFallback() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">
@@ -93,12 +90,6 @@ function App() {
       <BackToTop />
       <ScrollReveal />
 
-      {/* Mounted once for the whole site: the news bar can ask for the product preview
-          from any page. It opens itself only on the homepage. */}
-      <Suspense fallback={null}>
-        <FleetPreviewModal />
-      </Suspense>
-
       <div id="main-content">
         <Suspense fallback={<PageFallback />}>
         <Routes>
@@ -107,7 +98,7 @@ function App() {
           {/* Company. /about is the legacy URL and redirects so old links keep working. */}
           <Route path="/company" element={<About />} />
           <Route path="/about" element={<Navigate to="/company" replace />} />
-          <Route path="/company/leadership" element={<Leadership />} />
+          <Route path="/company/leadership" element={<Navigate to="/company" replace />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/industries" element={<Industries />} />
           {/* Insights and News merged into one page; both old paths land on it */}

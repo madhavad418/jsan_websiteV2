@@ -23,7 +23,6 @@ const industryLinks = [
 
 const companyLinks = [
   { name: 'About JSAN', href: '/company', isRoute: true },
-  { name: 'Our Leadership', href: '/company', isRoute: true },
   { name: 'Case Studies', href: '/work', isRoute: true },
   { name: 'Products', href: '/products', isRoute: true },
   { name: 'Contact', href: '/contact', isRoute: true },

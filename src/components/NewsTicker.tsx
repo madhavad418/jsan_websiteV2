@@ -1,7 +1,6 @@
 import { Newspaper } from 'lucide-react'
 import { newsArticles } from '../data/news'
 import blogs from '../data/blogs'
-import { closeProductPreview, openProductPreview } from '../lib/productPreview'
 
 /** Turns "2026-06-12" or "January 12, 2026" into a short "Jun 12, 2026" label. */
 function shortDate(value: string) {
@@ -19,13 +18,6 @@ function shortDate(value: string) {
  * newsroom fills it - it is the only number that needs changing.
  */
 const MONTHS_BACK = 1
-
-/**
- * The one item in the bar that previews itself. Resting a pointer on it opens the product
- * dialog; moving off closes it again. Matched on its path rather than on a flag in the
- * content, because this is a property of the product, not of the article.
- */
-const PREVIEWS_PRODUCT = '/news/jsan-atlas-ops'
 
 /** Months since year zero, so a window can be compared without date arithmetic. */
 function monthIndex(value: string) {
@@ -92,17 +84,12 @@ export default function NewsTicker() {
       <div className="news-ticker__viewport">
         <div className="news-ticker__track">
           {loop.map((item, index) => {
-            const previews = item.href === PREVIEWS_PRODUCT
             return (
               <a
                 key={`${item.href}-${index}`}
                 href={item.href}
                 className="news-ticker__item"
                 aria-hidden={index >= highlights.length}
-                /* Pointer only. A touch screen has no hover and a keyboard has no pointer,
-                   and both already have the better route into the product: the link. */
-                onMouseEnter={previews ? () => openProductPreview('hover') : undefined}
-                onMouseLeave={previews ? () => closeProductPreview('hover') : undefined}
               >
                 <span className="news-ticker__date">{item.date}</span>
                 {item.title}
