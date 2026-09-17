@@ -255,6 +255,28 @@ export default function Header() {
     setIsMobileMenuOpen(false)
   }, [location.pathname])
 
+  // Keep scrolling inside the expanded menu, not the page underneath it.
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    const desktop = window.matchMedia('(min-width: 1024px)')
+    const closeOnDesktop = () => {
+      if (desktop.matches) setIsMobileMenuOpen(false)
+    }
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsMobileMenuOpen(false)
+    }
+    closeOnDesktop()
+    desktop.addEventListener('change', closeOnDesktop)
+    document.addEventListener('keydown', closeOnEscape)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      desktop.removeEventListener('change', closeOnDesktop)
+      document.removeEventListener('keydown', closeOnEscape)
+    }
+  }, [isMobileMenuOpen])
+
   /*
    * The bar is transparent while it sits on a dark hero and turns solid as soon as the
    * visitor scrolls, so the hero reads full-bleed instead of starting under a white slab.
@@ -461,6 +483,8 @@ export default function Header() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden relative w-11 h-11 flex items-center justify-center"
               aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               <span
                 className={`absolute h-[2px] w-7 rounded-full transition-all duration-300 ease-in-out ${showLight ? 'bg-[#0050a9]' : 'bg-white'
@@ -672,8 +696,17 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t shadow-lg">
-            <div className="max-w-7xl mx-auto px-6 py-4 space-y-2">
+          <div
+            id="mobile-navigation"
+            className="lg:hidden overflow-y-auto overscroll-y-contain bg-white border-t shadow-lg"
+            style={{
+              // 44px ticker + 76px header; leave room for the fixed bottom navigation.
+              maxHeight: 'calc(100dvh - 120px - 76px - env(safe-area-inset-bottom, 0px))',
+              WebkitOverflowScrolling: 'touch',
+              scrollbarGutter: 'stable',
+            }}
+          >
+            <div className="max-w-7xl mx-auto px-6 pt-4 pb-16 space-y-2">
               {navigation.map((item) => {
                 // Grouped dropdown (Services), mobile: heading accordion inside the nav accordion
                 if (item.groups) {
