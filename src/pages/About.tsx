@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { Cpu, Users, ClipboardList, Target, Lightbulb, Shield, BarChart3, ArrowRight, ChevronRight, ChevronLeft, Zap, MapPin, Truck, Briefcase, Network } from 'lucide-react'
@@ -6,6 +7,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
 import { useInView } from '../lib/useCountUp'
+import { optimizedSrc } from '../lib/optimizedSrc'
 
 /* ── Scroll-triggered count-up animation (Amnex style) ── */
 function useCountUp(end: number, duration = 2000, startOnView = true) {
@@ -65,7 +67,7 @@ const pillarCards = [
   {
     icon: MapPin,
     title: 'Location Intelligence',
-    description: 'End-to-end location intelligence  from data capture and enhancement to advanced analytics and custom platform development.',
+    description: 'End-to-end location intelligence — from data capture and enhancement to advanced analytics and custom platform development.',
     link: '/services/location-intelligence',
     color: '#0050a9',
     image: '/pillars/location-intelligence.webp',
@@ -73,7 +75,7 @@ const pillarCards = [
   {
     icon: Network,
     title: 'Telecom Network Intelligence',
-    description: 'Spatial intelligence for modern telecom networks  RF propagation, 5G small-cell siting, tower and fiber asset mapping, and real-time network analytics.',
+    description: 'Spatial intelligence for modern telecom networks — RF propagation, 5G small-cell siting, tower and fiber asset mapping, and real-time network analytics.',
     link: '/services/telecom-network-intelligence',
     color: '#0891b2',
     image: '/pillars/utility-network.webp',
@@ -144,7 +146,7 @@ const industries = [
     name: 'Energy & Utilities',
     icon: Zap,
     href: '/industries/utilities',
-    description: 'Smart grid, asset management and operational optimisation across energy networks.',
+    description: 'Smart grid, asset management and operational optimization across energy networks.',
   },
   {
     name: 'Transport & Mobility',
@@ -337,7 +339,7 @@ export default function About() {
               Who We Are
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              JSAN is a global technology consultancy integrating digital engineering, geospatial intelligence, strategic workforce solutions, and structured program management.
+              JSAN is a global technology consultancy integrating digital engineering, geospatial intelligence, strategic workforce solutions, and structured programme management.
             </p>
             <p className="text-gray-600 text-lg leading-relaxed">
               We operate at the intersection of innovation and execution, helping enterprises navigate complexity, optimize operations, and build sustainable competitive advantage.
@@ -357,7 +359,7 @@ export default function About() {
       <section
         className="relative h-[50vh] lg:h-[60vh]"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&auto=format&fit=crop)',
+          backgroundImage: `url(${optimizedSrc('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&auto=format&fit=crop')})`,
           backgroundAttachment: 'fixed',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -380,7 +382,7 @@ export default function About() {
             Our Strategic Pillars
           </h2>
           <p className="text-gray-600 text-base lg:text-lg max-w-2xl mx-auto">
-            Five integrated practices that power how we deliver value  from intelligence and engineering to talent and governance.
+            Five integrated practices that power how we deliver value — from intelligence and engineering to talent and governance.
           </p>
         </div>
 
@@ -421,7 +423,7 @@ export default function About() {
                       }}
                     >
                       {/* Background Image */}
-                      <img
+                      <OptimizedImage
                         src={card.image}
                         alt={card.title}
                         className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1200ms] ease-out"
@@ -538,7 +540,7 @@ export default function About() {
       {/* ── 4. PURPOSE / PROMISE / MISSION / VALUES  TechM Tabbed Section ── */}
       <section
         className="vm-section"
-        style={{ backgroundImage: `url(${brandPillars[activeTab].bg})` }}
+        style={{ backgroundImage: `url(${optimizedSrc(brandPillars[activeTab].bg)})` }}
       >
         <div className="vm-overlay" />
         <div className="max-w-7xl mx-auto px-6 w-full h-full">

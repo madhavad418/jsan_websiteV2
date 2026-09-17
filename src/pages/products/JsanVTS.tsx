@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 // Carousel state  restore with the commented dashboard screenshots below.
 // import { useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -47,7 +48,7 @@ const modules = [
 ]
 
 const benefits = [
-  { icon: CheckCircle, value: '100%', label: 'Real-Time Visibility', description: 'Complete fleet oversight with instant updates' },
+  { icon: CheckCircle, value: 'Live', label: 'Real-Time Visibility', description: 'Complete fleet oversight with instant updates' },
   { icon: Clock, value: '24/7', label: 'Continuous Monitoring', description: 'Round-the-clock tracking and emergency response' },
   { icon: RefreshCw, value: '360°', label: 'Complete Integration', description: 'Unified driver, vehicle, and management ecosystem' },
 ]
@@ -63,7 +64,7 @@ const mobileFeatures = [
 
 const testimonials = [
   {
-    quote: "JSAN VTS transformed how we manage our fleet. Real-time tracking has reduced unauthorized vehicle usage by 85%.",
+    quote: "JSAN VTS transformed how we manage our fleet. Real-time tracking has helped us sharply curb unauthorized vehicle usage.",
     author: "Operations Manager",
     company: "Leading Logistics Company",
     rating: 5,
@@ -78,8 +79,8 @@ const testimonials = [
 
 const stats = [
   { value: '500+', label: 'Vehicles Tracked', icon: Car },
-  { value: '99.9%', label: 'Uptime', icon: Zap },
-  { value: '50%', label: 'Cost Reduction', icon: Target },
+  { value: 'Live', label: 'GPS Tracking', icon: Zap },
+  { value: 'Lower', label: 'Operating Costs', icon: Target },
   { value: '24/7', label: 'Support', icon: Shield },
 ]
 
@@ -360,7 +361,7 @@ export default function JsanVTS() {
                     {/* Notch */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-2xl"></div>
                     <div className="overflow-hidden rounded-[2rem] bg-gray-100">
-                      <img
+                      <OptimizedImage
                         src={item.src}
                         alt={item.caption}
                         className="w-full h-auto transition-transform duration-[900ms] ease-out group-hover:scale-110"

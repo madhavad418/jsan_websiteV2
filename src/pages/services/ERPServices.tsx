@@ -84,7 +84,7 @@ export default function ERPServices() {
         description={"ERP systems are the operational backbone of enterprises. We implement, customise, and manage ERP solutions that unify finance, HR, supply chain, and operations on a single platform."}
         image="/pillars/tech-erp.webp"
         imageAlt="ERP Services"
-        stats={[...specialistStat(serviceSplit, 'erp'), { value: '30%', label: 'Process Efficiency' }, { value: '3', label: 'Major ERP Platforms' }]}
+        stats={[...specialistStat(serviceSplit, 'erp'), { value: 'Custom', label: 'Workflows & Integrations' }, { value: '3', label: 'Major ERP Platforms' }]}
       />
 
       {/* Subservice Cards */}

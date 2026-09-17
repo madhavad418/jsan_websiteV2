@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import {
   Landmark,
@@ -36,7 +37,7 @@ const challenges = [
   {
     icon: FileCheck,
     title: 'Risk Management',
-    description: 'Identifying, assessing, and mitigating financial risks in real-time across complex operations.'
+    description: 'Identifying, assessing, and mitigating financial risks in real time across complex operations.'
   }
 ]
 
@@ -84,7 +85,7 @@ export default function FinancialServices() {
       {/* Hero Section */}
       <section className="relative min-h-[650px] flex items-center overflow-hidden pt-28 lg:pt-32 pb-28 lg:pb-32" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage loading="eager" fetchPriority="high"
             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1080&fit=crop"
             alt="Financial Services"
             className="w-full h-full object-cover"
@@ -179,7 +180,7 @@ export default function FinancialServices() {
               </div>
             </div>
             <div className="relative">
-              <img
+              <OptimizedImage
                 src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop"
                 alt="Financial Technology"
                 className="rounded-2xl shadow-2xl"

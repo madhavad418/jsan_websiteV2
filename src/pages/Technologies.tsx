@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Play, Shield, Zap, Globe, Award, Map, Network, BarChart3, Cloud, Lock, Database, GitBranch, Bot, Server, Code } from 'lucide-react'
@@ -174,7 +175,7 @@ export default function Technologies() {
               One partner across your entire technology stack.
             </h1>
             <p className="mb-9 max-w-2xl text-lg leading-relaxed text-gray-600">
-              From geospatial and analytics to cloud, security and automation  {technologies.length} technology
+              From geospatial and analytics to cloud, security and automation — {technologies.length} technology
               domains, delivered by certified specialists.
             </p>
 
@@ -302,8 +303,9 @@ export default function Technologies() {
               <div className="sticky top-32 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl">
                 <div className="relative h-72 overflow-hidden">
                   {technologies.map((item, index) => (
-                    <img
-                      key={item.slug}
+                    <OptimizedImage
+                      active={activeTech === index}
+                key={item.slug}
                       src={item.image}
                       alt={item.title}
                       className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${

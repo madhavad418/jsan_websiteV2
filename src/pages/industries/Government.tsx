@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import {
   Building,
@@ -85,7 +86,7 @@ export default function Government() {
       {/* Hero Section */}
       <section className="relative min-h-[650px] flex items-center overflow-hidden pt-28 lg:pt-32 pb-28 lg:pb-32" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage loading="eager" fetchPriority="high"
             src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?w=1920&h=1080&fit=crop"
             alt="Government and Public Administration"
             className="w-full h-full object-cover"
@@ -180,7 +181,7 @@ export default function Government() {
               </div>
             </div>
             <div className="relative">
-              <img
+              <OptimizedImage
                 src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&h=600&fit=crop"
                 alt="Government Technology"
                 className="rounded-2xl shadow-2xl"

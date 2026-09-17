@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import SectionLabel from './SectionLabel'
@@ -85,7 +86,7 @@ export default function IndustryPanels() {
               to={industry.href}
               className="group relative flex h-[360px] flex-col justify-end overflow-hidden rounded-sm transition-all duration-500 lg:h-[420px]"
             >
-              <img
+              <OptimizedImage
                 src={industry.image}
                 alt=""
                 aria-hidden="true"

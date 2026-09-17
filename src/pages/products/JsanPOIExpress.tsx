@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 // Carousel state  restore with the commented dashboard screenshots below.
 // import { useState } from 'react'
 import { Link } from 'react-router-dom'
@@ -7,10 +8,10 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 
 const metrics = [
-  { value: '80%', label: 'Reduction in Manual Entry', description: 'Through AI photo analysis', icon: Zap },
-  { value: '75%', label: 'Cost Savings', description: 'Via streamlined processes', icon: TrendingUp },
-  { value: '90%', label: 'AI Accuracy', description: 'For data extraction', icon: Target },
-  { value: '95%', label: 'Error Detection', description: 'Rate in QC workflow', icon: Shield },
+  { value: 'AI', label: 'Less Manual Entry', description: 'Through AI photo analysis', icon: Zap },
+  { value: 'Low', label: 'Process Overhead', description: 'Via streamlined processes', icon: TrendingUp },
+  { value: 'QA', label: 'Verified Extraction', description: 'AI output checked in review', icon: Target },
+  { value: 'QC', label: 'Error Detection', description: 'Built into the QC workflow', icon: Shield },
 ]
 
 const features = [
@@ -62,9 +63,9 @@ const testimonials = [
 
 const stats = [
   { value: '10M+', label: 'POIs Collected', icon: MapPin },
-  { value: '6-8x', label: 'Productivity Gain', icon: TrendingUp },
-  { value: '90%', label: 'Faster QC', icon: Clock },
-  { value: '99%', label: 'Data Accuracy', icon: Target },
+  { value: 'AI', label: 'Assisted Collection', icon: TrendingUp },
+  { value: '3-Tier', label: 'QC Workflow', icon: Clock },
+  { value: 'QC', label: 'Verified Data', icon: Target },
 ]
 
 export default function JsanPOIExpress() {
@@ -404,7 +405,7 @@ export default function JsanPOIExpress() {
                     {/* Notch */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-2xl"></div>
                     <div className="overflow-hidden rounded-[2rem] bg-gray-100">
-                      <img
+                      <OptimizedImage
                         src={screenshot.src}
                         alt={screenshot.caption}
                         className="w-full h-auto transition-transform duration-[900ms] ease-out group-hover:scale-110"
@@ -481,14 +482,14 @@ export default function JsanPOIExpress() {
               <div className="space-y-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                   <div className="text-white/50 text-sm mb-2 uppercase tracking-wider">Traditional QC</div>
-                  <div className="text-white text-2xl font-bold">14 days for 5,000 submissions</div>
+                  <div className="text-white text-2xl font-bold">Every submission reviewed by hand</div>
                 </div>
                 <div className="bg-gradient-to-r from-blue-600/30 to-cyan-500/30 backdrop-blur-sm rounded-2xl p-6 border border-blue-600/30">
                   <div className="text-blue-300 text-sm mb-2 uppercase tracking-wider">With JSAN POI Express</div>
-                  <div className="text-white text-2xl font-bold">1.4 days for 5,000 submissions</div>
+                  <div className="text-white text-2xl font-bold">Automated checks, then tiered review</div>
                   <div className="mt-3 inline-flex items-center gap-2 text-green-400 text-sm font-medium">
                     <Clock className="w-4 h-4" />
-                    90% time reduction
+                    Shorter validation cycles
                   </div>
                 </div>
               </div>
@@ -499,8 +500,8 @@ export default function JsanPOIExpress() {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full filter blur-[60px] opacity-30"></div>
                 <div className="relative w-64 h-64 md:w-72 md:h-72 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
                   <div className="text-center">
-                    <div className="text-[64px] md:text-[80px] font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">90%</div>
-                    <div className="text-white/70 text-lg md:text-xl">Faster QC</div>
+                    <div className="text-[64px] md:text-[80px] font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">QC</div>
+                    <div className="text-white/70 text-lg md:text-xl">Tiered Review</div>
                   </div>
                 </div>
               </div>

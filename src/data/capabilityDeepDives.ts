@@ -184,7 +184,7 @@ const applicationSupport: DeepDivePage = {
   title: 'Application Support',
   subtitle: 'Your GIS estate is not one product. Your support should not be either.',
   description:
-    'ArcGIS, QGIS, GeoServer, PostGIS, FME and the web viewers built on top of them. We support GIS applications across desktop, server, database and browser - the ones we built and the ones we inherited - so a user with a problem has one place to take it instead of three vendors and a guess.',
+    'ArcGIS, QGIS, GeoServer, PostGIS, FME and the web viewers built on top of them. We support GIS applications across desktop, server, database and browser — the ones we built and the ones we inherited — so a user with a problem has one place to take it instead of three vendors and a guess.',
   image: '/pillars/app_support.webp',
   imageAlt: 'GIS specialists supporting desktop, server and web applications',
   copySide: 'right',
@@ -218,7 +218,7 @@ const applicationSupport: DeepDivePage = {
         name: 'Esri applications',
         icon: Globe,
         blurb:
-          'The commercial core of most estates, from desktop authoring to the field apps on top. Administering the deployment itself is its own discipline - that is Esri Platform Support.',
+          'The commercial core of most estates, from desktop authoring to the field apps on top. Administering the deployment itself is its own discipline — that is Esri Platform Support.',
         image: '/pillars/app_1.webp',
         items: [
           'ArcGIS Pro', 'ArcMap migration', 'ArcGIS Enterprise', 'ArcGIS Online',
@@ -421,7 +421,7 @@ const integrationServices: DeepDivePage = {
   title: 'Integration Services',
   subtitle: 'Four systems, four versions of the truth, and no agreement on which one wins.',
   description:
-    'The field app, the GIS, the asset register and the finance system each hold part of the picture. We design and build the interfaces between them - APIs, ETL, message queues, scheduled exchanges - and then monitor them, because an integration nobody watches is an outage waiting to be reported by a user.',
+    'The field app, the GIS, the asset register and the finance system each hold part of the picture. We design and build the interfaces between them — APIs, ETL, message queues, scheduled exchanges — and then monitor them, because an integration nobody watches is an outage waiting to be reported by a user.',
   image: '/pillars/integration.webp',
   imageAlt: 'Systems integration between geospatial and enterprise platforms',
   copySide: 'left',
@@ -611,7 +611,7 @@ const integrationServices: DeepDivePage = {
         title: 'Telemetry arriving faster than it can be handled',
         icon: Activity,
         situation:
-          'Vehicle, sensor or IoT data is arriving continuously, and the current approach - polling, or a direct database write - is falling behind or dropping messages.',
+          'Vehicle, sensor or IoT data is arriving continuously, and the current approach — polling, or a direct database write — is falling behind or dropping messages.',
         actions: [
           'Move ingestion onto a queue or stream with backpressure',
           'Separate ingestion from processing so spikes are absorbed',
@@ -653,7 +653,7 @@ const esriPlatformSupport: DeepDivePage = {
   title: 'Esri Platform Support',
   subtitle: 'ArcGIS rewards administration and punishes neglect.',
   description:
-    'We run ArcGIS Enterprise and ArcGIS Online estates - portal and server administration, service publishing, security and sharing models, licensing, and the version upgrades most teams postpone until they cannot - so the platform stays supported, performant and correctly licensed.',
+    'We run ArcGIS Enterprise and ArcGIS Online estates — portal and server administration, service publishing, security and sharing models, licensing, and the version upgrades most teams postpone until they cannot — so the platform stays supported, performant and correctly licensed.',
   image: '/pillars/esri.webp',
   imageAlt: 'ArcGIS Enterprise administration and operational dashboards',
   copySide: 'left',
@@ -827,7 +827,7 @@ const esriPlatformSupport: DeepDivePage = {
         title: 'No recovery position',
         icon: AlertTriangle,
         situation:
-          'Backups may exist, but nobody has tested a restore. If the portal were lost, the actual recovery time is unknown - and so is what would be lost with it.',
+          'Backups may exist, but nobody has tested a restore. If the portal were lost, the actual recovery time is unknown — and so is what would be lost with it.',
         actions: [
           'Document the full platform topology and its dependencies',
           'Implement webgisdr and geodatabase backup on a schedule',
@@ -885,7 +885,7 @@ const scanToBim: DeepDivePage = {
   title: 'Scan to BIM',
   subtitle: 'A point cloud is a measurement. A model is something you can build from.',
   description:
-    'Laser scan and photogrammetric survey converted into federated, tolerance-stated BIM models - existing buildings, plant rooms, bridges and tunnels - modelled to the level of development the downstream discipline actually needs rather than the highest one available.',
+    'Laser scan and photogrammetric survey converted into federated, tolerance-stated BIM models — existing buildings, plant rooms, bridges and tunnels — modelled to the level of development the downstream discipline actually needs rather than the highest one available.',
   image: '/pillars/bim-scan-hero.webp',
   imageAlt: 'Point cloud survey converted into a building information model',
   copySide: 'left',
@@ -1059,7 +1059,7 @@ const bimGisIntegration: DeepDivePage = {
   title: 'BIM & GIS Integration',
   subtitle: 'The building model and the network around it, in one coordinate system.',
   description:
-    'IFC and Revit models reconciled with GIS - shared coordinate systems, mapped classifications and a linkage that survives both sides being reissued - so an asset can be found on a map and opened in its model without anyone re-keying an identifier.',
+    'IFC and Revit models reconciled with GIS - shared coordinate systems, mapped classifications and a linkage that survives both sides being reissued — so an asset can be found on a map and opened in its model without anyone re-keying an identifier.',
   image: '/pillars/bim-gis-hero.webp',
   imageAlt: 'Building models aligned with the geospatial network around them',
   copySide: 'right',
@@ -1234,7 +1234,7 @@ const digitalTwinAssetInformation: DeepDivePage = {
   title: 'Digital Twin & Asset Information',
   subtitle: 'A twin nobody updates is an expensive render.',
   description:
-    'Asset information models built to an agreed information requirement, populated from survey, BIM and operational systems, and kept current by a defined update route - so the twin still reflects the asset in year three rather than the day it was handed over.',
+    'Asset information models built to an agreed information requirement, populated from survey, BIM and operational systems, and kept current by a defined update route — so the twin still reflects the asset in year three rather than the day it was handed over.',
   image: '/pillars/bim-twin-hero.webp',
   imageAlt: 'Digital twin of built infrastructure with live operational data',
   copySide: 'left',
@@ -1409,7 +1409,7 @@ const arcgisSolutionDevelopment: DeepDivePage = {
   title: 'ArcGIS Solution Development',
   subtitle: 'Configured where it can be. Built where it has to be.',
   description:
-    'Web apps, dashboards, field workflows and custom extensions on the ArcGIS platform - configured with Experience Builder and Dashboards where that is genuinely enough, and developed against the SDKs where it is not.',
+    'Web apps, dashboards, field workflows and custom extensions on the ArcGIS platform — configured with Experience Builder and Dashboards where that is genuinely enough, and developed against the SDKs where it is not.',
   image: '/pillars/arcgis.webp',
   imageAlt: 'ArcGIS web applications and dashboards in development',
   copySide: 'left',
@@ -1583,7 +1583,7 @@ const geodatabaseDataModelling: DeepDivePage = {
   title: 'Geodatabase & Data Modelling',
   subtitle: 'The data model decides what the system can ever do.',
   description:
-    'Enterprise geodatabase design, versioning strategy, attribute rules and network models - the schema work that determines whether editing scales, tracing returns the right answer and reporting reconciles with the rest of the business.',
+    'Enterprise geodatabase design, versioning strategy, attribute rules and network models — the schema work that determines whether editing scales, tracing returns the right answer and reporting reconciles with the rest of the business.',
   image: '/pillars/geo_data.webp',
   imageAlt: 'Enterprise geodatabase and data model design',
   copySide: 'right',
@@ -1869,7 +1869,7 @@ const arcgisFieldOperations: DeepDivePage = {
           'Audit the offline area strategy against the actual work areas',
           'Enable sync on the services that need it and size the areas properly',
           'Fix attachment handling, which is usually what breaks first',
-          'Test against real network conditions, not office wifi',
+          'Test against real network conditions, not office Wi-Fi',
           'Add sync failure alerting rather than relying on crews noticing',
           'Recover what can be recovered from the affected devices',
         ],
@@ -1947,9 +1947,9 @@ const dataCenterBuild: DeepDivePage = {
   title: 'Data Center Build & Setup',
   subtitle: 'From an empty shell to a room your operations team will accept.',
   description:
-    'Design support, structured cabling, rack and stack, power and cooling install, and the integrated systems testing that proves it behaves under load and under failure - delivered to a live date, with the as-built record captured as the work happens rather than reconstructed afterwards.',
+    'Design support, structured cabling, rack and stack, power and cooling install, and the integrated systems testing that proves it behaves under load and under failure — delivered to a live date, with the as-built record captured as the work happens rather than reconstructed afterwards.',
   image: '/pillars/data_cover.webp',
-  imageAlt: 'Data centre build and commissioning',
+  imageAlt: 'Data center build and commissioning',
   copySide: 'left',
   positioning: [
     {

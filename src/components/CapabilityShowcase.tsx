@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { useState } from 'react'
 import type { LucideIcon } from 'lucide-react'
 import { ArrowRight } from 'lucide-react'
@@ -42,7 +43,8 @@ type Props = {
 export default function CapabilityShowcase({
   items,
   basePath,
-  fallbackHref = '#contact',
+  // Most service pages no longer carry an on-page #contact form, so default to the page.
+  fallbackHref = '/contact',
   activeIndex,
   onActiveChange,
 }: Props) {
@@ -96,7 +98,8 @@ export default function CapabilityShowcase({
           {/* Visual */}
           <div className="relative h-64 overflow-hidden lg:h-auto lg:min-h-[420px]">
             {items.map((item, index) => (
-              <img
+              <OptimizedImage
+                active={index === active}
                 key={item.cardTitle}
                 src={item.bgImage}
                 alt={item.cardTitle}

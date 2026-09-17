@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { useEffect, useRef } from 'react'
 import type { CSSProperties, ReactNode } from 'react'
 import { Link } from 'react-router-dom'
@@ -271,8 +272,10 @@ export default function ImageHero({
         photograph drifts and responds to the pointer.
       */}
       <div className="jsan-hero-photo-shell absolute -inset-[2.25%]">
-        <img
+        <OptimizedImage
           src={image}
+          srcSet={image === '/pillars/homepage.webp' ? '/pillars/homepage-960.webp 960w, /pillars/homepage.webp 1916w' : undefined}
+          sizes={image === '/pillars/homepage.webp' ? '100vw' : undefined}
           alt=""
           aria-hidden="true"
           width={imageSize.width}

@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import { MapPin, Navigation, Users, Smartphone, Brain, WifiOff, Shapes, Radio, GitBranch, UserCheck, FileText, Wallet, BarChart3, Shield, Play, Rocket, Clock, RefreshCw, CheckCircle, GitCompare, Radar, Scale, FileSpreadsheet } from 'lucide-react'
 import Header from '../components/Header'
@@ -77,7 +78,7 @@ const liveProducts = [
     name: 'JSAN GeoDiscover',
     slug: '/products/geodiscover',
     category: 'Cross-Provider POI Discovery',
-    description: 'Compares point-of-interest coverage across independent map providers and shows what each one is missing, with every finding backed by evidence  configured to your geography and categories.',
+    description: 'Compares point-of-interest coverage across independent map providers and shows what each one is missing, with every finding backed by evidence — configured to your geography and categories.',
     features: [
       { icon: GitCompare, label: 'Dual-Provider Sweep' },
       { icon: Radar, label: 'Evidence Tiers' },
@@ -193,7 +194,7 @@ export default function Products() {
                 <div className="grid lg:grid-cols-2">
                   {/* Image */}
                   <div className={`h-72 lg:h-auto relative overflow-hidden bg-gray-100 flex items-center justify-center ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <img
+                    <OptimizedImage
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-contain p-4"

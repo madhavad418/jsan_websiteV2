@@ -56,7 +56,7 @@ export default function Telecommunications() {
           stage: 'LiDAR',
           title: 'Measure what a tape measure cannot',
           description:
-            'Mobile and terrestrial LiDAR where clearance, sag and attachment height decide whether a design is buildable  measured, not estimated from a photograph.',
+            'Mobile and terrestrial LiDAR where clearance, sag and attachment height decide whether a design is buildable — measured, not estimated from a photograph.',
           icon: Scan,
           image: '/pillars/lidar_engineering.webp',
           imageAlt: 'LiDAR point cloud of a pole line with clearance measurement',
@@ -71,7 +71,7 @@ export default function Telecommunications() {
           stage: 'Pole, fibre & assets',
           title: 'Every asset, attributed and located',
           description:
-            'Pole loading and attachment analysis, duct and route capture, fibre asset inventory  the physical record engineering and planning teams build against.',
+            'Pole loading and attachment analysis, duct and route capture, fibre asset inventory — the physical record engineering and planning teams build against.',
           icon: Antenna,
           image: '/pillars/pole_utility.webp',
           imageAlt: 'Pole and attachment inventory with asset attribution',

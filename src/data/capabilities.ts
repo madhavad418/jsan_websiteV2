@@ -98,13 +98,13 @@ const originalCapabilities: Capability[] = [
       { icon: GitMerge, text: 'Connectivity, turn restrictions, one-ways and grade separation' },
       { icon: Layers, text: 'Functional class, lane counts, speed categories and access rules' },
       { icon: Map, text: 'Compiled from imagery, LiDAR, probe data and field verification' },
-      { icon: ShieldCheck, text: 'Topology validation  dangles, connectivity and geometry checks' },
+      { icon: ShieldCheck, text: 'Topology validation — dangles, connectivity and geometry checks' },
     ],
     approach: [
       {
         title: 'Specification & schema alignment',
         detail:
-          'We start from your data model  feature classes, attribute domains, accuracy tolerances and capture rules  so the network we deliver drops straight into your production environment.',
+          'We start from your data model — feature classes, attribute domains, accuracy tolerances and capture rules — so the network we deliver drops straight into your production environment.',
       },
       {
         title: 'Multi-source compilation',
@@ -153,7 +153,7 @@ const originalCapabilities: Capability[] = [
     title: 'Field Verification',
     subtitle: 'Ground Truth, Captured On Site and Backed by Evidence',
     description:
-      'Desk research and imagery take data most of the way; field verification closes the gap. Our crews confirm what is actually on the ground  an asset, an access point, a business, a restriction  and return GPS-stamped, photo-backed evidence against a structured checklist, so your dataset carries proof rather than assumption.',
+      'Desk research and imagery take data most of the way; field verification closes the gap. Our crews confirm what is actually on the ground — an asset, an access point, a business, a restriction — and return GPS-stamped, photo-backed evidence against a structured checklist, so your dataset carries proof rather than assumption.',
     bgImage: '/pillars/feild_verify.webp',
     highlights: [
       { icon: MapPin, text: 'On-site confirmation of features, assets, POI and access' },
@@ -166,7 +166,7 @@ const originalCapabilities: Capability[] = [
       {
         title: 'Survey design',
         detail:
-          'We convert your specification into a field checklist  the attributes to confirm, the evidence required, the tolerance for each measurement and the rules for ambiguous cases.',
+          'We convert your specification into a field checklist — the attributes to confirm, the evidence required, the tolerance for each measurement and the rules for ambiguous cases.',
       },
       {
         title: 'Crew mobilisation',
@@ -217,7 +217,7 @@ const originalCapabilities: Capability[] = [
     title: 'Planning & Dispatch',
     subtitle: 'Coverage Plans, Drive Schedules and Live Tasking for Collection Fleets',
     description:
-      'Getting a fleet to the right places, in the right order, at the right time is the difference between a collection program that hits its coverage targets and one that burns fuel. We plan coverage, build drive and task schedules, dispatch crews daily, and re-plan around weather, access restrictions, equipment failures and re-drives.',
+      'Getting a fleet to the right places, in the right order, at the right time is the difference between a collection programme that hits its coverage targets and one that burns fuel. We plan coverage, build drive and task schedules, dispatch crews daily, and re-plan around weather, access restrictions, equipment failures and re-drives.',
     bgImage: '/pillars/globalfleet.webp',
     highlights: [
       { icon: Compass, text: 'Coverage design and route sequencing against target geographies' },
@@ -257,10 +257,10 @@ const originalCapabilities: Capability[] = [
       'Coverage / productivity dashboards',
     ],
     idealFor: [
-      'Map & imagery collection programs',
+      'Map & imagery collection programmes',
       'Autonomous mobility data teams',
       'Survey & inspection operations',
-      'Telecom & utility field programs',
+      'Telecom & utility field programmes',
       'Large-area asset capture projects',
     ],
     outcomes: [
@@ -279,13 +279,13 @@ const originalCapabilities: Capability[] = [
     title: 'Safety & Compliance',
     subtitle: 'Safe Crews, Compliant Vehicles, Defensible Records',
     description:
-      'Field programs run across jurisdictions, each with its own rules on driving, data capture, privacy and site access. We operate the safety and compliance layer around a collection or field program  driver standards, vehicle checks, permits, privacy handling and incident management  so operations stay lawful, insurable and auditable wherever they run.',
+      'Field programs run across jurisdictions, each with its own rules on driving, data capture, privacy and site access. We operate the safety and compliance layer around a collection or field program — driver standards, vehicle checks, permits, privacy handling and incident management — so operations stay lawful, insurable and auditable wherever they run.',
     bgImage: '/pillars/safety.webp',
     highlights: [
       { icon: HardHat, text: 'Driver induction, safety briefing and competency records' },
       { icon: Truck, text: 'Vehicle inspection, maintenance and roadworthiness checks' },
       { icon: FileCheck, text: 'Permits, local authority notifications and site access' },
-      { icon: ShieldCheck, text: 'Privacy-safe capture  face and plate blurring workflows' },
+      { icon: ShieldCheck, text: 'Privacy-safe capture — face and plate blurring workflows' },
       { icon: AlertTriangle, text: 'Incident reporting, escalation and corrective action' },
     ],
     approach: [
@@ -343,11 +343,11 @@ const originalCapabilities: Capability[] = [
     title: 'LiDAR Feature Extraction',
     subtitle: 'From Raw Point Cloud to Classified, Usable Geospatial Features',
     description:
-      'A point cloud on its own is a measurement, not an asset register. We classify and extract the features our clients actually work with  poles, conductors, signs, kerbs, road edges, vegetation, building footprints and terrain  combining automated classification with trained human extraction and review, delivered in the CAD and GIS formats your engineering teams already use.',
+      'A point cloud on its own is a measurement, not an asset register. We classify and extract the features our clients actually work with — poles, conductors, signs, kerbs, road edges, vegetation, building footprints and terrain — combining automated classification with trained human extraction and review, delivered in the CAD and GIS formats your engineering teams already use.',
     bgImage: '/pillars/feature_extraction.webp',
     highlights: [
-      { icon: Scan, text: 'Point-cloud classification  ground, vegetation, structures, assets' },
-      { icon: Layers, text: 'Feature extraction  poles, wires, signs, kerbs and road edges' },
+      { icon: Scan, text: 'Point-cloud classification — ground, vegetation, structures, assets' },
+      { icon: Layers, text: 'Feature extraction — poles, wires, signs, kerbs and road edges' },
       { icon: Boxes, text: 'DTM / DSM generation and break-line capture' },
       { icon: Cpu, text: 'Automated classification with human extraction and review' },
       { icon: Database, text: 'Delivery in LAS/LAZ, CAD and GIS formats to your schema' },
@@ -403,7 +403,7 @@ const originalCapabilities: Capability[] = [
     category: 'OCR & SIGN INTELLIGENCE',
     icon: Type,
     title: 'OCR & Sign Intelligence',
-    subtitle: 'Reading the Street  Signs, Text and Numbers Turned Into Map Attributes',
+    subtitle: 'Reading the Street — Signs, Text and Numbers Turned Into Map Attributes',
     description:
       'Street-level imagery is full of information that only becomes useful once it is read, classified and located. We detect and interpret traffic signs, regulatory text, house numbers, business fascia and roadside text across languages and scripts, then turn each reading into a positioned, attributed map feature with the source image retained as evidence.',
     bgImage: '/pillars/ocr.webp',
@@ -428,7 +428,7 @@ const originalCapabilities: Capability[] = [
       {
         title: 'Reading & attribution',
         detail:
-          'Operators read, classify and attribute each detection  including local-language content  and position it against the road network.',
+          'Operators read, classify and attribute each detection — including local-language content — and position it against the road network.',
       },
       {
         title: 'QA & feedback',
@@ -467,7 +467,7 @@ const originalCapabilities: Capability[] = [
     title: 'Human-in-the-Loop QA',
     subtitle: 'Trained Reviewers Where Automation Stops Being Reliable',
     description:
-      'Models are fast and confident, including when they are wrong. We provide the human review layer around automated pipelines  sampling model output, adjudicating low-confidence and edge cases, maintaining gold sets and feeding corrections back as training data  so accuracy is measured and improving rather than assumed.',
+      'Models are fast and confident, including when they are wrong. We provide the human review layer around automated pipelines — sampling model output, adjudicating low-confidence and edge cases, maintaining gold sets and feeding corrections back as training data — so accuracy is measured and improving rather than assumed.',
     bgImage: '/pillars/quality.webp',
     highlights: [
       { icon: Users, text: 'Trained, calibrated reviewers with documented decision rules' },
@@ -527,9 +527,9 @@ const originalCapabilities: Capability[] = [
     category: 'DATA VALIDATION',
     icon: FileSearch,
     title: 'Data Validation',
-    subtitle: 'Schema, Topology and Truth  Checked Before It Reaches Production',
+    subtitle: 'Schema, Topology and Truth — Checked Before It Reaches Production',
     description:
-      'Validation is what stands between a delivery and a production incident. We build and run validation regimes for geospatial and enterprise datasets  schema and domain conformance, topology and geometry rules, completeness, cross-source comparison and statistical outlier detection  and issue an acceptance report that says plainly what passed, what failed and what was fixed.',
+      'Validation is what stands between a delivery and a production incident. We build and run validation regimes for geospatial and enterprise datasets — schema and domain conformance, topology and geometry rules, completeness, cross-source comparison and statistical outlier detection — and issue an acceptance report that says plainly what passed, what failed and what was fixed.',
     bgImage: '/pillars/data_validation.webp',
     highlights: [
       { icon: FileSearch, text: 'Schema, domain and attribute-completeness conformance' },
@@ -542,7 +542,7 @@ const originalCapabilities: Capability[] = [
       {
         title: 'Rule authoring',
         detail:
-          'Your specification is translated into executable validation rules  hard failures, soft warnings and tolerances  agreed with your data owners before the first run.',
+          'Your specification is translated into executable validation rules — hard failures, soft warnings and tolerances — agreed with your data owners before the first run.',
       },
       {
         title: 'Automated validation',
@@ -593,7 +593,7 @@ const originalCapabilities: Capability[] = [
     title: '5G & Small Cells',
     subtitle: 'Site Candidacy, Street Furniture and the Geospatial Layer Behind Densification',
     description:
-      'Small-cell densification is won or lost on site data. We provide the geospatial groundwork behind 5G rollout  candidate identification on poles, streetlights and rooftops, line-of-sight and clutter analysis, structural and power context, and the permitting datasets local authorities require  so RF and deployment teams work from verified sites rather than desktop guesses.',
+      'Small-cell densification is won or lost on site data. We provide the geospatial groundwork behind 5G rollout — candidate identification on poles, streetlights and rooftops, line-of-sight and clutter analysis, structural and power context, and the permitting datasets local authorities require — so RF and deployment teams work from verified sites rather than desktop guesses.',
     bgImage: '/pillars/5g.webp',
     highlights: [
       { icon: Antenna, text: 'Candidate site identification on poles, lighting and rooftops' },
@@ -655,7 +655,7 @@ const originalCapabilities: Capability[] = [
     title: 'LiDAR Engineering',
     subtitle: 'Engineering Answers Derived From Aerial, Mobile and Terrestrial Scans',
     description:
-      'Beyond capture and classification sits the engineering question: will it clear, will it hold, where does it conflict? We turn LiDAR into engineering deliverables for utility and telecom corridors  pole loading inputs, conductor clearance and sag analysis, vegetation encroachment, corridor models and make-ready assessments  in the formats design teams and regulators expect.',
+      'Beyond capture and classification sits the engineering question: will it clear, will it hold, where does it conflict? We turn LiDAR into engineering deliverables for utility and telecom corridors — pole loading inputs, conductor clearance and sag analysis, vegetation encroachment, corridor models and make-ready assessments — in the formats design teams and regulators expect.',
     bgImage: '/pillars/lidar_engineering.webp',
     highlights: [
       { icon: Activity, text: 'Conductor clearance, sag and thermal-condition analysis' },
@@ -673,7 +673,7 @@ const originalCapabilities: Capability[] = [
       {
         title: 'Model build',
         detail:
-          'Classified scan data is turned into an engineering model of the corridor  structures, attachments, conductors, terrain and vegetation.',
+          'Classified scan data is turned into an engineering model of the corridor — structures, attachments, conductors, terrain and vegetation.',
       },
       {
         title: 'Analysis',
@@ -717,7 +717,7 @@ const originalCapabilities: Capability[] = [
     title: 'As-Built Validation',
     subtitle: 'Closing the Gap Between What Was Designed and What Was Built',
     description:
-      'Networks are rarely built exactly as drawn, and the difference quietly corrupts every system that depends on the records. We validate constructed infrastructure against design  capturing what exists in the field, reconciling contractor redlines, resolving discrepancies and updating the GIS  so as-built records can be trusted for operations, maintenance and future design.',
+      'Networks are rarely built exactly as drawn, and the difference quietly corrupts every system that depends on the records. We validate constructed infrastructure against design — capturing what exists in the field, reconciling contractor redlines, resolving discrepancies and updating the GIS — so as-built records can be trusted for operations, maintenance and future design.',
     bgImage: '/pillars/asbuilt.webp',
     highlights: [
       { icon: ClipboardCheck, text: 'Field capture of constructed assets and routes' },
@@ -735,7 +735,7 @@ const originalCapabilities: Capability[] = [
       {
         title: 'Field capture',
         detail:
-          'Crews record the constructed asset  route, structures, counts, attributes and connectivity  with location and photographic evidence.',
+          'Crews record the constructed asset — route, structures, counts, attributes and connectivity — with location and photographic evidence.',
       },
       {
         title: 'Reconciliation',
@@ -781,10 +781,10 @@ const originalCapabilities: Capability[] = [
     title: 'PMO',
     subtitle: 'Governance, Cadence and Visibility Across a Portfolio of Work',
     description:
-      'We set up and run project management offices for data, geospatial and technology programs  defining governance, standing up cadence and reporting, tracking scope, risk, cost and benefits, and giving leadership one honest view of where the portfolio actually stands. Whether you need a PMO built or an existing one operated, we cover both.',
+      'We set up and run project management offices for data, geospatial and technology programs — defining governance, standing up cadence and reporting, tracking scope, risk, cost and benefits, and giving leadership one honest view of where the portfolio actually stands. Whether you need a PMO built or an existing one operated, we cover both.',
     bgImage: '/pillars/pmo-setup.webp',
     highlights: [
-      { icon: Workflow, text: 'PMO design  governance, roles, gates and decision rights' },
+      { icon: Workflow, text: 'PMO design — governance, roles, gates and decision rights' },
       { icon: ClipboardList, text: 'RAID management: risks, assumptions, issues, dependencies' },
       { icon: LineChart, text: 'Portfolio reporting, milestones and benefits tracking' },
       { icon: Users, text: 'Resource planning, capacity and demand management' },
@@ -794,7 +794,7 @@ const originalCapabilities: Capability[] = [
       {
         title: 'Assess & design',
         detail:
-          'We review how work is currently governed and design a PMO proportionate to it  enough control to be useful, not so much that delivery slows down.',
+          'We review how work is currently governed and design a PMO proportionate to it — enough control to be useful, not so much that delivery slows down.',
       },
       {
         title: 'Stand up',
@@ -804,7 +804,7 @@ const originalCapabilities: Capability[] = [
       {
         title: 'Operate',
         detail:
-          'We run the cadence  status, risk review, change control, steering packs  and keep the data behind the reporting current and honest.',
+          'We run the cadence — status, risk review, change control, steering packs — and keep the data behind the reporting current and honest.',
       },
       {
         title: 'Improve & hand over',
@@ -843,7 +843,7 @@ const originalCapabilities: Capability[] = [
     title: 'Quality Operations',
     subtitle: 'A Quality System, Not a Final Inspection',
     description:
-      'Quality that depends on a check at the end is quality you find out about too late. We design and run quality operations for data and delivery programs  specifications, sampling plans, tiered QC and QA, auditor calibration, defect taxonomy and corrective action  so quality is produced within the process and measured continuously.',
+      'Quality that depends on a check at the end is quality you find out about too late. We design and run quality operations for data and delivery programs — specifications, sampling plans, tiered QC and QA, auditor calibration, defect taxonomy and corrective action — so quality is produced within the process and measured continuously.',
     bgImage: '/pillars/quality_check.webp',
     highlights: [
       { icon: ShieldCheck, text: 'Quality management framework and written specifications' },
@@ -905,7 +905,7 @@ const originalCapabilities: Capability[] = [
     title: 'Data Operations',
     subtitle: 'Running Production Data Programs to Throughput, Quality and SLA',
     description:
-      'Some data work is a project; most of it is an operation that has to deliver every day. We run production data operations end to end  intake, workflow orchestration, trained teams, throughput and capacity management, quality gates, tooling and change control  reporting against SLAs so you can treat data delivery as a dependable service rather than a standing risk.',
+      'Some data work is a project; most of it is an operation that has to deliver every day. We run production data operations end to end — intake, workflow orchestration, trained teams, throughput and capacity management, quality gates, tooling and change control — reporting against SLAs so you can treat data delivery as a dependable service rather than a standing risk.',
     bgImage: '/pillars/data_ops.webp',
     highlights: [
       { icon: Workflow, text: 'Workflow design, orchestration and task routing' },
@@ -969,7 +969,7 @@ const originalCapabilities: Capability[] = [
     title: 'Application Support',
     subtitle: 'Keeping the Systems Your Operation Already Depends On Running',
     description:
-      'Once an application is live the work changes shape: incidents, upgrades, small enhancements, and the questions users ask on a Tuesday afternoon. We run application support against an agreed service level  triage, fix, release, document  for the GIS, data and enterprise applications JSAN built and for those we did not, with the same transition discipline either way.',
+      'Once an application is live the work changes shape: incidents, upgrades, small enhancements, and the questions users ask on a Tuesday afternoon. We run application support against an agreed service level — triage, fix, release, document — for the GIS, data and enterprise applications JSAN built and for those we did not, with the same transition discipline either way.',
     bgImage: '/pillars/webtech.webp',
     highlights: [
       { icon: LifeBuoy, text: 'Tiered triage against agreed response and resolution targets' },
@@ -987,7 +987,7 @@ const originalCapabilities: Capability[] = [
       {
         title: 'Define the service',
         detail:
-          'Priority levels, response and resolution targets, escalation paths, and the boundary between support, enhancement and new development  agreed in writing before the first ticket rather than argued about during the first incident.',
+          'Priority levels, response and resolution targets, escalation paths, and the boundary between support, enhancement and new development — agreed in writing before the first ticket rather than argued about during the first incident.',
       },
       {
         title: 'Run',
@@ -1031,7 +1031,7 @@ const originalCapabilities: Capability[] = [
     title: 'Integration Services',
     subtitle: 'Making the Systems Talk to Each Other, and Proving They Still Do',
     description:
-      'Integration is where geospatial programmes usually stall: the field app, the GIS, the asset register and the finance system each hold part of the truth and none of them agree. We design and build the interfaces between them  APIs, ETL, message queues, scheduled exchanges  and then monitor them, because an integration nobody watches is an outage waiting to be reported by a user.',
+      'Integration is where geospatial programmes usually stall: the field app, the GIS, the asset register and the finance system each hold part of the truth and none of them agree. We design and build the interfaces between them — APIs, ETL, message queues, scheduled exchanges — and then monitor them, because an integration nobody watches is an outage waiting to be reported by a user.',
     bgImage: '/pillars/API_Integration.webp',
     highlights: [
       { icon: Plug, text: 'REST, GraphQL, SOAP and file-based interfaces' },
@@ -1093,7 +1093,7 @@ const originalCapabilities: Capability[] = [
     title: 'Esri Platform Support',
     subtitle: 'ArcGIS Enterprise and ArcGIS Online, Administered Properly',
     description:
-      'The Esri platform rewards administration and punishes neglect. We run ArcGIS Enterprise and ArcGIS Online estates  portal and server administration, service publishing, security and sharing models, licensing, and the version upgrades most teams postpone until they cannot  so the platform stays supported, performant and correctly licensed.',
+      'The Esri platform rewards administration and punishes neglect. We run ArcGIS Enterprise and ArcGIS Online estates — portal and server administration, service publishing, security and sharing models, licensing, and the version upgrades most teams postpone until they cannot — so the platform stays supported, performant and correctly licensed.',
     bgImage: '/pillars/web_gis.webp',
     highlights: [
       { icon: Globe, text: 'ArcGIS Enterprise and ArcGIS Online administration' },

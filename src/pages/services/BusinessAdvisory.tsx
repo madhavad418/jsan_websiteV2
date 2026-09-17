@@ -9,8 +9,8 @@ const advisory = serviceSplit['business-advisory']
 
 const metrics = [
   { value: `${advisory.people}+`, label: 'Specialists', description: 'Advisory practice' },
-  { value: '30%', label: 'Cost Reduction', description: 'Average client savings' },
-  { value: '95%', label: 'Client Satisfaction', description: 'Recommendation rate' },
+  { value: '6', label: 'Advisory Disciplines', description: 'Strategy through compliance' },
+  { value: 'End-to-End', label: 'Delivery Approach', description: 'From discovery to sustained results' },
 ]
 
 const services = [
@@ -47,10 +47,10 @@ const services = [
 ]
 
 const outcomes = [
-  { value: '45%', label: 'Revenue Growth', description: 'Average increase for clients' },
-  { value: '60%', label: 'Efficiency Gain', description: 'Process improvements' },
-  { value: '25%', label: 'Market Share', description: 'Average expansion' },
-  { value: '80%', label: 'Goal Achievement', description: 'Strategic objectives met' },
+  { value: '01', label: 'Revenue Growth', description: 'Growth plans grounded in market data' },
+  { value: '02', label: 'Efficiency Gain', description: 'Process improvements' },
+  { value: '03', label: 'Market Share', description: 'Focused expansion strategies' },
+  { value: '04', label: 'Goal Achievement', description: 'Strategic objectives tracked' },
 ]
 
 const industries = [
@@ -130,8 +130,8 @@ export default function BusinessAdvisory() {
       <section className="py-20 bg-gradient-to-br from-[#1b497b] to-[#0050a9]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-[36px] lg:text-[42px] font-bold text-white mb-4">Proven Outcomes</h2>
-            <p className="text-white/70 text-xl">Measurable results our clients have achieved.</p>
+            <h2 className="text-[36px] lg:text-[42px] font-bold text-white mb-4">Outcomes We Target</h2>
+            <p className="text-white/70 text-xl">The results every advisory engagement is built around.</p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">

@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Navigation, Brain, GitBranch, GitCompare } from 'lucide-react'
 
@@ -69,7 +70,7 @@ export default function ProductsShowcase() {
               className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[#0050a9]/20 hover:shadow-2xl"
             >
               <div className="relative h-44 overflow-hidden bg-[#012f62]">
-                <img
+                <OptimizedImage
                   src={product.image}
                   alt={product.name}
                   className="h-full w-full object-cover object-top transition-transform duration-[900ms] ease-out group-hover:scale-110"

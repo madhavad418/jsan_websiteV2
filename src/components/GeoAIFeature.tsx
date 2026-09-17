@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Scan, Tags, ShieldCheck, MapPin, Share2 } from 'lucide-react'
@@ -50,7 +51,7 @@ export default function GeoAIFeature() {
         <div className="relative overflow-hidden rounded-sm bg-[#05132b]">
           <div className="relative h-[300px] select-none sm:h-[420px] lg:h-[520px]">
             {/* After  detected and classified */}
-            <img
+            <OptimizedImage
               src="/pillars/after.webp"
               alt="Detected and classified assets in street imagery"
               className="absolute inset-0 h-full w-full object-cover"
@@ -62,7 +63,7 @@ export default function GeoAIFeature() {
               className="absolute inset-0 overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - split}% 0 0)` }}
             >
-              <img
+              <OptimizedImage
                 src="/pillars/before.webp"
                 alt="Raw street-level imagery before processing"
                 className="absolute inset-0 h-full w-full object-cover"

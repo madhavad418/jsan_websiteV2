@@ -93,6 +93,40 @@ export const redirects = [
     to: '/services/location-intelligence/advanced-analytics',
     status: 301,
   },
+
+  // Pre-2026 static site. These .html URLs are still indexed with the old "Global IT
+  // Partner" titles (list taken from Google results and the Wayback Machine). Matched
+  // case-insensitively, since both /Services.html and /services.html are indexed.
+  // /index.html is answered with a mod_rewrite rule on Apache - see sync-redirects.mjs.
+  { from: '/index.html', to: '/', status: 301 },
+  { from: '/About.html', to: '/company', status: 301 },
+  { from: '/company/About-Us.html', to: '/company', status: 301 },
+  { from: '/Contact.html', to: '/contact', status: 301 },
+  { from: '/contact/Contact-form.html', to: '/contact', status: 301 },
+  { from: '/Locations.html', to: '/contact', status: 301 },
+  { from: '/contact/Locations.html', to: '/contact', status: 301 },
+  { from: '/Privacy-Policy.html', to: '/privacy-policy', status: 301 },
+  { from: '/Services.html', to: '/services', status: 301 },
+  { from: '/Technologies.html', to: '/technologies', status: 301 },
+  { from: '/services/Business-Advisory.html', to: '/services/business-advisory', status: 301 },
+  { from: '/services/GIS.html', to: '/services/geospatial', status: 301 },
+  { from: '/services/Programme-Management.html', to: '/services/program-management', status: 301 },
+  { from: '/services/Staffing-Solutions.html', to: '/services/staffing-solutions', status: 301 },
+  { from: '/services/Technology-Consultancy.html', to: '/services/technology-consultancy', status: 301 },
+  { from: '/technologies/API-Integration.html', to: '/technologies/api-integration', status: 301 },
+  { from: '/technologies/Analytics-Information-Management.html', to: '/technologies/analytics', status: 301 },
+  { from: '/technologies/Cloud-Technologies.html', to: '/technologies/cloud', status: 301 },
+  { from: '/technologies/Cyber-Security.html', to: '/technologies/cyber-security', status: 301 },
+  { from: '/technologies/Data-warehouse.html', to: '/technologies/data-warehouse', status: 301 },
+  { from: '/technologies/DevOps.html', to: '/technologies/devops', status: 301 },
+  { from: '/technologies/ERP-SAP-P_Soft-Oracle_Siebel-Ariba.html', to: '/services/erp', status: 301 },
+  { from: '/technologies/GIS-Technologies.html', to: '/technologies/gis', status: 301 },
+  { from: '/technologies/IT-Infrastructure-and-Managed-Services.html', to: '/technologies/it-infrastructure', status: 301 },
+  { from: '/technologies/Intelligent-automation-and-robotics.html', to: '/technologies/automation', status: 301 },
+  { from: '/technologies/Web-Technologies.html', to: '/technologies/web', status: 301 },
+  // Misspelled directory and a WordPress-era feed from the old site.
+  { from: '/industires', to: '/industries', status: 301 },
+  { from: '/feed', to: '/insights', status: 301 },
 ]
 
 /**

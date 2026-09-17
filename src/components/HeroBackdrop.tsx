@@ -35,6 +35,9 @@
  * that rule.
  */
 
+import type { CSSProperties } from 'react'
+import OptimizedImage from './OptimizedImage'
+
 type Props = {
   image: string
   imageAlt: string
@@ -66,19 +69,13 @@ export default function HeroBackdrop({
 
   return (
     <>
-      {/* Two layers rather than one, because the focal point differs by breakpoint */}
       <div
-        className="absolute inset-x-0 bottom-0 top-[77px] bg-cover lg:hidden"
-        style={{ backgroundImage: `url(${image})`, backgroundPosition: mobile }}
-        role="img"
-        aria-label={imageAlt}
-      />
-      <div
-        className="absolute inset-x-0 bottom-0 top-[77px] hidden bg-cover lg:block"
-        style={{ backgroundImage: `url(${image})`, backgroundPosition: position }}
-        role="img"
-        aria-label={imageAlt}
-      />
+        className="absolute inset-x-0 bottom-0 top-[77px]"
+        style={{ '--hero-mobile-position': mobile, '--hero-desktop-position': position } as CSSProperties}
+      >
+        <OptimizedImage src={image} alt={imageAlt} loading="eager" fetchPriority="high" sizes="100vw"
+          className="h-full w-full object-cover object-[var(--hero-mobile-position)] lg:object-[var(--hero-desktop-position)]" />
+      </div>
 
       <div
         className="absolute inset-x-0 bottom-0 top-[77px] lg:hidden"

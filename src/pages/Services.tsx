@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
@@ -30,7 +31,7 @@ const services = [
     group: 'geo',
     slug: '/services/utility-network-intelligence',
     icon: Zap,
-    description: 'GIS delivery for electrical, water and gas networks  field survey, asset digitization, consumer indexing, topology validation and enterprise GIS migration.',
+    description: 'GIS delivery for electrical, water and gas networks — field survey, asset digitization, consumer indexing, topology validation and enterprise GIS migration.',
     image: '/pillars/asset-management.webp',
     features: ['Electrical', 'Water', 'Gas', 'Enterprise GIS Migration'],
   },
@@ -66,7 +67,7 @@ const services = [
     group: 'tech',
     slug: '/services/data-center-lifecycle',
     icon: Server,
-    description: 'SLA-driven multi-vendor data center lifecycle and field support  preventive & corrective maintenance, smart hands, power & facilities, asset lifecycle and governed reporting.',
+    description: 'SLA-driven multi-vendor data center lifecycle and field support — preventive & corrective maintenance, smart hands, power & facilities, asset lifecycle and governed reporting.',
     image: '/pillars/cloud-infrastructure.webp',
     features: ['Preventive & Corrective', 'Smart Hands', 'Power & Facilities', 'Asset Lifecycle'],
   },
@@ -75,7 +76,7 @@ const services = [
     group: 'geo',
     slug: '/services/basemap-poi-annotation',
     icon: Map,
-    description: 'Foundational basemaps, evidence-driven POI operations, and controlled-ontology map & imagery annotation  the ground-truth data behind navigation, location intelligence and AI.',
+    description: 'Foundational basemaps, evidence-driven POI operations, and controlled-ontology map & imagery annotation — the ground-truth data behind navigation, location intelligence and AI.',
     image: '/gis-mapping.jpeg',
     features: ['Basemap Production', 'POI Operations', 'Map Annotation', 'AI Training Data'],
   },
@@ -146,7 +147,7 @@ export default function Services() {
         description={
           <>
             JSAN is your trusted global partner for geospatial solutions, field operations, IT
-            consulting and business transformation helping organisations{' '}
+            consulting and business transformation helping organizations{' '}
             <strong className="font-semibold text-[#0a1a3a]">grow, adapt and lead</strong> in a
             digital-first environment.
           </>
@@ -261,8 +262,9 @@ export default function Services() {
               <div className="sticky top-32 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl">
                 <div className="relative h-72 overflow-hidden">
                   {services.map((service, index) => (
-                    <img
-                      key={service.slug}
+                    <OptimizedImage
+                      active={activeService === index}
+                key={service.slug}
                       src={service.image}
                       alt={service.title}
                       className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ${

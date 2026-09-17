@@ -1,6 +1,7 @@
 // Client for the JSAN PHP API (same-origin /api in prod; vite-proxied in dev).
 import type { Blog } from '../data/blogs'
 import type { Job } from '../data/jobs'
+import type { NewsUpdate } from '../data/newsUpdates'
 
 /*
  * Same-origin /api by default, which is how the cPanel deployment serves the PHP
@@ -87,4 +88,31 @@ export async function saveJob(job: Job & { sortOrder?: number }): Promise<{ ok: 
 }
 export async function deleteJob(id: string): Promise<{ ok: boolean }> {
   return (await authed(`${BASE}/jobs.php?delete=1&id=${encodeURIComponent(id)}`, { method: 'POST' })).json()
+}
+
+async function newsResponse<T>(response: Response): Promise<T> {
+  const data = await response.json()
+  if (!response.ok) throw new Error(data.error || 'News update request failed')
+  return data as T
+}
+
+export async function fetchNewsUpdates(admin = false): Promise<NewsUpdate[]> {
+  const url = `${BASE}/news-updates.php${admin ? '?all=1' : ''}`
+  const controller = new AbortController()
+  const timer = window.setTimeout(() => controller.abort(), 10000)
+  try {
+    const options: RequestInit = { cache: 'no-store', signal: controller.signal }
+    const response = admin ? await authed(url, options) : await fetch(url, options)
+    const data = await newsResponse<NewsUpdate[]>(response)
+    if (!Array.isArray(data)) throw new Error('Invalid news response')
+    return data
+  } finally { window.clearTimeout(timer) }
+}
+
+export async function saveNewsUpdate(update: NewsUpdate): Promise<{ ok: boolean }> {
+  return newsResponse(await authed(`${BASE}/news-updates.php`, { method: 'POST', body: JSON.stringify(update) }))
+}
+
+export async function deleteNewsUpdate(id: number): Promise<{ ok: boolean }> {
+  return newsResponse(await authed(`${BASE}/news-updates.php?delete=1&id=${id}`, { method: 'POST' }))
 }

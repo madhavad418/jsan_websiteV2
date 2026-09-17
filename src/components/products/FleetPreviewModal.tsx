@@ -1,3 +1,4 @@
+import OptimizedImage from '../OptimizedImage'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ArrowRight, X } from 'lucide-react'
@@ -328,7 +329,7 @@ export default function FleetPreviewModal() {
                 names the product, so a screen reader gains nothing by reading this too.
                 Cropped out of logo-white.png so it carries no second wordmark next to a
                 heading that already says JSAN. */}
-            <img
+            <OptimizedImage
               src="/jsan-mark-white.png"
               alt=""
               aria-hidden="true"

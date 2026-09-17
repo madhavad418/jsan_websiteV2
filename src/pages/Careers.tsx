@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, Briefcase, Clock, Users, Globe, GraduationCap, Heart, Sparkles, Search, Filter, ArrowRight, Building, X, Send } from 'lucide-react'
@@ -29,12 +30,12 @@ const benefits = [
   {
     icon: GraduationCap,
     title: 'Learning & Growth',
-    description: 'Certification support, training budgets, mentorship programs, and clear career progression paths.',
+    description: 'Certification support, training budgets, mentorship programmes, and clear career progression paths.',
   },
   {
     icon: Heart,
     title: 'Work-Life Balance',
-    description: 'Flexible working arrangements, remote options, generous leave policies, and wellness programs.',
+    description: 'Flexible working arrangements, remote options, generous leave policies, and wellness programmes.',
   },
   {
     icon: Sparkles,
@@ -113,7 +114,7 @@ export default function Careers() {
             <br className="hidden sm:block" /> with JSAN.
           </>
         }
-        description="Join a global team shaping the future of geospatial technology  in the field, in the office and everywhere the work takes us."
+        description="Join a global team shaping the future of geospatial technology — in the field, in the office and everywhere the work takes us."
         primaryCta={{ label: 'Explore Opportunities', href: '#openings' }}
         secondaryCta={{ label: 'Life at JSAN', href: '/company' }}
         bullets={[
@@ -126,7 +127,7 @@ export default function Careers() {
         imagePosition="50% 30%"
         quote={{
           text:
-            'More than 1,000 colleagues across six continents, working on programmes that map, measure and maintain the real world  from street-level collection to the platforms our clients run every day.',
+            'More than 1,000 colleagues across six continents, working on programmes that map, measure and maintain the real world — from street-level collection to the platforms our clients run every day.',
         }}
       />
       {/* Stats Bar */}
@@ -140,7 +141,7 @@ export default function Careers() {
               Why Join JSAN?
             </h2>
             <p className="text-gray-700 text-xl max-w-3xl mx-auto">
-              We're more than a companywe're a community of innovators, problem-solvers, and global citizens working together to make an impact.
+              We're more than a company — we're a community of innovators, problem-solvers, and global citizens working together to make an impact.
             </p>
           </div>
 
@@ -193,7 +194,7 @@ export default function Careers() {
             <div className="grid grid-cols-2 gap-4">
               {cultureImages.map((image, index) => (
                 <div key={index} className="overflow-hidden rounded-lg">
-                  <img
+                  <OptimizedImage
                     src={image.src}
                     alt={image.alt}
                     className="w-full h-48 object-cover hover:scale-110 transition-transform duration-500"

@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import {
   ShoppingCart,
@@ -84,7 +85,7 @@ export default function Retail() {
       {/* Hero Section */}
       <section className="relative min-h-[650px] flex items-center overflow-hidden pt-28 lg:pt-32 pb-28 lg:pb-32" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage loading="eager" fetchPriority="high"
             src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=1080&fit=crop"
             alt="Retail and E-commerce"
             className="w-full h-full object-cover"
@@ -179,7 +180,7 @@ export default function Retail() {
               </div>
             </div>
             <div className="relative">
-              <img
+              <OptimizedImage
                 src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop"
                 alt="Retail Technology"
                 className="rounded-2xl shadow-2xl"

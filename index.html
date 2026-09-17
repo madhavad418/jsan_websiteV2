@@ -4,14 +4,36 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=jsan-logo-2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Discover the homepage hero before the React route has downloaded.
+      if (location.pathname === '/') {
+        const hero = document.createElement('link');
+        hero.rel = 'preload';
+        hero.as = 'image';
+        hero.href = '/pillars/homepage.webp';
+        hero.imageSrcset = '/pillars/homepage-960.webp 960w, /pillars/homepage.webp 1916w';
+        hero.imageSizes = '100vw';
+        hero.fetchPriority = 'high';
+        document.head.appendChild(hero);
+      }
+    </script>
     <meta name="description" content="JSAN supports global mapping, mobility, telecom and infrastructure programs &#8212; from field mobilisation and data collection through engineering, GeoAI, quality assurance and managed operations." />
     <meta name="keywords" content="geospatial services, field operations, data collection, GeoAI, mapping, mobility, telecom, infrastructure, digital engineering, managed operations, GIS" />
-    <meta property="og:title" content="JSAN | Real-World Operations. Spatial Intelligence. Digital Engineering." />
-    <meta property="og:description" content="Supporting global mapping, mobility, telecom and infrastructure programs from field mobilisation and data collection through engineering, GeoAI, quality assurance and managed operations." />
+    <!-- Homepage defaults. Every route overrides title, description and these social tags
+         at runtime from src/data/page-meta.json (see src/components/Seo.tsx). -->
+    <link rel="canonical" href="https://www.jsanconsulting.com" />
+    <meta property="og:title" content="JSAN | Global Geospatial, Field Operations &amp; Technology Partner" />
+    <meta property="og:description" content="JSAN supports global mapping, mobility, telecom and infrastructure programs &#8212; from field mobilisation and data collection through engineering, GeoAI, quality assurance and managed operations." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.jsanconsulting.com" />
     <meta property="og:site_name" content="JSAN" />
+    <meta property="og:image" content="https://www.jsanconsulting.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JSAN | Global Geospatial, Field Operations &amp; Technology Partner" />
+    <meta name="twitter:description" content="JSAN supports global mapping, mobility, telecom and infrastructure programs &#8212; from field mobilisation and data collection through engineering, GeoAI, quality assurance and managed operations." />
+    <meta name="twitter:image" content="https://www.jsanconsulting.com/og-image.jpg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -27,30 +49,10 @@
       };
     </script>
     <script src="https://cdn.gtranslate.net/widgets/latest/dwf.js" defer></script>
-    <!-- Elfsight Platform -->
-    <script src="https://static.elfsight.com/platform/platform.js" defer></script>
   </head>
   <body>
     <div id="root"></div>
     <div class="gtranslate_wrapper"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-      // Force-hide Elfsight branding without removing from DOM
-      new MutationObserver(function() {
-        document.querySelectorAll('a[href*="elfsight.com"]').forEach(function(el) {
-          el.style.setProperty('display', 'none', 'important');
-          el.style.setProperty('visibility', 'hidden', 'important');
-          el.style.setProperty('height', '0', 'important');
-          el.style.setProperty('width', '0', 'important');
-          el.style.setProperty('overflow', 'hidden', 'important');
-          el.style.setProperty('padding', '0', 'important');
-          el.style.setProperty('margin', '0', 'important');
-          el.style.setProperty('opacity', '0', 'important');
-          el.style.setProperty('pointer-events', 'none', 'important');
-          el.style.setProperty('position', 'absolute', 'important');
-          el.style.setProperty('clip', 'rect(0,0,0,0)', 'important');
-        });
-      }).observe(document.body, { childList: true, subtree: true });
-    </script>
   </body>
 </html>

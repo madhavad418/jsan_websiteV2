@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Briefcase } from 'lucide-react'
 import Header from '../components/Header'
@@ -22,7 +23,7 @@ export default function Work() {
         title="Operational capability, demonstrated."
         description={
           <>
-            Programmes JSAN runs end to end  mobilisation through validated delivery. Shown{' '}
+            Programmes JSAN runs end to end — mobilisation through validated delivery. Shown{' '}
             <strong className="font-semibold text-white">anonymised</strong> where client naming
             permission is not yet in place.
           </>
@@ -47,7 +48,7 @@ export default function Work() {
       */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage
             src="/pillars/live_tracking.webp"
             alt=""
             aria-hidden="true"
@@ -115,7 +116,7 @@ export default function Work() {
                 className="group grid overflow-hidden border-t border-gray-300 pt-10 transition-colors duration-300 hover:border-[#0050a9] lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12"
               >
                 <div className="relative h-64 overflow-hidden rounded-sm lg:h-full lg:min-h-[340px]">
-                  <img
+                  <OptimizedImage
                     src={cs.image}
                     alt=""
                     aria-hidden="true"

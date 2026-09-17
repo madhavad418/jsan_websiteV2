@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import type { ElementType } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Server, ClipboardCheck, Wrench, Zap, Hand, LifeBuoy, ClipboardList, ShieldCheck, Search, Package, Gauge, Thermometer, Flame, RefreshCw, Database, BarChart3, Radio, Headset } from 'lucide-react'
@@ -6,6 +7,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import RelatedSubServices from '../../components/RelatedSubServices'
 import ServiceContactForm from '../../components/ServiceContactForm'
+import NotFound from '../NotFound'
 
 interface SubServiceData {
   slug: string
@@ -27,7 +29,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Preventive Maintenance',
     subtitle: 'From Checklist Compliance to Risk Reduction',
     description:
-      'Procedure-led preventive maintenance across four levels  scheduled health inspections, MOP-controlled execution, condition-based signals and lifecycle scoring  planning maintenance against risk instead of the calendar alone.',
+      'Procedure-led preventive maintenance across four levels — scheduled health inspections, MOP-controlled execution, condition-based signals and lifecycle scoring — planning maintenance against risk instead of the calendar alone.',
     bgImage: '/pillars/quality-assurance.webp',
     advantages: [
       { icon: ClipboardCheck, text: 'Scheduled monthly / quarterly / annual health inspections' },
@@ -59,10 +61,10 @@ const subServiceData: SubServiceData[] = [
     title: 'Corrective Maintenance',
     subtitle: 'Repair as a Controlled Restoration Process',
     description:
-      'A governed six-step restoration process  detect, diagnose, plan, repair, validate and improve  across compute, storage, network, power and facilities. No blind action, no undocumented change, no closure without service validation.',
+      'A governed six-step restoration process — detect, diagnose, plan, repair, validate and improve — across compute, storage, network, power and facilities. No blind action, no undocumented change, no closure without service validation.',
     bgImage: '/pillars/tech-devops.webp',
     advantages: [
-      { icon: Search, text: 'Structured diagnosis  logs, serials, isolation and part need' },
+      { icon: Search, text: 'Structured diagnosis — logs, serials, isolation and part need' },
       { icon: Wrench, text: 'MOP-controlled swap, cabling, power and configuration' },
       { icon: CheckCircle, text: 'Health check and customer acceptance before closure' },
       { icon: ShieldCheck, text: 'Evidence capture at every restoration step' },
@@ -91,11 +93,11 @@ const subServiceData: SubServiceData[] = [
     title: 'Power & Facility Support',
     subtitle: 'Connect IT Support with Site Resilience',
     description:
-      'Power-chain, thermal and high-density readiness under one service governance model  UPS, batteries, generator coordination, ATS and PDU care, thermal assurance and AI/HPC rack readiness, with electrical safety controls.',
+      'Power-chain, thermal and high-density readiness under one service governance model — UPS, batteries, generator coordination, ATS and PDU care, thermal assurance and AI/HPC rack readiness, with electrical safety controls.',
     bgImage: '/pillars/tech-infrastructure.webp',
     advantages: [
       { icon: Zap, text: 'UPS, battery, generator, ATS and PDU inspection' },
-      { icon: Thermometer, text: 'Thermal assurance  airflow, hot spots and environmental monitoring' },
+      { icon: Thermometer, text: 'Thermal assurance — airflow, hot spots and environmental monitoring' },
       { icon: Flame, text: 'High-density AI/HPC rack readiness and liquid-cooling partner model' },
       { icon: ShieldCheck, text: 'Electrical safety, permits, PPE and LOTO where applicable' },
       { icon: CheckCircle, text: 'Post-work validation and evidence' },
@@ -123,10 +125,10 @@ const subServiceData: SubServiceData[] = [
     title: 'Smart / Remote Hands',
     subtitle: 'Premium Support When Your Engineers Can’t Be Onsite',
     description:
-      'Your remote eyes, ears and hands onsite  a governed request, approve and execute model for power cycles, patching, media, console and installs, with backout plans, evidence capture and NBD / 4-hour tiering.',
+      'Your remote eyes, ears and hands onsite — a governed request, approve and execute model for power cycles, patching, media, console and installs, with backout plans, evidence capture and NBD / 4-hour tiering.',
     bgImage: '/pillars/tech-automation.webp',
     advantages: [
-      { icon: Hand, text: 'Approved execution  power cycle, patch, media, console, install' },
+      { icon: Hand, text: 'Approved execution — power cycle, patch, media, console, install' },
       { icon: ShieldCheck, text: 'Risk, maintenance window and backout plan on every task' },
       { icon: Radio, text: 'Bridge coordination with your remote engineers' },
       { icon: CheckCircle, text: 'Standard evidence pack for each intervention' },
@@ -155,13 +157,13 @@ const subServiceData: SubServiceData[] = [
     title: 'Asset & Lifecycle Management',
     subtitle: 'Turn Maintenance Events into Infrastructure Decisions',
     description:
-      'Identity, condition, lifecycle and control for every asset  CMDB, EOL/EOS, warranty, spares readiness, refresh waves, secure disposal and chain-of-custody  so monthly service data becomes a risk-and-refresh conversation.',
+      'Identity, condition, lifecycle and control for every asset — CMDB, EOL/EOS, warranty, spares readiness, refresh waves, secure disposal and chain-of-custody — so monthly service data becomes a risk-and-refresh conversation.',
     bgImage: '/pillars/asset-management.webp',
     advantages: [
-      { icon: Database, text: 'Asset identity  tag, serial, rack/U, model, firmware, owner, site' },
-      { icon: Gauge, text: 'Condition  health score, incidents, PM exceptions, recurrence' },
-      { icon: RefreshCw, text: 'Lifecycle  EOL/EOS, warranty, spares, refresh waves' },
-      { icon: ShieldCheck, text: 'Control  CMDB updates, movement records and secure disposal' },
+      { icon: Database, text: 'Asset identity — tag, serial, rack/U, model, firmware, owner, site' },
+      { icon: Gauge, text: 'Condition — health score, incidents, PM exceptions, recurrence' },
+      { icon: RefreshCw, text: 'Lifecycle — EOL/EOS, warranty, spares, refresh waves' },
+      { icon: ShieldCheck, text: 'Control — CMDB updates, movement records and secure disposal' },
       { icon: BarChart3, text: 'Operational, risk and business KPIs in one view' },
     ],
     idealFor: ['CIOs & infrastructure leaders', 'Enterprise IT asset teams', 'Audit & compliance teams', 'Colocation & hyperscale', 'Vendor-consolidation programs'],
@@ -187,7 +189,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Disaster Recovery Support',
     subtitle: 'Coordinated Field Action for Critical Incidents',
     description:
-      'When power, compute and network incidents need coordinated site action  P1 command bridges, controlled dispatch, a defined spares path and OEM/partner escalation to restore service to its agreed state.',
+      'When power, compute and network incidents need coordinated site action — P1 command bridges, controlled dispatch, a defined spares path and OEM/partner escalation to restore service to its agreed state.',
     bgImage: '/pillars/tech-cybersecurity.webp',
     advantages: [
       { icon: LifeBuoy, text: 'P1 command bridge and critical-incident coordination' },
@@ -219,13 +221,13 @@ const subServiceData: SubServiceData[] = [
     title: 'Governance & Reporting',
     subtitle: 'The Integrated Control Layer',
     description:
-      'Service health, risk and improvement visible every month  service desk, NOC, ticketing, MOP/EOP, CMDB, dashboards and a review cadence from daily incident bridges to quarterly business reviews, with RCA/CAPA and a live risk register.',
+      'Service health, risk and improvement visible every month — service desk, NOC, ticketing, MOP/EOP, CMDB, dashboards and a review cadence from daily incident bridges to quarterly business reviews, with RCA/CAPA and a live risk register.',
     bgImage: '/pillars/tech-analytics.webp',
     advantages: [
       { icon: BarChart3, text: 'SLA scorecards, dashboards and monthly service reviews' },
       { icon: ClipboardList, text: 'Ticketing, MOP/EOP and CMDB discipline' },
       { icon: ShieldCheck, text: 'RCA/CAPA and a live risk register' },
-      { icon: RefreshCw, text: 'Cadence  daily, weekly, monthly and quarterly reviews' },
+      { icon: RefreshCw, text: 'Cadence — daily, weekly, monthly and quarterly reviews' },
       { icon: Search, text: 'Recurring-issue analysis and improvement roadmap' },
     ],
     idealFor: ['Executive & IT leadership', 'Service-management offices', 'Audit & compliance teams', 'Multi-site estates', 'Vendor-governance programs'],
@@ -254,16 +256,8 @@ export default function DataCenterSubService() {
   const service = subServiceData.find((s) => s.slug === slug)
 
   if (!service) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Service Not Found</h1>
-          <Link to="/services/data-center-lifecycle" className="text-[#0050a9] hover:underline">
-            &larr; Back to Data Center Lifecycle &amp; Field Support
-          </Link>
-        </div>
-      </div>
-    )
+    // Soft-404 guard: NotFound marks the view noindex.
+    return <NotFound />
   }
 
   return (
@@ -273,7 +267,7 @@ export default function DataCenterSubService() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 lg:pb-28" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
+          <OptimizedImage loading="eager" fetchPriority="high" src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
 

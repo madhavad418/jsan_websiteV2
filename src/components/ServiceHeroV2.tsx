@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { useState } from 'react'
 import type { LucideIcon } from 'lucide-react'
 import { ArrowDown, ArrowRight } from 'lucide-react'
@@ -98,7 +99,7 @@ export default function ServiceHeroV2({
       aria-label={heroImageAlt}
     />
   ) : (
-    <img
+    <OptimizedImage
       src={src}
       alt={heroImageAlt}
       onError={handleImageError}

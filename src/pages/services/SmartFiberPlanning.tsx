@@ -69,7 +69,7 @@ const capabilities = [
     category: 'SCALABLE FUTURE GROWTH',
     title: 'Capacity Planning, Expansion & Cost Optimization',
     description:
-      'Data-driven insights for capacity planning, scalable fiber expansion, and operational cost optimization  building resilient, high-performance networks.',
+      'Data-driven insights for capacity planning, scalable fiber expansion, and operational cost optimization — building resilient, high-performance networks.',
     icon: TrendingUp,
     cardTitle: 'Scalable Future Growth',
     bgImage: '/pillars/cost_optimization.webp',
@@ -101,7 +101,7 @@ export default function SmartFiberPlanning() {
         eyebrowIcon={Network}
         title={"Smart Fiber Planning"}
         subtitle={"AI-driven fiber network planning, intelligent deployment, and proactive maintenance for future-ready telecom infrastructure."}
-        description={"We partner with telecom operators to design, deploy, and maintain resilient fiber networks  combining GIS, drone surveys, digital twins, and predictive analytics into a single, data-driven workflow."}
+        description={"We partner with telecom operators to design, deploy, and maintain resilient fiber networks — combining GIS, drone surveys, digital twins, and predictive analytics into a single, data-driven workflow."}
         image="/pillars/fibre_optic.webp"
         imageAlt="Smart fiber network planning"
         stats={specialistStat(serviceSplit, 'smart-fiber-planning')}

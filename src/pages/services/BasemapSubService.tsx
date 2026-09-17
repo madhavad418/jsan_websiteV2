@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import type { ElementType } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Map, Layers, GitMerge, RefreshCw, ShieldCheck, Search, MapPin, Cpu, Database, PenTool } from 'lucide-react'
@@ -6,6 +7,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import RelatedSubServices from '../../components/RelatedSubServices'
 import ServiceContactForm from '../../components/ServiceContactForm'
+import NotFound from '../NotFound'
 
 interface SubServiceData {
   slug: string
@@ -27,14 +29,14 @@ const subServiceData: SubServiceData[] = [
     title: 'Basemap Production & Maintenance',
     subtitle: 'Accurate, Current Foundational Map Layers',
     description:
-      'We compile and maintain the core map layers  road and transport networks, buildings, land use, hydrography and administrative boundaries  from imagery, LiDAR, field and authoritative sources, conflated into one consistent basemap and kept continuously up to date.',
+      'We compile and maintain the core map layers — road and transport networks, buildings, land use, hydrography and administrative boundaries — from imagery, LiDAR, field and authoritative sources, conflated into one consistent basemap and kept continuously up to date.',
     bgImage: '/pillars/geospatial-solutions.webp',
     advantages: [
       { icon: Layers, text: 'Road, transport, building, land-use and boundary layers' },
       { icon: Map, text: 'Compiled from imagery, LiDAR, field and authoritative sources' },
       { icon: GitMerge, text: 'Multi-source conflation into one consistent basemap' },
       { icon: RefreshCw, text: 'Continuous updates and imagery-driven change detection' },
-      { icon: ShieldCheck, text: 'Multi-stage QA  positional accuracy and topology' },
+      { icon: ShieldCheck, text: 'Multi-stage QA — positional accuracy and topology' },
     ],
     idealFor: ['Map & navigation providers', 'Government mapping agencies', 'Smart-city programs', 'Utilities & infrastructure', 'Location-data businesses'],
     businessImpact: [
@@ -59,10 +61,10 @@ const subServiceData: SubServiceData[] = [
     title: 'POI Data Operations',
     subtitle: 'Evidence, Freshness & Duplicate Control at Scale',
     description:
-      'A defensible POI lifecycle  sourced, normalized, matched, field-validated and delivered with evidence  so your places data stays fresh, deduplicated and trustworthy. Not just sourcing volume, but a governed program from discovery through change management.',
+      'A defensible POI lifecycle — sourced, normalized, matched, field-validated and delivered with evidence — so your places data stays fresh, deduplicated and trustworthy. Not just sourcing volume, but a governed program from discovery through change management.',
     bgImage: '/pillars/data-capture.webp',
     advantages: [
-      { icon: Search, text: 'Multi-source discovery  official sites, directories, field leads' },
+      { icon: Search, text: 'Multi-source discovery — official sites, directories, field leads' },
       { icon: Layers, text: 'Normalization of name, address, coordinates, category and language variants' },
       { icon: GitMerge, text: 'Deduplication, alternate-name matching and confidence scoring' },
       { icon: CheckCircle, text: 'Field/app verification, source recency and peer review' },
@@ -91,13 +93,13 @@ const subServiceData: SubServiceData[] = [
     title: 'Map & Imagery Annotation',
     subtitle: 'Structured Training & Map-Update Data',
     description:
-      'Controlled-ontology annotation of imagery and map features  bounding boxes, classes, OCR and semantic segmentation  with reviewer calibration and QC-on-QC, producing traceable AI training data and map-update signals.',
+      'Controlled-ontology annotation of imagery and map features — bounding boxes, classes, OCR and semantic segmentation — with reviewer calibration and QC-on-QC, producing traceable AI training data and map-update signals.',
     bgImage: '/pillars/data-analytics-ai.webp',
     advantages: [
-      { icon: Layers, text: 'Map features  signs, signals, lanes, road furniture and attributes' },
-      { icon: Cpu, text: 'AI training data  bounding boxes, classes, OCR and gold sets' },
-      { icon: ShieldCheck, text: 'Quality system  calibration, ambiguity rules and QC-on-QC' },
-      { icon: Database, text: 'Governed data  lineage, versioned taxonomy and privacy-safe handling' },
+      { icon: Layers, text: 'Map features — signs, signals, lanes, road furniture and attributes' },
+      { icon: Cpu, text: 'AI training data — bounding boxes, classes, OCR and gold sets' },
+      { icon: ShieldCheck, text: 'Quality system — calibration, ambiguity rules and QC-on-QC' },
+      { icon: Database, text: 'Governed data — lineage, versioned taxonomy and privacy-safe handling' },
       { icon: PenTool, text: 'Reviewer consensus and traceable training examples' },
     ],
     idealFor: ['Map & navigation providers', 'Autonomous & ADAS teams', 'Computer-vision / ML teams', 'Geospatial AI programs', 'HD-map producers'],
@@ -126,16 +128,8 @@ export default function BasemapSubService() {
   const service = subServiceData.find((s) => s.slug === slug)
 
   if (!service) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Service Not Found</h1>
-          <Link to="/services/basemap-poi-annotation" className="text-[#0050a9] hover:underline">
-            &larr; Back to Basemap, POI &amp; Annotation
-          </Link>
-        </div>
-      </div>
-    )
+    // Soft-404 guard: NotFound marks the view noindex.
+    return <NotFound />
   }
 
   return (
@@ -145,7 +139,7 @@ export default function BasemapSubService() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 lg:pb-28" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
+          <OptimizedImage loading="eager" fetchPriority="high" src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
 

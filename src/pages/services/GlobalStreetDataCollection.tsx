@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Camera, Route, MapPinned, SignpostBig, ScanLine, EyeOff, Compass, Waypoints, Database, CheckCircle, RefreshCw, Workflow, ShieldCheck, Globe, Crosshair, ListChecks, UserCheck } from 'lucide-react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -225,7 +226,7 @@ export default function GlobalStreetDataCollection() {
 
             <div className="lg:pt-2">
               <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <img src="/pillars/ground_truth.webp" alt="Street-level data capture" className="w-full h-64 md:h-80 object-cover" />
+                <OptimizedImage src="/pillars/ground_truth.webp" alt="Street-level data capture" className="w-full h-64 md:h-80 object-cover" />
               </div>
 
               <div className="mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">

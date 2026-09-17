@@ -179,7 +179,7 @@ export default function Chatbot() {
           aria-label="Open chat with JSAN Assistant"
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-50">
-            <img src="/jsan-chatbot-logo.png" alt="" aria-hidden="true" className="h-8 w-8 object-contain" />
+            <img src="/jsan-chatbot-icon-128.webp" alt="" aria-hidden="true" className="h-8 w-8 object-contain" />
           </span>
           <span>
             <strong className="block text-sm leading-tight text-[#012f62]">Hi there!</strong>
@@ -202,7 +202,7 @@ export default function Chatbot() {
           <X className="h-6 w-6" />
         ) : (
           <img
-            src="/jsan-chatbot-logo.png"
+            src="/jsan-chatbot-icon-128.webp"
             alt=""
             aria-hidden="true"
             className="h-14 w-14 object-contain p-1"

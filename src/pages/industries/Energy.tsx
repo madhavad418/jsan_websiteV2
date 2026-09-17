@@ -55,7 +55,7 @@ export default function Energy() {
           stage: 'Field inventory',
           title: 'Establish what is actually there',
           description:
-            'Crews surveying assets on the ground  poles, transformers, valves, meters, chambers  captured with coordinates, condition and dated photographic evidence.',
+            'Crews surveying assets on the ground — poles, transformers, valves, meters, chambers — captured with coordinates, condition and dated photographic evidence.',
           icon: ClipboardList,
           image: '/pillars/feild_verify.webp',
           imageAlt: 'Field crew capturing utility asset inventory on site',
@@ -70,7 +70,7 @@ export default function Energy() {
           stage: 'Mapping',
           title: 'Turn the survey into a network',
           description:
-            'Captured assets built into connected network geometry  feeders, spans, mains and service connections  rather than a scatter of unrelated points.',
+            'Captured assets built into connected network geometry — feeders, spans, mains and service connections — rather than a scatter of unrelated points.',
           icon: Layers,
           image: '/pillars/utility.webp',
           imageAlt: 'Utility network geometry built from field survey',

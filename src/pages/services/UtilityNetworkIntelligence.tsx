@@ -111,7 +111,7 @@ const modellingModules = [
   {
     name: 'Legacy record conversion',
     description:
-      'CAD, paper, scanned maps, spreadsheets and legacy GIS inventoried, assessed for coverage and age, then digitised into a modern, queryable asset base.',
+      'CAD, paper, scanned maps, spreadsheets and legacy GIS inventoried, assessed for coverage and age, then digitized into a modern, queryable asset base.',
     icon: RefreshCw,
   },
   {
@@ -136,7 +136,7 @@ const modellingModules = [
 
 /* What the customer ends up holding, and what changes for them once they do. */
 const deliverables = [
-  'Digitised utility asset layers',
+  'Digitized utility asset layers',
   'Connectivity / network model',
   'Landbase-aligned spatial data',
   'Converted legacy records',
@@ -178,10 +178,10 @@ export default function UtilityNetworkIntelligence() {
           <div className="text-center mb-12 md:mb-14">
             <span className="inline-block text-[#00d4ff] font-bold text-xs md:text-sm uppercase tracking-widest mb-3">Three Domains, One Backbone</span>
             <h2 className="text-[28px] md:text-[36px] lg:text-[42px] font-bold mb-4 text-gradient">
-              Electrical, Water &amp; Gas  Digitized End to End
+              Electrical, Water &amp; Gas — Digitized End to End
             </h2>
             <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto">
-              One shared data, QA and delivery backbone  configured with domain-specific asset taxonomy, topology rules and operational outputs for each utility.
+              One shared data, QA and delivery backbone — configured with domain-specific asset taxonomy, topology rules and operational outputs for each utility.
             </p>
           </div>
 
@@ -237,7 +237,7 @@ export default function UtilityNetworkIntelligence() {
           <div className="mt-8 rounded-xl bg-[#eef5ff] border border-blue-100 p-6 flex items-start gap-3">
             <ShieldCheck className="w-5 h-5 text-[#0050a9] shrink-0 mt-0.5" />
             <p className="text-gray-600 text-sm leading-relaxed">
-              Independent quality gates are owned across field teams, GIS production, a QA/GIS manager, program management and the customer  so responsibility for completeness, compliance and acceptance is explicit at every stage.
+              Independent quality gates are owned across field teams, GIS production, a QA/GIS manager, program management and the customer — so responsibility for completeness, compliance and acceptance is explicit at every stage.
             </p>
           </div>
         </div>

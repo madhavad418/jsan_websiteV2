@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import type { ElementType } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Network, Zap, MapPin, Crosshair, Hash, Share2, Droplets, Layers, Eye, Smartphone, Flame, Gauge, ShieldCheck } from 'lucide-react'
@@ -6,6 +7,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import RelatedSubServices from '../../components/RelatedSubServices'
 import ServiceContactForm from '../../components/ServiceContactForm'
+import NotFound from '../NotFound'
 
 interface SubServiceData {
   slug: string
@@ -27,14 +29,14 @@ const subServiceData: SubServiceData[] = [
     title: 'Electrical Network Digitization',
     subtitle: 'Pole-to-Pole Capture to Enterprise GIS Migration',
     description:
-      'We move electrical networks from base-map preparation through pole-to-pole field survey, codification and topology QA to enterprise GIS migration  land-base extraction, drone/mobile capture, GDB creation and final network maps ready for GE Smallworld or ArcGIS.',
+      'We move electrical networks from base-map preparation through pole-to-pole field survey, codification and topology QA to enterprise GIS migration — land-base extraction, drone/mobile capture, GDB creation and final network maps ready for GE Smallworld or ArcGIS.',
     bgImage: '/pillars/utility-network.webp',
     advantages: [
       { icon: Zap, text: 'Pole, line and transformer digitization across the network' },
       { icon: MapPin, text: 'Land-base extraction from satellite imagery with base-map fit' },
       { icon: Crosshair, text: 'Drone and mobile-app field survey with structured capture' },
       { icon: Hash, text: 'Pole codification and field verification to your standards' },
-      { icon: Share2, text: 'Topology integrity  connectivity and network rules validated' },
+      { icon: Share2, text: 'Topology integrity — connectivity and network rules validated' },
     ],
     idealFor: ['Power distribution utilities', 'Transmission operators', 'Rural electrification programs', 'Utility GIS departments', 'EPC contractors'],
     businessImpact: [
@@ -59,7 +61,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Water Distribution GIS',
     subtitle: 'Distribution Assets & Consumer Indexing for Zone-Level Control',
     description:
-      'We connect distribution assets and consumer indexing to maintenance, leak-response and zone-level planning  GPS-enabled capture of valves, hydrants, meters and consumer connections, delivered as water-distribution GIS and zonal / DMA map outputs.',
+      'We connect distribution assets and consumer indexing to maintenance, leak-response and zone-level planning — GPS-enabled capture of valves, hydrants, meters and consumer connections, delivered as water-distribution GIS and zonal / DMA map outputs.',
     bgImage: '/pillars/spatial-analytics.webp',
     advantages: [
       { icon: Droplets, text: 'GPS-enabled capture of valves, hydrants and meters' },
@@ -91,7 +93,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Gas Network Digitization',
     subtitle: 'Safety-Critical Asset Traceability & Pressure-Area Intelligence',
     description:
-      'We prioritize safety-critical asset traceability, service connections and pressure-area intelligence  GPS survey, photo documentation and optional barcode/QR capture of pipelines, valves, regulators, pressure stations and service connections, delivered as GIS and pressure-zone / service-area maps.',
+      'We prioritize safety-critical asset traceability, service connections and pressure-area intelligence — GPS survey, photo documentation and optional barcode/QR capture of pipelines, valves, regulators, pressure stations and service connections, delivered as GIS and pressure-zone / service-area maps.',
     bgImage: '/pillars/asset-management.webp',
     advantages: [
       { icon: Flame, text: 'Safety-focused inventory of pipelines, valves and regulators' },
@@ -126,16 +128,8 @@ export default function UtilityNetworkSubService() {
   const service = subServiceData.find((s) => s.slug === slug)
 
   if (!service) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Service Not Found</h1>
-          <Link to="/services/utility-network-intelligence" className="text-[#0050a9] hover:underline">
-            &larr; Back to Utility Network Intelligence
-          </Link>
-        </div>
-      </div>
-    )
+    // Soft-404 guard: NotFound marks the view noindex.
+    return <NotFound />
   }
 
   return (
@@ -145,7 +139,7 @@ export default function UtilityNetworkSubService() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 lg:pb-28" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
+          <OptimizedImage loading="eager" fetchPriority="high" src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
 

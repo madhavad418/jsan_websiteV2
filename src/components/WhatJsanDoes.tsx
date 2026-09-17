@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Truck, Layers, Brain, Code } from 'lucide-react'
 import SectionLabel from './SectionLabel'
@@ -106,7 +107,7 @@ export default function WhatJsanDoes() {
 
               <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
                 <div className="overflow-hidden rounded-2xl bg-gray-100">
-                  <img
+                  <OptimizedImage
                     src={m.image}
                     alt={m.imageAlt}
                     width={1200}

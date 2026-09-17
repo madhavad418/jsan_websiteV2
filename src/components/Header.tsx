@@ -667,7 +667,7 @@ export default function Header() {
                         </span>
                         <p className="mt-3 text-sm leading-relaxed text-white/80">
                           {activeItem.name === 'Capabilities'
-                            ? 'Operate, Map, Intelligence, Engineer  one operating model from field mobilisation to managed technology.'
+                            ? 'Operate, Map, Intelligence, Engineer — one operating model from field mobilisation to managed technology.'
                             : activeItem.name === 'Industries'
                               ? 'Programmes delivered across mobility, energy, telecom and the public sector.'
                               : activeItem.name === 'Work'

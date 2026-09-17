@@ -47,6 +47,50 @@ RedirectMatch 301 ^/industries/transport/?$ /industries/transportation-infrastru
 RedirectMatch 301 ^/industries/smartcities/?$ /industries/government-smart-cities
 RedirectMatch 301 ^/capabilities/utilities-mapping/?$ /services/utility-network-intelligence
 RedirectMatch 301 ^/services/location-intelligence/advance-analytics/?$ /services/location-intelligence/advanced-analytics
+RewriteEngine On
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^About\.html$ /company [R=301,NC,L]
+RewriteRule ^company/About-Us\.html$ /company [R=301,NC,L]
+RewriteRule ^Contact\.html$ /contact [R=301,NC,L]
+RewriteRule ^contact/Contact-form\.html$ /contact [R=301,NC,L]
+RewriteRule ^Locations\.html$ /contact [R=301,NC,L]
+RewriteRule ^contact/Locations\.html$ /contact [R=301,NC,L]
+RewriteRule ^Privacy-Policy\.html$ /privacy-policy [R=301,NC,L]
+RewriteRule ^Services\.html$ /services [R=301,NC,L]
+RewriteRule ^Technologies\.html$ /technologies [R=301,NC,L]
+RewriteRule ^services/Business-Advisory\.html$ /services/business-advisory [R=301,NC,L]
+RewriteRule ^services/GIS\.html$ /services/geospatial [R=301,NC,L]
+RewriteRule ^services/Programme-Management\.html$ /services/program-management [R=301,NC,L]
+RewriteRule ^services/Staffing-Solutions\.html$ /services/staffing-solutions [R=301,NC,L]
+RewriteRule ^services/Technology-Consultancy\.html$ /services/technology-consultancy [R=301,NC,L]
+RewriteRule ^technologies/API-Integration\.html$ /technologies/api-integration [R=301,NC,L]
+RewriteRule ^technologies/Analytics-Information-Management\.html$ /technologies/analytics [R=301,NC,L]
+RewriteRule ^technologies/Cloud-Technologies\.html$ /technologies/cloud [R=301,NC,L]
+RewriteRule ^technologies/Cyber-Security\.html$ /technologies/cyber-security [R=301,NC,L]
+RewriteRule ^technologies/Data-warehouse\.html$ /technologies/data-warehouse [R=301,NC,L]
+RewriteRule ^technologies/DevOps\.html$ /technologies/devops [R=301,NC,L]
+RewriteRule ^technologies/ERP-SAP-P_Soft-Oracle_Siebel-Ariba\.html$ /services/erp [R=301,NC,L]
+RewriteRule ^technologies/GIS-Technologies\.html$ /technologies/gis [R=301,NC,L]
+RewriteRule ^technologies/IT-Infrastructure-and-Managed-Services\.html$ /technologies/it-infrastructure [R=301,NC,L]
+RewriteRule ^technologies/Intelligent-automation-and-robotics\.html$ /technologies/automation [R=301,NC,L]
+RewriteRule ^technologies/Web-Technologies\.html$ /technologies/web [R=301,NC,L]
+RedirectMatch 301 ^/industires/?$ /industries
+RedirectMatch 301 ^/feed/?$ /insights
+
+# Unknown ids in data-driven sections: real 404 (ErrorDocument serves the SPA).
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/news/[^/]+/?$
+RewriteCond %{REQUEST_URI} !^/news/(jsan-atlas-ops|jsan-launches-modern-vehicle-tracking-platform)/?$
+RewriteRule ^ - [R=404,L]
+RewriteCond %{REQUEST_URI} ^/work/[^/]+/?$
+RewriteCond %{REQUEST_URI} !^/work/(multi-country-mapping|lidar-infrastructure-intelligence|telecom-network-engineering)/?$
+RewriteRule ^ - [R=404,L]
+RewriteCond %{REQUEST_URI} ^/technologies/[^/]+/?$
+RewriteCond %{REQUEST_URI} !^/technologies/(gis|api-integration|analytics|cloud|cyber-security|data-warehouse|devops|automation|it-infrastructure|web)/?$
+RewriteRule ^ - [R=404,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule \.html$ - [R=404,L]
 
 # ===== END GENERATED REDIRECTS =====
 
@@ -121,10 +165,22 @@ RedirectMatch 301 ^/services/location-intelligence/advance-analytics/?$ /service
 </IfModule>
 
 <IfModule mod_headers.c>
-  # Hashed Vite assets -> long-cache + immutable
+  # Public images keep stable filenames; revalidate them after a day so replacements
+  # do not remain stuck in visitors' caches for a year.
   <FilesMatch "\.(js|css|woff2?|ttf|otf|eot|jpg|jpeg|png|gif|webp|avif|svg|ico)$">
+    Header set Cache-Control "public, max-age=86400, stale-while-revalidate=604800"
+  </FilesMatch>
+
+  # Only content-hashed Vite filenames are safe to mark immutable.
+  <FilesMatch "-[A-Za-z0-9_-]{8,}\.(js|css|woff2?|ttf|otf|eot|jpg|jpeg|png|gif|webp|avif|svg|ico)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
+
+  # /optimized/ files are named by a hash of their source image, so a changed image
+  # always gets a new URL - they can be cached forever like Vite's hashed assets.
+  <If "%{REQUEST_URI} =~ m#^/optimized/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
 
   # index.html must never be cached so deploys are picked up immediately
   <FilesMatch "\.(html)$">

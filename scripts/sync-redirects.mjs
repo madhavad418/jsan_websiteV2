@@ -49,12 +49,30 @@ async function writeVercel() {
 
 /* -------------------------------------------------------------------- .htaccess */
 
-function apacheRules() {
+/**
+ * Sections whose pages come only from bundled data. Blogs and careers are left out: the
+ * admin API can publish ids the build has never seen, and those must not 404.
+ */
+const STATIC_SECTIONS = ['news', 'work', 'technologies']
+
+function apacheRules(sections) {
   const lines = [START, '']
+
+  const escape = (path) => path.replace(/[.+?^${}()|[\]\\]/g, (c) => '\\' + c)
 
   for (const r of redirects) {
     const status = r.status ?? 301
-    if (r.from.endsWith('/*')) {
+    if (r.from === '/index.html') {
+      // RedirectMatch would also see the internal SPA rewrite to index.html and loop, so
+      // only a client that literally asked for /index.html is redirected.
+      lines.push('RewriteEngine On')
+      lines.push('RewriteCond %{THE_REQUEST} \\s/index\\.html[\\s?] [NC]')
+      lines.push(`RewriteRule ^index\\.html$ ${r.to} [R=${status},L]`)
+    } else if (r.from.endsWith('.html')) {
+      // Legacy static-site URLs were indexed in more than one casing. mod_rewrite, not
+      // RedirectMatch: it runs first, so the .html 404 rule below cannot pre-empt it.
+      lines.push(`RewriteRule ^${escape(r.from.slice(1))}$ ${r.to} [R=${status},NC,L]`)
+    } else if (r.from.endsWith('/*')) {
       const prefix = r.from.slice(0, -2)
       lines.push(`RedirectMatch ${status} ^${prefix}(/.*)?$ ${r.to.replace('$1', '$1')}`)
     } else {
@@ -63,6 +81,21 @@ function apacheRules() {
       lines.push(`RedirectMatch ${status} ^${r.from}/?$ ${r.to}`)
     }
   }
+
+  // A slug the build does not know is a real 404, not 200 + "Article not found". The
+  // SPA still renders its NotFound page through ErrorDocument 404.
+  lines.push('', '# Unknown ids in data-driven sections: real 404 (ErrorDocument serves the SPA).')
+  lines.push('RewriteEngine On')
+  for (const section of STATIC_SECTIONS) {
+    const ids = sections[section] ?? []
+    if (!ids.length) continue
+    lines.push(`RewriteCond %{REQUEST_URI} ^/${section}/[^/]+/?$`)
+    lines.push(`RewriteCond %{REQUEST_URI} !^/${section}/(${ids.map((id) => escape(id)).join('|')})/?$`)
+    lines.push('RewriteRule ^ - [R=404,L]')
+  }
+  // Any other legacy .html URL that is not a real file.
+  lines.push('RewriteCond %{REQUEST_FILENAME} !-f')
+  lines.push('RewriteRule \\.html$ - [R=404,L]')
 
   if (gone.length > 0) {
     lines.push('', '# Removed content: 410 tells crawlers to drop the URL, not retry it.')
@@ -73,10 +106,10 @@ function apacheRules() {
   return lines.join('\n')
 }
 
-async function writeHtaccess() {
+async function writeHtaccess(sections) {
   const file = join(ROOT, 'public/.htaccess')
   let text = await fs.readFile(file, 'utf8')
-  const block = apacheRules()
+  const block = apacheRules(sections)
 
   if (text.includes(START)) {
     const before = text.slice(0, text.indexOf(START))
@@ -153,8 +186,7 @@ async function sectionIds() {
   }
 }
 
-async function writeRouteManifest() {
-  const sections = await sectionIds()
+async function writeRouteManifest(sections) {
 
   const manifest = {
     generated: new Date().toISOString(),
@@ -212,8 +244,9 @@ async function routePatterns() {
 /* -------------------------------------------------------------------------- run */
 
 const vercelCount = await writeVercel()
-await writeHtaccess()
-const counts = await writeRouteManifest()
+const sections = await sectionIds()
+await writeHtaccess(sections)
+const counts = await writeRouteManifest(sections)
 
 console.log(
   `redirects synced: ${redirects.length} rule(s), ${gone.length} gone, ${vercelCount} vercel entries`

@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Calendar, Clock } from 'lucide-react'
 import blogs from '../data/blogs'
@@ -53,7 +54,7 @@ export default function InsightsTeaser() {
               to={`/blogs/${lead.slug}`}
               className="group relative flex h-[420px] flex-col justify-end overflow-hidden rounded-2xl shadow-md transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_55px_-20px_rgba(1,47,98,0.7)] lg:col-span-7 lg:h-[460px]"
             >
-              <img
+              <OptimizedImage
                 src={lead.image}
                 alt={lead.title}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
@@ -100,7 +101,7 @@ export default function InsightsTeaser() {
                 className="group flex flex-1 items-stretch gap-5 overflow-hidden rounded-2xl border border-gray-100 bg-white p-4 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-[#0050a9]/25 hover:shadow-[0_20px_40px_-18px_rgba(0,80,169,0.55)]"
               >
                 <div className="relative w-32 shrink-0 overflow-hidden rounded-xl sm:w-40">
-                  <img
+                  <OptimizedImage
                     src={blog.image}
                     alt={blog.title}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"

@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Play } from 'lucide-react'
 import Header from '../components/Header'
@@ -47,7 +48,7 @@ const products = [
     name: 'JSAN GeoDiscover',
     label: 'Cross-Provider POI Discovery',
     status: 'LIVE',
-    description: 'Compares point-of-interest coverage across independent map providers and shows what each one is missing, with every finding backed by evidence  configured to your geography and categories.',
+    description: 'Compares point-of-interest coverage across independent map providers and shows what each one is missing, with every finding backed by evidence — configured to your geography and categories.',
     image: '/pillars/geodiscover.webp',
     features: ['Dual-Provider Sweep', 'Evidence Tiers', 'Cost Guardrails', 'Audited Workbook'],
     learnMoreUrl: '/products/geodiscover',
@@ -62,7 +63,7 @@ export default function InHouseApps() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 lg:pb-28" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage loading="eager" fetchPriority="high"
             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&auto=format&fit=crop"
             alt="In-House Apps"
             className="w-full h-full object-cover"
@@ -75,7 +76,7 @@ export default function InHouseApps() {
             Built In-House.<br />Proven in Production.
           </h1>
           <p className="text-white/80 text-lg md:text-xl lg:text-2xl leading-relaxed mb-10 max-w-3xl">
-            Real-world applications developed, deployed, and operated by our team  powering enterprises across the globe.
+            Real-world applications developed, deployed, and operated by our team — powering enterprises across the globe.
           </p>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 max-w-2xl">
             {[
@@ -113,7 +114,7 @@ export default function InHouseApps() {
               >
                 {/* Image */}
                 <div className="relative w-full lg:w-5/12 min-h-[280px] overflow-hidden flex-shrink-0 bg-gray-50 flex items-center justify-center p-6">
-                  <img
+                  <OptimizedImage
                     src={product.image}
                     alt={product.name}
                     className="w-full h-auto max-h-[300px] object-contain group-hover:scale-105 transition-transform duration-700"

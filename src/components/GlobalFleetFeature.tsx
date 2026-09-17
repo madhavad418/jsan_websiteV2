@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
@@ -715,8 +716,10 @@ function OperationalRegionsVisual() {
       {/* Map */}
       <div className="relative aspect-[1365/1099] w-full overflow-hidden">
         {/* Exact background image */}
-        <img
+        <OptimizedImage
           src={operationalRegionsMap}
+          loading="lazy"
+          decoding="async"
           alt=""
           aria-hidden="true"
           draggable={false}

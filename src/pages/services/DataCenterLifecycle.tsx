@@ -48,7 +48,7 @@ const towers = [
     cardTitle: 'Smart / Remote Hands',
     title: 'Premium support when your engineers can’t be onsite',
     description:
-      'Your remote eyes, ears and hands onsite approved, evidence-captured execution of power cycles, patching, media, console and installs, with backout plans and NBD / 4-hour tiering.',
+      'Your remote eyes, ears and hands onsite — approved, evidence-captured execution of power cycles, patching, media, console and installs, with backout plans and NBD / 4-hour tiering.',
     icon: Hand,
     bgImage: '/pillars/smartremote.webp',
     highlights: ['Approved Execution', 'Backout Plans', 'Evidence Capture', 'NBD / 4H Tiering'],
@@ -90,7 +90,7 @@ const towers = [
 
 /* Operating model  single front door to evidence closure */
 const operatingModel = [
-  { icon: Radio, title: 'Alert Intake', desc: 'Customer or monitoring alert  request, severity, site, asset, access and contract.' },
+  { icon: Radio, title: 'Alert Intake', desc: 'Customer or monitoring alert — request, severity, site, asset, access and contract.' },
   { icon: Headset, title: 'Service Desk / NOC', desc: 'Intake, triage, communication and escalation.' },
   { icon: Search, title: 'Remote SME (L2–L3)', desc: 'Diagnosis, vendor coordination and the restoration decision.' },
   { icon: Wrench, title: 'Field Engineer / Smart Hands', desc: 'Approved onsite execution and evidence capture.' },
@@ -128,7 +128,7 @@ export default function DataCenterLifecycle() {
         eyebrow={"Core Service"}
         eyebrowIcon={Server}
         title={"Data Center Lifecycle & Field Support"}
-        subtitle={"Controlled uptime outcomes - not break-fix tasks."}
+        subtitle={"Controlled uptime outcomes — not break-fix tasks."}
         description={"A single accountable service layer for enterprise, hyperscale, edge and telecom infrastructure SLA definitions, controlled dispatch, evidence and governance across mixed OEM estates."}
         image="/pillars/data_center.webp"
         imageAlt="Data center lifecycle and field support"
@@ -161,14 +161,14 @@ export default function DataCenterLifecycle() {
               Single Front Door to Evidence Closure
             </h2>
             <p className="text-white/70 text-base md:text-lg max-w-3xl mx-auto">
-              Remote diagnosis, controlled dispatch and evidence-based closure  one accountable command model across vendors, OEMs, remote hands and spares.
+              Remote diagnosis, controlled dispatch and evidence-based closure — one accountable command model across vendors, OEMs, remote hands and spares.
             </p>
           </div>
 
           <ProcessFlow steps={operatingModel} />
 
           <p className="text-white/60 text-sm md:text-base text-center max-w-3xl mx-auto mt-12">
-            <span className="text-white font-semibold">Managed-service principle:</span> every field intervention leaves a digital trail  request, approval, MOP/EOP, evidence, asset update, closure and improvement action.
+            <span className="text-white font-semibold">Managed-service principle:</span> every field intervention leaves a digital trail — request, approval, MOP/EOP, evidence, asset update, closure and improvement action.
           </p>
         </div>
       </section>
@@ -199,7 +199,7 @@ export default function DataCenterLifecycle() {
           <div className="mt-8 rounded-xl bg-[#eef5ff] border border-blue-100 p-6 flex items-start gap-3">
             <ShieldCheck className="w-5 h-5 text-[#0050a9] shrink-0 mt-0.5" />
             <p className="text-gray-600 text-sm leading-relaxed">
-              A four-hour commitment is credible only when site access, service zone, skill availability, part availability, security approval and SLA-clock rules are validated  confirmed through a site-by-site readiness assessment.
+              A four-hour commitment is credible only when site access, service zone, skill availability, part availability, security approval and SLA-clock rules are validated — confirmed through a site-by-site readiness assessment.
             </p>
           </div>
         </div>
@@ -234,7 +234,7 @@ export default function DataCenterLifecycle() {
               <h3 className="text-white text-lg font-bold">Go-live readiness</h3>
             </div>
             <p className="text-white/75 text-sm md:text-base leading-relaxed">
-              Validated asset baseline, an agreed SLA matrix, approved site access, a spares strategy in place, a tested escalation tree and a signed-off reporting pack  begin with 2–3 representative sites, then scale.
+              Validated asset baseline, an agreed SLA matrix, approved site access, a spares strategy in place, a tested escalation tree and a signed-off reporting pack — begin with 2–3 representative sites, then scale.
             </p>
           </div>
         </div>

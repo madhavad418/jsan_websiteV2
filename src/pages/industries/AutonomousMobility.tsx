@@ -10,7 +10,7 @@ export default function AutonomousMobility() {
       eyebrowIcon={Navigation}
       title="Operational support for real-world autonomous mobility deployment."
       subtitle="Autonomous Mobility"
-      description="JSAN supports autonomous mobility programs with field operations, mapping, fleet readiness, route evidence, geospatial QA and scalable operational support."
+      description="JSAN supports autonomous mobility programmes with field operations, mapping, fleet readiness, route evidence, geospatial QA and scalable operational support."
       stats={[
         ...specialistStat(industrySplit, 'autonomous-mobility'),
         { value: '24/7', label: 'Collection Operations' },
@@ -33,7 +33,7 @@ export default function AutonomousMobility() {
         {
           title: 'Scale needs crews, not just tools',
           description:
-            'Covering a metro area repeatedly means vehicles, drivers, dispatch, maintenance and safety compliance  an operational problem before it is a data one.',
+            'Covering a metro area repeatedly means vehicles, drivers, dispatch, maintenance and safety compliance — an operational problem before it is a data one.',
         },
       ]}
       journey={[
@@ -71,7 +71,7 @@ export default function AutonomousMobility() {
           stage: 'Fleet',
           title: 'Run the vehicles as an operation',
           description:
-            'Vehicle and sensor rigs, drivers and operators, dispatch, tracking, maintenance and compliance  managed against route and coverage targets, not ad hoc.',
+            'Vehicle and sensor rigs, drivers and operators, dispatch, tracking, maintenance and compliance — managed against route and coverage targets, not ad hoc.',
           icon: Truck,
           image: '/pillars/live_tracking.webp',
           imageAlt: 'Managed collection and test fleet with sensor rigs',
@@ -137,7 +137,7 @@ export default function AutonomousMobility() {
       ]}
       useCasesImage="/pillars/autonomous_mobilitynew.webp"
       useCasesImageAlt="Autonomous vehicle operating on a surveyed corridor"
-      scopeNote="JSAN provides operational, mapping and data services in support of autonomous mobility programs. JSAN does not certify autonomous vehicles, act as a regulatory or approval authority, provide Technical Supervision, or independently approve ODD operations, except where specifically contracted and legally authorised to do so."
+      scopeNote="JSAN provides operational, mapping and data services in support of autonomous mobility programmes. JSAN does not certify autonomous vehicles, act as a regulatory or approval authority, provide Technical Supervision, or independently approve ODD operations, except where specifically contracted and legally authorised to do so."
       services={[
         'Route Readiness',
         'Field Validation',

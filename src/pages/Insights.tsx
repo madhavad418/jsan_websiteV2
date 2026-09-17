@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
@@ -158,7 +159,7 @@ export default function Insights() {
             </h1>
             <p className="max-w-2xl text-[15px] leading-relaxed text-white/75 sm:text-lg">
               Field perspectives on geospatial intelligence, digital transformation and
-              enterprise innovation, alongside company news  in one place, newest first.
+              enterprise innovation, alongside company news — in one place, newest first.
             </p>
           </div>
         </div>
@@ -173,7 +174,7 @@ export default function Insights() {
               className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 shadow-lg lg:flex-row"
             >
               <div className="relative min-h-[260px] w-full overflow-hidden bg-gray-50 lg:max-h-[440px] lg:w-2/5">
-                <img
+                <OptimizedImage
                   src={featured.image}
                   alt={featured.title}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -266,7 +267,7 @@ export default function Insights() {
                 to={update.href}
                 className="group relative flex h-[400px] flex-col justify-end overflow-hidden rounded-2xl shadow-md transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_55px_-20px_rgba(1,47,98,0.7)]"
               >
-                <img
+                <OptimizedImage
                   src={update.image}
                   alt={update.title}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"

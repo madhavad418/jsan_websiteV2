@@ -168,7 +168,7 @@ export default function CareerDetail() {
       if (resumeFile) {
         submission.append('Resume', resumeFile, resumeFile.name)
       }
-      submission.append('_subject', `New Career Application â€” ${job?.title ?? 'JSAN'}`)
+      submission.append('_subject', `New Career Application — ${job?.title ?? 'JSAN'}`)
       submission.append('_captcha', 'false')
       submission.append('_template', 'table')
       submission.append('_cc', 'hr@jsanconsulting.com')

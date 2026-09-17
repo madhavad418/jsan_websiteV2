@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import type { Blog, BlogBlock } from '../../data/blogs'
 import type { Job } from '../../data/jobs'
+import NewsUpdates from './NewsUpdates'
 import {
   isLoggedIn, login, clearToken,
   fetchBlogs, fetchJobs, saveBlog, deleteBlog, saveJob, deleteJob, uploadImage,
@@ -84,7 +85,7 @@ function LoginView({ onLogin }: { onLogin: () => void }) {
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <form onSubmit={submit} className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-sm">
         <h1 className="text-2xl font-bold text-[#0050a9] mb-1">JSAN Admin</h1>
-        <p className="text-gray-500 text-sm mb-6">Sign in to manage blogs &amp; careers</p>
+        <p className="text-gray-500 text-sm mb-6">Sign in to manage news, blogs &amp; careers</p>
         {err && <div className="mb-4 text-sm text-red-600 bg-red-50 border border-red-200 rounded px-3 py-2">{err}</div>}
         <div className="mb-4">
           <label className={label}>Username</label>
@@ -261,7 +262,7 @@ function BlockEditor({ drafts, setDrafts }: { drafts: Draft[]; setDrafts: React.
           onRemove={() => remove(i)}
         />
       ))}
-      {drafts.length === 0 && <p className="text-sm text-gray-400 italic">No content yet  add a block below.</p>}
+      {drafts.length === 0 && <p className="text-sm text-gray-400 italic">No content yet — add a block below.</p>}
 
       <div className="flex flex-wrap items-center gap-2 pt-1">
         <span className="text-xs text-gray-400 mr-1">Add block:</span>
@@ -303,7 +304,7 @@ function BlogForm({ initial, onSaved, onCancel }: { initial: Blog | null; onSave
       await saveBlog({ ...f, slug, content: draftsToContent(drafts) })
       onSaved()
     } catch {
-      setErr('Save failed  are you still logged in?')
+      setErr('Save failed — are you still logged in?')
     } finally { setBusy(false) }
   }
 
@@ -356,7 +357,7 @@ function JobForm({ initial, onSaved, onCancel }: { initial: Job | null; onSaved:
       await saveJob({ ...f, id, requirements: linesToArr(reqs), qualifications: linesToArr(quals), benefits: linesToArr(bens) })
       onSaved()
     } catch {
-      setErr('Save failed  are you still logged in?')
+      setErr('Save failed — are you still logged in?')
     } finally { setBusy(false) }
   }
 
@@ -380,7 +381,7 @@ function JobForm({ initial, onSaved, onCancel }: { initial: Job | null; onSaved:
         <div><label className={label}>Qualifications (one per line)</label><textarea className={`${input} text-sm`} rows={8} value={quals} onChange={(e) => setQuals(e.target.value)} /></div>
         <div><label className={label}>What We Offer (one per line)</label><textarea className={`${input} text-sm`} rows={8} value={bens} onChange={(e) => setBens(e.target.value)} /></div>
       </div>
-      <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={!!f.filled} onChange={(e) => set('filled', e.target.checked)} /> Mark as filled  job stays visible but stops accepting applications</label>
+      <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={!!f.filled} onChange={(e) => set('filled', e.target.checked)} /> Mark as filled — job stays visible but stops accepting applications</label>
       <div className="flex gap-3">
         <button disabled={busy || !f.title} onClick={save} className={`${btn} bg-[#0050a9] text-white hover:bg-[#003d80] disabled:opacity-50`}>{busy ? 'Saving…' : 'Save'}</button>
         <button onClick={onCancel} className={`${btn} bg-gray-200 text-gray-700 hover:bg-gray-300`}>Cancel</button>
@@ -392,7 +393,7 @@ function JobForm({ initial, onSaved, onCancel }: { initial: Job | null; onSaved:
 /* -------------------------------- dashboard ------------------------------- */
 export default function AdminApp() {
   const [authed, setAuthed] = useState(isLoggedIn())
-  const [tab, setTab] = useState<'jobs' | 'blogs'>('jobs')
+  const [tab, setTab] = useState<'jobs' | 'blogs' | 'news'>('jobs')
   const [jobs, setJobs] = useState<Job[]>([])
   const [blogs, setBlogs] = useState<Blog[]>([])
   const [editingJob, setEditingJob] = useState<Job | null | undefined>(undefined) // undefined = closed
@@ -432,16 +433,19 @@ export default function AdminApp() {
           <div className="bg-white rounded-2xl shadow p-6"><BlogForm initial={editingBlog} onSaved={() => { closeBlog(); reload() }} onCancel={closeBlog} /></div>
         ) : (
           <>
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex flex-wrap items-center gap-2 mb-6">
               <button onClick={() => setTab('jobs')} className={`${btn} ${tab === 'jobs' ? 'bg-[#0050a9] text-white' : 'bg-white text-gray-700'}`}>Jobs ({jobs.length})</button>
               <button onClick={() => setTab('blogs')} className={`${btn} ${tab === 'blogs' ? 'bg-[#0050a9] text-white' : 'bg-white text-gray-700'}`}>Blogs ({blogs.length})</button>
+              <button onClick={() => setTab('news')} className={`${btn} ${tab === 'news' ? 'bg-[#0050a9] text-white' : 'bg-white text-gray-700'}`}>News updates</button>
               <div className="flex-1" />
               {tab === 'jobs'
                 ? <button onClick={() => setEditingJob(null)} className={`${btn} bg-green-600 text-white hover:bg-green-700`}>+ New Job</button>
-                : <button onClick={() => setEditingBlog(null)} className={`${btn} bg-green-600 text-white hover:bg-green-700`}>+ New Blog</button>}
+                : tab === 'blogs' ? <button onClick={() => setEditingBlog(null)} className={`${btn} bg-green-600 text-white hover:bg-green-700`}>+ New Blog</button> : null}
             </div>
 
             {loading && <p className="text-gray-500">Loading…</p>}
+
+            {tab === 'news' && <NewsUpdates />}
 
             {tab === 'jobs' && (
               <div className="bg-white rounded-2xl shadow divide-y">

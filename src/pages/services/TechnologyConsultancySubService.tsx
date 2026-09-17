@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Globe, Target, Shield, DollarSign, Zap, MapPin, Cpu, BarChart3, Layers, Network, Brain, Cloud, Settings, Database, TrendingUp, RefreshCw, Lock } from 'lucide-react'
 import Header from '../../components/Header'
@@ -5,6 +6,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import RelatedSubServices from '../../components/RelatedSubServices'
 import ServiceContactForm from '../../components/ServiceContactForm'
+import NotFound from '../NotFound'
 
 interface SubServiceData {
   slug: string
@@ -26,11 +28,11 @@ const subServiceData: SubServiceData[] = [
     title: 'Accelerate Your Digital Journey',
     subtitle: 'Reimagine Business Through Technology',
     description:
-      'We help organizations reimagine their business models, processes, and customer experiences through strategic adoption of digital technologies  from automation and cloud migration to data-driven decision-making and digital-first operations.',
+      'We help organizations reimagine their business models, processes, and customer experiences through strategic adoption of digital technologies — from automation and cloud migration to data-driven decision-making and digital-first operations.',
     bgImage: '/pillars/digital-transformation.webp',
     advantages: [
       { icon: TrendingUp, text: 'End-to-end digital strategy aligned with business objectives' },
-      { icon: RefreshCw, text: 'Process automation reducing manual effort by up to 70%' },
+      { icon: RefreshCw, text: 'Process automation that cuts repetitive manual effort' },
       { icon: Cloud, text: 'Cloud-first architecture for scalability and resilience' },
       { icon: Brain, text: 'AI and data-driven decision-making frameworks' },
       { icon: Settings, text: 'Change management ensuring organizational adoption' },
@@ -58,7 +60,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Design Systems That Scale',
     subtitle: 'Aligning Technology with Business Vision',
     description:
-      'Our enterprise architecture practice aligns IT strategy with business goals  designing scalable, secure, and future-proof technology landscapes that reduce complexity, eliminate redundancy, and enable agile decision-making across the organization.',
+      'Our enterprise architecture practice aligns IT strategy with business goals — designing scalable, secure, and future-proof technology landscapes that reduce complexity, eliminate redundancy, and enable agile decision-making across the organization.',
     bgImage: '/pillars/enterprise-architecture.webp',
     advantages: [
       { icon: Layers, text: 'Comprehensive technology landscape assessment and mapping' },
@@ -90,7 +92,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Build on a Foundation of Cloud',
     subtitle: 'Performance, Reliability, Cost Efficiency',
     description:
-      'From cloud strategy and migration to hybrid infrastructure management and DevOps enablement  we design, deploy, and optimize cloud environments that deliver performance, reliability, and cost efficiency at enterprise scale.',
+      'From cloud strategy and migration to hybrid infrastructure management and DevOps enablement — we design, deploy, and optimize cloud environments that deliver performance, reliability, and cost efficiency at enterprise scale.',
     bgImage: '/pillars/cloud-infrastructure.webp',
     advantages: [
       { icon: Cloud, text: 'Multi-cloud strategy across AWS, Azure, and GCP' },
@@ -101,8 +103,8 @@ const subServiceData: SubServiceData[] = [
     ],
     idealFor: ['Technology companies', 'SaaS providers', 'Financial institutions', 'E-commerce platforms', 'Government agencies'],
     businessImpact: [
-      'Up to 40% reduction in infrastructure costs',
-      '99.99% uptime through resilient architecture',
+      'Helps reduce infrastructure costs',
+      'High availability through resilient architecture',
       'Faster deployment cycles with CI/CD automation',
       'Improved security and regulatory compliance',
       'Elastic scaling for variable workloads',
@@ -134,7 +136,7 @@ const subServiceData: SubServiceData[] = [
     idealFor: ['Retail and e-commerce', 'Financial services', 'Healthcare networks', 'Supply chain operators', 'Marketing teams'],
     businessImpact: [
       'Data-driven decisions replacing gut-feel approaches',
-      'Predictive models with 85%+ accuracy',
+      'Predictive models validated before deployment',
       'Automated reporting saving hours per week',
       'New revenue streams through data monetization',
       'Reduced operational waste through optimization',
@@ -155,14 +157,8 @@ export default function TechnologyConsultancySubService() {
   const service = subServiceData.find((s) => s.slug === slug)
 
   if (!service) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Service Not Found</h1>
-          <Link to="/services/technology-consultancy" className="text-[#0050a9] hover:underline">&larr; Back to Technology Consultancy</Link>
-        </div>
-      </div>
-    )
+    // Soft-404 guard: NotFound marks the view noindex.
+    return <NotFound />
   }
 
   return (
@@ -170,7 +166,7 @@ export default function TechnologyConsultancySubService() {
       <Header />
       <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 lg:pb-28" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
+          <OptimizedImage loading="eager" fetchPriority="high" src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
         <div className="absolute top-0 left-0 right-0 bg-black/20 backdrop-blur-sm">
@@ -234,7 +230,7 @@ export default function TechnologyConsultancySubService() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-[36px] lg:text-[42px] font-bold text-[#0050a9] mb-4">What We Deliver</h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">Every engagement produces a comprehensive deliverable package  validated, documented, and ready for implementation.</p>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">Every engagement produces a comprehensive deliverable package — validated, documented, and ready for implementation.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.deliverables.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100">

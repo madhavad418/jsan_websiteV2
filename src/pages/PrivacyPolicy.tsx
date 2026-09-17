@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
       <section className="bg-gradient-to-br from-[#0050a9] via-[#0a1a3a] to-[#0050a9] pt-32 pb-16" style={{ marginTop: '44px' }}>
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-white text-[36px] md:text-[48px] font-bold mb-4">Privacy Policy</h1>
-          <p className="text-white/70 text-lg">JSAN Consulting LTD  Your privacy matters to us</p>
+          <p className="text-white/70 text-lg">JSAN Consulting LTD — Your privacy matters to us</p>
         </div>
       </section>
 
@@ -41,7 +41,7 @@ export default function PrivacyPolicy() {
             Contractors must provide financial information such as bank account details, company registration, VAT number, and insurance documentation.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
-            Reference providers' names, contact details, and reference content are retained. Limited information about client/supplier contacts â€” including name, company, and position â€” may be held.
+            Reference providers' names, contact details, and reference content are retained. Limited information about client/supplier contacts — including name, company, and position — may be held.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
             Data sources include direct provision, third-party job boards, online CV directories, social media, networking sites, public domain information, and referees.
@@ -64,7 +64,7 @@ export default function PrivacyPolicy() {
             As a recruitment business, JSAN invokes "legitimate interest" for recruitment processing activities. When engagements occur, "performing a contract" serves as the lawful basis for holding and processing relevant information.
           </p>
           <p className="text-gray-700 leading-relaxed mb-6">
-            Data retention follows a five-year inactivity threshold; candidates with no contact for this period receive notification before record removal. However, contractual obligations may require holding certain information â€” particularly tax and financial records â€” for minimum periods of approximately two years.
+            Data retention follows a five-year inactivity threshold; candidates with no contact for this period receive notification before record removal. However, contractual obligations may require holding certain information — particularly tax and financial records — for minimum periods of approximately two years.
           </p>
 
           {/* Section 3 */}
@@ -112,25 +112,25 @@ export default function PrivacyPolicy() {
           <p className="text-gray-700 leading-relaxed mb-3">You have the right to:</p>
           <ul className="list-disc pl-6 space-y-2 mb-6">
             <li className="text-gray-700">
-              <strong>Access</strong> â€” Request copies of all personal information held about you (data subject access requests).
+              <strong>Access</strong> — Request copies of all personal information held about you (data subject access requests).
             </li>
             <li className="text-gray-700">
-              <strong>Rectification</strong> â€” Request correction of any inaccurate or incomplete data.
+              <strong>Rectification</strong> — Request correction of any inaccurate or incomplete data.
             </li>
             <li className="text-gray-700">
-              <strong>Erasure</strong> â€” Request deletion of your personal data where there is no compelling reason for continued processing.
+              <strong>Erasure</strong> — Request deletion of your personal data where there is no compelling reason for continued processing.
             </li>
             <li className="text-gray-700">
-              <strong>Restrict processing</strong> â€” Request the restriction or suppression of your personal data.
+              <strong>Restrict processing</strong> — Request the restriction or suppression of your personal data.
             </li>
             <li className="text-gray-700">
-              <strong>Data portability</strong> â€” Request transfer of your data to another organisation or directly to you.
+              <strong>Data portability</strong> — Request transfer of your data to another organisation or directly to you.
             </li>
             <li className="text-gray-700">
-              <strong>Object</strong> â€” Object to processing of your personal data in certain circumstances.
+              <strong>Object</strong> — Object to processing of your personal data in certain circumstances.
             </li>
             <li className="text-gray-700">
-              <strong>Unsubscribe</strong> â€” Opt out of group marketing mailings via the "unsubscribe" button or by contacting{' '}
+              <strong>Unsubscribe</strong> — Opt out of group marketing mailings via the "unsubscribe" button or by contacting{' '}
               <a href="mailto:info@jsanconsulting.com" className="text-[#0050a9] font-medium hover:underline">info@jsanconsulting.com</a>{' '}
               with "Unsubscribe" in the subject line.
             </li>

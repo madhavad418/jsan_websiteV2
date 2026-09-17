@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { useParams, Link } from 'react-router-dom'
 import {
   ArrowRight, CheckCircle, Network, Shield, DollarSign, Zap,
@@ -10,6 +11,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import RelatedSubServices from '../../components/RelatedSubServices'
 import ServiceContactForm from '../../components/ServiceContactForm'
+import NotFound from '../NotFound'
 
 interface SubServiceData {
   slug: string
@@ -31,7 +33,7 @@ const subServiceData: SubServiceData[] = [
     title: 'AI-Driven Route Optimization & GIS Mapping',
     subtitle: 'Smarter Networks Start with Smarter Planning',
     description:
-      'Design future-ready fiber networks with AI-driven route optimization, geospatial intelligence, and demand-based capacity forecasting. We translate territory, terrain, and traffic into the most efficient deployment plan  before a single trench is dug.',
+      'Design future-ready fiber networks with AI-driven route optimization, geospatial intelligence, and demand-based capacity forecasting. We translate territory, terrain, and traffic into the most efficient deployment plan — before a single trench is dug.',
     bgImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: MapPin, text: 'GIS-based mapping of service areas, terrain, and existing assets' },
@@ -50,7 +52,7 @@ const subServiceData: SubServiceData[] = [
     ],
     deliverables: [
       'Geospatial network design package',
-      'AI-optimised route maps',
+      'AI-optimized route maps',
       'Demand & capacity forecast reports',
       'Bill of materials and cost estimates',
       'High-level and low-level design documents',
@@ -63,7 +65,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Drone Surveys, Digital Twin & Automated Feasibility',
     subtitle: 'From Survey to Splice, Accelerated',
     description:
-      'Compress survey-to-design timelines with drone-based aerial surveys, digital twin models of the network, and automated feasibility analysis  deploying fiber faster, safer, and with fewer surprises in the field.',
+      'Compress survey-to-design timelines with drone-based aerial surveys, digital twin models of the network, and automated feasibility analysis — deploying fiber faster, safer, and with fewer surprises in the field.',
     bgImage: 'https://images.unsplash.com/photo-1508444845599-5c89863b1c44?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: Plane, text: 'High-resolution drone aerial surveys with photogrammetry' },
@@ -95,7 +97,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Predictive Analytics & Real-Time Fault Detection',
     subtitle: 'Catch Faults Before Customers Do',
     description:
-      'Move from break-fix to predict-and-prevent. We deploy real-time network monitoring, predictive analytics, and intelligent fault detection so issues are identified  and often resolved  before they impact customers.',
+      'Move from break-fix to predict-and-prevent. We deploy real-time network monitoring, predictive analytics, and intelligent fault detection so issues are identified — and often resolved — before they impact customers.',
     bgImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: Activity, text: 'Real-time monitoring across the fiber network' },
@@ -127,12 +129,12 @@ const subServiceData: SubServiceData[] = [
     title: 'Preventive Programs & Asset Lifecycle Management',
     subtitle: 'Long-Term Network Health, Engineered In',
     description:
-      'Reliability is not an event  it is a program. We deliver preventive maintenance, fiber health assessments, and SLA-backed support that keeps networks performing year after year.',
+      'Reliability is not an event — it is a program. We deliver preventive maintenance, fiber health assessments, and SLA-backed support that keeps networks performing year after year.',
     bgImage: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: Wrench, text: 'Scheduled preventive maintenance programs' },
       { icon: Eye, text: 'Periodic fiber health audits with OTDR baselines' },
-      { icon: Database, text: 'Asset lifecycle management  deploy to decommission' },
+      { icon: Database, text: 'Asset lifecycle management — deploy to decommission' },
       { icon: Shield, text: 'SLA-based support tiers with 24/7 coverage' },
       { icon: Settings, text: 'Operational playbooks for repeatable execution' },
     ],
@@ -159,7 +161,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Centralized Insights & Performance Tracking',
     subtitle: 'One Pane of Glass for the Entire Network',
     description:
-      'Bring every metric  topology, performance, faults, and forecasts  into a single operational view. Our dashboards turn raw telemetry into decisions for NOC operators, planners, and executives alike.',
+      'Bring every metric — topology, performance, faults, and forecasts — into a single operational view. Our dashboards turn raw telemetry into decisions for NOC operators, planners, and executives alike.',
     bgImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: Monitor, text: 'Real-time topology and performance visualisation' },
@@ -191,12 +193,12 @@ const subServiceData: SubServiceData[] = [
     title: 'Capacity Planning, Expansion & Cost Optimization',
     subtitle: 'Build Today, Ready for Tomorrow',
     description:
-      'Networks must grow  but growth without planning is expensive. We deliver data-driven capacity planning, expansion roadmaps, and cost optimisation strategies that scale resilient fiber networks profitably.',
+      'Networks must grow — but growth without planning is expensive. We deliver data-driven capacity planning, expansion roadmaps, and cost optimization strategies that scale resilient fiber networks profitably.',
     bgImage: 'https://images.unsplash.com/photo-1496450681664-3df85efbd29f?w=1920&auto=format&fit=crop',
     advantages: [
       { icon: TrendingUp, text: 'Demand-led capacity planning with traffic forecasts' },
       { icon: Route, text: 'Expansion roadmap aligned with subscriber growth' },
-      { icon: DollarSign, text: 'Cost optimisation through right-sized deployment' },
+      { icon: DollarSign, text: 'Cost optimization through right-sized deployment' },
       { icon: Shield, text: 'Resilience modelling for redundancy and uptime' },
       { icon: Users, text: 'Customer experience tied to network performance' },
     ],
@@ -211,7 +213,7 @@ const subServiceData: SubServiceData[] = [
     deliverables: [
       'Capacity & demand forecast reports',
       'Multi-year expansion roadmap',
-      'Cost optimisation analysis',
+      'Cost optimization analysis',
       'Resilience and redundancy plans',
       'Investment business case',
       'Customer experience impact assessment',
@@ -230,16 +232,8 @@ export default function SmartFiberPlanningSubService() {
   const service = subServiceData.find((s) => s.slug === slug)
 
   if (!service) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Service Not Found</h1>
-          <Link to="/services/smart-fiber-planning" className="text-[#0050a9] hover:underline">
-            &larr; Back to Smart Fiber Planning
-          </Link>
-        </div>
-      </div>
-    )
+    // Soft-404 guard: NotFound marks the view noindex.
+    return <NotFound />
   }
 
   return (
@@ -249,7 +243,7 @@ export default function SmartFiberPlanningSubService() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 lg:pb-28" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
+          <OptimizedImage loading="eager" fetchPriority="high" src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
 
@@ -345,7 +339,7 @@ export default function SmartFiberPlanningSubService() {
                 What We Deliver
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Every engagement produces a comprehensive deliverable package  field-validated, quality-assured, and ready for integration into your operations.
+                Every engagement produces a comprehensive deliverable package — field-validated, quality-assured, and ready for integration into your operations.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.deliverables.map((item, i) => (

@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import {
   ArrowRight,
@@ -329,7 +330,7 @@ export default function JsanFleetIntelligence() {
       */}
       <section className="relative overflow-hidden" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage
             src="/pillars/atlas_hero.webp"
             alt=""
             aria-hidden="true"
@@ -509,7 +510,7 @@ export default function JsanFleetIntelligence() {
                   key={shot.src}
                   className="relative h-56 overflow-hidden rounded-sm sm:h-64 lg:h-auto"
                 >
-                  <img
+                  <OptimizedImage
                     src={shot.src}
                     alt={shot.alt}
                     width={shot.width}
@@ -528,7 +529,7 @@ export default function JsanFleetIntelligence() {
               </h2>
               <p className="t-body mb-8 text-gray-600">
                 A client&rsquo;s network is reviewed before it is used, not after. The review answers
-                the questions that are cheap now and expensive in three months  whether the
+                the questions that are cheap now and expensive in three months — whether the
                 identifiers are unique, how much of the network sits outside the agreed boundary, and
                 which areas carry priority. Somebody signs that review off before a single road is
                 committed to the programme.
@@ -645,7 +646,7 @@ export default function JsanFleetIntelligence() {
       {/* Built for where tracking usually breaks. Photographic band, kept short. */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage
             src="/pillars/tunnols.webp"
             alt=""
             aria-hidden="true"

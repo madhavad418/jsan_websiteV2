@@ -35,12 +35,26 @@ export default function LinkedInFeed() {
     })
     observer.observe(el, { childList: true, subtree: true })
 
-    const timer = setTimeout(() => {
-      if (!isReady()) setFailed(true)
-    }, 15000)
+    let timer: ReturnType<typeof setTimeout> | undefined
+    const loadWidget = () => {
+      if (!document.getElementById('jsan-elfsight-platform')) {
+        const script = document.createElement('script')
+        script.id = 'jsan-elfsight-platform'
+        script.src = 'https://static.elfsight.com/platform/platform.js'
+        script.async = true
+        document.head.appendChild(script)
+      }
+      timer = setTimeout(() => { if (!isReady()) setFailed(true) }, 15000)
+    }
+    const visibility = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { loadWidget(); visibility?.disconnect() }
+    }, { rootMargin: '300px' })
+    if (visibility) visibility.observe(el)
+    else loadWidget()
 
     return () => {
       observer.disconnect()
+      visibility?.disconnect()
       clearTimeout(timer)
     }
   }, [])

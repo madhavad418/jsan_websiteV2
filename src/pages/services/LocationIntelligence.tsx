@@ -22,7 +22,7 @@ const subServices = [
     category: 'ADVANCED ANALYTICS',
     title: 'Turn Location Data into Predictive Intelligence',
     description:
-      'Our team of experts deliver sophisticated data analysis using AI, Machine Learning, and predictive modeling to uncover deep insights and forecast trends.',
+      'Our team of experts deliver sophisticated data analysis using AI, Machine Learning, and predictive modelling to uncover deep insights and forecast trends.',
     bgImage: '/pillars/advance-analytics.webp',
     cardTitle: 'Advanced Analytics',
     highlights: ['Predictive Modelling', 'Spatial Data Science', 'Market Intelligence', 'Risk Assessment'],

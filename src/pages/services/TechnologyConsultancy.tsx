@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Cpu, Cloud, Brain, Shield, Smartphone, Database, Server, Zap, Users, CheckCircle, Play, ArrowRight, Lightbulb, Globe } from 'lucide-react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -74,7 +75,7 @@ export default function TechnologyConsultancy() {
       {/* Hero Section */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden pt-28 lg:pt-32 pb-28 lg:pb-32" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage loading="eager" fetchPriority="high"
             src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600"
             alt="Technology and digital innovation"
             className="w-full h-full object-cover"
@@ -104,7 +105,7 @@ export default function TechnologyConsultancy() {
                 Smart Technologies. Intelligent Solutions.
               </h1>
               <p className="text-white/80 text-xl leading-relaxed mb-8">
-                Modernise how your business runs on technology. We help enterprises navigate digital transformation, modernize infrastructure, and unlock new capabilities.
+                Modernize how your business runs on technology. We help enterprises navigate digital transformation, modernize infrastructure, and unlock new capabilities.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a href="/contact" className="btn-primary bg-[#1b497b] hover:bg-[#153a62]">
@@ -121,7 +122,7 @@ export default function TechnologyConsultancy() {
               <div className="relative w-full max-w-lg ml-auto">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 border border-white/20 shadow-2xl overflow-hidden">
                   <div className="relative w-full h-80 rounded-xl overflow-hidden">
-                    <img
+                    <OptimizedImage
                       src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800"
                       alt="Technology circuit board"
                       className="w-full h-full object-cover"

@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { useState } from 'react'
 import {
   CheckCircle,
@@ -34,7 +35,7 @@ const features = [
     title: 'End-to-End Expertise',
     short: 'End-to-End',
     description:
-      'Unlike niche providers, we cover the entire geospatial value chain  from field data collection to AI-powered analytics and custom software development  all under one roof.',
+      'Unlike niche providers, we cover the entire geospatial value chain — from field data collection to AI-powered analytics and custom software development — all under one roof.',
     image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop',
   },
   {
@@ -58,7 +59,7 @@ const features = [
     title: 'Turnkey Ownership',
     short: 'Turnkey',
     description:
-      "We don't just deliver reports  we build, deploy, and optimize solutions tailored to your operational workflows.",
+      "We don't just deliver reports — we build, deploy, and optimize solutions tailored to your operational workflows.",
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop',
   },
   {
@@ -124,7 +125,7 @@ export default function WhyChooseJSAN() {
                   isActive ? 'flex-[3.2] shadow-2xl' : 'flex-[1.15] shadow-md'
                 }`}
               >
-                <img
+                <OptimizedImage
                   src={feature.image}
                   alt={feature.title}
                   className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out ${
@@ -205,7 +206,7 @@ export default function WhyChooseJSAN() {
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:hidden">
           {features.map((feature, index) => (
             <div key={index} className="group relative h-[280px] overflow-hidden rounded-2xl shadow-md">
-              <img
+              <OptimizedImage
                 src={feature.image}
                 alt={feature.title}
                 className="absolute inset-0 h-full w-full object-cover"

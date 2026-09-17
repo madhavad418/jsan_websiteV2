@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Globe, Target, Shield, Clock, DollarSign, Zap, MapPin, Cpu, BarChart3, Building2, Satellite, Camera, Box, Layers, Network, Brain, Eye } from 'lucide-react'
 import Header from '../../components/Header'
@@ -5,6 +6,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import RelatedSubServices from '../../components/RelatedSubServices'
 import ServiceContactForm from '../../components/ServiceContactForm'
+import NotFound from '../NotFound'
 
 interface SubServiceData {
   slug: string
@@ -38,7 +40,7 @@ const subServiceData: SubServiceData[] = [
     idealFor: ['Urban planners', 'Retail chains', 'Real estate developers', 'Government agencies', 'Logistics companies'],
     businessImpact: [
       'Optimised site selection and market expansion',
-      'Reduced planning cycle times by up to 60%',
+      'Shorter, better-informed planning cycles',
       'Data-backed urban development strategies',
       'Improved resource allocation and coverage',
       'Evidence-based policy and regulatory decisions',
@@ -58,7 +60,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Connected Urban Ecosystems',
     subtitle: 'Building the Cities of Tomorrow',
     description:
-      'Through real-time location data and IoT sensor networks, we provide customised smart city solutions for efficient, responsive urban environments  from intelligent traffic management and energy optimization to public safety systems and environmental monitoring.',
+      'Through real-time location data and IoT sensor networks, we provide customised smart city solutions for efficient, responsive urban environments — from intelligent traffic management and energy optimization to public safety systems and environmental monitoring.',
     bgImage: '/pillars/smart-city.webp',
     advantages: [
       { icon: Network, text: 'IoT sensor integration with geospatial platforms' },
@@ -69,8 +71,8 @@ const subServiceData: SubServiceData[] = [
     ],
     idealFor: ['Municipal governments', 'Urban development authorities', 'Utility providers', 'Transport agencies', 'Smart city initiatives'],
     businessImpact: [
-      'Reduced traffic congestion by up to 30%',
-      'Optimised energy distribution and consumption',
+      'Better insight for easing traffic congestion',
+      'Optimized energy distribution and consumption',
       'Faster emergency response with real-time GIS',
       'Improved citizen services through data transparency',
       'Integrated city-wide operational dashboards',
@@ -90,7 +92,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Track, Monitor & Optimise Every Asset',
     subtitle: 'Geospatial Lifecycle Management',
     description:
-      'Geospatial asset management leverages location data to track, visualise, and maintain physical infrastructure  from utility poles and pipelines to fleet vehicles and facilities  enabling proactive maintenance, lifecycle planning, and real-time operational visibility.',
+      'Geospatial asset management leverages location data to track, visualise, and maintain physical infrastructure — from utility poles and pipelines to fleet vehicles and facilities — enabling proactive maintenance, lifecycle planning, and real-time operational visibility.',
     bgImage: '/pillars/asset-management.webp',
     advantages: [
       { icon: MapPin, text: 'Accurate location tracking of all physical assets' },
@@ -102,7 +104,7 @@ const subServiceData: SubServiceData[] = [
     idealFor: ['Utility companies', 'Facility managers', 'Fleet operators', 'Infrastructure agencies', 'Telecom providers'],
     businessImpact: [
       'Extended asset lifespan through proactive maintenance',
-      'Reduced unplanned downtime by up to 40%',
+      'Less unplanned downtime through early warning',
       'Comprehensive asset inventory with location context',
       'Streamlined regulatory compliance reporting',
       'Data-driven capital expenditure planning',
@@ -127,7 +129,7 @@ const subServiceData: SubServiceData[] = [
     advantages: [
       { icon: Camera, text: 'High-resolution orthomosaic and oblique imagery' },
       { icon: Target, text: 'Sub-centimetre accuracy with RTK/PPK GNSS' },
-      { icon: Clock, text: 'Up to 80% faster than traditional ground surveys' },
+      { icon: Clock, text: 'Faster coverage than traditional ground surveys' },
       { icon: Shield, text: 'Zero risk in hazardous or hard-to-reach areas' },
       { icon: DollarSign, text: 'Lower cost per hectare than manned surveys' },
     ],
@@ -154,7 +156,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Mirror the Real World in 3D',
     subtitle: 'Virtual Replicas for Real-World Decisions',
     description:
-      'Creating detailed three-dimensional representations of physical environments combined with real-time data to form digital twins  virtual replicas of assets or cities. These geospatial models support simulation, monitoring, predictive analysis, and immersive visualization for urban planning, infrastructure, and operational optimization.',
+      'Creating detailed three-dimensional representations of physical environments combined with real-time data to form digital twins — virtual replicas of assets or cities. These geospatial models support simulation, monitoring, predictive analysis, and immersive visualization for urban planning, infrastructure, and operational optimization.',
     bgImage: '/pillars/digital-twin.webp',
     advantages: [
       { icon: Box, text: 'Photorealistic 3D city and facility models' },
@@ -165,7 +167,7 @@ const subServiceData: SubServiceData[] = [
     ],
     idealFor: ['Smart city authorities', 'Facility managers', 'Urban planners', 'Infrastructure operators', 'Construction firms'],
     businessImpact: [
-      'Proactive maintenance reducing downtime by 35%',
+      'Proactive maintenance that helps reduce downtime',
       'Immersive stakeholder engagement and visualization',
       'Scenario simulation for risk and disaster planning',
       'Unified operational view of distributed assets',
@@ -197,7 +199,7 @@ const subServiceData: SubServiceData[] = [
     ],
     idealFor: ['Real estate developers', 'Airport authorities', 'Hospital administrators', 'University campuses', 'Corporate facility teams'],
     businessImpact: [
-      'Reduced construction rework by up to 25%',
+      'Helps reduce construction rework',
       'Optimised space utilization across facilities',
       'Streamlined facility operations and maintenance',
       'Better tenant and visitor navigation experience',
@@ -218,10 +220,10 @@ const subServiceData: SubServiceData[] = [
     title: 'Intelligent Infrastructure at Scale',
     subtitle: 'Smarter Telecom & Utility Surveys from the Sky',
     description:
-      'Drone-based inspection and mapping of telecom towers, fibre routes, and utility networks  delivering faster, safer, and more accurate data than traditional methods. Our geospatial documentation and visualization supports network analysis, outage management, maintenance planning, and regulatory compliance.',
+      'Drone-based inspection and mapping of telecom towers, fibre routes, and utility networks — delivering faster, safer, and more accurate data than traditional methods. Our geospatial documentation and visualization supports network analysis, outage management, maintenance planning, and regulatory compliance.',
     bgImage: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&auto=format&fit=crop',
     advantages: [
-      { icon: Clock, text: 'Up to 80% faster than manual inspection' },
+      { icon: Clock, text: 'Faster than manual inspection' },
       { icon: Shield, text: 'Zero climbing risk for personnel' },
       { icon: Zap, text: 'No network shutdown required' },
       { icon: Target, text: 'High accuracy & repeatable data' },
@@ -248,7 +250,7 @@ const subServiceData: SubServiceData[] = [
     slug: 'enterprise-gis',
     category: 'ENTERPRISE GIS',
     title: 'Scalable Platforms for Spatial Intelligence',
-    subtitle: 'Your Organisation\'s Spatial Backbone',
+    subtitle: 'Your Organization\'s Spatial Backbone',
     description:
       'From data warehousing to mobile field apps and automated workflows that put location intelligence in the hands of every stakeholder, we design, build, and manage enterprise GIS platforms that serve as the spatial backbone of your organization.',
     bgImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&auto=format&fit=crop',
@@ -259,7 +261,7 @@ const subServiceData: SubServiceData[] = [
       { icon: Network, text: 'API integrations with ERP, CRM, and IoT systems' },
       { icon: Shield, text: 'Role-based access control and data security' },
     ],
-    idealFor: ['Large enterprises', 'Government departments', 'Utility companies', 'Transport authorities', 'Multinational organisations'],
+    idealFor: ['Large enterprises', 'Government departments', 'Utility companies', 'Transport authorities', 'Multinational organizations'],
     businessImpact: [
       'Single source of truth for all spatial data',
       'Reduced data silos and duplication',
@@ -288,8 +290,8 @@ const subServiceData: SubServiceData[] = [
       { icon: Brain, text: 'Custom-trained deep learning models for feature extraction' },
       { icon: Eye, text: 'Automated object detection across thousands of images' },
       { icon: Zap, text: 'Real-time classification and anomaly alerting' },
-      { icon: Target, text: '95%+ accuracy on trained feature classes' },
-      { icon: Clock, text: '100x faster than manual image interpretation' },
+      { icon: Target, text: 'High-accuracy outputs, verified through QA checks' },
+      { icon: Clock, text: 'Far faster than manual image interpretation' },
     ],
     idealFor: ['Defence and intelligence', 'Agriculture companies', 'Insurance firms', 'Environmental agencies', 'Infrastructure operators'],
     businessImpact: [
@@ -347,16 +349,8 @@ export default function GeospatialSubService() {
   const service = subServiceData.find((s) => s.slug === slug)
 
   if (!service) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Service Not Found</h1>
-          <Link to="/services/geospatial" className="text-[#0050a9] hover:underline">
-            ← Back to Geospatial Solutions
-          </Link>
-        </div>
-      </div>
-    )
+    // Soft-404 guard: NotFound marks the view noindex.
+    return <NotFound />
   }
 
   return (
@@ -366,7 +360,7 @@ export default function GeospatialSubService() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 lg:pb-28" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
+          <OptimizedImage loading="eager" fetchPriority="high" src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
 
@@ -462,7 +456,7 @@ export default function GeospatialSubService() {
                 What We Deliver
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Every engagement produces a comprehensive, field-validated deliverable package  ready for integration into your GIS, asset management, or planning systems.
+                Every engagement produces a comprehensive, field-validated deliverable package — ready for integration into your GIS, asset management, or planning systems.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.deliverables.map((item, i) => (

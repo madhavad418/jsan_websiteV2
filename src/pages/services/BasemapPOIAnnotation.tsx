@@ -49,7 +49,7 @@ const deliver = [
 const basemapLifecycle = [
   { n: '01', title: 'Source', desc: 'Imagery, LiDAR, authoritative and open datasets and field capture, with licence and currency recorded per source.' },
   { n: '02', title: 'Compile', desc: 'Feature extraction into your schema: road centrelines, buildings, land use, hydrography and boundaries.' },
-  { n: '03', title: 'Conflate', desc: 'New capture reconciled against the existing basemap  geometry matched, attributes merged, conflicts flagged.' },
+  { n: '03', title: 'Conflate', desc: 'New capture reconciled against the existing basemap — geometry matched, attributes merged, conflicts flagged.' },
   { n: '04', title: 'Validate', desc: 'Topology, connectivity and attribute checks: no dangles, closed polygons, a graph that actually routes.' },
   { n: '05', title: 'Publish', desc: 'Versioned release to the customer schema with change deltas and a currency date per layer.' },
 ]
@@ -168,7 +168,7 @@ export default function BasemapPOIAnnotation() {
             <h2 className="text-[26px] md:text-[34px] lg:text-[40px] font-bold mb-4 text-gradient leading-tight">
               {showingBasemap
                 ? 'Basemap production is a conflation problem, not a drawing exercise'
-                : 'POI operations require evidence, freshness and duplicate control  not just sourcing volume'}
+                : 'POI operations require evidence, freshness and duplicate control — not just sourcing volume'}
             </h2>
             <p className="text-gray-600 text-base md:text-lg">
               {showingBasemap

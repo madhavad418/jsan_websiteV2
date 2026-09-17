@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Globe, Target, Shield, Zap, MapPin, BarChart3, Layers, Users, Settings, TrendingUp, Award, ClipboardCheck, RefreshCw, GitBranch } from 'lucide-react'
 import Header from '../../components/Header'
@@ -5,6 +6,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import RelatedSubServices from '../../components/RelatedSubServices'
 import ServiceContactForm from '../../components/ServiceContactForm'
+import NotFound from '../NotFound'
 
 interface SubServiceData {
   slug: string
@@ -26,7 +28,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Build Your Centre of Excellence',
     subtitle: 'Governance, Standards, and Delivery Excellence',
     description:
-      'We design, establish, and operationalize Project Management Offices  from lightweight governance frameworks for agile organizations to full-scale enterprise PMOs with standardized processes, tools, templates, and reporting structures.',
+      'We design, establish, and operationalize Project Management Offices — from lightweight governance frameworks for agile organizations to full-scale enterprise PMOs with standardized processes, tools, templates, and reporting structures.',
     bgImage: '/pillars/pmo-setup.webp',
     advantages: [
       { icon: Settings, text: 'Customized PMO frameworks tailored to your maturity level' },
@@ -38,7 +40,7 @@ const subServiceData: SubServiceData[] = [
     idealFor: ['Organizations without a PMO', 'Companies scaling rapidly', 'Government departments', 'IT service providers', 'Construction and engineering firms'],
     businessImpact: [
       'Consistent project delivery methodology across the organization',
-      'Improved project success rates by up to 40%',
+      'Improved project success rates',
       'Standardized reporting enabling better executive decisions',
       'Reduced project failure through governance and oversight',
       'Accelerated PM capability maturity',
@@ -58,7 +60,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Deliver Faster, Adapt Quicker',
     subtitle: 'Embedding Agility Across Your Organization',
     description:
-      'Our agile transformation services help organizations shift from traditional waterfall delivery to agile and hybrid methodologies  embedding Scrum, SAFe, and Kanban practices across teams to accelerate delivery, improve quality, and increase stakeholder satisfaction.',
+      'Our agile transformation services help organizations shift from traditional waterfall delivery to agile and hybrid methodologies — embedding Scrum, SAFe, and Kanban practices across teams to accelerate delivery, improve quality, and increase stakeholder satisfaction.',
     bgImage: '/pillars/agile-transformation.webp',
     advantages: [
       { icon: RefreshCw, text: 'Scrum, SAFe, and Kanban implementation across teams' },
@@ -69,7 +71,7 @@ const subServiceData: SubServiceData[] = [
     ],
     idealFor: ['Enterprise IT departments', 'Software development teams', 'Product companies', 'Digital agencies', 'Government digital services'],
     businessImpact: [
-      'Up to 50% faster delivery cycles',
+      'Faster delivery cycles',
       'Improved team productivity and morale',
       'Higher stakeholder satisfaction through iterative delivery',
       'Reduced defect rates through continuous testing',
@@ -90,18 +92,18 @@ const subServiceData: SubServiceData[] = [
     title: 'Excellence in Every Deliverable',
     subtitle: 'Quality Built In, Not Bolted On',
     description:
-      'Our QA practice embeds quality throughout the project lifecycle  from requirements validation and test strategy to automated testing, performance benchmarking, and continuous improvement  ensuring every deliverable meets the highest standards.',
+      'Our QA practice embeds quality throughout the project lifecycle — from requirements validation and test strategy to automated testing, performance benchmarking, and continuous improvement — ensuring every deliverable meets the highest standards.',
     bgImage: '/pillars/quality-assurance.webp',
     advantages: [
       { icon: ClipboardCheck, text: 'Comprehensive test strategy and planning' },
-      { icon: Zap, text: 'Automated testing frameworks reducing manual effort by 80%' },
+      { icon: Zap, text: 'Automated testing frameworks that reduce manual effort' },
       { icon: Target, text: 'Performance and load testing at enterprise scale' },
       { icon: Shield, text: 'Security testing and vulnerability assessment' },
       { icon: TrendingUp, text: 'Continuous improvement through metrics-driven QA' },
     ],
     idealFor: ['Software development teams', 'Enterprise applications', 'E-commerce platforms', 'Financial systems', 'Healthcare technology'],
     businessImpact: [
-      'Reduced production defects by up to 70%',
+      'Fewer defects reaching production',
       'Faster release cycles with automated test pipelines',
       'Improved application performance and reliability',
       'Lower cost of quality through early defect detection',
@@ -123,14 +125,8 @@ export default function ProgramManagementSubService() {
   const service = subServiceData.find((s) => s.slug === slug)
 
   if (!service) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Service Not Found</h1>
-          <Link to="/services/program-management" className="text-[#0050a9] hover:underline">&larr; Back to Program Management</Link>
-        </div>
-      </div>
-    )
+    // Soft-404 guard: NotFound marks the view noindex.
+    return <NotFound />
   }
 
   return (
@@ -138,7 +134,7 @@ export default function ProgramManagementSubService() {
       <Header />
       <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 lg:pb-28" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
+          <OptimizedImage loading="eager" fetchPriority="high" src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
         <div className="absolute top-0 left-0 right-0 bg-black/20 backdrop-blur-sm">
@@ -202,7 +198,7 @@ export default function ProgramManagementSubService() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-[36px] lg:text-[42px] font-bold text-[#0050a9] mb-4">What We Deliver</h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">Every engagement produces structured, actionable deliverables  ready to drive immediate operational improvement.</p>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">Every engagement produces structured, actionable deliverables — ready to drive immediate operational improvement.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.deliverables.map((item, i) => (
                   <div key={i} className="flex items-start gap-3 bg-white rounded-xl p-4 border border-gray-100">

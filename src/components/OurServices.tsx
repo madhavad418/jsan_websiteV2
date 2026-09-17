@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { Link } from 'react-router-dom'
 import { MapPin, MapPinned, Radio, Cpu, Layers, Users, FolderKanban, ArrowRight, Map, Truck, Brain, Zap, Server } from 'lucide-react'
 
@@ -52,7 +53,7 @@ const services = [
     title: 'Location Intelligence',
     slug: '/services/location-intelligence',
     icon: MapPin,
-    description: 'End-to-end location intelligence  from data capture and enhancement to advanced analytics and custom platform development.',
+    description: 'End-to-end location intelligence — from data capture and enhancement to advanced analytics and custom platform development.',
     image: '/pillars/location-intelligence.webp',
     features: ['Data Capture & Enhancement', 'Advanced Analytics', 'Custom Platforms', 'Strategic Advisory', 'Navigation Data'],
   },
@@ -61,7 +62,7 @@ const services = [
     featured: true,
     slug: '/services/telecom-network-intelligence',
     icon: Radio,
-    description: 'Spatial intelligence for modern telecom networks  RF propagation, 5G small-cell siting, tower and fiber asset mapping, and real-time network analytics.',
+    description: 'Spatial intelligence for modern telecom networks — RF propagation, 5G small-cell siting, tower and fiber asset mapping, and real-time network analytics.',
     image: '/pillars/utility-network.webp',
     features: ['5G Site Planning', 'RF Propagation', 'Tower & Fiber Mapping', 'Network Analytics', 'Outage Correlation'],
   },
@@ -95,7 +96,7 @@ const services = [
     featured: true,
     slug: '/services/staffing-solutions',
     icon: Users,
-    description: 'People as a Service  Your global recruitment partner. We connect organizations with top IT talent across 25+ countries.',
+    description: 'People as a Service — Your global recruitment partner. We connect organizations with top IT talent across 25+ countries.',
     image: '/pillars/staffing-workforce.webp',
     features: ['Contract Staffing', 'Permanent Placement', 'Team Augmentation', 'Executive Search'],
   },
@@ -141,7 +142,7 @@ export default function OurServices() {
                 <span className="pointer-events-none absolute inset-x-0 top-0 z-20 h-1 origin-left scale-x-0 bg-gradient-to-r from-[#0050a9] via-[#00d4ff] to-[#0050a9] transition-transform duration-500 group-hover:scale-x-100" />
 
                 <div className={`relative overflow-hidden ${isSpotlight ? 'h-56' : 'h-44'}`}>
-                  <img
+                  <OptimizedImage
                     src={service.image}
                     alt={service.title}
                     className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"

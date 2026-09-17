@@ -66,7 +66,7 @@ export default function TelecomNetworkIntelligence() {
         eyebrow="Capabilities"
         heading="Plan, validate and manage physical network infrastructure"
         modules={[
-          { name: 'Fiber Engineering', description: 'Route design, splice planning and build documentation for fibre programmes.' },
+          { name: 'Fiber Engineering', description: 'Route design, splice planning and build documentation for fiber programmes.' },
           { name: 'Pole Intelligence', description: 'Pole inventory, attachment capture and loading inputs from field survey.' },
           { name: 'Network GIS', description: 'The spatial system of record for ducts, cabinets, routes and served premises.' },
           { name: 'LiDAR Engineering', description: 'Point cloud capture where clearance, sag and attachment geometry decide the design.' },

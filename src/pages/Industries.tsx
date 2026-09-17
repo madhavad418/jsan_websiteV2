@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import {
   Play,
@@ -233,7 +234,7 @@ export default function Industries() {
                       imageFirst ? '' : 'lg:order-2'
                     }`}
                   >
-                    <img
+                    <OptimizedImage
                       src={industry.image}
                       alt=""
                       width={1200}
@@ -306,7 +307,7 @@ export default function Industries() {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0">
-                  <img
+                  <OptimizedImage
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -331,7 +332,7 @@ export default function Industries() {
       {/* CTA Section */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=600&fit=crop"
             alt="Contact"
             className="w-full h-full object-cover"

@@ -66,7 +66,7 @@ export const caseStudies: CaseStudy[] = [
     tags: ['LiDAR', 'Computer Vision', 'GIS', 'Infrastructure'],
     image: '/pillars/lidar_infrastructure.webp',
     challenge:
-      'Raw LiDAR and imagery held the asset detail engineering teams needed, but not in a form they could plan against  features were unextracted, unclassified and unreconciled with the existing asset record.',
+      'Raw LiDAR and imagery held the asset detail engineering teams needed, but not in a form they could plan against — features were unextracted, unclassified and unreconciled with the existing asset record.',
     role: 'Data operations partner for feature extraction, classification, validation and GIS delivery.',
     operatingModel:
       'Process and Validate. Automated extraction paired with human-in-the-loop review, so accuracy rests on reviewer calibration and sampling rather than model confidence alone.',

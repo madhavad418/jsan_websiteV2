@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { Link } from 'react-router-dom'
 import SectionLabel from './SectionLabel'
 import type { LucideIcon } from 'lucide-react'
@@ -240,7 +241,7 @@ export default function IndustryJourney({
                 {step.image && (
                   <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
                     <div className="overflow-hidden rounded-sm bg-gray-100">
-                      <img
+                      <OptimizedImage
                         src={step.image}
                         alt={step.imageAlt ?? ''}
                         width={1200}
@@ -265,7 +266,7 @@ export default function IndustryJourney({
             <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16">
               {useCasesImage && (
                 <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
-                  <img
+                  <OptimizedImage
                     src={useCasesImage}
                     alt={useCasesImageAlt ?? ''}
                     width={1200}

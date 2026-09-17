@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Globe2, Search, Radar, Filter, GitCompare, MapPinned, Crosshair, ShieldCheck, FileSpreadsheet, Wallet, Layers, CheckCircle, Award, Database } from 'lucide-react'
 import Header from '../../components/Header'
@@ -15,8 +16,8 @@ const stats = [
    stats so the page reads as "built, proven, and configurable to you" rather
    than as a tally of the runs completed so far. */
 const tailored = [
-  { icon: MapPinned, title: 'Any Geography', description: 'A single district, a city, a region or a national rollout  the coverage model scales to whatever area your programme needs.' },
-  { icon: Layers, title: 'Any POI Category', description: 'Retail, hospitality, healthcare, automotive, services  classification is configured to the categories that matter to you.' },
+  { icon: MapPinned, title: 'Any Geography', description: 'A single district, a city, a region or a national rollout — the coverage model scales to whatever area your programme needs.' },
+  { icon: Layers, title: 'Any POI Category', description: 'Retail, hospitality, healthcare, automotive, services — classification is configured to the categories that matter to you.' },
   { icon: Globe2, title: 'Your Data Sources', description: 'We compare the map and POI providers your business actually depends on, not a fixed pair.' },
 ]
 
@@ -104,7 +105,7 @@ export default function JsanGeoDiscover() {
                 Cross-Provider POI Discovery &amp; Verification
               </p>
               <p className="mb-9 max-w-2xl text-lg leading-relaxed text-gray-600">
-                Our own platform for comparing point-of-interest coverage across independent map providers and showing what each one is missing  every finding backed by evidence, delivered as an audit-ready workbook, configured to your geography and your categories.
+                Our own platform for comparing point-of-interest coverage across independent map providers and showing what each one is missing — every finding backed by evidence, delivered as an audit-ready workbook, configured to your geography and your categories.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
@@ -199,7 +200,7 @@ export default function JsanGeoDiscover() {
             <div className="relative">
               <div className="absolute -inset-3 bg-gradient-to-r from-[#0050a9]/10 to-cyan-500/10 rounded-3xl blur-2xl"></div>
               <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-xl bg-white">
-                <img
+                <OptimizedImage
                   src="/products/geo.png"
                   alt="JSAN GeoDiscover executive summary"
                   className="w-full object-contain"

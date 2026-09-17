@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import SectionLabel from '../components/SectionLabel'
 import { ArrowRight } from 'lucide-react'
@@ -37,7 +38,7 @@ export default function Capabilities() {
           <>
             Connected capability pillars, run as{' '}
             <strong className="font-semibold text-white">one operating model</strong> rather than
-            separate suppliers  from mobilising crews in the field to the systems your teams work in
+            separate suppliers — from mobilising crews in the field to the systems your teams work in
             every day.
           </>
         }
@@ -84,7 +85,7 @@ export default function Capabilities() {
                       imageFirst ? '' : 'lg:order-2'
                     }`}
                   >
-                    <img
+                    <OptimizedImage
                       src={pillar.image}
                       alt=""
                       width={1200}

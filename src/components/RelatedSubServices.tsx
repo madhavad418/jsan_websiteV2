@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
@@ -55,7 +56,7 @@ export default function RelatedSubServices({
               to={`${basePath}/${item.slug}`}
               className="group relative flex h-[260px] flex-col justify-end overflow-hidden rounded-2xl shadow-md transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_55px_-20px_rgba(1,47,98,0.7)]"
             >
-              <img
+              <OptimizedImage sizes="(min-width: 768px) 33vw, 100vw"
                 src={item.bgImage}
                 alt={item.title}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"

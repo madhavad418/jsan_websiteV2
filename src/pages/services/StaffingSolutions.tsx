@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Users, UserPlus, Briefcase, Target, CheckCircle, Play, ArrowRight, Building2, Code, Database, Shield, BarChart3, Headphones, Search, Handshake } from 'lucide-react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -39,7 +40,7 @@ const staffingModels = [
   {
     icon: Handshake,
     title: 'RPO Services',
-    description: 'Recruitment Process Outsourcing to handle your entire talent acquisition function end-to-end.',
+    description: 'Recruitment Process Outsourcing to handle your entire talent acquisition function end to end.',
   },
 ]
 
@@ -78,7 +79,7 @@ export default function StaffingSolutions() {
       {/* Hero Section */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden pt-28 lg:pt-32 pb-28 lg:pb-32" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage loading="eager" fetchPriority="high"
             src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600"
             alt="Professional team and staffing solutions"
             className="w-full h-full object-cover"
@@ -125,7 +126,7 @@ export default function StaffingSolutions() {
               <div className="relative w-full max-w-lg ml-auto">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 border border-white/20 shadow-2xl overflow-hidden">
                   <div className="relative w-full h-80 rounded-xl overflow-hidden">
-                    <img
+                    <OptimizedImage
                       src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800"
                       alt="Professional team collaboration"
                       className="w-full h-full object-cover"

@@ -166,7 +166,7 @@ export default function CapabilityDetail() {
               </p>
               <div className="space-y-4">
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="group flex items-center gap-4 rounded-xl border border-white/10 bg-white/10 p-5 transition-colors hover:bg-white/15"
                 >
                   <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-[#00d4ff]/20">

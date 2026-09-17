@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { Check } from 'lucide-react'
@@ -89,7 +90,7 @@ export default function SplitQuoteHero({
           />
 
           <div className="relative overflow-hidden rounded-3xl bg-gray-100 shadow-[0_28px_60px_-32px_rgba(1,47,98,0.55)]">
-            <img
+            <OptimizedImage
               src={image}
               alt={imageAlt}
               loading="eager"

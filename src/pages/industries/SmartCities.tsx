@@ -26,7 +26,7 @@ export default function SmartCities() {
       eyebrowIcon={Building2}
       title="Decisions about public infrastructure need evidence behind them"
       subtitle="From field evidence to defensible governance."
-      description="For municipalities, agencies and public infrastructure bodies where a decision has to be explainable months later  to an auditor, a council, or a resident who asks why."
+      description="For municipalities, agencies and public infrastructure bodies where a decision has to be explainable months later — to an auditor, a council, or a resident who asks why."
       stats={stats}
       image="/pillars/smart_city.webp"
       copySide="right"
@@ -84,7 +84,7 @@ export default function SmartCities() {
           stage: 'Infrastructure',
           title: 'Apply it to the actual decisions',
           description:
-            'Condition, risk and accessibility analysis feeding maintenance prioritisation, capital planning and works programmes  the decisions the survey was funded for.',
+            'Condition, risk and accessibility analysis feeding maintenance prioritisation, capital planning and works programmes — the decisions the survey was funded for.',
           icon: Construction,
           image: '/pillars/decisions.webp',
           imageAlt: 'Infrastructure condition and maintenance planning',

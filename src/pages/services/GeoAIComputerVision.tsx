@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Brain, ScanEye, Layers, Radar, Boxes, Tags, ShieldCheck, Target, Database, Workflow, RefreshCw, CheckCircle, Gauge, Satellite, Cpu, ListChecks, UserCheck, Crosshair } from 'lucide-react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -117,7 +118,7 @@ const stack = ['PyTorch', 'TensorFlow', 'YOLO / Detectron2', 'U-Net & Mask R-CNN
 
 const stats = [
   ...specialistStat(serviceSplit, 'geoai-computer-vision'),
-  { value: '95%+', label: 'Trained Class Accuracy' },
+  { value: 'Per-Class', label: 'Accuracy Reports' },
 ]
 
 export default function GeoAIComputerVision() {
@@ -243,7 +244,7 @@ export default function GeoAIComputerVision() {
 
             <div className="lg:pt-2">
               <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <img src="/pillars/AI.webp" alt="GeoAI model development" className="w-full h-64 md:h-80 object-cover" />
+                <OptimizedImage src="/pillars/AI.webp" alt="GeoAI model development" className="w-full h-64 md:h-80 object-cover" />
               </div>
 
               <div className="mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">

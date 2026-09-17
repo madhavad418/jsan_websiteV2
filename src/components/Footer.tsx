@@ -115,11 +115,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 lg:col-span-5">
             <Link to="/" className="inline-block">
-              <img src="/logo-white.png" alt="JSAN" width={376} height={120} className="h-auto w-[160px]" />
+              <img src="/logo-white.webp" alt="JSAN" width={376} height={120} loading="lazy" decoding="async" className="h-auto w-[160px]" />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">
               Real-World Operations. Spatial Intelligence. Digital Engineering. Supporting global
-              mapping, mobility, telecom and infrastructure programs  from field mobilisation and
+              mapping, mobility, telecom and infrastructure programs — from field mobilisation and
               data collection through engineering, GeoAI, quality assurance and managed operations.
             </p>
 

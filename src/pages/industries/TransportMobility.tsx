@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import {
   Truck,
@@ -64,10 +65,10 @@ const caseStudy = {
   title: 'National Logistics Provider',
   description: 'A leading logistics company with 500+ vehicles transformed their operations with our integrated transport management solution.',
   results: [
-    { metric: '35%', label: 'Fuel Cost Reduction' },
-    { metric: '40%', label: 'Improved On-time Delivery' },
-    { metric: '50%', label: 'Reduced Idle Time' },
-    { metric: '20%', label: 'Fleet Utilization Increase' }
+    { metric: 'Lower', label: 'Fuel Costs' },
+    { metric: 'Better', label: 'On-time Delivery' },
+    { metric: 'Less', label: 'Idle Time' },
+    { metric: 'Higher', label: 'Fleet Utilization' }
   ]
 }
 
@@ -164,7 +165,7 @@ export default function TransportMobility() {
               </div>
             </div>
             <div className="relative">
-              <img
+              <OptimizedImage
                 src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&h=600&fit=crop"
                 alt="Transportation Technology"
                 className="rounded-2xl shadow-2xl"

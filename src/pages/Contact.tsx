@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 ﻿import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
@@ -173,7 +174,7 @@ export default function Contact() {
               className="pointer-events-none absolute -bottom-7 -left-7 hidden h-[46%] w-[52%] rounded-2xl bg-[#e6eefb] lg:block"
             />
             <div className="relative overflow-hidden rounded-3xl bg-gray-100 shadow-[0_28px_60px_-32px_rgba(1,47,98,0.5)]">
-              <img
+              <OptimizedImage
                 src={HERO_IMAGE}
                 alt="JSAN office"
                 loading="eager"
@@ -205,7 +206,7 @@ export default function Contact() {
             </p>
             <p className="mb-7 max-w-lg text-lg leading-relaxed text-gray-600">
               Whether you have a question about our services, want to explore partnership opportunities,
-              or need expert guidance on your next project  we're here to help.
+              or need expert guidance on your next project — we're here to help.
             </p>
 
             <div className="mb-7 flex flex-wrap gap-x-8 gap-y-3">
@@ -503,7 +504,7 @@ export default function Contact() {
               Our Offices Around the World
             </h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              25+ locations across 4 continents. Hover or tap any point on the map to see the office and its address.
+              25+ offices across EMEA, the Americas and APAC. Hover or tap any point on the map to see the office and its address.
             </p>
           </div>
 
@@ -513,7 +514,7 @@ export default function Contact() {
           <div className="mt-10 flex flex-col items-center gap-2 text-center">
             <div className="flex items-center justify-center gap-2 text-gray-600 max-w-2xl">
               <MapPin className="w-5 h-5 text-[#0050a9] flex-shrink-0" />
-              <span className="font-medium">Global Headquarters  Profile West, 950 Great West Road, Brentford, Middlesex, TW8 9ES, United Kingdom</span>
+              <span className="font-medium">Global Headquarters — Profile West, 950 Great West Road, Brentford, Middlesex, TW8 9ES, United Kingdom</span>
             </div>
             <a
               href="https://www.google.com/maps/search/?api=1&query=Profile+West%2C+950+Great+West+Road%2C+Brentford%2C+Middlesex%2C+TW8+9ES%2C+United+Kingdom"
@@ -539,7 +540,7 @@ export default function Contact() {
               Our Global Presence
             </h2>
             <p className="text-white/70 text-xl max-w-3xl mx-auto">
-              With 25+ offices across 4 continents, we're positioned to serve you wherever you are.
+              With 25+ offices across EMEA, the Americas and APAC, we're positioned to serve you wherever you are.
             </p>
           </div>
 
@@ -568,7 +569,7 @@ export default function Contact() {
                   }`}
                 >
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img
+                    <OptimizedImage
                       src={region.image}
                       alt={region.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"

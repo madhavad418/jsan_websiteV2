@@ -31,6 +31,10 @@ const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), 'dist')
 const EXACT_REDIRECTS = new Map(
   redirects.filter((r) => !r.from.endsWith('/*')).map((r) => [r.from, r])
 )
+/** Legacy .html URLs from the pre-2026 site were indexed in more than one casing. */
+const LEGACY_HTML_REDIRECTS = new Map(
+  redirects.filter((r) => r.from.endsWith('.html')).map((r) => [r.from.toLowerCase(), r])
+)
 const PREFIX_REDIRECTS = redirects
   .filter((r) => r.from.endsWith('/*'))
   .map((r) => ({ prefix: r.from.slice(0, -2), ...r }))
@@ -66,7 +70,7 @@ const stripSlash = (p) => (p.length > 1 && p.endsWith('/') ? p.slice(0, -1) : p)
 function migrationFor(pathname) {
   const path = stripSlash(pathname)
 
-  const exact = EXACT_REDIRECTS.get(path)
+  const exact = EXACT_REDIRECTS.get(path) ?? LEGACY_HTML_REDIRECTS.get(path.toLowerCase())
   if (exact) return { redirect: exact.to, status: exact.status ?? 301 }
 
   for (const rule of PREFIX_REDIRECTS) {
@@ -126,7 +130,8 @@ const COMPRESSIBLE = new Set([
 /** Vite fingerprints everything under /assets, so those can be cached forever. */
 const cacheControlFor = (pathname, ext) => {
   if (ext === '.html') return 'no-cache'
-  if (pathname.startsWith('/assets/')) return 'public, max-age=31536000, immutable'
+  // /optimized/ derivatives are named by a hash of their source image.
+  if (pathname.startsWith('/assets/') || pathname.startsWith('/optimized/')) return 'public, max-age=31536000, immutable'
   return 'public, max-age=86400'
 }
 

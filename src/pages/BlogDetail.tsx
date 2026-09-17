@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { useParams, Link } from 'react-router-dom'
 import NotFound from './NotFound'
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react'
@@ -6,6 +7,7 @@ import Footer from '../components/Footer'
 import MobileNav from '../components/MobileNav'
 import { type BlogBlock } from '../data/blogs'
 import { useBlogs } from '../lib/useContent'
+import { optimizedSrc } from '../lib/optimizedSrc'
 
 export default function BlogDetail() {
   const { slug } = useParams<{ slug: string }>()
@@ -27,7 +29,7 @@ export default function BlogDetail() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 lg:pb-28" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img src={blog.image} alt={blog.title} className="w-full h-full object-cover" />
+          <OptimizedImage loading="eager" fetchPriority="high" src={blog.image} alt={blog.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(120deg, rgba(1,47,98,0.92), rgba(0,85,180,0.8))' }} />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-6">
@@ -53,7 +55,7 @@ export default function BlogDetail() {
             aria-hidden
             className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundImage: `url(${blog.backgroundImage})`,
+              backgroundImage: `url(${optimizedSrc(blog.backgroundImage)})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
@@ -83,7 +85,7 @@ export default function BlogDetail() {
               if (block.type === 'image') {
                 return (
                   <figure key={idx} className="my-8">
-                    <img
+                    <OptimizedImage
                       src={block.url}
                       alt={block.alt || block.caption || ''}
                       loading="lazy"
@@ -118,7 +120,7 @@ export default function BlogDetail() {
                   className="group bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-500 border border-gray-100 hover:-translate-y-1.5 hover:border-[#0050a9]/25 hover:shadow-[0_24px_50px_-20px_rgba(0,80,169,0.55)]"
                 >
                   <div className="h-40 overflow-hidden">
-                    <img src={b.image} alt={b.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[900ms] ease-out" />
+                    <OptimizedImage src={b.image} alt={b.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[900ms] ease-out" />
                   </div>
                   <div className="p-5">
                     <h3 className="text-base font-bold text-gray-900 mb-2 group-hover:text-[#0050a9] transition-colors leading-snug">{b.title}</h3>

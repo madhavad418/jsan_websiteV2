@@ -5,6 +5,17 @@
       "destination": "/"
     }
   ],
+  "headers": [
+    {
+      "source": "/optimized/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
   "redirects": [
     {
       "source": "/capabilities/application-support",
@@ -144,6 +155,146 @@
     {
       "source": "/services/location-intelligence/advance-analytics",
       "destination": "/services/location-intelligence/advanced-analytics",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/About.html",
+      "destination": "/company",
+      "permanent": true
+    },
+    {
+      "source": "/company/About-Us.html",
+      "destination": "/company",
+      "permanent": true
+    },
+    {
+      "source": "/Contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact/Contact-form.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/Locations.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact/Locations.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/Privacy-Policy.html",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/Services.html",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/Technologies.html",
+      "destination": "/technologies",
+      "permanent": true
+    },
+    {
+      "source": "/services/Business-Advisory.html",
+      "destination": "/services/business-advisory",
+      "permanent": true
+    },
+    {
+      "source": "/services/GIS.html",
+      "destination": "/services/geospatial",
+      "permanent": true
+    },
+    {
+      "source": "/services/Programme-Management.html",
+      "destination": "/services/program-management",
+      "permanent": true
+    },
+    {
+      "source": "/services/Staffing-Solutions.html",
+      "destination": "/services/staffing-solutions",
+      "permanent": true
+    },
+    {
+      "source": "/services/Technology-Consultancy.html",
+      "destination": "/services/technology-consultancy",
+      "permanent": true
+    },
+    {
+      "source": "/technologies/API-Integration.html",
+      "destination": "/technologies/api-integration",
+      "permanent": true
+    },
+    {
+      "source": "/technologies/Analytics-Information-Management.html",
+      "destination": "/technologies/analytics",
+      "permanent": true
+    },
+    {
+      "source": "/technologies/Cloud-Technologies.html",
+      "destination": "/technologies/cloud",
+      "permanent": true
+    },
+    {
+      "source": "/technologies/Cyber-Security.html",
+      "destination": "/technologies/cyber-security",
+      "permanent": true
+    },
+    {
+      "source": "/technologies/Data-warehouse.html",
+      "destination": "/technologies/data-warehouse",
+      "permanent": true
+    },
+    {
+      "source": "/technologies/DevOps.html",
+      "destination": "/technologies/devops",
+      "permanent": true
+    },
+    {
+      "source": "/technologies/ERP-SAP-P_Soft-Oracle_Siebel-Ariba.html",
+      "destination": "/services/erp",
+      "permanent": true
+    },
+    {
+      "source": "/technologies/GIS-Technologies.html",
+      "destination": "/technologies/gis",
+      "permanent": true
+    },
+    {
+      "source": "/technologies/IT-Infrastructure-and-Managed-Services.html",
+      "destination": "/technologies/it-infrastructure",
+      "permanent": true
+    },
+    {
+      "source": "/technologies/Intelligent-automation-and-robotics.html",
+      "destination": "/technologies/automation",
+      "permanent": true
+    },
+    {
+      "source": "/technologies/Web-Technologies.html",
+      "destination": "/technologies/web",
+      "permanent": true
+    },
+    {
+      "source": "/industires",
+      "destination": "/industries",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/insights",
       "permanent": true
     }
   ]

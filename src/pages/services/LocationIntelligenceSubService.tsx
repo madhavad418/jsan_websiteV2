@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { useParams, Link } from 'react-router-dom'
 import { ArrowRight, CheckCircle, Globe, Target, Shield, Clock, DollarSign, Zap, MapPin, Cpu, BarChart3, Layers, Network, Brain, Eye, Database, Map, Navigation, Compass, TrendingUp, Users, Settings, Search } from 'lucide-react'
 import Header from '../../components/Header'
@@ -5,6 +6,7 @@ import Footer from '../../components/Footer'
 import MobileNav from '../../components/MobileNav'
 import RelatedSubServices from '../../components/RelatedSubServices'
 import ServiceContactForm from '../../components/ServiceContactForm'
+import NotFound from '../NotFound'
 
 interface SubServiceData {
   slug: string
@@ -26,7 +28,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Collect, Enrich & Structure Location Data at Scale',
     subtitle: 'From Raw Data to Decision-Ready Intelligence',
     description:
-      'We capture, clean, and enhance geospatial data from diverse sources  field surveys, satellite imagery, public databases, and IoT sensors  transforming raw information into structured, analysis-ready datasets that power enterprise decision-making.',
+      'We capture, clean, and enhance geospatial data from diverse sources — field surveys, satellite imagery, public databases, and IoT sensors — transforming raw information into structured, analysis-ready datasets that power enterprise decision-making.',
     bgImage: '/pillars/data-capture.webp',
     advantages: [
       { icon: Database, text: 'Multi-source data integration from field, aerial, and digital sources' },
@@ -37,8 +39,8 @@ const subServiceData: SubServiceData[] = [
     ],
     idealFor: ['Telecom operators', 'Logistics companies', 'Retail chains', 'Government agencies', 'Real estate developers'],
     businessImpact: [
-      'Up to 95% improvement in data accuracy and completeness',
-      'Reduced data processing time by 70% through automation',
+      'Improved data accuracy and completeness',
+      'Shorter data processing times through automation',
       'Single source of truth for all location-based datasets',
       'Faster time-to-insight with analysis-ready data',
       'Reduced costs of manual data entry and correction',
@@ -58,7 +60,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Turn Location Data into Predictive Intelligence',
     subtitle: 'Spatial Data Science for Smarter Decisions',
     description:
-      'Our advanced analytics solutions combine spatial data science with machine learning to uncover hidden patterns, forecast trends, and deliver actionable insights  from demand prediction and site selection to risk modelling and market intelligence.',
+      'Our advanced analytics solutions combine spatial data science with machine learning to uncover hidden patterns, forecast trends, and deliver actionable insights — from demand prediction and site selection to risk modelling and market intelligence.',
     bgImage: '/pillars/advance-analytics.webp',
     advantages: [
       { icon: Brain, text: 'Machine learning models trained on geospatial features' },
@@ -69,9 +71,9 @@ const subServiceData: SubServiceData[] = [
     ],
     idealFor: ['Retail & FMCG brands', 'Financial institutions', 'Urban planners', 'Healthcare networks', 'Logistics providers'],
     businessImpact: [
-      'Optimised site selection reducing location risk by 40%',
-      'Predictive models with 90%+ accuracy on spatial features',
-      'Reduced planning cycle times by up to 60%',
+      'Optimized site selection that lowers location risk',
+      'Predictive models validated against real spatial data',
+      'Shorter, better-informed planning cycles',
       'Data-backed expansion and market penetration strategies',
       'Improved resource allocation through spatial optimization',
     ],
@@ -90,7 +92,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Purpose-Built Geospatial Applications',
     subtitle: 'Your Vision, Our Engineering',
     description:
-      'We design and develop custom location intelligence platforms  from interactive web dashboards and mobile field apps to full-scale enterprise GIS portals  tailored to your workflows, data, and business objectives.',
+      'We design and develop custom location intelligence platforms — from interactive web dashboards and mobile field apps to full-scale enterprise GIS portals — tailored to your workflows, data, and business objectives.',
     bgImage: '/pillars/custom-platforms.webp',
     advantages: [
       { icon: Settings, text: 'Fully customised UI/UX designed for your specific workflows' },
@@ -102,7 +104,7 @@ const subServiceData: SubServiceData[] = [
     idealFor: ['Large enterprises', 'Government departments', 'Utility companies', 'Transport authorities', 'Smart city initiatives'],
     businessImpact: [
       'Unified platform replacing multiple disconnected tools',
-      'Reduced operational overhead by up to 50%',
+      'Helps reduce operational overhead',
       'Faster decision-making with real-time location context',
       'Scalable solution supporting thousands of concurrent users',
       'Lower total cost of ownership vs. off-the-shelf products',
@@ -133,7 +135,7 @@ const subServiceData: SubServiceData[] = [
     ],
     idealFor: ['C-suite executives', 'Digital transformation leaders', 'IT directors', 'GIS managers', 'Public sector strategists'],
     businessImpact: [
-      'Clear roadmap reducing implementation risk by 60%',
+      'Clear roadmap that lowers implementation risk',
       'Aligned technology investments with measurable ROI',
       'Improved cross-departmental adoption of location data',
       'Reduced vendor lock-in through strategic architecture',
@@ -154,7 +156,7 @@ const subServiceData: SubServiceData[] = [
     title: 'Precision Routing & Navigation Solutions',
     subtitle: 'Powering Movement with Accurate Location Data',
     description:
-      'We build, maintain, and enhance navigation datasets  from road networks and address databases to real-time traffic and fleet routing  powering logistics, delivery, ride-hailing, and autonomous mobility applications across regions.',
+      'We build, maintain, and enhance navigation datasets — from road networks and address databases to real-time traffic and fleet routing — powering logistics, delivery, ride-hailing, and autonomous mobility applications across regions.',
     bgImage: '/pillars/navigation-data.webp',
     advantages: [
       { icon: Navigation, text: 'High-precision road network mapping with turn restrictions' },
@@ -165,7 +167,7 @@ const subServiceData: SubServiceData[] = [
     ],
     idealFor: ['Logistics companies', 'Ride-hailing platforms', 'Delivery services', 'Automotive OEMs', 'Municipal transport authorities'],
     businessImpact: [
-      'Reduced delivery times by up to 25% with optimised routing',
+      'Shorter delivery times with optimized routing',
       'Improved address accuracy eliminating failed deliveries',
       'Real-time fleet visibility and dynamic rerouting',
       'Reduced fuel costs through efficient route planning',
@@ -187,16 +189,8 @@ export default function LocationIntelligenceSubService() {
   const service = subServiceData.find((s) => s.slug === slug)
 
   if (!service) {
-    return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Service Not Found</h1>
-          <Link to="/services/location-intelligence" className="text-[#0050a9] hover:underline">
-            &larr; Back to Location Intelligence
-          </Link>
-        </div>
-      </div>
-    )
+    // Soft-404 guard: NotFound marks the view noindex.
+    return <NotFound />
   }
 
   return (
@@ -206,7 +200,7 @@ export default function LocationIntelligenceSubService() {
       {/* Hero */}
       <section className="relative overflow-hidden pt-28 lg:pt-36 pb-20 lg:pb-28" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
+          <OptimizedImage loading="eager" fetchPriority="high" src={service.bgImage} alt={service.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
 
@@ -302,7 +296,7 @@ export default function LocationIntelligenceSubService() {
                 What We Deliver
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Every engagement produces a comprehensive deliverable package  field-validated, quality-assured, and ready for integration into your enterprise systems.
+                Every engagement produces a comprehensive deliverable package — field-validated, quality-assured, and ready for integration into your enterprise systems.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {service.deliverables.map((item, i) => (

@@ -7,7 +7,7 @@ const differentiators = [
   {
     icon: Layers,
     title: 'End-to-End Expertise',
-    description: 'Unlike niche providers, we cover the entire geospatial value chain - from field data collection to AI-powered analytics and custom software development - all under one roof.',
+    description: 'Unlike niche providers, we cover the entire geospatial value chain — from field data collection to AI-powered analytics and custom software development — all under one roof.',
   },
   {
     icon: Cpu,
@@ -22,7 +22,7 @@ const differentiators = [
   {
     icon: Package,
     title: 'Turnkey Ownership',
-    description: "We don't just deliver reports - we build, deploy, and optimize solutions tailored to your operational workflows.",
+    description: "We don't just deliver reports — we build, deploy, and optimize solutions tailored to your operational workflows.",
   },
   {
     icon: Shield,

@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Boxes, CheckCircle } from 'lucide-react'
 import Header from '../components/Header'
@@ -84,7 +85,7 @@ export default function InHouseProducts() {
               >
                 <div className={i % 2 === 1 ? 'lg:order-2' : undefined}>
                   <div className="overflow-hidden rounded-2xl bg-gray-100 shadow-xl">
-                    <img
+                    <OptimizedImage
                       src={product.image}
                       alt={product.imageAlt}
                       className="h-[260px] w-full object-cover sm:h-[320px] lg:h-[380px]"

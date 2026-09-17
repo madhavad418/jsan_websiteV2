@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import {
   Users,
@@ -70,7 +71,7 @@ const solutions = [
 
 const partnerBenefits = [
   'Access to 1,500+ skilled GIS and IT professionals',
-  'Flexible engagement models - project, staff aug, managed services',
+  'Flexible engagement models — project, staff aug, managed services',
   'Global delivery capabilities across 25+ countries',
   'Proven track record with Fortune 500 clients',
   'Competitive pricing with quality assurance',
@@ -217,7 +218,7 @@ export default function Consulting() {
               </ul>
             </div>
             <div className="relative">
-              <img
+              <OptimizedImage
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop"
                 alt="Partnership collaboration"
                 className="rounded-2xl shadow-xl"

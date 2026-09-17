@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import SectionLabel from './SectionLabel'
@@ -47,7 +48,7 @@ export default function FeaturedWork() {
               to={`/work/${cs.slug}`}
               className="group relative flex h-[380px] flex-col justify-end overflow-hidden rounded-2xl lg:h-[460px]"
             >
-              <img
+              <OptimizedImage
                 src={cs.image}
                 alt=""
                 aria-hidden="true"

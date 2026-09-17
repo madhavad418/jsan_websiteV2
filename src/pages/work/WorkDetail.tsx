@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import Header from '../../components/Header'
@@ -36,7 +37,7 @@ export default function WorkDetail() {
       {/* Hero */}
       <section className="relative overflow-hidden" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage loading="eager" fetchPriority="high"
             src={study.image}
             alt=""
             aria-hidden="true"

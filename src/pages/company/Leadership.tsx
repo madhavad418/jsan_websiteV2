@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Linkedin } from 'lucide-react'
@@ -33,7 +34,7 @@ function Avatar({ person }: { person: Leader }) {
   return (
     <div className="mx-auto mb-6 h-28 w-28 overflow-hidden rounded-full border border-gray-200 bg-[#eef3f9] lg:h-32 lg:w-32">
       {showPhoto ? (
-        <img
+        <OptimizedImage
           src={person.photo}
           alt=""
           aria-hidden="true"

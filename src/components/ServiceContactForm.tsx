@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 ﻿import { useState } from 'react'
 import { Mail, Clipboard, Check, ChevronRight, Users } from 'lucide-react'
 
@@ -194,7 +195,7 @@ export default function ServiceContactForm({ serviceName, subServices }: Service
           {/* Right: Info panel */}
           <div>
             <div className="relative h-full min-h-[500px] rounded-3xl overflow-hidden">
-              <img
+              <OptimizedImage
                 alt="Office"
                 src="https://img.freepik.com/premium-photo/cozy-coworking-interior-with-work-desk-pc-computer-panoramic-window_780608-11014.jpg"
                 className="absolute inset-0 w-full h-full object-cover"
@@ -235,7 +236,7 @@ export default function ServiceContactForm({ serviceName, subServices }: Service
                       <Users className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-semibold text-white text-sm">Grow With Us  Careers</h4>
+                      <h4 className="font-semibold text-white text-sm">Grow With Us — Careers</h4>
                       <a href="mailto:info@jsanconsulting.com" className="text-gray-300 text-sm hover:text-white transition-colors">
                         info@jsanconsulting.com                      </a>
                     </div>

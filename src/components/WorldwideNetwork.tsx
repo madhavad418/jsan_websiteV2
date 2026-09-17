@@ -57,7 +57,7 @@ export default function WorldwideNetwork() {
             Our Worldwide Network
           </h2>
           <p className="mx-auto max-w-2xl text-base text-gray-600 md:text-lg">
-            Registered offices across four continents, connected by the delivery links that move work
+            Registered offices across EMEA, the Americas and APAC, connected by the delivery links that move work
             between our regional hubs.
           </p>
         </div>

@@ -127,7 +127,7 @@ export const capabilityPillars: CapabilityPillar[] = [
     icon: Truck,
     summary: 'Stand up vehicles, sensors and crews in market, and run them safely at scale.',
     description:
-      'Managed collection fleets, country by country. Vehicles and sensor rigs, local driver and crew hiring, permits, drive planning and dispatch, live tracking, maintenance and safety  the operational machinery that turns a coverage target into kilometres actually driven.',
+      'Managed collection fleets, country by country. Vehicles and sensor rigs, local driver and crew hiring, permits, drive planning and dispatch, live tracking, maintenance and safety — the operational machinery that turns a coverage target into kilometres actually driven.',
     image: '/pillars/globalfleet.webp',
     imageAlt: 'JSAN collection fleet and field crews mobilised in market',
     stages: ['Mobilise', 'Collect', 'Operate'],

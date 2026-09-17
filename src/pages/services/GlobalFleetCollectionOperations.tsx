@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Car, Users, CalendarClock, Navigation, Wrench, ShieldCheck, ClipboardCheck, BadgeCheck, LifeBuoy, TrendingUp, Fuel, CheckCircle, Truck, Globe, GraduationCap } from 'lucide-react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -143,7 +144,7 @@ export default function GlobalFleetCollectionOperations() {
         eyebrowIcon={Truck}
         title={"Global Fleet & Collection Operations"}
         subtitle={"The field operation behind every kilometre of reliable data."}
-        description={"Deploy and manage vehicles, crews, sensors and collection programs across markets with centralized operational visibility."}
+        description={"Deploy and manage vehicles, crews, sensors and collection programmes across markets with centralized operational visibility."}
         image="/pillars/fleet_mobilise.webp"
         imageAlt="JSAN collection vehicles and field crew preparing sensor rigs before a drive"
         stats={stats}
@@ -238,7 +239,7 @@ export default function GlobalFleetCollectionOperations() {
 
             <div className="lg:pt-2">
               <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <img src="/pillars/globalfleet.webp" alt="Collection fleet on the road" className="w-full h-64 md:h-80 object-cover" />
+                <OptimizedImage src="/pillars/globalfleet.webp" alt="Collection fleet on the road" className="w-full h-64 md:h-80 object-cover" />
               </div>
 
               <div className="mt-8 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">

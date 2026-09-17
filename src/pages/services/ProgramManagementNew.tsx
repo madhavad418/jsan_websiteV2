@@ -55,7 +55,7 @@ export default function ProgramManagementNew() {
         description={"JSAN provides structured program management across field, data, engineering and technology operations with transparent governance, risk management and performance control."}
         image="/pillars/program_manage.webp"
         imageAlt="Program management excellence"
-        stats={[...specialistStat(serviceSplit, 'program-management'), { value: '98%', label: 'On-Time Delivery' }, { value: '25+', label: 'Countries' }]}
+        stats={[...specialistStat(serviceSplit, 'program-management'), { value: 'Transparent', label: 'Governance' }, { value: '25+', label: 'Countries' }]}
       />
 
       <GovernanceModel />

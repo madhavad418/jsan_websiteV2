@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
@@ -164,7 +165,7 @@ export default function StatementHero({
                 />
               ) : (
                 <>
-                  <img
+                  <OptimizedImage
                     src={image}
                     alt={imageAlt}
                     loading="eager"
@@ -189,7 +190,7 @@ export default function StatementHero({
             </div>
 
             {isCutout && (
-              <img
+              <OptimizedImage
                 src={image}
                 alt={imageAlt}
                 loading="eager"

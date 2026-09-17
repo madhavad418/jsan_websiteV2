@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
@@ -12,7 +13,7 @@ export default function FinalCTA() {
   return (
     <section className="section-y relative overflow-hidden">
       <div className="absolute inset-0">
-        <img
+        <OptimizedImage
           src="/pillars/navigation-data.webp"
           alt=""
           aria-hidden="true"

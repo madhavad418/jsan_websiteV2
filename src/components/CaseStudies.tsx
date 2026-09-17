@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { Play } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
@@ -29,7 +30,7 @@ export default function CaseStudies() {
     <>
       {/* Featured Banner */}
       <section className="featured-banner relative">
-        <img
+        <OptimizedImage
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&auto=format&fit=crop"
           alt="City skyline"
           className="w-full h-full object-cover"
@@ -64,7 +65,7 @@ export default function CaseStudies() {
           <div className="grid md:grid-cols-2 gap-6">
             {caseStudies.map((study, index) => (
               <div key={index} className="case-study-card group">
-                <img src={study.image} alt={study.title} />
+                <OptimizedImage src={study.image} alt={study.title} />
                 <div className="overlay" />
                 <div className="content">
                   <div className="industry-label">{study.industry}</div>
@@ -129,7 +130,7 @@ export default function CaseStudies() {
 
       {/* Report Banner */}
       <section className="relative h-[400px] overflow-hidden">
-        <img
+        <OptimizedImage
           src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1600&auto=format&fit=crop"
           alt="Professional"
           className="w-full h-full object-cover object-top"

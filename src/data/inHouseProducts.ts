@@ -39,7 +39,7 @@ export const inHouseProducts: InHouseProduct[] = [
     name: 'JSAN VTS',
     category: 'Vehicle Tracking System',
     brief:
-      'The fleet management system JSAN runs its own vehicles on. Real-time GPS tracking, driver assignment and records, route planning and operational oversight, across a web console for the operations desk and a mobile app for the crew. It is built around the way collection fleets actually work  shift handovers, multi-day deployments, vehicles moving between depots and countries  so what a programme manager gets is an operational picture rather than a raw position feed.',
+      'The fleet management system JSAN runs its own vehicles on. Real-time GPS tracking, driver assignment and records, route planning and operational oversight, across a web console for the operations desk and a mobile app for the crew. It is built around the way collection fleets actually work — shift handovers, multi-day deployments, vehicles moving between depots and countries — so what a programme manager gets is an operational picture rather than a raw position feed.',
     highlights: ['Real-time GPS tracking', 'Driver management', 'Route optimisation', 'Web and mobile'],
     image: '/pillars/vts.webp',
     imageAlt: 'JSAN VTS vehicle tracking console',
@@ -48,7 +48,7 @@ export const inHouseProducts: InHouseProduct[] = [
     name: 'JSAN POI Express',
     category: 'GIS Data Collection Platform',
     brief:
-      'Point-of-interest capture for field teams, offline first. Surveyors collect in areas with no signal and the app syncs when it can, so coverage is never limited to where the network reaches. AI assists detection, proposing obvious features instead of making someone type them, and smart polygons speed up footprint capture. Enterprise quality control runs before anything reaches the dataset  which matters on programmes collecting thousands of POIs a day, every one of which has to survive review.',
+      'Point-of-interest capture for field teams, offline first. Surveyors collect in areas with no signal and the app syncs when it can, so coverage is never limited to where the network reaches. AI assists detection, proposing obvious features instead of making someone type them, and smart polygons speed up footprint capture. Enterprise quality control runs before anything reaches the dataset — which matters on programmes collecting thousands of POIs a day, every one of which has to survive review.',
     highlights: ['Offline-first capture', 'AI POI detection', 'Smart polygons', 'Built-in QC'],
     image: '/pillars/poi_ex.webp',
     imageAlt: 'JSAN POI Express field data collection app',
@@ -66,7 +66,7 @@ export const inHouseProducts: InHouseProduct[] = [
     name: 'JSAN GeoDiscover',
     category: 'Cross-Provider POI Discovery',
     brief:
-      'Compares point-of-interest coverage across independent map providers and shows what each one is missing. A dual-provider sweep runs across your geography and your categories, and every finding is graded by evidence tier, so a gap can be trusted or challenged rather than simply asserted. Cost guardrails keep API spend predictable on large sweeps, and the output is an audited workbook rather than a raw dump  you can see how each gap was established.',
+      'Compares point-of-interest coverage across independent map providers and shows what each one is missing. A dual-provider sweep runs across your geography and your categories, and every finding is graded by evidence tier, so a gap can be trusted or challenged rather than simply asserted. Cost guardrails keep API spend predictable on large sweeps, and the output is an audited workbook rather than a raw dump — you can see how each gap was established.',
     highlights: ['Dual-provider sweep', 'Evidence tiers', 'Cost guardrails', 'Audited workbook'],
     image: '/pillars/geodiscover.webp',
     imageAlt: 'JSAN GeoDiscover cross-provider POI comparison',

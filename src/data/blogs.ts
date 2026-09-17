@@ -93,7 +93,7 @@ const blogs: Blog[] = [
   {
     slug: 'poi-data-urban-navigation',
     title: 'You Cannot Navigate a City You Cannot Describe',
-    excerpt: 'POI data is the structured intelligence beneath every urban search, navigation decision and wayfinding system that actually works  the question now is no longer about relevance, but whether yours is good enough.',
+    excerpt: 'POI data is the structured intelligence beneath every urban search, navigation decision and wayfinding system that actually works — the question now is no longer about relevance, but whether yours is good enough.',
     category: 'Location Intelligence',
     date: '2026-05-29',
     readTime: '4 min read',
@@ -176,7 +176,7 @@ const blogs: Blog[] = [
       { type: 'paragraph', text: 'From the data centre, traffic moves through high-capacity backbone networks, fiber optic rings carrying aggregate traffic across cities or national territories, handed off at Points of Presence (PoPs) where it gets sorted toward local distribution networks, then through aggregation nodes before reaching the end user. That final leg, from a local distribution point to a home or business, is what the industry calls the last mile, and it is deceptively named because it is consistently the most expensive and operationally difficult part of the chain.' },
       { type: 'heading', text: 'Why the Last Mile Costs So Much' },
       { type: 'paragraph', text: 'Fiber-to-the-Home (FTTH) delivers the highest performance by running fiber directly to individual premises, but it requires physical routing to every single address, which is where cost and complexity compound. Where full fiber is not yet deployed, fixed wireless access or mobile broadband fills the gap.' },
-      { type: 'paragraph', text: 'Every last-mile route involves road authority permits, wayleave agreements, which are legal rights to run cables through private or shared corridors, and conflicts with underground utilities that are often poorly documented. A poorly modelled route means permit reapplications, contractor standdowns and timeline failures cascading across entire program phases, turning one planning oversight into a capital problem nobody budgeted for.' },
+      { type: 'paragraph', text: 'Every last-mile route involves road authority permits, wayleave agreements, which are legal rights to run cables through private or shared corridors, and conflicts with underground utilities that are often poorly documented. A poorly modelled route means permit reapplications, contractor stand-downs and timeline failures cascading across entire program phases, turning one planning oversight into a capital problem nobody budgeted for.' },
       { type: 'heading', text: 'Under the Ocean' },
       { type: 'paragraph', text: 'Roughly 95 percent of all international internet traffic travels through subsea fiber optic cables on the ocean floor. Over 400 active systems stretch more than 1.3 million kilometres globally, and a single modern cable carries hundreds of terabits per second.' },
       { type: 'paragraph', text: 'Fishing trawlers, ship anchors, seismic activity and deep-sea pressure failures all cause damage, and repairs require specialist cable ships that take weeks to mobilise. In 2022, a volcanic eruption near Tonga severed the country’s only international cable link, cutting an entire nation off from global connectivity for weeks.' },
@@ -197,7 +197,7 @@ const blogs: Blog[] = [
   {
     slug: 'future-of-fiber-broadband-ai-era',
     title: 'Future of Fiber Broadband in the AI Era',
-    excerpt: 'As AI, 8K streaming, and IoT drive symmetrical bandwidth demand, FTTX is becoming the backbone of the intelligent digital economy  here is what is shaping its next phase.',
+    excerpt: 'As AI, 8K streaming, and IoT drive symmetrical bandwidth demand, FTTX is becoming the backbone of the intelligent digital economy — here is what is shaping its next phase.',
     category: 'Telecom',
     date: '2026-05-18',
     readTime: '5 min read',

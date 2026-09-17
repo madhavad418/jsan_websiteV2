@@ -27,7 +27,7 @@ export default function DigitalEngineering() {
       <CapabilityModules
         eyebrow="Capabilities"
         heading="From field workflow to business system"
-        intro="The systems that carry operational data the last mile  into the hands of the people who act on it."
+        intro="The systems that carry operational data the last mile — into the hands of the people who act on it."
         tone="white"
         modules={[
           {

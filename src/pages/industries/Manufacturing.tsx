@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { Link } from 'react-router-dom'
 import {
   Factory,
@@ -84,7 +85,7 @@ export default function Manufacturing() {
       {/* Hero Section */}
       <section className="relative min-h-[650px] flex items-center overflow-hidden pt-28 lg:pt-32 pb-28 lg:pb-32" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage loading="eager" fetchPriority="high"
             src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1920&h=1080&fit=crop"
             alt="Manufacturing and Supply Chain"
             className="w-full h-full object-cover"
@@ -164,7 +165,7 @@ export default function Manufacturing() {
                 The Future of Manufacturing is Digital
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Manufacturing is being transformed by Industry 4.0 technologies - IoT, AI, robotics, and advanced analytics. Companies that embrace digital transformation gain significant competitive advantages.
+                Manufacturing is being transformed by Industry 4.0 technologies — IoT, AI, robotics, and advanced analytics. Companies that embrace digital transformation gain significant competitive advantages.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
                 JSAN helps manufacturers implement smart factory solutions, optimize supply chains, and achieve operational excellence through data-driven decision making.
@@ -179,7 +180,7 @@ export default function Manufacturing() {
               </div>
             </div>
             <div className="relative">
-              <img
+              <OptimizedImage
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop"
                 alt="Manufacturing Technology"
                 className="rounded-2xl shadow-2xl"

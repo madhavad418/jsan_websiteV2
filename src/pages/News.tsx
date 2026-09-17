@@ -1,3 +1,4 @@
+import OptimizedImage from '../components/OptimizedImage'
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Calendar, ArrowRight, ArrowLeft, Linkedin, Globe, Users, Briefcase, MapPin, CalendarCheck, Handshake, CheckCircle2 } from 'lucide-react'
@@ -11,6 +12,7 @@ import LinkedInFeed from '../components/LinkedInFeed'
 import StatsBand from '../components/StatsBand'
 import NewsletterCTA from '../components/NewsletterCTA'
 import { useCountUp, useInView, parseStat } from '../lib/useCountUp'
+import NotFound from './NotFound'
 
 const linkedInStats = [
   { icon: Users, number: '5K+', label: 'Followers' },
@@ -187,7 +189,7 @@ export default function News() {
               </span>
 
               <div className="mb-4 h-40 overflow-hidden rounded-xl">
-                <img
+                <OptimizedImage
                   src={updates[0].image}
                   alt={updates[0].title}
                   className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
@@ -223,7 +225,7 @@ export default function News() {
             to={`/news/${featuredNews.slug}`}
             className="group relative flex min-h-[420px] flex-col justify-end overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-22px_rgba(1,47,98,0.75)] lg:min-h-[480px]"
           >
-            <img
+            <OptimizedImage
               src={featuredNews.image}
               alt={featuredNews.title}
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
@@ -308,7 +310,7 @@ export default function News() {
                   to={update.href}
                   className="group relative flex h-[400px] flex-col justify-end overflow-hidden rounded-2xl shadow-md transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_55px_-20px_rgba(1,47,98,0.7)]"
                 >
-                  <img
+                  <OptimizedImage
                     src={update.image}
                     alt={update.title}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-110"
@@ -412,28 +414,8 @@ export function NewsDetail() {
   const { slug } = useParams<{ slug: string }>()
   const article = newsArticles.find((a) => a.slug === slug)
 
-  if (!article) {
-    return (
-      <div className="min-h-screen bg-white">
-        <Header />
-        <section className="max-w-3xl mx-auto px-6 py-32 text-center" style={{ marginTop: '44px' }}>
-          <h1 className="text-[#0050a9] text-3xl font-bold mb-4">Article not found</h1>
-          <p className="text-gray-600 mb-8">
-            The news article you are looking for may have moved or no longer exists.
-          </p>
-          <Link
-            to="/insights"
-            className="inline-flex items-center gap-2 bg-[#0050a9] text-white px-6 py-3 rounded font-semibold hover:bg-[#153a62] transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Insights
-          </Link>
-        </section>
-        <Footer />
-        <MobileNav />
-      </div>
-    )
-  }
+  // A removed or mistyped story must not be indexed as a soft 404.
+  if (!article) return <NotFound />
 
   return (
     <div className="min-h-screen bg-white">
@@ -469,7 +451,7 @@ export function NewsDetail() {
       <article className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <div className="relative overflow-hidden rounded-lg mb-10">
-            <img
+            <OptimizedImage
               src={article.image}
               alt={article.title}
               className="w-full h-[280px] lg:h-[400px] object-cover"

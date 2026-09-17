@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { ClipboardList, Target, Users, BarChart3, Shield, Clock, Award, Play, ArrowRight, TrendingUp, DollarSign } from 'lucide-react'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -71,7 +72,7 @@ export default function ProgramManagement() {
       {/* Hero Section */}
       <section className="relative min-h-[600px] flex items-center overflow-hidden pt-28 lg:pt-32 pb-28 lg:pb-32" style={{ marginTop: '44px' }}>
         <div className="absolute inset-0">
-          <img
+          <OptimizedImage loading="eager" fetchPriority="high"
             src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600"
             alt="Program management and team collaboration"
             className="w-full h-full object-cover"
@@ -118,7 +119,7 @@ export default function ProgramManagement() {
               <div className="relative w-full max-w-lg ml-auto">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-3 border border-white/20 shadow-2xl overflow-hidden">
                   <div className="relative w-full h-80 rounded-xl overflow-hidden">
-                    <img
+                    <OptimizedImage
                       src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800"
                       alt="Team collaboration meeting"
                       className="w-full h-full object-cover"

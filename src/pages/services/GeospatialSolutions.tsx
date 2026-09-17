@@ -31,7 +31,7 @@ const subServices = [
   {
     slug: 'asset-management',
     category: 'ASSET MANAGEMENT',
-    title: 'Track, Monitor & Optimise Every Asset',
+    title: 'Track, Monitor & Optimize Every Asset',
     description:
       'With the help of location data, we track, visualize, and maintain physical infrastructure, spanning from utility networks, to energy infra, fleets and facilities. This gives real-times insights to companies enabling proactive maintenance and comprehensive lifecycle planning.',
     bgImage: '/pillars/asset-management.webp',

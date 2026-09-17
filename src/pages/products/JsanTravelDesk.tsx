@@ -1,3 +1,4 @@
+import OptimizedImage from '../../components/OptimizedImage'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { GitBranch, UserCheck, FileText, Wallet, Building2, Car, Plane, CheckCircle, Eye, Users, ClipboardCheck, History, X, ZoomIn, Star, ArrowRight, Globe, Clock, TrendingUp, Award, Calendar } from 'lucide-react'
@@ -53,9 +54,9 @@ const roles = [
 ]
 
 const benefits = [
-  { value: '100%', label: 'Visibility', description: 'Complete tracking of all requests', icon: Eye },
-  { value: '50%', label: 'Time Saved', description: 'Streamlined approval process', icon: Clock },
-  { value: '30%', label: 'Cost Reduction', description: 'Better vendor negotiations', icon: TrendingUp },
+  { value: 'Full', label: 'Visibility', description: 'Complete tracking of all requests', icon: Eye },
+  { value: 'Faster', label: 'Approvals', description: 'Streamlined approval process', icon: Clock },
+  { value: 'Lower', label: 'Travel Costs', description: 'Better vendor negotiations', icon: TrendingUp },
 ]
 
 const productScreenshots = [
@@ -106,9 +107,9 @@ const testimonials = [
 
 const stats = [
   { value: '1000+', label: 'Services Managed', icon: Calendar },
-  { value: '50%', label: 'Time Saved', icon: Clock },
-  { value: '30%', label: 'Cost Reduction', icon: TrendingUp },
-  { value: '99%', label: 'Client Satisfaction', icon: Star },
+  { value: 'Faster', label: 'Approvals', icon: Clock },
+  { value: 'Lower', label: 'Travel Costs', icon: TrendingUp },
+  { value: 'Full', label: 'Request Tracking', icon: Star },
 ]
 
 export default function JsanTravelDesk() {
@@ -379,7 +380,7 @@ export default function JsanTravelDesk() {
               >
                 {/* Image Container */}
                 <div className="relative overflow-hidden">
-                  <img
+                  <OptimizedImage
                     src={screenshot.image}
                     alt={screenshot.title}
                     className="w-full h-64 lg:h-72 object-contain object-center transform group-hover:scale-105 transition-transform duration-700"
@@ -433,7 +434,7 @@ export default function JsanTravelDesk() {
             </button>
             {/* Modal Image */}
             <div className="relative bg-gray-100">
-              <img
+              <OptimizedImage
                 src={selectedImage.image}
                 alt={selectedImage.title}
                 className="w-full max-h-[70vh] object-contain"

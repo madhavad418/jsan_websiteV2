@@ -51,7 +51,7 @@ const services = [
   {
     icon: Users,
     title: 'Staffing Solutions',
-    description: 'People as a Service - Your global recruitment partner for top IT talent.',
+    description: 'People as a Service — Your global recruitment partner for top IT talent.',
     features: ['Contract Staffing', 'Permanent Placement', 'Team Augmentation'],
     gradient: 'from-sky-500 via-blue-500 to-jsan-primary',
     glowColor: 'group-hover:shadow-sky-500/25',

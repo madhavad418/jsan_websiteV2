@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { useState } from 'react'
 import SectionLabel from './SectionLabel'
 import { ChevronRight } from 'lucide-react'
@@ -96,8 +97,9 @@ export default function OperationalLifecycle() {
           <div className="mb-12 overflow-hidden rounded-sm">
             <div className="relative h-[420px]">
               {stages.map((stage, i) => (
-                <img
-                  key={stage.id}
+                <OptimizedImage
+                  active={i === active}
+                key={stage.id}
                   src={stage.image}
                   width={1600}
                   height={900}
@@ -177,7 +179,7 @@ export default function OperationalLifecycle() {
           {stages.map((stage, i) => (
             <div key={stage.id} className="overflow-hidden rounded-sm border-t-2 border-white/15">
               <div className="relative h-44">
-                <img
+                <OptimizedImage
                   src={stage.image}
                   alt={stage.caption}
                   width={1600}

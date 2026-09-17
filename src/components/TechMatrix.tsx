@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import type { LucideIcon } from 'lucide-react'
 
 /**
@@ -58,6 +59,9 @@ export default function TechMatrix({ eyebrow, heading, intro, groups }: Props) {
             return (
               <article
                 key={group.name}
+                // Linkable anchor, e.g. #lidar-road-asset-intelligence
+                id={group.name.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}
+                style={{ scrollMarginTop: '140px' }}
                 /* The wide column has to follow the image across the alternation, or the
                    photograph shrinks on every second panel. */
                 className={`grid items-center gap-10 lg:gap-16 ${
@@ -67,7 +71,7 @@ export default function TechMatrix({ eyebrow, heading, intro, groups }: Props) {
                 }`}
               >
                 <div className={`overflow-hidden rounded-2xl bg-gray-100 ${imageFirst ? '' : 'lg:order-2'}`}>
-                  <img
+                  <OptimizedImage
                     src={group.image}
                     alt=""
                     aria-hidden="true"

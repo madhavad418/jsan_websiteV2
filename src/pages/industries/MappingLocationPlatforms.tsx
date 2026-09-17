@@ -142,7 +142,7 @@ export default function MappingLocationPlatforms() {
         {
           title: 'Coverage claims that have to be defensible',
           detail:
-            'Per-record lineage  which drive, which crew, which date, which reviewer  so any figure in a coverage report can be traced back to the capture behind it.',
+            'Per-record lineage — which drive, which crew, which date, which reviewer — so any figure in a coverage report can be traced back to the capture behind it.',
         },
         {
           title: 'POI and address sets that disagree with each other',
@@ -162,7 +162,7 @@ export default function MappingLocationPlatforms() {
       ]}
       outcomes={[
         'Scheduled refresh cycles rather than one-off collection projects',
-        'Per-record evidence  query, source, timestamp and reviewer  so any figure can be re-checked',
+        'Per-record evidence — query, source, timestamp and reviewer — so any figure can be re-checked',
         'Deduplicated, confidence-scored POI and address data delivered in your schema',
         'A single accountable partner across fleet, capture, extraction and delivery',
       ]}

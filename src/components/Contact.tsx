@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 ﻿import { useState, useRef } from 'react'
 import { Mail, Clipboard, Check, ChevronLeft, ChevronRight, Briefcase, GraduationCap, Upload, X, Users } from 'lucide-react'
 
@@ -381,7 +382,7 @@ export default function Contact() {
           {/* Right: Office Image Card */}
           <div>
             <div className="relative h-full min-h-[500px] rounded-3xl overflow-hidden">
-              <img
+              <OptimizedImage
                 alt="Office"
                 src="https://img.freepik.com/premium-photo/cozy-coworking-interior-with-work-desk-pc-computer-panoramic-window_780608-11014.jpg"
                 className="absolute inset-0 w-full h-full object-cover"

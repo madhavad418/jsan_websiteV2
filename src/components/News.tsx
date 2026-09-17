@@ -1,3 +1,4 @@
+import OptimizedImage from './OptimizedImage'
 import { Link } from 'react-router-dom'
 import { Play } from 'lucide-react'
 
@@ -30,7 +31,7 @@ export default function News() {
           {featuredNews && (
             <div className="border border-gray-200 p-8">
               <div className="flex items-center justify-center h-48 mb-6 bg-gray-50">
-                <img
+                <OptimizedImage
                   src="/jsan_consulting_group_logo.jpg"
                   alt="JSAN"
                   className="h-20 w-auto"
