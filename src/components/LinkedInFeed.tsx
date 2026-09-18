@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { Linkedin, ArrowRight } from 'lucide-react'
+import { ELFSIGHT_LINKEDIN_WIDGET_ID } from '../lib/linkedinFeed'
 
-const ELFSIGHT_APP = 'elfsight-app-80727f8b-5c8c-4506-b8db-cf6011de8828'
+// Same widget the header ticker reads its headlines from.
+const ELFSIGHT_APP = `elfsight-app-${ELFSIGHT_LINKEDIN_WIDGET_ID}`
 const LINKEDIN_URL =
   'https://www.linkedin.com/company/jsan-consulting-group/posts/?feedView=all'
 

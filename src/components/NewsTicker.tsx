@@ -2,6 +2,7 @@ import { Linkedin, Newspaper } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import type { LinkedInPost, NewsUpdate } from '../data/newsUpdates'
 import { fetchLinkedInPosts, fetchNewsUpdates } from '../lib/api'
+import { fetchLinkedInPostsFromWidget } from '../lib/linkedinFeed'
 import { newsArticles } from '../data/news'
 
 const LINKEDIN_URL = 'https://www.linkedin.com/company/jsan-consulting-group/posts/?feedView=all'
@@ -52,9 +53,21 @@ export default function NewsTicker() {
     const refresh = async () => {
       if (pending) return
       pending = true
-      // LinkedIn is optional: a failure there must not stop the announcements loading.
-      const [linkedIn, news] = await Promise.allSettled([fetchLinkedInPosts(), fetchNewsUpdates()])
+      /*
+       * Two ways in, because neither is guaranteed: api/linkedin.php if a LinkedIn source
+       * is configured on the server, otherwise the Elfsight feed the site already uses.
+       * Either failing must not stop the announcements loading.
+       */
+      const [served, widget, news] = await Promise.allSettled([
+        fetchLinkedInPosts(),
+        fetchLinkedInPostsFromWidget(),
+        fetchNewsUpdates(),
+      ])
       if (active) {
+        const linkedIn =
+          served.status === 'fulfilled' && served.value.length
+            ? served
+            : widget
         if (linkedIn.status === 'fulfilled') setPosts(linkedIn.value)
         if (news.status === 'fulfilled') {
           receivedFeed = true
