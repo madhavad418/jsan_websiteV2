@@ -46,6 +46,20 @@ export default function ScrollReveal() {
       /(^|\s)animate-/.test(typeof el.className === 'string' ? el.className : '') ||
       !!el.querySelector('[style*="transition-delay"], [style*="animation-delay"]')
 
+    /**
+     * Anything already on screen (or scrolled past) must never start hidden: the observer
+     * would have nothing left to trigger on, and the block would stay blank until the
+     * page was reloaded. Only content still below the fold animates in.
+     */
+    const observeOrShow = (el: Element) => {
+      const rect = el.getBoundingClientRect()
+      if (rect.top < window.innerHeight) {
+        el.classList.add('is-visible')
+        return
+      }
+      reveal.observe(el)
+    }
+
     const scan = () => {
       const sections = Array.from(document.querySelectorAll('section')).filter(
         (section) => !section.closest('header') && !section.closest('footer')
@@ -61,7 +75,7 @@ export default function ScrollReveal() {
           if (isDecorative(child) || hasOwnAnimation(child)) return
           if (isHero) return
           child.classList.add('reveal')
-          reveal.observe(child)
+          observeOrShow(child)
         })
 
         section.querySelectorAll('.grid').forEach((grid) => {
@@ -70,18 +84,48 @@ export default function ScrollReveal() {
           if (hasOwnAnimation(grid)) return
           if (Array.from(grid.children).some(hasOwnAnimation)) return
           grid.classList.add('reveal-stagger')
-          reveal.observe(grid)
+          observeOrShow(grid)
         })
       })
     }
 
+    /**
+     * Safety net. If an element is tagged and then never intersects - it was laid out
+     * while off screen, the observer missed it, or the page grew around it - it would stay
+     * invisible until a reload. This sweeps anything hidden that is on screen or above it.
+     */
+    const sweep = () => {
+      document.querySelectorAll('.reveal:not(.is-visible), .reveal-stagger:not(.is-visible)').forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add('is-visible')
+          reveal.unobserve(el)
+        }
+      })
+    }
+
     let frame = 0
+    let sweepTimer = 0
     const queueScan = () => {
       window.clearTimeout(frame)
       frame = window.setTimeout(scan, 90)
+      window.clearTimeout(sweepTimer)
+      sweepTimer = window.setTimeout(sweep, 1200)
+    }
+
+    // One sweep per frame at most: this runs on every scroll event.
+    let sweepQueued = false
+    const queueSweep = () => {
+      if (sweepQueued) return
+      sweepQueued = true
+      requestAnimationFrame(() => {
+        sweepQueued = false
+        sweep()
+      })
     }
 
     queueScan()
+    window.addEventListener('scroll', queueSweep, { passive: true })
+    window.addEventListener('resize', queueSweep)
 
     // Pages are lazy-loaded and lists render asynchronously, so re-scan when
     // new nodes arrive. Class changes are attribute mutations, so tagging
@@ -91,6 +135,9 @@ export default function ScrollReveal() {
 
     return () => {
       window.clearTimeout(frame)
+      window.clearTimeout(sweepTimer)
+      window.removeEventListener('scroll', queueSweep)
+      window.removeEventListener('resize', queueSweep)
       mutations.disconnect()
       reveal.disconnect()
     }

@@ -25,4 +25,19 @@ return array(
   'token_ttl'    => 28800, // seconds (8 hours)
   // One-time token required to run migrate.php (then you can blank it out).
   'setup_token'  => 'REPLACE_WITH_RANDOM_SETUP_TOKEN',
+
+  /*
+   * Optional: LinkedIn company posts for the header news ticker (api/linkedin.php).
+   * Set ONE source. Leave the whole block out and the ticker uses the announcements
+   * managed in Admin > News updates instead.
+   */
+  // 'linkedin' => array(
+  //   // A: any RSS/Atom/JSON feed of the company page (rss.app, Zapier, Make, ...).
+  //   'feed_url' => 'https://rss.app/feeds/REPLACE.xml',
+  //
+  //   // B: LinkedIn's own API. Needs a developer app approved for the Community
+  //   //    Management API; the token expires and has to be refreshed.
+  //   // 'access_token'    => 'REPLACE_WITH_LINKEDIN_TOKEN',
+  //   // 'organization_id' => 'REPLACE_WITH_COMPANY_ID',
+  // ),
 );

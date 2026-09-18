@@ -1,0 +1,44 @@
+{
+  "tool": "Built-in image_gen",
+  "hero": "Urban street transitioning from photographic imagery to LiDAR, fitted 2D boxes and 3D cuboids, dark left side for headline, no text or logos.",
+  "sections": [
+    [
+      "annotation2d",
+      "Premium technical editorial illustration for a website section about 2D image and video annotation. Landscape 1536x1024. Realistic high-resolution daytime dashcam view of an urban intersection, two cars in distinct lanes, cyclist and pedestrian on sidewalk, road signs. Precisely fitted thin cyan bounding boxes around cars, small amber boxes around distant objects, one pedestrian with anatomically correct keypoint skeleton, crisp cyan polylines tracing the lane edges. A subtle filmstrip at bottom with three successive crops showing the same blue car moving forward with consistent outline color, communicates tracking across frames without text. Photographic imagery with restrained trustworthy engineering overlays. Natural daylight, navy/cyan/amber palette, clean composition with key subjects within central 80%, no text, no logos, no watermarks, no dashboard chrome. Clearly illustrative capability visual."
+    ],
+    [
+      "segmentation2d",
+      "Premium technical editorial image for a website section about 2D semantic and instance segmentation. Landscape1536x1024. An oblique aerial view of a real-looking compact urban block with a road, four distinct buildings with clearly visible roofs, trees, parked vehicles and small water edge. A clean diagonal transition across the same aligned scene from photographic detail on the left to pixel-accurate opaque colored class masks on the right: navy buildings with cyan outlines, teal vegetation, muted purple road, pale blue water, amber individual vehicles each separated. Mask edges exactly follow rooflines, tree crowns, road boundaries and individual vehicle silhouettes. Modern engineering aesthetic, restrained saturated navy cyan teal amber on realistic background. Make the difference between boxes and segmentation clear: NO bounding boxes. No words or numbers, no logos or watermarks, no decorative UI. Main subjects safely centered."
+    ],
+    [
+      "lidar3d",
+      "Create a premium technically plausible LiDAR point cloud annotation visualization, landscape1536x1024 for a geospatial engineering website. An oblique three-quarter 3D perspective of a scanned city street built entirely from discrete laser points on dark navy background: road surface, curbs, two cars, one pedestrian, streetlight poles, trees and building facades all clearly legible. Ground points muted slate blue, vegetation teal, buildings blue-violet, cars cyan. Tight amber wireframe 3D cuboids enclose the two vehicles with believable orientation, a thin cyan cuboid around the pedestrian, restrained 3D polylines follow road edges. Sensor-return density looks like genuine mobile LiDAR, not glowing smoke or solid polygon render. Technical precision, clean premium contrast, subjects centered and large enough for a website half-width panel. No text, no numbers, no logos, no watermark, no dashboard controls."
+    ],
+    [
+      "sensorfusion",
+      "Premium engineering editorial visualization of camera-LiDAR sensor fusion and time-sequence annotation, landscape1536x1024. Clean navy technical background with a large photographic urban road scene upper half and an aligned oblique LiDAR point cloud view lower half. The same blue car and amber delivery van appear in both views; thin cyan and amber fitted 3D cuboids project coherently into the camera view. Two restrained thin connector lines link corresponding objects across sensors. In the lower point-cloud road view show three ghosted prior cuboid positions along each vehicle trajectory, connected by short dotted paths, communicating temporal tracking. Photographic natural daylight camera view, precise discrete point cloud lower view, clean restrained cyan navy amber palette. Main car large, visual hierarchy clear, not an overloaded dashboard. No text, no digits, no logos or watermarks. A conceptual illustration of multimodal annotation, not a claimed customer dataset."
+    ]
+  ],
+  "assets": [
+    {
+      "name": "annotation-hero",
+      "path": "C:\\Users\\Madhavrao\\.codex\\generated_images\\01a0a98f-1fd8-78c3-b7e7-b8d7440e3822\\exec-3e328327-1feb-44b5-84d3-85bed4eddab2.png"
+    },
+    {
+      "name": "annotation-2d",
+      "path": "C:\\Users\\Madhavrao\\.codex\\generated_images\\01a0a98f-1fd8-78c3-b7e7-b8d7440e3822\\exec-2ca68137-6ffa-46b6-a99c-6167a3e1bffb.png"
+    },
+    {
+      "name": "segmentation-2d",
+      "path": "C:\\Users\\Madhavrao\\.codex\\generated_images\\01a0a98f-1fd8-78c3-b7e7-b8d7440e3822\\exec-acb1b585-c35e-4226-b447-2b51dfaef1c0.png"
+    },
+    {
+      "name": "annotation-lidar",
+      "path": "C:\\Users\\Madhavrao\\.codex\\generated_images\\01a0a98f-1fd8-78c3-b7e7-b8d7440e3822\\exec-3703832e-1a59-44e2-8762-80f60f64b40e.png"
+    },
+    {
+      "name": "annotation-sensor-fusion",
+      "path": "C:\\Users\\Madhavrao\\.codex\\generated_images\\01a0a98f-1fd8-78c3-b7e7-b8d7440e3822\\exec-60d3cede-933a-4e05-860b-9e75be63847e.png"
+    }
+  ]
+}

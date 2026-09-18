@@ -2541,8 +2541,8 @@ const annotationSegmentation: DeepDivePage = {
   subtitle: 'Training data for vision models, from camera frames to LiDAR point clouds.',
   description:
     'We label imagery, video and LiDAR at production scale: bounding boxes, polygons and keypoints, semantic and instance segmentation, 3D cuboids and point-level classification, and fused camera-LiDAR sequences tracked across frames. AI pre-labelling handles the volume, trained annotators refine every edge, and multi-stage QA against your ontology decides what ships.',
-  image: '/pillars/object_detection.webp',
-  imageAlt: 'Street, aerial and utility imagery annotated with boxes, polygons and segmentation masks',
+  image: '/pillars/annotation/annotation-hero.webp',
+  imageAlt: 'Illustration of a street scene combining camera annotation, road segmentation and LiDAR cuboids',
   copySide: 'left',
   positioning: [
     {
@@ -2575,7 +2575,8 @@ const annotationSegmentation: DeepDivePage = {
         icon: BoxSelect,
         blurb:
           'Object-level labels for street-level, dashcam, drone and satellite imagery, with attributes captured alongside the geometry and objects tracked consistently through video.',
-        image: '/pillars/AIML Object Detection.webp',
+        image: '/pillars/annotation/annotation-2d.webp',
+        imageAlt: 'Illustration of vehicle boxes, pedestrian keypoints, lane polylines and video tracking frames',
         items: [
           'Bounding boxes & rotated boxes',
           'Polygons & polylines',
@@ -2614,7 +2615,8 @@ const annotationSegmentation: DeepDivePage = {
         icon: Shapes,
         blurb:
           'Pixel-accurate masks for scene understanding, land cover and asset extraction, drawn to boundaries tight enough for models that learn edges rather than approximate shapes.',
-        image: '/pillars/pixel.webp',
+        image: '/pillars/annotation/segmentation-2d.webp',
+        imageAlt: 'Illustration comparing aerial imagery with building, vegetation, road and vehicle segmentation masks',
         items: [
           'Semantic segmentation',
           'Instance segmentation',
@@ -2653,7 +2655,8 @@ const annotationSegmentation: DeepDivePage = {
         icon: Box,
         blurb:
           'Cuboids, point-level classes and 3D polylines on mobile, aerial and terrestrial LiDAR, annotated in true 3D space with the orientation, dimensions and classes perception and mapping models depend on.',
-        image: '/pillars/ontology.webp',
+        image: '/pillars/annotation/annotation-lidar.webp',
+        imageAlt: 'Illustrative classified LiDAR point cloud with vehicle cuboids, a pedestrian and road-edge polylines',
         items: [
           '3D cuboids with heading & dimensions',
           'Point-level semantic segmentation',
@@ -2702,7 +2705,8 @@ const annotationSegmentation: DeepDivePage = {
         icon: Combine,
         blurb:
           'Camera and LiDAR labelled together in calibrated, time-synchronised sequences, so each object carries one identity in 2D and 3D and one track through time.',
-        image: '/pillars/computer_vision.webp',
+        image: '/pillars/annotation/annotation-sensor-fusion.webp',
+        imageAlt: 'Illustration linking camera and LiDAR views of vehicles with consistent cuboids and temporal tracks',
         items: [
           'Camera-LiDAR fused annotation',
           '3D cuboid projection into camera views',

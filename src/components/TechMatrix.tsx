@@ -24,7 +24,12 @@ export type TechGroup = {
   blurb: string
   items: string[]
   image: string
-  /** Full technical coverage remains available below the concise overview. */
+  imageAlt?: string
+  /**
+   * No longer rendered: the "Full technical scope & delivery" disclosure was removed.
+   * The field stays so existing page data still type-checks; delete the data with it
+   * if the detail is not brought back.
+   */
   details?: { name: string; blurb: string; items: string[] }[]
 }
 
@@ -73,8 +78,8 @@ export default function TechMatrix({ eyebrow, heading, intro, groups }: Props) {
                 <div className={`overflow-hidden rounded-2xl bg-gray-100 ${imageFirst ? '' : 'lg:order-2'}`}>
                   <OptimizedImage
                     src={group.image}
-                    alt=""
-                    aria-hidden="true"
+                    alt={group.imageAlt ?? ''}
+                    aria-hidden={group.imageAlt ? undefined : true}
                     width={1200}
                     height={800}
                     loading="lazy"
@@ -108,24 +113,6 @@ export default function TechMatrix({ eyebrow, heading, intro, groups }: Props) {
                       </li>
                     ))}
                   </ul>
-                  {group.details && (
-                    <details className="mt-6 rounded-xl border border-gray-200 bg-[#f7f8fa] p-5">
-                      <summary className="cursor-pointer text-sm font-semibold text-[#0050a9] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-                        Full technical scope &amp; delivery
-                      </summary>
-                      <div className="mt-5 space-y-6">
-                        {group.details.map((detail) => (
-                          <div key={detail.name}>
-                            <h4 className="text-sm font-semibold text-[#0a1a3a]">{detail.name}</h4>
-                            <p className="mt-2 text-sm leading-relaxed text-gray-600">{detail.blurb}</p>
-                            <ul className="mt-3 list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-gray-600">
-                              {detail.items.map((item) => <li key={item}>{item}</li>)}
-                            </ul>
-                          </div>
-                        ))}
-                      </div>
-                    </details>
-                  )}
                 </div>
               </article>
             )
@@ -133,9 +120,7 @@ export default function TechMatrix({ eyebrow, heading, intro, groups }: Props) {
         </div>
 
         <p className="mt-14 max-w-2xl text-[15px] leading-relaxed text-gray-500">
-          {groups.some((group) => group.details)
-            ? 'Explore the full technical scope within each service area for platforms, standards and delivery details.'
-            : `${total} technologies across ${groups.length} areas. If yours is not listed, ask us about your requirements.`}
+          {`${total} technologies across ${groups.length} areas. If yours is not listed, ask us about your requirements.`}
         </p>
       </div>
     </section>

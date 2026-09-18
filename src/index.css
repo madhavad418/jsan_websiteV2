@@ -1548,6 +1548,33 @@ a[href*="elfsight.com"][style] {
   margin-right: 4px;
 }
 
+/* "All posts" link, shown only while the ticker is carrying LinkedIn posts */
+.news-ticker__all {
+  display: none;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0 16px;
+  background: var(--jsan-dark);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--transition-base);
+}
+
+.news-ticker__all:hover {
+  color: var(--jsan-accent);
+}
+
+@media (min-width: 768px) {
+  .news-ticker__all {
+    display: inline-flex;
+  }
+}
+
 @keyframes news-ticker-scroll {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }

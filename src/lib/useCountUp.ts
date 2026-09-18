@@ -12,6 +12,15 @@ export function useInView<T extends HTMLElement>(threshold = 0.2) {
       setInView(true)
       return
     }
+    /*
+     * A block taller than the viewport can never reach a high visible ratio - at
+     * threshold 0.2 anything over ~4 screens tall would stay hidden for good - so the
+     * threshold is capped at what this element can actually show.
+     */
+    const visibleHeight = window.innerHeight * 0.9
+    const reachable = el.offsetHeight > 0 ? (visibleHeight * 0.6) / el.offsetHeight : threshold
+    const effectiveThreshold = Math.max(0, Math.min(threshold, reachable))
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -19,7 +28,7 @@ export function useInView<T extends HTMLElement>(threshold = 0.2) {
           observer.disconnect()
         }
       },
-      { threshold, rootMargin: '0px 0px -10% 0px' }
+      { threshold: effectiveThreshold, rootMargin: '0px 0px -10% 0px' }
     )
     observer.observe(el)
     return () => observer.disconnect()

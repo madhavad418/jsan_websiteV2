@@ -95,13 +95,30 @@ function titleFromRenderedPage(onTitle: (title: string) => void) {
     const h1 = document.querySelector('#main-content h1')?.textContent?.replace(/\s+/g, ' ').trim()
     return h1 ? `${h1} | JSAN` : null
   }
+  /*
+   * The H1 is in the DOM before NoIndex's effect adds its marker, so a not-found view can
+   * read as a real page for a moment. Re-read once the effect has had a chance to run.
+   */
+  let recheck = 0
+  const publish = (title: string) => {
+    onTitle(title)
+    window.clearTimeout(recheck)
+    recheck = window.setTimeout(() => {
+      const confirmed = read()
+      if (confirmed && confirmed !== title) onTitle(confirmed)
+    }, 300)
+  }
+
   const found = read()
-  if (found) return onTitle(found), () => {}
+  if (found) {
+    publish(found)
+    return () => window.clearTimeout(recheck)
+  }
   const observer = new MutationObserver(() => {
     const title = read()
     if (title) {
       observer.disconnect()
-      onTitle(title)
+      publish(title)
     }
   })
   observer.observe(document.body, { childList: true, subtree: true })
@@ -109,6 +126,7 @@ function titleFromRenderedPage(onTitle: (title: string) => void) {
   return () => {
     observer.disconnect()
     window.clearTimeout(timer)
+    window.clearTimeout(recheck)
   }
 }
 

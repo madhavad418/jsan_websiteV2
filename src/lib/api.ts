@@ -1,7 +1,7 @@
 // Client for the JSAN PHP API (same-origin /api in prod; vite-proxied in dev).
 import type { Blog } from '../data/blogs'
 import type { Job } from '../data/jobs'
-import type { NewsUpdate } from '../data/newsUpdates'
+import type { LinkedInPost, NewsUpdate } from '../data/newsUpdates'
 
 /*
  * Same-origin /api by default, which is how the cPanel deployment serves the PHP
@@ -106,6 +106,21 @@ export async function fetchNewsUpdates(admin = false): Promise<NewsUpdate[]> {
     const data = await newsResponse<NewsUpdate[]>(response)
     if (!Array.isArray(data)) throw new Error('Invalid news response')
     return data
+  } finally { window.clearTimeout(timer) }
+}
+
+/**
+ * Latest LinkedIn company posts (headline, date, link), read server-side by
+ * api/linkedin.php. Returns an empty list when no LinkedIn source is configured.
+ */
+export async function fetchLinkedInPosts(): Promise<LinkedInPost[]> {
+  const controller = new AbortController()
+  const timer = window.setTimeout(() => controller.abort(), 10000)
+  try {
+    const response = await fetch(`${BASE}/linkedin.php`, { signal: controller.signal })
+    const data = await newsResponse<LinkedInPost[]>(response)
+    if (!Array.isArray(data)) throw new Error('Invalid LinkedIn response')
+    return data.filter((post) => post && typeof post.title === 'string' && typeof post.date === 'string')
   } finally { window.clearTimeout(timer) }
 }
 
